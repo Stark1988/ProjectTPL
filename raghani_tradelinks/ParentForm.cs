@@ -141,7 +141,7 @@ namespace raghani_tradelinks
 
         private void HandleException(Exception ex)
         {
-
+            MessageBox.Show(ex.ToString());
         }
 
         private void iNewSupplier_ItemClick(object sender, ItemClickEventArgs e)
@@ -434,6 +434,47 @@ namespace raghani_tradelinks
                     _frmNewState.MdiParent = this;
                     ParentFormSplitContainer.SendToBack();
                     _frmNewState.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void CreateUser_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmCreateUser"))
+                {
+                    FrmCreateUser _frmFrmCreateUser = new FrmCreateUser();
+                    _frmFrmCreateUser.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmCreateUser.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+        
+        private void MngUserType_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmUserTypeMgt"))
+                {
+                    FrmUserTypeMgt _frmFrmUserTypeMgt = new FrmUserTypeMgt();
+                    _frmFrmUserTypeMgt.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmUserTypeMgt.Show();
                 }
             }
             catch (Exception ex)

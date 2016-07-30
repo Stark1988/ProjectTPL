@@ -21,8 +21,8 @@ namespace raghani_tradelinks
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
             //Application.Run(new RaghaniSplashScreen());
-            Application.Run(new MainForm());
-            //Application.Run(new Test());
+            //Application.Run(new MainForm());
+            Application.Run(new Login());
         }
     }
 }

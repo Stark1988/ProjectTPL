@@ -180,6 +180,12 @@
     <Compile Include="FrmCommissionReceived.Designer.cs">
       <DependentUpon>FrmCommissionReceived.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateUser.Designer.cs">
+      <DependentUpon>FrmCreateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCustomerLedger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,18 @@
     <Compile Include="FrmSupplierOutstanding.Designer.cs">
       <DependentUpon>FrmSupplierOutstanding.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUserTypeMgt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserTypeMgt.Designer.cs">
+      <DependentUpon>FrmUserTypeMgt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="NullifyOrderReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -319,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCommissionReceived.resx">
       <DependentUpon>FrmCommissionReceived.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateUser.resx">
+      <DependentUpon>FrmCreateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCustomerLedger.resx">
       <DependentUpon>FrmCustomerLedger.cs</DependentUpon>
@@ -367,6 +388,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSupplierOutstanding.resx">
       <DependentUpon>FrmSupplierOutstanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserTypeMgt.resx">
+      <DependentUpon>FrmUserTypeMgt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NullifyOrderReport.resx">
       <DependentUpon>NullifyOrderReport.cs</DependentUpon>
@@ -465,6 +492,9 @@
     <None Include="Resources\inlinesizelegend_32x32.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Login.png" />
+    <None Include="Resources\Login1.png" />
+    <None Include="Resources\Users-icon.png" />
     <Content Include="TPLDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -64,6 +64,9 @@
             this.iSupplierOutstanding = new DevExpress.XtraBars.BarButtonItem();
             this.iCommissionOutstanding = new DevExpress.XtraBars.BarButtonItem();
             this.iCustomerLedger = new DevExpress.XtraBars.BarButtonItem();
+            this.CreateUser = new DevExpress.XtraBars.BarButtonItem();
+            this.Manage = new DevExpress.XtraBars.BarButtonItem();
+            this.MngUserType = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.MastersPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.MastersPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -76,6 +79,8 @@
             this.NotificationPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.SkinsPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.SkinsPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.UserPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.UserManagement = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.ParentFormSplitContainer = new System.Windows.Forms.SplitContainer();
@@ -169,10 +174,13 @@
             this.iCustomerOutstanding,
             this.iSupplierOutstanding,
             this.iCommissionOutstanding,
-            this.iCustomerLedger});
+            this.iCustomerLedger,
+            this.CreateUser,
+            this.Manage,
+            this.MngUserType});
             this.MenuManager.LargeImages = this.ribbonImageCollectionLarge;
             this.MenuManager.Location = new System.Drawing.Point(0, 0);
-            this.MenuManager.MaxItemId = 1;
+            this.MenuManager.MaxItemId = 5;
             this.MenuManager.Name = "MenuManager";
             this.MenuManager.PageHeaderItemLinks.Add(this.iAbout);
             this.MenuManager.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -181,7 +189,8 @@
             this.ReportsPage,
             this.QueryPage,
             this.NotificationPage,
-            this.SkinsPage});
+            this.SkinsPage,
+            this.UserPage});
             this.MenuManager.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.MenuManager.Size = new System.Drawing.Size(1252, 162);
             this.MenuManager.StatusBar = this.ribbonStatusBar;
@@ -515,6 +524,29 @@
             this.iCustomerLedger.Name = "iCustomerLedger";
             this.iCustomerLedger.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iCustomerLedger_ItemClick);
             // 
+            // CreateUser
+            // 
+            this.CreateUser.Caption = "Manage Users";
+            this.CreateUser.Glyph = ((System.Drawing.Image)(resources.GetObject("CreateUser.Glyph")));
+            this.CreateUser.Id = 1;
+            this.CreateUser.Name = "CreateUser";
+            this.CreateUser.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.CreateUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CreateUser_ItemClick);
+            // 
+            // Manage
+            // 
+            this.Manage.Id = 4;
+            this.Manage.Name = "Manage";
+            // 
+            // MngUserType
+            // 
+            this.MngUserType.Caption = "Manage User Type";
+            this.MngUserType.Glyph = ((System.Drawing.Image)(resources.GetObject("MngUserType.Glyph")));
+            this.MngUserType.Id = 3;
+            this.MngUserType.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("MngUserType.LargeGlyph")));
+            this.MngUserType.Name = "MngUserType";
+            this.MngUserType.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MngUserType_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -620,6 +652,20 @@
             this.SkinsPageGroup.ShowCaptionButton = false;
             this.SkinsPageGroup.Text = "Skins";
             // 
+            // UserPage
+            // 
+            this.UserPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.UserManagement});
+            this.UserPage.Image = ((System.Drawing.Image)(resources.GetObject("UserPage.Image")));
+            this.UserPage.Name = "UserPage";
+            this.UserPage.Text = "Users";
+            // 
+            // UserManagement
+            // 
+            this.UserManagement.ItemLinks.Add(this.CreateUser);
+            this.UserManagement.ItemLinks.Add(this.MngUserType);
+            this.UserManagement.Name = "UserManagement";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.siInfo);
@@ -646,7 +692,7 @@
             // 
             this.ParentFormSplitContainer.Panel2.Controls.Add(this.pnlShortCutContainer);
             this.ParentFormSplitContainer.Size = new System.Drawing.Size(1252, 507);
-            this.ParentFormSplitContainer.SplitterDistance = 1090;
+            this.ParentFormSplitContainer.SplitterDistance = 1108;
             this.ParentFormSplitContainer.SplitterWidth = 1;
             this.ParentFormSplitContainer.TabIndex = 20;
             // 
@@ -657,7 +703,7 @@
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.lblTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblTime.Location = new System.Drawing.Point(793, 450);
+            this.lblTime.Location = new System.Drawing.Point(811, 450);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(317, 55);
             this.lblTime.TabIndex = 13;
@@ -686,7 +732,7 @@
             this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCompanyName.Location = new System.Drawing.Point(0, 0);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(1090, 46);
+            this.lblCompanyName.Size = new System.Drawing.Size(1108, 46);
             this.lblCompanyName.TabIndex = 11;
             this.lblCompanyName.Text = "RAGHANI TRADELINKS (P) LTD. (AHMEDABAD)";
             // 
@@ -710,7 +756,7 @@
             this.pnlShortCutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShortCutContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlShortCutContainer.Name = "pnlShortCutContainer";
-            this.pnlShortCutContainer.Size = new System.Drawing.Size(161, 507);
+            this.pnlShortCutContainer.Size = new System.Drawing.Size(143, 507);
             this.pnlShortCutContainer.TabIndex = 15;
             // 
             // lblShortCut13
@@ -884,6 +930,7 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Raghani Tradelinks";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).EndInit();
@@ -976,6 +1023,11 @@
         private DevExpress.Utils.VisualEffects.Badge badge1;
         private DevExpress.Utils.VisualEffects.AdornerUIManager adornerUIManager1;
         private DevExpress.Utils.VisualEffects.Badge badge2;
+        private DevExpress.XtraBars.Ribbon.RibbonPage UserPage;
+        private DevExpress.XtraBars.BarButtonItem CreateUser;
+        private DevExpress.XtraBars.BarButtonItem Manage;
+        private DevExpress.XtraBars.BarButtonItem MngUserType;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup UserManagement;
 
     }
 }
