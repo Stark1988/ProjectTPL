@@ -492,9 +492,50 @@
     <None Include="Resources\inlinesizelegend_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Login.png" />
-    <None Include="Resources\Login1.png" />
+    <Content Include="Images\bg-1.jpg" />
+    <Content Include="Images\bg-2.jpg" />
+    <Content Include="Images\bg-3.png" />
+    <Content Include="Images\bg-4.png" />
+    <Content Include="Images\bg-5.jpg" />
+    <Content Include="Images\Calendar_16x16.png" />
+    <Content Include="Images\Drafts_16x16.png" />
+    <Content Include="Images\Inbox_16x16.png" />
+    <Content Include="Images\logon_background.jpg" />
+    <Content Include="Images\logon_bg.png" />
+    <Content Include="Images\Mail_32x32.png" />
+    <Content Include="Images\Organizer_32x32.png" />
+    <Content Include="Images\Outbox_16x16.png" />
+    <Content Include="Images\Ribbon_AlignCenter_16x16.png" />
+    <Content Include="Images\Ribbon_AlignLeft_16x16.png" />
+    <Content Include="Images\Ribbon_AlignRight_16x16.png" />
+    <Content Include="Images\Ribbon_Bold_16x16.png" />
+    <Content Include="Images\Ribbon_Close_16x16.png" />
+    <Content Include="Images\Ribbon_Close_32x32.png" />
+    <Content Include="Images\Ribbon_Content_16x16.png" />
+    <Content Include="Images\Ribbon_Content_32x32.png" />
+    <Content Include="Images\Ribbon_Exit_16x16.png" />
+    <Content Include="Images\Ribbon_Exit_32x32.png" />
+    <Content Include="Images\Ribbon_Find_16x16.png" />
+    <Content Include="Images\Ribbon_Find_32x32.png" />
+    <Content Include="Images\Ribbon_Info_16x16.png" />
+    <Content Include="Images\Ribbon_Info_32x32.png" />
+    <Content Include="Images\Ribbon_Italic_16x16.png" />
+    <Content Include="Images\Ribbon_New_16x16.png" />
+    <Content Include="Images\Ribbon_New_32x32.png" />
+    <Content Include="Images\Ribbon_Open_16x16.png" />
+    <Content Include="Images\Ribbon_Open_32x32.png" />
+    <Content Include="Images\Ribbon_SaveAs_16x16.png" />
+    <Content Include="Images\Ribbon_SaveAs_32x32.png" />
+    <Content Include="Images\Ribbon_Save_16x16.png" />
+    <Content Include="Images\Ribbon_Save_32x32.png" />
+    <Content Include="Images\Ribbon_Underline_16x16.png" />
+    <Content Include="Images\rt_logo.ico" />
+    <Content Include="Images\Tasks_16x16.png" />
+    <Content Include="Images\Trash_16x16.png" />
     <None Include="Resources\Users-icon.png" />
+    <Content Include="Resources\localcolorscheme_32x32.png" />
+    <Content Include="Resources\localcolorscheme_32x321.png" />
+    <Content Include="Resources\Login.png" />
     <Content Include="TPLDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
