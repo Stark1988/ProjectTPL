@@ -28,41 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.lblCityName = new DevExpress.XtraEditors.LabelControl();
-            this.txtCityName = new System.Windows.Forms.TextBox();
-            this.txtSTDCode = new System.Windows.Forms.TextBox();
             this.lblSTDCode = new DevExpress.XtraEditors.LabelControl();
             this.lblState = new DevExpress.XtraEditors.LabelControl();
             this.cmbState = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lblTitle = new DevExpress.XtraEditors.LabelControl();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.txtCityName = new DevExpress.XtraEditors.TextEdit();
+            this.txtPinCode = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCityName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPinCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCityName
             // 
-            this.lblCityName.Location = new System.Drawing.Point(5, 45);
+            this.lblCityName.Location = new System.Drawing.Point(7, 45);
             this.lblCityName.Name = "lblCityName";
             this.lblCityName.Size = new System.Drawing.Size(49, 13);
             this.lblCityName.TabIndex = 0;
             this.lblCityName.Text = "City Name";
-            // 
-            // txtCityName
-            // 
-            this.txtCityName.Location = new System.Drawing.Point(78, 42);
-            this.txtCityName.Name = "txtCityName";
-            this.txtCityName.Size = new System.Drawing.Size(178, 21);
-            this.txtCityName.TabIndex = 1;
-            // 
-            // txtSTDCode
-            // 
-            this.txtSTDCode.Location = new System.Drawing.Point(78, 75);
-            this.txtSTDCode.Name = "txtSTDCode";
-            this.txtSTDCode.Size = new System.Drawing.Size(85, 21);
-            this.txtSTDCode.TabIndex = 3;
             // 
             // lblSTDCode
             // 
@@ -74,7 +71,7 @@
             // 
             // lblState
             // 
-            this.lblState.Location = new System.Drawing.Point(5, 15);
+            this.lblState.Location = new System.Drawing.Point(7, 15);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(26, 13);
             this.lblState.TabIndex = 4;
@@ -88,47 +85,107 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbState.Size = new System.Drawing.Size(178, 20);
             this.cmbState.TabIndex = 5;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = "Please select State.";
+            conditionValidationRule1.Value1 = "0";
+            this.dxValidationProvider1.SetValidationRule(this.cmbState, conditionValidationRule1);
             // 
-            // btnSave
+            // panelControl1
             // 
-            this.btnSave.Location = new System.Drawing.Point(7, 114);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.panelControl1.Controls.Add(this.txtPinCode);
+            this.panelControl1.Controls.Add(this.txtCityName);
+            this.panelControl1.Controls.Add(this.btnDelete);
+            this.panelControl1.Controls.Add(this.btnAdd);
+            this.panelControl1.Controls.Add(this.btnCancel);
+            this.panelControl1.Controls.Add(this.btnEdit);
+            this.panelControl1.Controls.Add(this.lblState);
+            this.panelControl1.Controls.Add(this.cmbState);
+            this.panelControl1.Controls.Add(this.lblCityName);
+            this.panelControl1.Controls.Add(this.lblSTDCode);
+            this.panelControl1.Location = new System.Drawing.Point(12, 41);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(380, 164);
+            this.panelControl1.TabIndex = 12;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblTitle.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(776, 35);
+            this.lblTitle.TabIndex = 27;
+            this.lblTitle.Text = "City Maintainance";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(169, 112);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 25);
+            this.btnDelete.TabIndex = 31;
+            this.btnDelete.Text = "Delete";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(7, 112);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 25);
+            this.btnAdd.TabIndex = 30;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(126, 114);
+            this.btnCancel.Location = new System.Drawing.Point(250, 112);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Size = new System.Drawing.Size(75, 25);
+            this.btnCancel.TabIndex = 29;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // panelControl1
+            // btnEdit
             // 
-            this.panelControl1.Controls.Add(this.lblState);
-            this.panelControl1.Controls.Add(this.btnCancel);
-            this.panelControl1.Controls.Add(this.cmbState);
-            this.panelControl1.Controls.Add(this.btnSave);
-            this.panelControl1.Controls.Add(this.lblCityName);
-            this.panelControl1.Controls.Add(this.lblSTDCode);
-            this.panelControl1.Controls.Add(this.txtCityName);
-            this.panelControl1.Controls.Add(this.txtSTDCode);
-            this.panelControl1.Location = new System.Drawing.Point(12, 12);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(443, 164);
-            this.panelControl1.TabIndex = 12;
+            this.btnEdit.Location = new System.Drawing.Point(88, 112);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 25);
+            this.btnEdit.TabIndex = 28;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // txtCityName
+            // 
+            this.txtCityName.Location = new System.Drawing.Point(78, 42);
+            this.txtCityName.Name = "txtCityName";
+            this.txtCityName.Properties.MaxLength = 25;
+            this.txtCityName.Size = new System.Drawing.Size(178, 20);
+            this.txtCityName.TabIndex = 32;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "City Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtCityName, conditionValidationRule3);
+            // 
+            // txtPinCode
+            // 
+            this.txtPinCode.Location = new System.Drawing.Point(78, 75);
+            this.txtPinCode.Name = "txtPinCode";
+            this.txtPinCode.Properties.MaxLength = 8;
+            this.txtPinCode.Size = new System.Drawing.Size(102, 20);
+            this.txtPinCode.TabIndex = 33;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Pincode can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtPinCode, conditionValidationRule2);
             // 
             // FrmNewCity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(776, 492);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panelControl1);
             this.KeyPreview = true;
             this.Name = "FrmNewCity";
@@ -140,6 +197,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCityName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPinCode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,13 +207,17 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl lblCityName;
-        private System.Windows.Forms.TextBox txtCityName;
-        private System.Windows.Forms.TextBox txtSTDCode;
         private DevExpress.XtraEditors.LabelControl lblSTDCode;
         private DevExpress.XtraEditors.LabelControl lblState;
         private DevExpress.XtraEditors.ComboBoxEdit cmbState;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.LabelControl lblTitle;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.SimpleButton btnEdit;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private DevExpress.XtraEditors.TextEdit txtPinCode;
+        private DevExpress.XtraEditors.TextEdit txtCityName;
     }
 }

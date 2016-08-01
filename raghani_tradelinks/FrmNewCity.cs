@@ -27,17 +27,22 @@ namespace raghani_tradelinks
             this.Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmNewCity_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyData == Keys.Enter))
             {
                 SelectNextControl(ActiveControl, true, true, true, true);
             }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            dxValidationProvider1.Validate();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            dxValidationProvider1.Validate();
         }
     }
 }
