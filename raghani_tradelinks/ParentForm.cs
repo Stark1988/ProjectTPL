@@ -482,5 +482,41 @@ namespace raghani_tradelinks
                 HandleException(ex);
             }
         }
+
+        private void iNewBank_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmNewBank"))
+                {
+                    FrmNewBank _frmFrmNewBank = new FrmNewBank();
+                    _frmFrmNewBank.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmNewBank.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+
+        private void iNewCourier_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmNewBank"))
+                {
+                    FrmNewCourier _frmFrmNewCourier = new FrmNewCourier();
+                    _frmFrmNewCourier.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmNewCourier.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
     }
 }

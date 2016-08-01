@@ -67,6 +67,9 @@
             this.CreateUser = new DevExpress.XtraBars.BarButtonItem();
             this.Manage = new DevExpress.XtraBars.BarButtonItem();
             this.MngUserType = new DevExpress.XtraBars.BarButtonItem();
+            this.iNewBank = new DevExpress.XtraBars.BarButtonItem();
+            this.iNewCourier = new DevExpress.XtraBars.BarButtonItem();
+            this.iNewAgent = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.MastersPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.MastersPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -105,9 +108,6 @@
             this.badge1 = new DevExpress.Utils.VisualEffects.Badge();
             this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
             this.badge2 = new DevExpress.Utils.VisualEffects.Badge();
-            this.iNewBank = new DevExpress.XtraBars.BarButtonItem();
-            this.iNewCourier = new DevExpress.XtraBars.BarButtonItem();
-            this.iNewAgent = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuManager)).BeginInit();
@@ -553,6 +553,32 @@
             this.MngUserType.Name = "MngUserType";
             this.MngUserType.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MngUserType_ItemClick);
             // 
+            // iNewBank
+            // 
+            this.iNewBank.Caption = "Bank";
+            this.iNewBank.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewBank.Glyph")));
+            this.iNewBank.Id = 5;
+            this.iNewBank.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewBank.LargeGlyph")));
+            this.iNewBank.Name = "iNewBank";
+            this.iNewBank.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iNewBank_ItemClick);
+            // 
+            // iNewCourier
+            // 
+            this.iNewCourier.Caption = "Courier";
+            this.iNewCourier.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewCourier.Glyph")));
+            this.iNewCourier.Id = 6;
+            this.iNewCourier.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewCourier.LargeGlyph")));
+            this.iNewCourier.Name = "iNewCourier";
+            this.iNewCourier.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iNewCourier_ItemClick);
+            // 
+            // iNewAgent
+            // 
+            this.iNewAgent.Caption = "Sub Agent";
+            this.iNewAgent.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewAgent.Glyph")));
+            this.iNewAgent.Id = 7;
+            this.iNewAgent.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewAgent.LargeGlyph")));
+            this.iNewAgent.Name = "iNewAgent";
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -701,7 +727,7 @@
             // 
             this.ParentFormSplitContainer.Panel2.Controls.Add(this.pnlShortCutContainer);
             this.ParentFormSplitContainer.Size = new System.Drawing.Size(1252, 507);
-            this.ParentFormSplitContainer.SplitterDistance = 1111;
+            this.ParentFormSplitContainer.SplitterDistance = 1117;
             this.ParentFormSplitContainer.SplitterWidth = 1;
             this.ParentFormSplitContainer.TabIndex = 20;
             // 
@@ -712,7 +738,7 @@
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.lblTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblTime.Location = new System.Drawing.Point(814, 450);
+            this.lblTime.Location = new System.Drawing.Point(820, 450);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(317, 55);
             this.lblTime.TabIndex = 13;
@@ -741,7 +767,7 @@
             this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCompanyName.Location = new System.Drawing.Point(0, 0);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(1111, 46);
+            this.lblCompanyName.Size = new System.Drawing.Size(1117, 46);
             this.lblCompanyName.TabIndex = 11;
             this.lblCompanyName.Text = "RAGHANI TRADELINKS (P) LTD. (AHMEDABAD)";
             // 
@@ -765,7 +791,7 @@
             this.pnlShortCutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShortCutContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlShortCutContainer.Name = "pnlShortCutContainer";
-            this.pnlShortCutContainer.Size = new System.Drawing.Size(140, 507);
+            this.pnlShortCutContainer.Size = new System.Drawing.Size(134, 507);
             this.pnlShortCutContainer.TabIndex = 15;
             // 
             // lblShortCut13
@@ -920,30 +946,6 @@
             this.badge2.Properties.Offset = new System.Drawing.Point(560, 40);
             this.badge2.Properties.Text = "0";
             this.badge2.TargetElement = this.MenuManager;
-            // 
-            // iNewBank
-            // 
-            this.iNewBank.Caption = "Bank";
-            this.iNewBank.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewBank.Glyph")));
-            this.iNewBank.Id = 5;
-            this.iNewBank.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewBank.LargeGlyph")));
-            this.iNewBank.Name = "iNewBank";
-            // 
-            // iNewCourier
-            // 
-            this.iNewCourier.Caption = "Courier";
-            this.iNewCourier.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewCourier.Glyph")));
-            this.iNewCourier.Id = 6;
-            this.iNewCourier.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewCourier.LargeGlyph")));
-            this.iNewCourier.Name = "iNewCourier";
-            // 
-            // iNewAgent
-            // 
-            this.iNewAgent.Caption = "Sub Agent";
-            this.iNewAgent.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewAgent.Glyph")));
-            this.iNewAgent.Id = 7;
-            this.iNewAgent.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewAgent.LargeGlyph")));
-            this.iNewAgent.Name = "iNewAgent";
             // 
             // MainForm
             // 

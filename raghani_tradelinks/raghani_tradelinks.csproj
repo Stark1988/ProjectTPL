@@ -222,11 +222,23 @@
     <Compile Include="FrmGREntry.Designer.cs">
       <DependentUpon>FrmGREntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNewBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewBank.Designer.cs">
+      <DependentUpon>FrmNewBank.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNewCity.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmNewCity.Designer.cs">
       <DependentUpon>FrmNewCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewCourier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewCourier.Designer.cs">
+      <DependentUpon>FrmNewCourier.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNewCustomer.cs">
       <SubType>Form</SubType>
@@ -281,6 +293,12 @@
     </Compile>
     <Compile Include="FrmSupplierOutstanding.Designer.cs">
       <DependentUpon>FrmSupplierOutstanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewTransport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewTransport.Designer.cs">
+      <DependentUpon>FrmNewTransport.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUserTypeMgt.cs">
       <SubType>Form</SubType>
@@ -359,8 +377,14 @@
     <EmbeddedResource Include="FrmGREntry.resx">
       <DependentUpon>FrmGREntry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewBank.resx">
+      <DependentUpon>FrmNewBank.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNewCity.resx">
       <DependentUpon>FrmNewCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewCourier.resx">
+      <DependentUpon>FrmNewCourier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNewCustomer.resx">
       <DependentUpon>FrmNewCustomer.cs</DependentUpon>
@@ -388,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSupplierOutstanding.resx">
       <DependentUpon>FrmSupplierOutstanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewTransport.resx">
+      <DependentUpon>FrmNewTransport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserTypeMgt.resx">
       <DependentUpon>FrmUserTypeMgt.cs</DependentUpon>
