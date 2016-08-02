@@ -39,14 +39,17 @@
             this.lblBankName = new DevExpress.XtraEditors.LabelControl();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.grdBank = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBank)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.grdBank);
             this.panelControl1.Controls.Add(this.txtBankName);
             this.panelControl1.Controls.Add(this.btnDelete);
             this.panelControl1.Controls.Add(this.btnAdd);
@@ -55,7 +58,7 @@
             this.panelControl1.Controls.Add(this.lblBankName);
             this.panelControl1.Location = new System.Drawing.Point(12, 41);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(332, 120);
+            this.panelControl1.Size = new System.Drawing.Size(566, 344);
             this.panelControl1.TabIndex = 27;
             // 
             // txtBankName
@@ -77,6 +80,7 @@
             this.btnDelete.Size = new System.Drawing.Size(75, 25);
             this.btnDelete.TabIndex = 27;
             this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -85,7 +89,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 25);
             this.btnAdd.TabIndex = 26;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Insert";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
@@ -97,6 +101,7 @@
             this.btnCancel.Size = new System.Drawing.Size(75, 25);
             this.btnCancel.TabIndex = 25;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEdit
             // 
@@ -105,7 +110,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 25);
             this.btnEdit.TabIndex = 24;
-            this.btnEdit.Text = "Edit";
+            this.btnEdit.Text = "Update";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblBankName
@@ -129,6 +134,19 @@
             this.lblTitle.TabIndex = 28;
             this.lblTitle.Text = "Bank Maintainance";
             // 
+            // grdBank
+            // 
+            this.grdBank.AllowUserToAddRows = false;
+            this.grdBank.AllowUserToDeleteRows = false;
+            this.grdBank.AllowUserToOrderColumns = true;
+            this.grdBank.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdBank.Location = new System.Drawing.Point(8, 90);
+            this.grdBank.Name = "grdBank";
+            this.grdBank.ReadOnly = true;
+            this.grdBank.Size = new System.Drawing.Size(548, 245);
+            this.grdBank.TabIndex = 30;
+            this.grdBank.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdBank_RowHeaderMouseClick);
+            // 
             // FrmNewBank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,11 +157,14 @@
             this.Name = "FrmNewBank";
             this.Text = "FrmNewBank";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmNewBank_FormClosing);
+            this.Load += new System.EventHandler(this.FrmNewBank_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBank)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,5 +180,6 @@
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.LabelControl lblBankName;
         private DevExpress.XtraEditors.LabelControl lblTitle;
+        private System.Windows.Forms.DataGridView grdBank;
     }
 }
