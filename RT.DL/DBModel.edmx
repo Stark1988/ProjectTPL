@@ -1,0 +1,1632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="AuthorizationId" />
+          </Key>
+          <Property Name="AuthorizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="Director1Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Director2Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Director3Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchHead" Type="nvarchar" MaxLength="50" />
+          <Property Name="MBoyBranch" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarketBoy1" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarketBoy2" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarketBoy3" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerACNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="fkCreatedByBranchId" Type="int" />
+          <Property Name="CashOrCredit" Type="nvarchar" MaxLength="10" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeOfFirm" Type="nvarchar" MaxLength="50" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="TIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="CSTNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="GSTNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastOAC" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoLRAddressPrinting" Type="int" />
+          <Property Name="fkSubAgentId" Type="int" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Group" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="CustomerAccountant">
+          <Key>
+            <PropertyRef Name="CustomerAccountantId" />
+          </Key>
+          <Property Name="CustomerAccountantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerInfoId" Type="int" />
+          <Property Name="AccountantName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerContactInfo">
+          <Key>
+            <PropertyRef Name="CustomerContactInfoId" />
+          </Key>
+          <Property Name="CustomerContactInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="fkCityId" Type="int" />
+          <Property Name="OfficePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="SMSName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SMSCellNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="RemContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="RemContactPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="RemSMSCell1" Type="nvarchar" MaxLength="50" />
+          <Property Name="RemSMSCell2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="STDCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerInfo">
+          <Key>
+            <PropertyRef Name="CustomerInfoId" />
+          </Key>
+          <Property Name="CustomerInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="Abuse" Type="nvarchar" MaxLength="50" />
+          <Property Name="OtherAgent" Type="nvarchar" MaxLength="50" />
+          <Property Name="MBoy1" Type="nvarchar" MaxLength="50" />
+          <Property Name="MBoy2" Type="nvarchar" MaxLength="50" />
+          <Property Name="MBoy3" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkNature" Type="nvarchar" MaxLength="50" />
+          <Property Name="VisitFrequency" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdmitType" Type="nvarchar" MaxLength="50" />
+          <Property Name="RapportType" Type="nvarchar" MaxLength="50" />
+          <Property Name="DealingType" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentHabbit" Type="nvarchar" MaxLength="50" />
+          <Property Name="GRHabbit" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransportReference" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hotel" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreditLimit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Restriction" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="DirectDealing" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerProprietor">
+          <Key>
+            <PropertyRef Name="ProprietorId" />
+          </Key>
+          <Property Name="ProprietorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="ProprietorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerSalesman">
+          <Key>
+            <PropertyRef Name="SalesmanId" />
+          </Key>
+          <Property Name="SalesmanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="SalesmanName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerSisterConcern">
+          <Key>
+            <PropertyRef Name="SisterConcernId" />
+          </Key>
+          <Property Name="SisterConcernId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="SisterConcernDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="MstBank">
+          <Key>
+            <PropertyRef Name="BankId" />
+          </Key>
+          <Property Name="BankId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="MstBranch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="MstCity">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="20" />
+          <Property Name="fkStateId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MstCourier">
+          <Key>
+            <PropertyRef Name="CourierMasterId" />
+          </Key>
+          <Property Name="CourierMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourierName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="fkBranchId" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="fkCityId" Type="int" />
+          <Property Name="OfficePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="MstState">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MstSubAgent">
+          <Key>
+            <PropertyRef Name="SubAgentId" />
+          </Key>
+          <Property Name="SubAgentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubAgentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="fkCityId" Type="int" />
+          <Property Name="OfficePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="MstTransport">
+          <Key>
+            <PropertyRef Name="TransportId" />
+          </Key>
+          <Property Name="TransportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransportName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="fkCityId" Type="int" />
+          <Property Name="OfficePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="MstUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="30" />
+          <Property Name="fkUserRoleId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="fkUserTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="MstUserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="20" />
+          <Property Name="RoleDescription" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MstUserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeDescription" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="PartyId" />
+          </Key>
+          <Property Name="PartyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkReferenceId" Type="int" />
+          <Property Name="PartyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nature" Type="nvarchar" MaxLength="50" />
+          <Property Name="SpokenTo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SpokenDate" Type="datetime" />
+          <Property Name="SpokenBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Reference">
+          <Key>
+            <PropertyRef Name="ReferenceId" />
+          </Key>
+          <Property Name="ReferenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReferenceType" Type="nvarchar" MaxLength="50" />
+          <Property Name="TourBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="TourDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="AuthorizationId" />
+          </Key>
+          <Property Name="AuthorizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeDescription" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Authorization_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Authorization">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_MstBranch">
+          <End Role="MstBranch" Type="Self.MstBranch" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstBranch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="fkCreatedByBranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_MstSubAgent">
+          <End Role="MstSubAgent" Type="Self.MstSubAgent" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstSubAgent">
+              <PropertyRef Name="SubAgentId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="fkSubAgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAccountant_CustomerInfo">
+          <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="0..1" />
+          <End Role="CustomerAccountant" Type="Self.CustomerAccountant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerInfo">
+              <PropertyRef Name="CustomerInfoId" />
+            </Principal>
+            <Dependent Role="CustomerAccountant">
+              <PropertyRef Name="fkCustomerInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerContactInfo_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CustomerContactInfo" Type="Self.CustomerContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerContactInfo">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerContactInfo_MstCity">
+          <End Role="MstCity" Type="Self.MstCity" Multiplicity="0..1" />
+          <End Role="CustomerContactInfo" Type="Self.CustomerContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="CustomerContactInfo">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerInfo_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerInfo">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProprietor_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CustomerProprietor" Type="Self.CustomerProprietor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerProprietor">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerSalesman_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CustomerSalesman" Type="Self.CustomerSalesman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerSalesman">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerSisterConcern_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CustomerSisterConcern" Type="Self.CustomerSisterConcern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerSisterConcern">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstCity_MstState">
+          <End Role="MstState" Type="Self.MstState" Multiplicity="0..1" />
+          <End Role="MstCity" Type="Self.MstCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstState">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="MstCity">
+              <PropertyRef Name="fkStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstCourier_MstBranch">
+          <End Role="MstBranch" Type="Self.MstBranch" Multiplicity="0..1" />
+          <End Role="MstCourier" Type="Self.MstCourier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstBranch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="MstCourier">
+              <PropertyRef Name="fkBranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstCourier_MstCity">
+          <End Role="MstCity" Type="Self.MstCity" Multiplicity="0..1" />
+          <End Role="MstCourier" Type="Self.MstCourier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstCourier">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstSubAgent_MstCity">
+          <End Role="MstCity" Type="Self.MstCity" Multiplicity="0..1" />
+          <End Role="MstSubAgent" Type="Self.MstSubAgent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstSubAgent">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstTransport_MstCity">
+          <End Role="MstCity" Type="Self.MstCity" Multiplicity="0..1" />
+          <End Role="MstTransport" Type="Self.MstTransport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstTransport">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstUser_MstUserRole">
+          <End Role="MstUserRole" Type="Self.MstUserRole" Multiplicity="0..1" />
+          <End Role="MstUser" Type="Self.MstUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstUserRole">
+              <PropertyRef Name="UserRoleId" />
+            </Principal>
+            <Dependent Role="MstUser">
+              <PropertyRef Name="fkUserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstUser_MstUserType">
+          <End Role="MstUserType" Type="Self.MstUserType" Multiplicity="0..1" />
+          <End Role="MstUser" Type="Self.MstUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstUserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="MstUser">
+              <PropertyRef Name="fkUserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Party_Reference">
+          <End Role="Reference" Type="Self.Reference" Multiplicity="0..1" />
+          <End Role="Party" Type="Self.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reference">
+              <PropertyRef Name="ReferenceId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="fkReferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TPLDBModelStoreContainer">
+          <EntitySet Name="Authorization" EntityType="Self.Authorization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerAccountant" EntityType="Self.CustomerAccountant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerContactInfo" EntityType="Self.CustomerContactInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerInfo" EntityType="Self.CustomerInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerProprietor" EntityType="Self.CustomerProprietor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerSalesman" EntityType="Self.CustomerSalesman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerSisterConcern" EntityType="Self.CustomerSisterConcern" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstBank" EntityType="Self.MstBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstBranch" EntityType="Self.MstBranch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstCity" EntityType="Self.MstCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstCourier" EntityType="Self.MstCourier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstState" EntityType="Self.MstState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstSubAgent" EntityType="Self.MstSubAgent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstTransport" EntityType="Self.MstTransport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstUser" EntityType="Self.MstUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstUserRole" EntityType="Self.MstUserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MstUserType" EntityType="Self.MstUserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Party" EntityType="Self.Party" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reference" EntityType="Self.Reference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Authorization_Customer" Association="Self.FK_Authorization_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Authorization" EntitySet="Authorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_MstBranch" Association="Self.FK_Customer_MstBranch">
+            <End Role="MstBranch" EntitySet="MstBranch" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_MstSubAgent" Association="Self.FK_Customer_MstSubAgent">
+            <End Role="MstSubAgent" EntitySet="MstSubAgent" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAccountant_CustomerInfo" Association="Self.FK_CustomerAccountant_CustomerInfo">
+            <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+            <End Role="CustomerAccountant" EntitySet="CustomerAccountant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerContactInfo_Customer" Association="Self.FK_CustomerContactInfo_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerContactInfo_MstCity" Association="Self.FK_CustomerContactInfo_MstCity">
+            <End Role="MstCity" EntitySet="MstCity" />
+            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerInfo_Customer" Association="Self.FK_CustomerInfo_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProprietor_Customer" Association="Self.FK_CustomerProprietor_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerProprietor" EntitySet="CustomerProprietor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSalesman_Customer" Association="Self.FK_CustomerSalesman_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerSalesman" EntitySet="CustomerSalesman" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSisterConcern_Customer" Association="Self.FK_CustomerSisterConcern_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCity_MstState" Association="Self.FK_MstCity_MstState">
+            <End Role="MstState" EntitySet="MstState" />
+            <End Role="MstCity" EntitySet="MstCity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCourier_MstBranch" Association="Self.FK_MstCourier_MstBranch">
+            <End Role="MstBranch" EntitySet="MstBranch" />
+            <End Role="MstCourier" EntitySet="MstCourier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCourier_MstCity" Association="Self.FK_MstCourier_MstCity">
+            <End Role="MstCity" EntitySet="MstCity" />
+            <End Role="MstCourier" EntitySet="MstCourier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstSubAgent_MstCity" Association="Self.FK_MstSubAgent_MstCity">
+            <End Role="MstCity" EntitySet="MstCity" />
+            <End Role="MstSubAgent" EntitySet="MstSubAgent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstTransport_MstCity" Association="Self.FK_MstTransport_MstCity">
+            <End Role="MstCity" EntitySet="MstCity" />
+            <End Role="MstTransport" EntitySet="MstTransport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstUser_MstUserRole" Association="Self.FK_MstUser_MstUserRole">
+            <End Role="MstUserRole" EntitySet="MstUserRole" />
+            <End Role="MstUser" EntitySet="MstUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstUser_MstUserType" Association="Self.FK_MstUser_MstUserType">
+            <End Role="MstUserType" EntitySet="MstUserType" />
+            <End Role="MstUser" EntitySet="MstUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Party_Reference" Association="Self.FK_Party_Reference">
+            <End Role="Reference" EntitySet="Reference" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TPLDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TPLDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authorizations" EntityType="TPLDBModel.Authorization" />
+          <EntitySet Name="Customers" EntityType="TPLDBModel.Customer" />
+          <EntitySet Name="CustomerAccountants" EntityType="TPLDBModel.CustomerAccountant" />
+          <EntitySet Name="CustomerContactInfoes" EntityType="TPLDBModel.CustomerContactInfo" />
+          <EntitySet Name="CustomerInfoes" EntityType="TPLDBModel.CustomerInfo" />
+          <EntitySet Name="CustomerProprietors" EntityType="TPLDBModel.CustomerProprietor" />
+          <EntitySet Name="CustomerSalesmen" EntityType="TPLDBModel.CustomerSalesman" />
+          <EntitySet Name="CustomerSisterConcerns" EntityType="TPLDBModel.CustomerSisterConcern" />
+          <EntitySet Name="MstBanks" EntityType="TPLDBModel.MstBank" />
+          <EntitySet Name="MstBranches" EntityType="TPLDBModel.MstBranch" />
+          <EntitySet Name="MstCities" EntityType="TPLDBModel.MstCity" />
+          <EntitySet Name="MstCouriers" EntityType="TPLDBModel.MstCourier" />
+          <EntitySet Name="MstStates" EntityType="TPLDBModel.MstState" />
+          <EntitySet Name="MstSubAgents" EntityType="TPLDBModel.MstSubAgent" />
+          <EntitySet Name="MstTransports" EntityType="TPLDBModel.MstTransport" />
+          <EntitySet Name="MstUsers" EntityType="TPLDBModel.MstUser" />
+          <EntitySet Name="MstUserRoles" EntityType="TPLDBModel.MstUserRole" />
+          <EntitySet Name="MstUserTypes" EntityType="TPLDBModel.MstUserType" />
+          <EntitySet Name="Parties" EntityType="TPLDBModel.Party" />
+          <EntitySet Name="References" EntityType="TPLDBModel.Reference" />
+          <EntitySet Name="Tables" EntityType="TPLDBModel.Table" />
+          <EntitySet Name="UserTypes" EntityType="TPLDBModel.UserType" />
+          <AssociationSet Name="FK_Authorization_Customer" Association="TPLDBModel.FK_Authorization_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Authorization" EntitySet="Authorizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_MstBranch" Association="TPLDBModel.FK_Customer_MstBranch">
+            <End Role="MstBranch" EntitySet="MstBranches" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_MstSubAgent" Association="TPLDBModel.FK_Customer_MstSubAgent">
+            <End Role="MstSubAgent" EntitySet="MstSubAgents" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerContactInfo_Customer" Association="TPLDBModel.FK_CustomerContactInfo_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerInfo_Customer" Association="TPLDBModel.FK_CustomerInfo_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProprietor_Customer" Association="TPLDBModel.FK_CustomerProprietor_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerProprietor" EntitySet="CustomerProprietors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSalesman_Customer" Association="TPLDBModel.FK_CustomerSalesman_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerSalesman" EntitySet="CustomerSalesmen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSisterConcern_Customer" Association="TPLDBModel.FK_CustomerSisterConcern_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcerns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAccountant_CustomerInfo" Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo">
+            <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
+            <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerContactInfo_MstCity" Association="TPLDBModel.FK_CustomerContactInfo_MstCity">
+            <End Role="MstCity" EntitySet="MstCities" />
+            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCourier_MstBranch" Association="TPLDBModel.FK_MstCourier_MstBranch">
+            <End Role="MstBranch" EntitySet="MstBranches" />
+            <End Role="MstCourier" EntitySet="MstCouriers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCity_MstState" Association="TPLDBModel.FK_MstCity_MstState">
+            <End Role="MstState" EntitySet="MstStates" />
+            <End Role="MstCity" EntitySet="MstCities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCourier_MstCity" Association="TPLDBModel.FK_MstCourier_MstCity">
+            <End Role="MstCity" EntitySet="MstCities" />
+            <End Role="MstCourier" EntitySet="MstCouriers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstSubAgent_MstCity" Association="TPLDBModel.FK_MstSubAgent_MstCity">
+            <End Role="MstCity" EntitySet="MstCities" />
+            <End Role="MstSubAgent" EntitySet="MstSubAgents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstTransport_MstCity" Association="TPLDBModel.FK_MstTransport_MstCity">
+            <End Role="MstCity" EntitySet="MstCities" />
+            <End Role="MstTransport" EntitySet="MstTransports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstUser_MstUserRole" Association="TPLDBModel.FK_MstUser_MstUserRole">
+            <End Role="MstUserRole" EntitySet="MstUserRoles" />
+            <End Role="MstUser" EntitySet="MstUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstUser_MstUserType" Association="TPLDBModel.FK_MstUser_MstUserType">
+            <End Role="MstUserType" EntitySet="MstUserTypes" />
+            <End Role="MstUser" EntitySet="MstUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Party_Reference" Association="TPLDBModel.FK_Party_Reference">
+            <End Role="Reference" EntitySet="References" />
+            <End Role="Party" EntitySet="Parties" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="AuthorizationId" />
+          </Key>
+          <Property Name="AuthorizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="Director1Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Director2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Director3Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchHead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MBoyBranch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MarketBoy1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MarketBoy2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MarketBoy3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Authorization_Customer" FromRole="Authorization" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerACNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fkCreatedByBranchId" Type="Int32" />
+          <Property Name="CashOrCredit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOfFirm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CSTNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GSTNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastOAC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoLRAddressPrinting" Type="Int32" />
+          <Property Name="fkSubAgentId" Type="Int32" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Authorizations" Relationship="TPLDBModel.FK_Authorization_Customer" FromRole="Customer" ToRole="Authorization" />
+          <NavigationProperty Name="MstBranch" Relationship="TPLDBModel.FK_Customer_MstBranch" FromRole="Customer" ToRole="MstBranch" />
+          <NavigationProperty Name="MstSubAgent" Relationship="TPLDBModel.FK_Customer_MstSubAgent" FromRole="Customer" ToRole="MstSubAgent" />
+          <NavigationProperty Name="CustomerContactInfoes" Relationship="TPLDBModel.FK_CustomerContactInfo_Customer" FromRole="Customer" ToRole="CustomerContactInfo" />
+          <NavigationProperty Name="CustomerInfoes" Relationship="TPLDBModel.FK_CustomerInfo_Customer" FromRole="Customer" ToRole="CustomerInfo" />
+          <NavigationProperty Name="CustomerProprietors" Relationship="TPLDBModel.FK_CustomerProprietor_Customer" FromRole="Customer" ToRole="CustomerProprietor" />
+          <NavigationProperty Name="CustomerSalesmen" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="Customer" ToRole="CustomerSalesman" />
+          <NavigationProperty Name="CustomerSisterConcerns" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="Customer" ToRole="CustomerSisterConcern" />
+        </EntityType>
+        <EntityType Name="CustomerAccountant">
+          <Key>
+            <PropertyRef Name="CustomerAccountantId" />
+          </Key>
+          <Property Name="CustomerAccountantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerInfoId" Type="Int32" />
+          <Property Name="AccountantName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerInfo" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerAccountant" ToRole="CustomerInfo" />
+        </EntityType>
+        <EntityType Name="CustomerContactInfo">
+          <Key>
+            <PropertyRef Name="CustomerContactInfoId" />
+          </Key>
+          <Property Name="CustomerContactInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="fkCityId" Type="Int32" />
+          <Property Name="OfficePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SMSName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SMSCellNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RemContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RemContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RemSMSCell1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RemSMSCell2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STDCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerContactInfo_Customer" FromRole="CustomerContactInfo" ToRole="Customer" />
+          <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_CustomerContactInfo_MstCity" FromRole="CustomerContactInfo" ToRole="MstCity" />
+        </EntityType>
+        <EntityType Name="CustomerInfo">
+          <Key>
+            <PropertyRef Name="CustomerInfoId" />
+          </Key>
+          <Property Name="CustomerInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="Abuse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OtherAgent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MBoy1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MBoy2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MBoy3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkNature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VisitFrequency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdmitType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RapportType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DealingType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentHabbit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GRHabbit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransportReference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hotel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreditLimit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Restriction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DirectDealing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerInfo_Customer" FromRole="CustomerInfo" ToRole="Customer" />
+          <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerInfo" ToRole="CustomerAccountant" />
+        </EntityType>
+        <EntityType Name="CustomerProprietor">
+          <Key>
+            <PropertyRef Name="ProprietorId" />
+          </Key>
+          <Property Name="ProprietorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="ProprietorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerProprietor_Customer" FromRole="CustomerProprietor" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="CustomerSalesman">
+          <Key>
+            <PropertyRef Name="SalesmanId" />
+          </Key>
+          <Property Name="SalesmanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="SalesmanName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="CustomerSalesman" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="CustomerSisterConcern">
+          <Key>
+            <PropertyRef Name="SisterConcernId" />
+          </Key>
+          <Property Name="SisterConcernId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="SisterConcernDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="CustomerSisterConcern" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="MstBank">
+          <Key>
+            <PropertyRef Name="BankId" />
+          </Key>
+          <Property Name="BankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="MstBranch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Customers" Relationship="TPLDBModel.FK_Customer_MstBranch" FromRole="MstBranch" ToRole="Customer" />
+          <NavigationProperty Name="MstCouriers" Relationship="TPLDBModel.FK_MstCourier_MstBranch" FromRole="MstBranch" ToRole="MstCourier" />
+        </EntityType>
+        <EntityType Name="MstCity">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="fkStateId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CustomerContactInfoes" Relationship="TPLDBModel.FK_CustomerContactInfo_MstCity" FromRole="MstCity" ToRole="CustomerContactInfo" />
+          <NavigationProperty Name="MstState" Relationship="TPLDBModel.FK_MstCity_MstState" FromRole="MstCity" ToRole="MstState" />
+          <NavigationProperty Name="MstCouriers" Relationship="TPLDBModel.FK_MstCourier_MstCity" FromRole="MstCity" ToRole="MstCourier" />
+          <NavigationProperty Name="MstSubAgents" Relationship="TPLDBModel.FK_MstSubAgent_MstCity" FromRole="MstCity" ToRole="MstSubAgent" />
+          <NavigationProperty Name="MstTransports" Relationship="TPLDBModel.FK_MstTransport_MstCity" FromRole="MstCity" ToRole="MstTransport" />
+        </EntityType>
+        <EntityType Name="MstCourier">
+          <Key>
+            <PropertyRef Name="CourierMasterId" />
+          </Key>
+          <Property Name="CourierMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="fkBranchId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fkCityId" Type="Int32" />
+          <Property Name="OfficePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="MstBranch" Relationship="TPLDBModel.FK_MstCourier_MstBranch" FromRole="MstCourier" ToRole="MstBranch" />
+          <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstCourier_MstCity" FromRole="MstCourier" ToRole="MstCity" />
+        </EntityType>
+        <EntityType Name="MstState">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MstCities" Relationship="TPLDBModel.FK_MstCity_MstState" FromRole="MstState" ToRole="MstCity" />
+        </EntityType>
+        <EntityType Name="MstSubAgent">
+          <Key>
+            <PropertyRef Name="SubAgentId" />
+          </Key>
+          <Property Name="SubAgentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubAgentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fkCityId" Type="Int32" />
+          <Property Name="OfficePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Customers" Relationship="TPLDBModel.FK_Customer_MstSubAgent" FromRole="MstSubAgent" ToRole="Customer" />
+          <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstSubAgent_MstCity" FromRole="MstSubAgent" ToRole="MstCity" />
+        </EntityType>
+        <EntityType Name="MstTransport">
+          <Key>
+            <PropertyRef Name="TransportId" />
+          </Key>
+          <Property Name="TransportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransportName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fkCityId" Type="Int32" />
+          <Property Name="OfficePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstTransport_MstCity" FromRole="MstTransport" ToRole="MstCity" />
+        </EntityType>
+        <EntityType Name="MstUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fkUserRoleId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="fkUserTypeId" Type="Int32" />
+          <NavigationProperty Name="MstUserRole" Relationship="TPLDBModel.FK_MstUser_MstUserRole" FromRole="MstUser" ToRole="MstUserRole" />
+          <NavigationProperty Name="MstUserType" Relationship="TPLDBModel.FK_MstUser_MstUserType" FromRole="MstUser" ToRole="MstUserType" />
+        </EntityType>
+        <EntityType Name="MstUserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RoleDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MstUsers" Relationship="TPLDBModel.FK_MstUser_MstUserRole" FromRole="MstUserRole" ToRole="MstUser" />
+        </EntityType>
+        <EntityType Name="MstUserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MstUsers" Relationship="TPLDBModel.FK_MstUser_MstUserType" FromRole="MstUserType" ToRole="MstUser" />
+        </EntityType>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="PartyId" />
+          </Key>
+          <Property Name="PartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkReferenceId" Type="Int32" />
+          <Property Name="PartyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpokenTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpokenDate" Type="DateTime" Precision="3" />
+          <Property Name="SpokenBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reference" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Party" ToRole="Reference" />
+        </EntityType>
+        <EntityType Name="Reference">
+          <Key>
+            <PropertyRef Name="ReferenceId" />
+          </Key>
+          <Property Name="ReferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferenceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TourBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TourDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Reference" ToRole="Party" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="AuthorizationId" />
+          </Key>
+          <Property Name="AuthorizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Authorization_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Authorization" Role="Authorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Authorization">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_MstBranch">
+          <End Type="TPLDBModel.MstBranch" Role="MstBranch" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstBranch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="fkCreatedByBranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_MstSubAgent">
+          <End Type="TPLDBModel.MstSubAgent" Role="MstSubAgent" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstSubAgent">
+              <PropertyRef Name="SubAgentId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="fkSubAgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerContactInfo_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerContactInfo" Role="CustomerContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerContactInfo">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerInfo_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerInfo" Role="CustomerInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerInfo">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProprietor_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerProprietor" Role="CustomerProprietor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerProprietor">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerSalesman_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerSalesman" Role="CustomerSalesman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerSalesman">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerSisterConcern_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerSisterConcern" Role="CustomerSisterConcern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerSisterConcern">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAccountant_CustomerInfo">
+          <End Type="TPLDBModel.CustomerInfo" Role="CustomerInfo" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerAccountant" Role="CustomerAccountant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerInfo">
+              <PropertyRef Name="CustomerInfoId" />
+            </Principal>
+            <Dependent Role="CustomerAccountant">
+              <PropertyRef Name="fkCustomerInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerContactInfo_MstCity">
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerContactInfo" Role="CustomerContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="CustomerContactInfo">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstCourier_MstBranch">
+          <End Type="TPLDBModel.MstBranch" Role="MstBranch" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstCourier" Role="MstCourier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstBranch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="MstCourier">
+              <PropertyRef Name="fkBranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstCity_MstState">
+          <End Type="TPLDBModel.MstState" Role="MstState" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstState">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="MstCity">
+              <PropertyRef Name="fkStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstCourier_MstCity">
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstCourier" Role="MstCourier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstCourier">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstSubAgent_MstCity">
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstSubAgent" Role="MstSubAgent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstSubAgent">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstTransport_MstCity">
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstTransport" Role="MstTransport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstTransport">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstUser_MstUserRole">
+          <End Type="TPLDBModel.MstUserRole" Role="MstUserRole" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstUser" Role="MstUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstUserRole">
+              <PropertyRef Name="UserRoleId" />
+            </Principal>
+            <Dependent Role="MstUser">
+              <PropertyRef Name="fkUserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstUser_MstUserType">
+          <End Type="TPLDBModel.MstUserType" Role="MstUserType" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstUser" Role="MstUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstUserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="MstUser">
+              <PropertyRef Name="fkUserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Party_Reference">
+          <End Type="TPLDBModel.Reference" Role="Reference" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reference">
+              <PropertyRef Name="ReferenceId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="fkReferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TPLDBModelStoreContainer" CdmEntityContainer="TPLDBEntities">
+          <EntitySetMapping Name="Authorizations">
+            <EntityTypeMapping TypeName="TPLDBModel.Authorization">
+              <MappingFragment StoreEntitySet="Authorization">
+                <ScalarProperty Name="MarketBoy3" ColumnName="MarketBoy3" />
+                <ScalarProperty Name="MarketBoy2" ColumnName="MarketBoy2" />
+                <ScalarProperty Name="MarketBoy1" ColumnName="MarketBoy1" />
+                <ScalarProperty Name="MBoyBranch" ColumnName="MBoyBranch" />
+                <ScalarProperty Name="BranchHead" ColumnName="BranchHead" />
+                <ScalarProperty Name="Director3Name" ColumnName="Director3Name" />
+                <ScalarProperty Name="Director2Name" ColumnName="Director2Name" />
+                <ScalarProperty Name="Director1Name" ColumnName="Director1Name" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="AuthorizationId" ColumnName="AuthorizationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="TPLDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="fkSubAgentId" ColumnName="fkSubAgentId" />
+                <ScalarProperty Name="NoLRAddressPrinting" ColumnName="NoLRAddressPrinting" />
+                <ScalarProperty Name="LastOAC" ColumnName="LastOAC" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="GSTNumber" ColumnName="GSTNumber" />
+                <ScalarProperty Name="CSTNumber" ColumnName="CSTNumber" />
+                <ScalarProperty Name="TIN" ColumnName="TIN" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="TypeOfFirm" ColumnName="TypeOfFirm" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CashOrCredit" ColumnName="CashOrCredit" />
+                <ScalarProperty Name="fkCreatedByBranchId" ColumnName="fkCreatedByBranchId" />
+                <ScalarProperty Name="CustomerACNumber" ColumnName="CustomerACNumber" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerAccountants">
+            <EntityTypeMapping TypeName="TPLDBModel.CustomerAccountant">
+              <MappingFragment StoreEntitySet="CustomerAccountant">
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="AccountantName" ColumnName="AccountantName" />
+                <ScalarProperty Name="fkCustomerInfoId" ColumnName="fkCustomerInfoId" />
+                <ScalarProperty Name="CustomerAccountantId" ColumnName="CustomerAccountantId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerContactInfoes">
+            <EntityTypeMapping TypeName="TPLDBModel.CustomerContactInfo">
+              <MappingFragment StoreEntitySet="CustomerContactInfo">
+                <ScalarProperty Name="STDCode" ColumnName="STDCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RemSMSCell2" ColumnName="RemSMSCell2" />
+                <ScalarProperty Name="RemSMSCell1" ColumnName="RemSMSCell1" />
+                <ScalarProperty Name="RemContactPhone" ColumnName="RemContactPhone" />
+                <ScalarProperty Name="RemContactPerson" ColumnName="RemContactPerson" />
+                <ScalarProperty Name="SMSCellNumber" ColumnName="SMSCellNumber" />
+                <ScalarProperty Name="SMSName" ColumnName="SMSName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="CustomerContactInfoId" ColumnName="CustomerContactInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerInfoes">
+            <EntityTypeMapping TypeName="TPLDBModel.CustomerInfo">
+              <MappingFragment StoreEntitySet="CustomerInfo">
+                <ScalarProperty Name="DirectDealing" ColumnName="DirectDealing" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Restriction" ColumnName="Restriction" />
+                <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+                <ScalarProperty Name="Hotel" ColumnName="Hotel" />
+                <ScalarProperty Name="TransportReference" ColumnName="TransportReference" />
+                <ScalarProperty Name="GRHabbit" ColumnName="GRHabbit" />
+                <ScalarProperty Name="PaymentHabbit" ColumnName="PaymentHabbit" />
+                <ScalarProperty Name="DealingType" ColumnName="DealingType" />
+                <ScalarProperty Name="RapportType" ColumnName="RapportType" />
+                <ScalarProperty Name="AdmitType" ColumnName="AdmitType" />
+                <ScalarProperty Name="VisitFrequency" ColumnName="VisitFrequency" />
+                <ScalarProperty Name="WorkNature" ColumnName="WorkNature" />
+                <ScalarProperty Name="MBoy3" ColumnName="MBoy3" />
+                <ScalarProperty Name="MBoy2" ColumnName="MBoy2" />
+                <ScalarProperty Name="MBoy1" ColumnName="MBoy1" />
+                <ScalarProperty Name="OtherAgent" ColumnName="OtherAgent" />
+                <ScalarProperty Name="Abuse" ColumnName="Abuse" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="CustomerInfoId" ColumnName="CustomerInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerProprietors">
+            <EntityTypeMapping TypeName="TPLDBModel.CustomerProprietor">
+              <MappingFragment StoreEntitySet="CustomerProprietor">
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="ProprietorName" ColumnName="ProprietorName" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerSalesmen">
+            <EntityTypeMapping TypeName="TPLDBModel.CustomerSalesman">
+              <MappingFragment StoreEntitySet="CustomerSalesman">
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="SalesmanName" ColumnName="SalesmanName" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="SalesmanId" ColumnName="SalesmanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerSisterConcerns">
+            <EntityTypeMapping TypeName="TPLDBModel.CustomerSisterConcern">
+              <MappingFragment StoreEntitySet="CustomerSisterConcern">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SisterConcernDescription" ColumnName="SisterConcernDescription" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="SisterConcernId" ColumnName="SisterConcernId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstBanks">
+            <EntityTypeMapping TypeName="TPLDBModel.MstBank">
+              <MappingFragment StoreEntitySet="MstBank">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstBranches">
+            <EntityTypeMapping TypeName="TPLDBModel.MstBranch">
+              <MappingFragment StoreEntitySet="MstBranch">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstCities">
+            <EntityTypeMapping TypeName="TPLDBModel.MstCity">
+              <MappingFragment StoreEntitySet="MstCity">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="fkStateId" ColumnName="fkStateId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstCouriers">
+            <EntityTypeMapping TypeName="TPLDBModel.MstCourier">
+              <MappingFragment StoreEntitySet="MstCourier">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="fkBranchId" ColumnName="fkBranchId" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="CourierName" ColumnName="CourierName" />
+                <ScalarProperty Name="CourierMasterId" ColumnName="CourierMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstStates">
+            <EntityTypeMapping TypeName="TPLDBModel.MstState">
+              <MappingFragment StoreEntitySet="MstState">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstSubAgents">
+            <EntityTypeMapping TypeName="TPLDBModel.MstSubAgent">
+              <MappingFragment StoreEntitySet="MstSubAgent">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="ResPhone" ColumnName="ResPhone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SubAgentName" ColumnName="SubAgentName" />
+                <ScalarProperty Name="SubAgentId" ColumnName="SubAgentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstTransports">
+            <EntityTypeMapping TypeName="TPLDBModel.MstTransport">
+              <MappingFragment StoreEntitySet="MstTransport">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="ResPhone" ColumnName="ResPhone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="TransportName" ColumnName="TransportName" />
+                <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstUsers">
+            <EntityTypeMapping TypeName="TPLDBModel.MstUser">
+              <MappingFragment StoreEntitySet="MstUser">
+                <ScalarProperty Name="fkUserTypeId" ColumnName="fkUserTypeId" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="fkUserRoleId" ColumnName="fkUserRoleId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstUserRoles">
+            <EntityTypeMapping TypeName="TPLDBModel.MstUserRole">
+              <MappingFragment StoreEntitySet="MstUserRole">
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstUserTypes">
+            <EntityTypeMapping TypeName="TPLDBModel.MstUserType">
+              <MappingFragment StoreEntitySet="MstUserType">
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parties">
+            <EntityTypeMapping TypeName="TPLDBModel.Party">
+              <MappingFragment StoreEntitySet="Party">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SpokenBy" ColumnName="SpokenBy" />
+                <ScalarProperty Name="SpokenDate" ColumnName="SpokenDate" />
+                <ScalarProperty Name="SpokenTo" ColumnName="SpokenTo" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="fkReferenceId" ColumnName="fkReferenceId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="References">
+            <EntityTypeMapping TypeName="TPLDBModel.Reference">
+              <MappingFragment StoreEntitySet="Reference">
+                <ScalarProperty Name="TourDate" ColumnName="TourDate" />
+                <ScalarProperty Name="TourBy" ColumnName="TourBy" />
+                <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />
+                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="TPLDBModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="AuthorizationId" ColumnName="AuthorizationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="TPLDBModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

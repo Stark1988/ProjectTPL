@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c07dabbee72484287da29bf8b5342e6" Name="Diagram1">
+        <EntityTypeShape EntityType="TPLDBModel.Authorization" Width="1.5" PointX="5.25" PointY="28.25" />
+        <EntityTypeShape EntityType="TPLDBModel.Customer" Width="1.5" PointX="3" PointY="12.75" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerAccountant" Width="1.5" PointX="7.5" PointY="21.125" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerContactInfo" Width="1.5" PointX="8.25" PointY="14.125" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerInfo" Width="1.5" PointX="5.25" PointY="19.5" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerProprietor" Width="1.5" PointX="5.25" PointY="25.5" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerSalesman" Width="1.5" PointX="5.25" PointY="32.125" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerSisterConcern" Width="1.5" PointX="5.25" PointY="7.125" />
+        <EntityTypeShape EntityType="TPLDBModel.MstBank" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TPLDBModel.MstBranch" Width="1.5" PointX="0.75" PointY="14.875" />
+        <EntityTypeShape EntityType="TPLDBModel.MstCity" Width="1.5" PointX="1.5" PointY="4.5" />
+        <EntityTypeShape EntityType="TPLDBModel.MstCourier" Width="1.5" PointX="6" PointY="14.125" />
+        <EntityTypeShape EntityType="TPLDBModel.MstState" Width="1.5" PointX="1.5" PointY="0.875" />
+        <EntityTypeShape EntityType="TPLDBModel.MstSubAgent" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="TPLDBModel.MstTransport" Width="1.5" PointX="3.75" PointY="39.125" />
+        <EntityTypeShape EntityType="TPLDBModel.MstUser" Width="1.5" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="TPLDBModel.MstUserRole" Width="1.5" PointX="3.75" PointY="1.75" />
+        <EntityTypeShape EntityType="TPLDBModel.MstUserType" Width="1.5" PointX="3.75" PointY="35.75" />
+        <EntityTypeShape EntityType="TPLDBModel.Party" Width="1.5" PointX="10" PointY="6" />
+        <EntityTypeShape EntityType="TPLDBModel.Reference" Width="1.5" PointX="7.75" PointY="6.375" />
+        <EntityTypeShape EntityType="TPLDBModel.Table" Width="1.5" PointX="7.75" PointY="9.75" />
+        <EntityTypeShape EntityType="TPLDBModel.UserType" Width="1.5" PointX="9.75" PointY="9.75" />
+        <AssociationConnector Association="TPLDBModel.FK_Authorization_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_Customer_MstBranch" />
+        <AssociationConnector Association="TPLDBModel.FK_Customer_MstSubAgent" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerContactInfo_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerInfo_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerProprietor_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerSalesman_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerSisterConcern_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerContactInfo_MstCity" />
+        <AssociationConnector Association="TPLDBModel.FK_MstCourier_MstBranch" />
+        <AssociationConnector Association="TPLDBModel.FK_MstCity_MstState" />
+        <AssociationConnector Association="TPLDBModel.FK_MstCourier_MstCity" />
+        <AssociationConnector Association="TPLDBModel.FK_MstSubAgent_MstCity" />
+        <AssociationConnector Association="TPLDBModel.FK_MstTransport_MstCity" />
+        <AssociationConnector Association="TPLDBModel.FK_MstUser_MstUserRole" />
+        <AssociationConnector Association="TPLDBModel.FK_MstUser_MstUserType" />
+        <AssociationConnector Association="TPLDBModel.FK_Party_Reference" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
