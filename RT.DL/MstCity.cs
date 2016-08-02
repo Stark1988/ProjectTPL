@@ -32,9 +32,9 @@ namespace RT.DL
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
         public virtual ICollection<CustomerContactInfo> CustomerContactInfoes { get; set; }
+        public virtual MstState MstState { get; set; }
         public virtual ICollection<MstCourier> MstCouriers { get; set; }
         public virtual ICollection<MstSubAgent> MstSubAgents { get; set; }
         public virtual ICollection<MstTransport> MstTransports { get; set; }
-        public virtual MstState MstState { get; set; }
     }
 }

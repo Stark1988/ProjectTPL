@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="AuthorizationId" />
           </Key>
-          <Property Name="AuthorizationId" Type="int" Nullable="false" />
+          <Property Name="AuthorizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerId" Type="int" />
           <Property Name="Director1Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Director2Name" Type="nvarchar" MaxLength="50" />
@@ -24,7 +24,7 @@
           <Key>
             <PropertyRef Name="CustomerId" />
           </Key>
-          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerACNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="fkCreatedByBranchId" Type="int" />
           <Property Name="CashOrCredit" Type="nvarchar" MaxLength="10" />
@@ -52,7 +52,7 @@
           <Key>
             <PropertyRef Name="CustomerAccountantId" />
           </Key>
-          <Property Name="CustomerAccountantId" Type="int" Nullable="false" />
+          <Property Name="CustomerAccountantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerInfoId" Type="int" />
           <Property Name="AccountantName" Type="nvarchar" MaxLength="50" />
           <Property Name="ContactNumber" Type="nvarchar" MaxLength="50" />
@@ -61,7 +61,7 @@
           <Key>
             <PropertyRef Name="CustomerContactInfoId" />
           </Key>
-          <Property Name="CustomerContactInfoId" Type="int" Nullable="false" />
+          <Property Name="CustomerContactInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerId" Type="int" />
           <Property Name="fkCityId" Type="int" />
           <Property Name="OfficePhone" Type="nvarchar" MaxLength="50" />
@@ -80,7 +80,7 @@
           <Key>
             <PropertyRef Name="CustomerInfoId" />
           </Key>
-          <Property Name="CustomerInfoId" Type="int" Nullable="false" />
+          <Property Name="CustomerInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerId" Type="int" />
           <Property Name="Abuse" Type="nvarchar" MaxLength="50" />
           <Property Name="OtherAgent" Type="nvarchar" MaxLength="50" />
@@ -105,7 +105,7 @@
           <Key>
             <PropertyRef Name="ProprietorId" />
           </Key>
-          <Property Name="ProprietorId" Type="int" Nullable="false" />
+          <Property Name="ProprietorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerId" Type="int" />
           <Property Name="ProprietorName" Type="nvarchar" MaxLength="50" />
           <Property Name="ContactNumber" Type="nvarchar" MaxLength="50" />
@@ -114,7 +114,7 @@
           <Key>
             <PropertyRef Name="SalesmanId" />
           </Key>
-          <Property Name="SalesmanId" Type="int" Nullable="false" />
+          <Property Name="SalesmanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerId" Type="int" />
           <Property Name="SalesmanName" Type="nvarchar" MaxLength="50" />
           <Property Name="ContactNumber" Type="nvarchar" MaxLength="50" />
@@ -123,7 +123,7 @@
           <Key>
             <PropertyRef Name="SisterConcernId" />
           </Key>
-          <Property Name="SisterConcernId" Type="int" Nullable="false" />
+          <Property Name="SisterConcernId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerId" Type="int" />
           <Property Name="SisterConcernDescription" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
@@ -136,7 +136,7 @@
           <Key>
             <PropertyRef Name="BankId" />
           </Key>
-          <Property Name="BankId" Type="int" Nullable="false" />
+          <Property Name="BankId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BankName" Type="nvarchar" MaxLength="50" />
           <Property Name="BankCode" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
@@ -149,7 +149,7 @@
           <Key>
             <PropertyRef Name="BranchId" />
           </Key>
-          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="BranchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BranchName" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedDate" Type="datetime" />
@@ -161,7 +161,7 @@
           <Key>
             <PropertyRef Name="CityId" />
           </Key>
-          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CityName" Type="nvarchar" MaxLength="20" />
           <Property Name="fkStateId" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
@@ -174,7 +174,7 @@
           <Key>
             <PropertyRef Name="CourierMasterId" />
           </Key>
-          <Property Name="CourierMasterId" Type="int" Nullable="false" />
+          <Property Name="CourierMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourierName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
           <Property Name="Rate" Type="decimal" Precision="18" Scale="0" />
@@ -206,7 +206,7 @@
           <Key>
             <PropertyRef Name="SubAgentId" />
           </Key>
-          <Property Name="SubAgentId" Type="int" Nullable="false" />
+          <Property Name="SubAgentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SubAgentName" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="fkCityId" Type="int" />
@@ -225,7 +225,7 @@
           <Key>
             <PropertyRef Name="TransportId" />
           </Key>
-          <Property Name="TransportId" Type="int" Nullable="false" />
+          <Property Name="TransportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TransportName" Type="nvarchar" MaxLength="100" />
           <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar(max)" />
@@ -245,7 +245,7 @@
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="20" />
           <Property Name="Password" Type="nvarchar" MaxLength="20" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="20" />
@@ -260,7 +260,7 @@
           <Key>
             <PropertyRef Name="UserRoleId" />
           </Key>
-          <Property Name="UserRoleId" Type="int" Nullable="false" />
+          <Property Name="UserRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="20" />
           <Property Name="RoleDescription" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -268,7 +268,7 @@
           <Key>
             <PropertyRef Name="UserTypeId" />
           </Key>
-          <Property Name="UserTypeId" Type="int" Nullable="false" />
+          <Property Name="UserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeDescription" Type="nvarchar" MaxLength="100" />
         </EntityType>
@@ -276,7 +276,7 @@
           <Key>
             <PropertyRef Name="PartyId" />
           </Key>
-          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkReferenceId" Type="int" />
           <Property Name="PartyName" Type="nvarchar" MaxLength="50" />
           <Property Name="Nature" Type="nvarchar" MaxLength="50" />
@@ -289,7 +289,7 @@
           <Key>
             <PropertyRef Name="ReferenceId" />
           </Key>
-          <Property Name="ReferenceId" Type="int" Nullable="false" />
+          <Property Name="ReferenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ReferenceType" Type="nvarchar" MaxLength="50" />
           <Property Name="TourBy" Type="nvarchar" MaxLength="50" />
           <Property Name="TourDate" Type="datetime" />
@@ -298,13 +298,13 @@
           <Key>
             <PropertyRef Name="AuthorizationId" />
           </Key>
-          <Property Name="AuthorizationId" Type="int" Nullable="false" />
+          <Property Name="AuthorizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="UserType">
           <Key>
             <PropertyRef Name="UserTypeId" />
           </Key>
-          <Property Name="UserTypeId" Type="int" Nullable="false" />
+          <Property Name="UserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeDescription" Type="nvarchar" MaxLength="100" />
         </EntityType>
@@ -624,11 +624,107 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TPLDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TPLDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authorizations" EntityType="TPLDBModel.Authorization" />
+          <EntitySet Name="Customers" EntityType="TPLDBModel.Customer" />
+          <EntitySet Name="CustomerAccountants" EntityType="TPLDBModel.CustomerAccountant" />
+          <EntitySet Name="CustomerContactInfoes" EntityType="TPLDBModel.CustomerContactInfo" />
+          <EntitySet Name="CustomerInfoes" EntityType="TPLDBModel.CustomerInfo" />
+          <EntitySet Name="CustomerProprietors" EntityType="TPLDBModel.CustomerProprietor" />
+          <EntitySet Name="CustomerSalesmen" EntityType="TPLDBModel.CustomerSalesman" />
+          <EntitySet Name="CustomerSisterConcerns" EntityType="TPLDBModel.CustomerSisterConcern" />
+          <EntitySet Name="MstBanks" EntityType="TPLDBModel.MstBank" />
+          <EntitySet Name="MstBranches" EntityType="TPLDBModel.MstBranch" />
+          <EntitySet Name="MstCities" EntityType="TPLDBModel.MstCity" />
+          <EntitySet Name="MstCouriers" EntityType="TPLDBModel.MstCourier" />
+          <EntitySet Name="MstStates" EntityType="TPLDBModel.MstState" />
+          <EntitySet Name="MstSubAgents" EntityType="TPLDBModel.MstSubAgent" />
+          <EntitySet Name="MstTransports" EntityType="TPLDBModel.MstTransport" />
+          <EntitySet Name="MstUsers" EntityType="TPLDBModel.MstUser" />
+          <EntitySet Name="MstUserRoles" EntityType="TPLDBModel.MstUserRole" />
+          <EntitySet Name="MstUserTypes" EntityType="TPLDBModel.MstUserType" />
+          <EntitySet Name="Parties" EntityType="TPLDBModel.Party" />
+          <EntitySet Name="References" EntityType="TPLDBModel.Reference" />
+          <EntitySet Name="Tables" EntityType="TPLDBModel.Table" />
+          <EntitySet Name="UserTypes" EntityType="TPLDBModel.UserType" />
+          <AssociationSet Name="FK_Authorization_Customer" Association="TPLDBModel.FK_Authorization_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Authorization" EntitySet="Authorizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_MstBranch" Association="TPLDBModel.FK_Customer_MstBranch">
+            <End Role="MstBranch" EntitySet="MstBranches" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_MstSubAgent" Association="TPLDBModel.FK_Customer_MstSubAgent">
+            <End Role="MstSubAgent" EntitySet="MstSubAgents" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerContactInfo_Customer" Association="TPLDBModel.FK_CustomerContactInfo_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerInfo_Customer" Association="TPLDBModel.FK_CustomerInfo_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProprietor_Customer" Association="TPLDBModel.FK_CustomerProprietor_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerProprietor" EntitySet="CustomerProprietors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSalesman_Customer" Association="TPLDBModel.FK_CustomerSalesman_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerSalesman" EntitySet="CustomerSalesmen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSisterConcern_Customer" Association="TPLDBModel.FK_CustomerSisterConcern_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcerns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAccountant_CustomerInfo" Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo">
+            <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
+            <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerContactInfo_MstCity" Association="TPLDBModel.FK_CustomerContactInfo_MstCity">
+            <End Role="MstCity" EntitySet="MstCities" />
+            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCourier_MstBranch" Association="TPLDBModel.FK_MstCourier_MstBranch">
+            <End Role="MstBranch" EntitySet="MstBranches" />
+            <End Role="MstCourier" EntitySet="MstCouriers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCity_MstState" Association="TPLDBModel.FK_MstCity_MstState">
+            <End Role="MstState" EntitySet="MstStates" />
+            <End Role="MstCity" EntitySet="MstCities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstCourier_MstCity" Association="TPLDBModel.FK_MstCourier_MstCity">
+            <End Role="MstCity" EntitySet="MstCities" />
+            <End Role="MstCourier" EntitySet="MstCouriers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstSubAgent_MstCity" Association="TPLDBModel.FK_MstSubAgent_MstCity">
+            <End Role="MstCity" EntitySet="MstCities" />
+            <End Role="MstSubAgent" EntitySet="MstSubAgents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstTransport_MstCity" Association="TPLDBModel.FK_MstTransport_MstCity">
+            <End Role="MstCity" EntitySet="MstCities" />
+            <End Role="MstTransport" EntitySet="MstTransports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstUser_MstUserRole" Association="TPLDBModel.FK_MstUser_MstUserRole">
+            <End Role="MstUserRole" EntitySet="MstUserRoles" />
+            <End Role="MstUser" EntitySet="MstUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MstUser_MstUserType" Association="TPLDBModel.FK_MstUser_MstUserType">
+            <End Role="MstUserType" EntitySet="MstUserTypes" />
+            <End Role="MstUser" EntitySet="MstUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Party_Reference" Association="TPLDBModel.FK_Party_Reference">
+            <End Role="Reference" EntitySet="References" />
+            <End Role="Party" EntitySet="Parties" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="AuthorizationId" />
           </Key>
-          <Property Name="AuthorizationId" Type="Int32" Nullable="false" />
+          <Property Name="AuthorizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkCustomerId" Type="Int32" />
           <Property Name="Director1Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Director2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -638,13 +734,13 @@
           <Property Name="MarketBoy1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MarketBoy2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MarketBoy3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Authorization_Customer" FromRole="Authorization" ToRole="Customer" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Authorization_Customer" FromRole="Authorization" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
           </Key>
-          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerACNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="fkCreatedByBranchId" Type="Int32" />
           <Property Name="CashOrCredit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -667,30 +763,30 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Authorizations" Relationship="Self.FK_Authorization_Customer" FromRole="Customer" ToRole="Authorization" />
-          <NavigationProperty Name="MstBranch" Relationship="Self.FK_Customer_MstBranch" FromRole="Customer" ToRole="MstBranch" />
-          <NavigationProperty Name="MstSubAgent" Relationship="Self.FK_Customer_MstSubAgent" FromRole="Customer" ToRole="MstSubAgent" />
-          <NavigationProperty Name="CustomerContactInfoes" Relationship="Self.FK_CustomerContactInfo_Customer" FromRole="Customer" ToRole="CustomerContactInfo" />
-          <NavigationProperty Name="CustomerInfoes" Relationship="Self.FK_CustomerInfo_Customer" FromRole="Customer" ToRole="CustomerInfo" />
-          <NavigationProperty Name="CustomerProprietors" Relationship="Self.FK_CustomerProprietor_Customer" FromRole="Customer" ToRole="CustomerProprietor" />
-          <NavigationProperty Name="CustomerSalesmen" Relationship="Self.FK_CustomerSalesman_Customer" FromRole="Customer" ToRole="CustomerSalesman" />
-          <NavigationProperty Name="CustomerSisterConcerns" Relationship="Self.FK_CustomerSisterConcern_Customer" FromRole="Customer" ToRole="CustomerSisterConcern" />
+          <NavigationProperty Name="Authorizations" Relationship="TPLDBModel.FK_Authorization_Customer" FromRole="Customer" ToRole="Authorization" />
+          <NavigationProperty Name="MstBranch" Relationship="TPLDBModel.FK_Customer_MstBranch" FromRole="Customer" ToRole="MstBranch" />
+          <NavigationProperty Name="MstSubAgent" Relationship="TPLDBModel.FK_Customer_MstSubAgent" FromRole="Customer" ToRole="MstSubAgent" />
+          <NavigationProperty Name="CustomerContactInfoes" Relationship="TPLDBModel.FK_CustomerContactInfo_Customer" FromRole="Customer" ToRole="CustomerContactInfo" />
+          <NavigationProperty Name="CustomerInfoes" Relationship="TPLDBModel.FK_CustomerInfo_Customer" FromRole="Customer" ToRole="CustomerInfo" />
+          <NavigationProperty Name="CustomerProprietors" Relationship="TPLDBModel.FK_CustomerProprietor_Customer" FromRole="Customer" ToRole="CustomerProprietor" />
+          <NavigationProperty Name="CustomerSalesmen" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="Customer" ToRole="CustomerSalesman" />
+          <NavigationProperty Name="CustomerSisterConcerns" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="Customer" ToRole="CustomerSisterConcern" />
         </EntityType>
         <EntityType Name="CustomerAccountant">
           <Key>
             <PropertyRef Name="CustomerAccountantId" />
           </Key>
-          <Property Name="CustomerAccountantId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerAccountantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkCustomerInfoId" Type="Int32" />
           <Property Name="AccountantName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CustomerInfo" Relationship="Self.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerAccountant" ToRole="CustomerInfo" />
+          <NavigationProperty Name="CustomerInfo" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerAccountant" ToRole="CustomerInfo" />
         </EntityType>
         <EntityType Name="CustomerContactInfo">
           <Key>
             <PropertyRef Name="CustomerContactInfoId" />
           </Key>
-          <Property Name="CustomerContactInfoId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerContactInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkCustomerId" Type="Int32" />
           <Property Name="fkCityId" Type="Int32" />
           <Property Name="OfficePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -704,14 +800,14 @@
           <Property Name="RemSMSCell2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="STDCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerContactInfo_Customer" FromRole="CustomerContactInfo" ToRole="Customer" />
-          <NavigationProperty Name="MstCity" Relationship="Self.FK_CustomerContactInfo_MstCity" FromRole="CustomerContactInfo" ToRole="MstCity" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerContactInfo_Customer" FromRole="CustomerContactInfo" ToRole="Customer" />
+          <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_CustomerContactInfo_MstCity" FromRole="CustomerContactInfo" ToRole="MstCity" />
         </EntityType>
         <EntityType Name="CustomerInfo">
           <Key>
             <PropertyRef Name="CustomerInfoId" />
           </Key>
-          <Property Name="CustomerInfoId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkCustomerId" Type="Int32" />
           <Property Name="Abuse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OtherAgent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -731,34 +827,34 @@
           <Property Name="Restriction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DirectDealing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerInfo_Customer" FromRole="CustomerInfo" ToRole="Customer" />
-          <NavigationProperty Name="CustomerAccountants" Relationship="Self.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerInfo" ToRole="CustomerAccountant" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerInfo_Customer" FromRole="CustomerInfo" ToRole="Customer" />
+          <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerInfo" ToRole="CustomerAccountant" />
         </EntityType>
         <EntityType Name="CustomerProprietor">
           <Key>
             <PropertyRef Name="ProprietorId" />
           </Key>
-          <Property Name="ProprietorId" Type="Int32" Nullable="false" />
+          <Property Name="ProprietorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkCustomerId" Type="Int32" />
           <Property Name="ProprietorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerProprietor_Customer" FromRole="CustomerProprietor" ToRole="Customer" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerProprietor_Customer" FromRole="CustomerProprietor" ToRole="Customer" />
         </EntityType>
         <EntityType Name="CustomerSalesman">
           <Key>
             <PropertyRef Name="SalesmanId" />
           </Key>
-          <Property Name="SalesmanId" Type="Int32" Nullable="false" />
+          <Property Name="SalesmanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkCustomerId" Type="Int32" />
           <Property Name="SalesmanName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerSalesman_Customer" FromRole="CustomerSalesman" ToRole="Customer" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="CustomerSalesman" ToRole="Customer" />
         </EntityType>
         <EntityType Name="CustomerSisterConcern">
           <Key>
             <PropertyRef Name="SisterConcernId" />
           </Key>
-          <Property Name="SisterConcernId" Type="Int32" Nullable="false" />
+          <Property Name="SisterConcernId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkCustomerId" Type="Int32" />
           <Property Name="SisterConcernDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -766,13 +862,13 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerSisterConcern_Customer" FromRole="CustomerSisterConcern" ToRole="Customer" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="CustomerSisterConcern" ToRole="Customer" />
         </EntityType>
         <EntityType Name="MstBank">
           <Key>
             <PropertyRef Name="BankId" />
           </Key>
-          <Property Name="BankId" Type="Int32" Nullable="false" />
+          <Property Name="BankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -785,21 +881,21 @@
           <Key>
             <PropertyRef Name="BranchId" />
           </Key>
-          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_MstBranch" FromRole="MstBranch" ToRole="Customer" />
-          <NavigationProperty Name="MstCouriers" Relationship="Self.FK_MstCourier_MstBranch" FromRole="MstBranch" ToRole="MstCourier" />
+          <NavigationProperty Name="Customers" Relationship="TPLDBModel.FK_Customer_MstBranch" FromRole="MstBranch" ToRole="Customer" />
+          <NavigationProperty Name="MstCouriers" Relationship="TPLDBModel.FK_MstCourier_MstBranch" FromRole="MstBranch" ToRole="MstCourier" />
         </EntityType>
         <EntityType Name="MstCity">
           <Key>
             <PropertyRef Name="CityId" />
           </Key>
-          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CityName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="fkStateId" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
@@ -807,17 +903,17 @@
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="CustomerContactInfoes" Relationship="Self.FK_CustomerContactInfo_MstCity" FromRole="MstCity" ToRole="CustomerContactInfo" />
-          <NavigationProperty Name="MstCouriers" Relationship="Self.FK_MstCourier_MstCity" FromRole="MstCity" ToRole="MstCourier" />
-          <NavigationProperty Name="MstSubAgents" Relationship="Self.FK_MstSubAgent_MstCity" FromRole="MstCity" ToRole="MstSubAgent" />
-          <NavigationProperty Name="MstTransports" Relationship="Self.FK_MstTransport_MstCity" FromRole="MstCity" ToRole="MstTransport" />
+          <NavigationProperty Name="CustomerContactInfoes" Relationship="TPLDBModel.FK_CustomerContactInfo_MstCity" FromRole="MstCity" ToRole="CustomerContactInfo" />
           <NavigationProperty Name="MstState" Relationship="TPLDBModel.FK_MstCity_MstState" FromRole="MstCity" ToRole="MstState" />
+          <NavigationProperty Name="MstCouriers" Relationship="TPLDBModel.FK_MstCourier_MstCity" FromRole="MstCity" ToRole="MstCourier" />
+          <NavigationProperty Name="MstSubAgents" Relationship="TPLDBModel.FK_MstSubAgent_MstCity" FromRole="MstCity" ToRole="MstSubAgent" />
+          <NavigationProperty Name="MstTransports" Relationship="TPLDBModel.FK_MstTransport_MstCity" FromRole="MstCity" ToRole="MstTransport" />
         </EntityType>
         <EntityType Name="MstCourier">
           <Key>
             <PropertyRef Name="CourierMasterId" />
           </Key>
-          <Property Name="CourierMasterId" Type="Int32" Nullable="false" />
+          <Property Name="CourierMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CourierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
@@ -832,14 +928,27 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="MstBranch" Relationship="Self.FK_MstCourier_MstBranch" FromRole="MstCourier" ToRole="MstBranch" />
-          <NavigationProperty Name="MstCity" Relationship="Self.FK_MstCourier_MstCity" FromRole="MstCourier" ToRole="MstCity" />
+          <NavigationProperty Name="MstBranch" Relationship="TPLDBModel.FK_MstCourier_MstBranch" FromRole="MstCourier" ToRole="MstBranch" />
+          <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstCourier_MstCity" FromRole="MstCourier" ToRole="MstCity" />
+        </EntityType>
+        <EntityType Name="MstState">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MstCities" Relationship="TPLDBModel.FK_MstCity_MstState" FromRole="MstState" ToRole="MstCity" />
         </EntityType>
         <EntityType Name="MstSubAgent">
           <Key>
             <PropertyRef Name="SubAgentId" />
           </Key>
-          <Property Name="SubAgentId" Type="Int32" Nullable="false" />
+          <Property Name="SubAgentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SubAgentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="fkCityId" Type="Int32" />
@@ -853,14 +962,14 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_MstSubAgent" FromRole="MstSubAgent" ToRole="Customer" />
-          <NavigationProperty Name="MstCity" Relationship="Self.FK_MstSubAgent_MstCity" FromRole="MstSubAgent" ToRole="MstCity" />
+          <NavigationProperty Name="Customers" Relationship="TPLDBModel.FK_Customer_MstSubAgent" FromRole="MstSubAgent" ToRole="Customer" />
+          <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstSubAgent_MstCity" FromRole="MstSubAgent" ToRole="MstCity" />
         </EntityType>
         <EntityType Name="MstTransport">
           <Key>
             <PropertyRef Name="TransportId" />
           </Key>
-          <Property Name="TransportId" Type="Int32" Nullable="false" />
+          <Property Name="TransportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TransportName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -875,13 +984,13 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="MstCity" Relationship="Self.FK_MstTransport_MstCity" FromRole="MstTransport" ToRole="MstCity" />
+          <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstTransport_MstCity" FromRole="MstTransport" ToRole="MstCity" />
         </EntityType>
         <EntityType Name="MstUser">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -891,32 +1000,32 @@
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="ContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="fkUserTypeId" Type="Int32" />
-          <NavigationProperty Name="MstUserRole" Relationship="Self.FK_MstUser_MstUserRole" FromRole="MstUser" ToRole="MstUserRole" />
-          <NavigationProperty Name="MstUserType" Relationship="Self.FK_MstUser_MstUserType" FromRole="MstUser" ToRole="MstUserType" />
+          <NavigationProperty Name="MstUserRole" Relationship="TPLDBModel.FK_MstUser_MstUserRole" FromRole="MstUser" ToRole="MstUserRole" />
+          <NavigationProperty Name="MstUserType" Relationship="TPLDBModel.FK_MstUser_MstUserType" FromRole="MstUser" ToRole="MstUserType" />
         </EntityType>
         <EntityType Name="MstUserRole">
           <Key>
             <PropertyRef Name="UserRoleId" />
           </Key>
-          <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="RoleDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MstUsers" Relationship="Self.FK_MstUser_MstUserRole" FromRole="MstUserRole" ToRole="MstUser" />
+          <NavigationProperty Name="MstUsers" Relationship="TPLDBModel.FK_MstUser_MstUserRole" FromRole="MstUserRole" ToRole="MstUser" />
         </EntityType>
         <EntityType Name="MstUserType">
           <Key>
             <PropertyRef Name="UserTypeId" />
           </Key>
-          <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MstUsers" Relationship="Self.FK_MstUser_MstUserType" FromRole="MstUserType" ToRole="MstUser" />
+          <NavigationProperty Name="MstUsers" Relationship="TPLDBModel.FK_MstUser_MstUserType" FromRole="MstUserType" ToRole="MstUser" />
         </EntityType>
         <EntityType Name="Party">
           <Key>
             <PropertyRef Name="PartyId" />
           </Key>
-          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkReferenceId" Type="Int32" />
           <Property Name="PartyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -924,35 +1033,35 @@
           <Property Name="SpokenDate" Type="DateTime" Precision="3" />
           <Property Name="SpokenBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Reference" Relationship="Self.FK_Party_Reference" FromRole="Party" ToRole="Reference" />
+          <NavigationProperty Name="Reference" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Party" ToRole="Reference" />
         </EntityType>
         <EntityType Name="Reference">
           <Key>
             <PropertyRef Name="ReferenceId" />
           </Key>
-          <Property Name="ReferenceId" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ReferenceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TourBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TourDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Parties" Relationship="Self.FK_Party_Reference" FromRole="Reference" ToRole="Party" />
+          <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Reference" ToRole="Party" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
             <PropertyRef Name="AuthorizationId" />
           </Key>
-          <Property Name="AuthorizationId" Type="Int32" Nullable="false" />
+          <Property Name="AuthorizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="UserType">
           <Key>
             <PropertyRef Name="UserTypeId" />
           </Key>
-          <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Authorization_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="Authorization" Type="Self.Authorization" Multiplicity="*" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Authorization" Role="Authorization" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
@@ -963,8 +1072,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Customer_MstBranch">
-          <End Role="MstBranch" Type="Self.MstBranch" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <End Type="TPLDBModel.MstBranch" Role="MstBranch" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MstBranch">
               <PropertyRef Name="BranchId" />
@@ -975,8 +1084,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Customer_MstSubAgent">
-          <End Role="MstSubAgent" Type="Self.MstSubAgent" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <End Type="TPLDBModel.MstSubAgent" Role="MstSubAgent" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MstSubAgent">
               <PropertyRef Name="SubAgentId" />
@@ -987,8 +1096,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerContactInfo_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="CustomerContactInfo" Type="Self.CustomerContactInfo" Multiplicity="*" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerContactInfo" Role="CustomerContactInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
@@ -999,8 +1108,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerInfo_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="*" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerInfo" Role="CustomerInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
@@ -1011,8 +1120,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerProprietor_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="CustomerProprietor" Type="Self.CustomerProprietor" Multiplicity="*" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerProprietor" Role="CustomerProprietor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
@@ -1023,8 +1132,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerSalesman_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="CustomerSalesman" Type="Self.CustomerSalesman" Multiplicity="*" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerSalesman" Role="CustomerSalesman" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
@@ -1035,8 +1144,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerSisterConcern_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="CustomerSisterConcern" Type="Self.CustomerSisterConcern" Multiplicity="*" />
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerSisterConcern" Role="CustomerSisterConcern" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
@@ -1047,8 +1156,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerAccountant_CustomerInfo">
-          <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="0..1" />
-          <End Role="CustomerAccountant" Type="Self.CustomerAccountant" Multiplicity="*" />
+          <End Type="TPLDBModel.CustomerInfo" Role="CustomerInfo" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerAccountant" Role="CustomerAccountant" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CustomerInfo">
               <PropertyRef Name="CustomerInfoId" />
@@ -1059,8 +1168,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerContactInfo_MstCity">
-          <End Role="MstCity" Type="Self.MstCity" Multiplicity="0..1" />
-          <End Role="CustomerContactInfo" Type="Self.CustomerContactInfo" Multiplicity="*" />
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerContactInfo" Role="CustomerContactInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MstCity">
               <PropertyRef Name="CityId" />
@@ -1071,8 +1180,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MstCourier_MstBranch">
-          <End Role="MstBranch" Type="Self.MstBranch" Multiplicity="0..1" />
-          <End Role="MstCourier" Type="Self.MstCourier" Multiplicity="*" />
+          <End Type="TPLDBModel.MstBranch" Role="MstBranch" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstCourier" Role="MstCourier" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MstBranch">
               <PropertyRef Name="BranchId" />
@@ -1082,187 +1191,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MstCourier_MstCity">
-          <End Role="MstCity" Type="Self.MstCity" Multiplicity="0..1" />
-          <End Role="MstCourier" Type="Self.MstCourier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MstCity">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="MstCourier">
-              <PropertyRef Name="fkCityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MstSubAgent_MstCity">
-          <End Role="MstCity" Type="Self.MstCity" Multiplicity="0..1" />
-          <End Role="MstSubAgent" Type="Self.MstSubAgent" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MstCity">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="MstSubAgent">
-              <PropertyRef Name="fkCityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MstTransport_MstCity">
-          <End Role="MstCity" Type="Self.MstCity" Multiplicity="0..1" />
-          <End Role="MstTransport" Type="Self.MstTransport" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MstCity">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="MstTransport">
-              <PropertyRef Name="fkCityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MstUser_MstUserRole">
-          <End Role="MstUserRole" Type="Self.MstUserRole" Multiplicity="0..1" />
-          <End Role="MstUser" Type="Self.MstUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MstUserRole">
-              <PropertyRef Name="UserRoleId" />
-            </Principal>
-            <Dependent Role="MstUser">
-              <PropertyRef Name="fkUserRoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MstUser_MstUserType">
-          <End Role="MstUserType" Type="Self.MstUserType" Multiplicity="0..1" />
-          <End Role="MstUser" Type="Self.MstUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MstUserType">
-              <PropertyRef Name="UserTypeId" />
-            </Principal>
-            <Dependent Role="MstUser">
-              <PropertyRef Name="fkUserTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Party_Reference">
-          <End Role="Reference" Type="Self.Reference" Multiplicity="0..1" />
-          <End Role="Party" Type="Self.Party" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reference">
-              <PropertyRef Name="ReferenceId" />
-            </Principal>
-            <Dependent Role="Party">
-              <PropertyRef Name="fkReferenceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="TPLDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Authorizations" EntityType="Self.Authorization" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="CustomerAccountants" EntityType="Self.CustomerAccountant" />
-          <EntitySet Name="CustomerContactInfoes" EntityType="Self.CustomerContactInfo" />
-          <EntitySet Name="CustomerInfoes" EntityType="Self.CustomerInfo" />
-          <EntitySet Name="CustomerProprietors" EntityType="Self.CustomerProprietor" />
-          <EntitySet Name="CustomerSalesmen" EntityType="Self.CustomerSalesman" />
-          <EntitySet Name="CustomerSisterConcerns" EntityType="Self.CustomerSisterConcern" />
-          <EntitySet Name="MstBanks" EntityType="Self.MstBank" />
-          <EntitySet Name="MstBranches" EntityType="Self.MstBranch" />
-          <EntitySet Name="MstCities" EntityType="Self.MstCity" />
-          <EntitySet Name="MstCouriers" EntityType="Self.MstCourier" />
-          <EntitySet Name="MstSubAgents" EntityType="Self.MstSubAgent" />
-          <EntitySet Name="MstTransports" EntityType="Self.MstTransport" />
-          <EntitySet Name="MstUsers" EntityType="Self.MstUser" />
-          <EntitySet Name="MstUserRoles" EntityType="Self.MstUserRole" />
-          <EntitySet Name="MstUserTypes" EntityType="Self.MstUserType" />
-          <EntitySet Name="Parties" EntityType="Self.Party" />
-          <EntitySet Name="References" EntityType="Self.Reference" />
-          <EntitySet Name="Tables" EntityType="Self.Table" />
-          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
-          <AssociationSet Name="FK_Authorization_Customer" Association="Self.FK_Authorization_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Authorization" EntitySet="Authorizations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customer_MstBranch" Association="Self.FK_Customer_MstBranch">
-            <End Role="MstBranch" EntitySet="MstBranches" />
-            <End Role="Customer" EntitySet="Customers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customer_MstSubAgent" Association="Self.FK_Customer_MstSubAgent">
-            <End Role="MstSubAgent" EntitySet="MstSubAgents" />
-            <End Role="Customer" EntitySet="Customers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerContactInfo_Customer" Association="Self.FK_CustomerContactInfo_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerInfo_Customer" Association="Self.FK_CustomerInfo_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerProprietor_Customer" Association="Self.FK_CustomerProprietor_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerProprietor" EntitySet="CustomerProprietors" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerSalesman_Customer" Association="Self.FK_CustomerSalesman_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerSalesman" EntitySet="CustomerSalesmen" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerSisterConcern_Customer" Association="Self.FK_CustomerSisterConcern_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcerns" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerAccountant_CustomerInfo" Association="Self.FK_CustomerAccountant_CustomerInfo">
-            <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
-            <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerContactInfo_MstCity" Association="Self.FK_CustomerContactInfo_MstCity">
-            <End Role="MstCity" EntitySet="MstCities" />
-            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MstCourier_MstBranch" Association="Self.FK_MstCourier_MstBranch">
-            <End Role="MstBranch" EntitySet="MstBranches" />
-            <End Role="MstCourier" EntitySet="MstCouriers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MstCourier_MstCity" Association="Self.FK_MstCourier_MstCity">
-            <End Role="MstCity" EntitySet="MstCities" />
-            <End Role="MstCourier" EntitySet="MstCouriers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MstSubAgent_MstCity" Association="Self.FK_MstSubAgent_MstCity">
-            <End Role="MstCity" EntitySet="MstCities" />
-            <End Role="MstSubAgent" EntitySet="MstSubAgents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MstTransport_MstCity" Association="Self.FK_MstTransport_MstCity">
-            <End Role="MstCity" EntitySet="MstCities" />
-            <End Role="MstTransport" EntitySet="MstTransports" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MstUser_MstUserRole" Association="Self.FK_MstUser_MstUserRole">
-            <End Role="MstUserRole" EntitySet="MstUserRoles" />
-            <End Role="MstUser" EntitySet="MstUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MstUser_MstUserType" Association="Self.FK_MstUser_MstUserType">
-            <End Role="MstUserType" EntitySet="MstUserTypes" />
-            <End Role="MstUser" EntitySet="MstUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Party_Reference" Association="Self.FK_Party_Reference">
-            <End Role="Reference" EntitySet="References" />
-            <End Role="Party" EntitySet="Parties" />
-          </AssociationSet>
-          <EntitySet Name="MstStates" EntityType="TPLDBModel.MstState" />
-          <AssociationSet Name="FK_MstCity_MstState" Association="TPLDBModel.FK_MstCity_MstState">
-            <End Role="MstState" EntitySet="MstStates" />
-            <End Role="MstCity" EntitySet="MstCities" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="MstState">
-          <Key>
-            <PropertyRef Name="StateId" />
-          </Key>
-          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="MstCities" Relationship="TPLDBModel.FK_MstCity_MstState" FromRole="MstState" ToRole="MstCity" />
-        </EntityType>
         <Association Name="FK_MstCity_MstState">
           <End Type="TPLDBModel.MstState" Role="MstState" Multiplicity="0..1" />
           <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="*" />
@@ -1275,6 +1203,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MstCourier_MstCity">
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstCourier" Role="MstCourier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstCourier">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstSubAgent_MstCity">
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstSubAgent" Role="MstSubAgent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstSubAgent">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstTransport_MstCity">
+          <End Type="TPLDBModel.MstCity" Role="MstCity" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstTransport" Role="MstTransport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="MstTransport">
+              <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstUser_MstUserRole">
+          <End Type="TPLDBModel.MstUserRole" Role="MstUserRole" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstUser" Role="MstUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstUserRole">
+              <PropertyRef Name="UserRoleId" />
+            </Principal>
+            <Dependent Role="MstUser">
+              <PropertyRef Name="fkUserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MstUser_MstUserType">
+          <End Type="TPLDBModel.MstUserType" Role="MstUserType" Multiplicity="0..1" />
+          <End Type="TPLDBModel.MstUser" Role="MstUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstUserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="MstUser">
+              <PropertyRef Name="fkUserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Party_Reference">
+          <End Type="TPLDBModel.Reference" Role="Reference" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reference">
+              <PropertyRef Name="ReferenceId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="fkReferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1284,312 +1284,197 @@
           <EntitySetMapping Name="Authorizations">
             <EntityTypeMapping TypeName="TPLDBModel.Authorization">
               <MappingFragment StoreEntitySet="Authorization">
-                <ScalarProperty Name="AuthorizationId" ColumnName="AuthorizationId" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="Director1Name" ColumnName="Director1Name" />
-                <ScalarProperty Name="Director2Name" ColumnName="Director2Name" />
-                <ScalarProperty Name="Director3Name" ColumnName="Director3Name" />
-                <ScalarProperty Name="BranchHead" ColumnName="BranchHead" />
-                <ScalarProperty Name="MBoyBranch" ColumnName="MBoyBranch" />
-                <ScalarProperty Name="MarketBoy1" ColumnName="MarketBoy1" />
-                <ScalarProperty Name="MarketBoy2" ColumnName="MarketBoy2" />
                 <ScalarProperty Name="MarketBoy3" ColumnName="MarketBoy3" />
+                <ScalarProperty Name="MarketBoy2" ColumnName="MarketBoy2" />
+                <ScalarProperty Name="MarketBoy1" ColumnName="MarketBoy1" />
+                <ScalarProperty Name="MBoyBranch" ColumnName="MBoyBranch" />
+                <ScalarProperty Name="BranchHead" ColumnName="BranchHead" />
+                <ScalarProperty Name="Director3Name" ColumnName="Director3Name" />
+                <ScalarProperty Name="Director2Name" ColumnName="Director2Name" />
+                <ScalarProperty Name="Director1Name" ColumnName="Director1Name" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="AuthorizationId" ColumnName="AuthorizationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="TPLDBModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="CustomerACNumber" ColumnName="CustomerACNumber" />
-                <ScalarProperty Name="fkCreatedByBranchId" ColumnName="fkCreatedByBranchId" />
-                <ScalarProperty Name="CashOrCredit" ColumnName="CashOrCredit" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="Alias" ColumnName="Alias" />
-                <ScalarProperty Name="TypeOfFirm" ColumnName="TypeOfFirm" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="TIN" ColumnName="TIN" />
-                <ScalarProperty Name="CSTNumber" ColumnName="CSTNumber" />
-                <ScalarProperty Name="GSTNumber" ColumnName="GSTNumber" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="LastOAC" ColumnName="LastOAC" />
-                <ScalarProperty Name="NoLRAddressPrinting" ColumnName="NoLRAddressPrinting" />
-                <ScalarProperty Name="fkSubAgentId" ColumnName="fkSubAgentId" />
-                <ScalarProperty Name="Zone" ColumnName="Zone" />
-                <ScalarProperty Name="Group" ColumnName="Group" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="fkSubAgentId" ColumnName="fkSubAgentId" />
+                <ScalarProperty Name="NoLRAddressPrinting" ColumnName="NoLRAddressPrinting" />
+                <ScalarProperty Name="LastOAC" ColumnName="LastOAC" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="GSTNumber" ColumnName="GSTNumber" />
+                <ScalarProperty Name="CSTNumber" ColumnName="CSTNumber" />
+                <ScalarProperty Name="TIN" ColumnName="TIN" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="TypeOfFirm" ColumnName="TypeOfFirm" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CashOrCredit" ColumnName="CashOrCredit" />
+                <ScalarProperty Name="fkCreatedByBranchId" ColumnName="fkCreatedByBranchId" />
+                <ScalarProperty Name="CustomerACNumber" ColumnName="CustomerACNumber" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerAccountants">
             <EntityTypeMapping TypeName="TPLDBModel.CustomerAccountant">
               <MappingFragment StoreEntitySet="CustomerAccountant">
-                <ScalarProperty Name="CustomerAccountantId" ColumnName="CustomerAccountantId" />
-                <ScalarProperty Name="fkCustomerInfoId" ColumnName="fkCustomerInfoId" />
-                <ScalarProperty Name="AccountantName" ColumnName="AccountantName" />
                 <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="AccountantName" ColumnName="AccountantName" />
+                <ScalarProperty Name="fkCustomerInfoId" ColumnName="fkCustomerInfoId" />
+                <ScalarProperty Name="CustomerAccountantId" ColumnName="CustomerAccountantId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerContactInfoes">
             <EntityTypeMapping TypeName="TPLDBModel.CustomerContactInfo">
               <MappingFragment StoreEntitySet="CustomerContactInfo">
-                <ScalarProperty Name="CustomerContactInfoId" ColumnName="CustomerContactInfoId" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
-                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="SMSName" ColumnName="SMSName" />
-                <ScalarProperty Name="SMSCellNumber" ColumnName="SMSCellNumber" />
-                <ScalarProperty Name="RemContactPerson" ColumnName="RemContactPerson" />
-                <ScalarProperty Name="RemContactPhone" ColumnName="RemContactPhone" />
-                <ScalarProperty Name="RemSMSCell1" ColumnName="RemSMSCell1" />
-                <ScalarProperty Name="RemSMSCell2" ColumnName="RemSMSCell2" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="STDCode" ColumnName="STDCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RemSMSCell2" ColumnName="RemSMSCell2" />
+                <ScalarProperty Name="RemSMSCell1" ColumnName="RemSMSCell1" />
+                <ScalarProperty Name="RemContactPhone" ColumnName="RemContactPhone" />
+                <ScalarProperty Name="RemContactPerson" ColumnName="RemContactPerson" />
+                <ScalarProperty Name="SMSCellNumber" ColumnName="SMSCellNumber" />
+                <ScalarProperty Name="SMSName" ColumnName="SMSName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="CustomerContactInfoId" ColumnName="CustomerContactInfoId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerInfoes">
             <EntityTypeMapping TypeName="TPLDBModel.CustomerInfo">
               <MappingFragment StoreEntitySet="CustomerInfo">
-                <ScalarProperty Name="CustomerInfoId" ColumnName="CustomerInfoId" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="Abuse" ColumnName="Abuse" />
-                <ScalarProperty Name="OtherAgent" ColumnName="OtherAgent" />
-                <ScalarProperty Name="MBoy1" ColumnName="MBoy1" />
-                <ScalarProperty Name="MBoy2" ColumnName="MBoy2" />
-                <ScalarProperty Name="MBoy3" ColumnName="MBoy3" />
-                <ScalarProperty Name="WorkNature" ColumnName="WorkNature" />
-                <ScalarProperty Name="VisitFrequency" ColumnName="VisitFrequency" />
-                <ScalarProperty Name="AdmitType" ColumnName="AdmitType" />
-                <ScalarProperty Name="RapportType" ColumnName="RapportType" />
-                <ScalarProperty Name="DealingType" ColumnName="DealingType" />
-                <ScalarProperty Name="PaymentHabbit" ColumnName="PaymentHabbit" />
-                <ScalarProperty Name="GRHabbit" ColumnName="GRHabbit" />
-                <ScalarProperty Name="TransportReference" ColumnName="TransportReference" />
-                <ScalarProperty Name="Hotel" ColumnName="Hotel" />
-                <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
-                <ScalarProperty Name="Restriction" ColumnName="Restriction" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
                 <ScalarProperty Name="DirectDealing" ColumnName="DirectDealing" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Restriction" ColumnName="Restriction" />
+                <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+                <ScalarProperty Name="Hotel" ColumnName="Hotel" />
+                <ScalarProperty Name="TransportReference" ColumnName="TransportReference" />
+                <ScalarProperty Name="GRHabbit" ColumnName="GRHabbit" />
+                <ScalarProperty Name="PaymentHabbit" ColumnName="PaymentHabbit" />
+                <ScalarProperty Name="DealingType" ColumnName="DealingType" />
+                <ScalarProperty Name="RapportType" ColumnName="RapportType" />
+                <ScalarProperty Name="AdmitType" ColumnName="AdmitType" />
+                <ScalarProperty Name="VisitFrequency" ColumnName="VisitFrequency" />
+                <ScalarProperty Name="WorkNature" ColumnName="WorkNature" />
+                <ScalarProperty Name="MBoy3" ColumnName="MBoy3" />
+                <ScalarProperty Name="MBoy2" ColumnName="MBoy2" />
+                <ScalarProperty Name="MBoy1" ColumnName="MBoy1" />
+                <ScalarProperty Name="OtherAgent" ColumnName="OtherAgent" />
+                <ScalarProperty Name="Abuse" ColumnName="Abuse" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="CustomerInfoId" ColumnName="CustomerInfoId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerProprietors">
             <EntityTypeMapping TypeName="TPLDBModel.CustomerProprietor">
               <MappingFragment StoreEntitySet="CustomerProprietor">
-                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="ProprietorName" ColumnName="ProprietorName" />
                 <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="ProprietorName" ColumnName="ProprietorName" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerSalesmen">
             <EntityTypeMapping TypeName="TPLDBModel.CustomerSalesman">
               <MappingFragment StoreEntitySet="CustomerSalesman">
-                <ScalarProperty Name="SalesmanId" ColumnName="SalesmanId" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="SalesmanName" ColumnName="SalesmanName" />
                 <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="SalesmanName" ColumnName="SalesmanName" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="SalesmanId" ColumnName="SalesmanId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerSisterConcerns">
             <EntityTypeMapping TypeName="TPLDBModel.CustomerSisterConcern">
               <MappingFragment StoreEntitySet="CustomerSisterConcern">
-                <ScalarProperty Name="SisterConcernId" ColumnName="SisterConcernId" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="SisterConcernDescription" ColumnName="SisterConcernDescription" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SisterConcernDescription" ColumnName="SisterConcernDescription" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="SisterConcernId" ColumnName="SisterConcernId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MstBanks">
             <EntityTypeMapping TypeName="TPLDBModel.MstBank">
               <MappingFragment StoreEntitySet="MstBank">
-                <ScalarProperty Name="BankId" ColumnName="BankId" />
-                <ScalarProperty Name="BankName" ColumnName="BankName" />
-                <ScalarProperty Name="BankCode" ColumnName="BankCode" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MstBranches">
             <EntityTypeMapping TypeName="TPLDBModel.MstBranch">
               <MappingFragment StoreEntitySet="MstBranch">
-                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
-                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MstCities">
             <EntityTypeMapping TypeName="TPLDBModel.MstCity">
               <MappingFragment StoreEntitySet="MstCity">
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="CityName" ColumnName="CityName" />
-                <ScalarProperty Name="fkStateId" ColumnName="fkStateId" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="fkStateId" ColumnName="fkStateId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MstCouriers">
             <EntityTypeMapping TypeName="TPLDBModel.MstCourier">
               <MappingFragment StoreEntitySet="MstCourier">
-                <ScalarProperty Name="CourierMasterId" ColumnName="CourierMasterId" />
-                <ScalarProperty Name="CourierName" ColumnName="CourierName" />
-                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="fkBranchId" ColumnName="fkBranchId" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
-                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MstSubAgents">
-            <EntityTypeMapping TypeName="TPLDBModel.MstSubAgent">
-              <MappingFragment StoreEntitySet="MstSubAgent">
-                <ScalarProperty Name="SubAgentId" ColumnName="SubAgentId" />
-                <ScalarProperty Name="SubAgentName" ColumnName="SubAgentName" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
-                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="ResPhone" ColumnName="ResPhone" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MstTransports">
-            <EntityTypeMapping TypeName="TPLDBModel.MstTransport">
-              <MappingFragment StoreEntitySet="MstTransport">
-                <ScalarProperty Name="TransportId" ColumnName="TransportId" />
-                <ScalarProperty Name="TransportName" ColumnName="TransportName" />
-                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
-                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="ResPhone" ColumnName="ResPhone" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MstUsers">
-            <EntityTypeMapping TypeName="TPLDBModel.MstUser">
-              <MappingFragment StoreEntitySet="MstUser">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
-                <ScalarProperty Name="fkUserRoleId" ColumnName="fkUserRoleId" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-                <ScalarProperty Name="fkUserTypeId" ColumnName="fkUserTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MstUserRoles">
-            <EntityTypeMapping TypeName="TPLDBModel.MstUserRole">
-              <MappingFragment StoreEntitySet="MstUserRole">
-                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MstUserTypes">
-            <EntityTypeMapping TypeName="TPLDBModel.MstUserType">
-              <MappingFragment StoreEntitySet="MstUserType">
-                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
-                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
-                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Parties">
-            <EntityTypeMapping TypeName="TPLDBModel.Party">
-              <MappingFragment StoreEntitySet="Party">
-                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
-                <ScalarProperty Name="fkReferenceId" ColumnName="fkReferenceId" />
-                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
-                <ScalarProperty Name="Nature" ColumnName="Nature" />
-                <ScalarProperty Name="SpokenTo" ColumnName="SpokenTo" />
-                <ScalarProperty Name="SpokenDate" ColumnName="SpokenDate" />
-                <ScalarProperty Name="SpokenBy" ColumnName="SpokenBy" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="References">
-            <EntityTypeMapping TypeName="TPLDBModel.Reference">
-              <MappingFragment StoreEntitySet="Reference">
-                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
-                <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />
-                <ScalarProperty Name="TourBy" ColumnName="TourBy" />
-                <ScalarProperty Name="TourDate" ColumnName="TourDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tables">
-            <EntityTypeMapping TypeName="TPLDBModel.Table">
-              <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="AuthorizationId" ColumnName="AuthorizationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserTypes">
-            <EntityTypeMapping TypeName="TPLDBModel.UserType">
-              <MappingFragment StoreEntitySet="UserType">
-                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
-                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
-                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="CourierName" ColumnName="CourierName" />
+                <ScalarProperty Name="CourierMasterId" ColumnName="CourierMasterId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1603,6 +1488,121 @@
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstSubAgents">
+            <EntityTypeMapping TypeName="TPLDBModel.MstSubAgent">
+              <MappingFragment StoreEntitySet="MstSubAgent">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="ResPhone" ColumnName="ResPhone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SubAgentName" ColumnName="SubAgentName" />
+                <ScalarProperty Name="SubAgentId" ColumnName="SubAgentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstTransports">
+            <EntityTypeMapping TypeName="TPLDBModel.MstTransport">
+              <MappingFragment StoreEntitySet="MstTransport">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="ResPhone" ColumnName="ResPhone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="fkCityId" ColumnName="fkCityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="TransportName" ColumnName="TransportName" />
+                <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstUsers">
+            <EntityTypeMapping TypeName="TPLDBModel.MstUser">
+              <MappingFragment StoreEntitySet="MstUser">
+                <ScalarProperty Name="fkUserTypeId" ColumnName="fkUserTypeId" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="fkUserRoleId" ColumnName="fkUserRoleId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstUserRoles">
+            <EntityTypeMapping TypeName="TPLDBModel.MstUserRole">
+              <MappingFragment StoreEntitySet="MstUserRole">
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MstUserTypes">
+            <EntityTypeMapping TypeName="TPLDBModel.MstUserType">
+              <MappingFragment StoreEntitySet="MstUserType">
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parties">
+            <EntityTypeMapping TypeName="TPLDBModel.Party">
+              <MappingFragment StoreEntitySet="Party">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SpokenBy" ColumnName="SpokenBy" />
+                <ScalarProperty Name="SpokenDate" ColumnName="SpokenDate" />
+                <ScalarProperty Name="SpokenTo" ColumnName="SpokenTo" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="fkReferenceId" ColumnName="fkReferenceId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="References">
+            <EntityTypeMapping TypeName="TPLDBModel.Reference">
+              <MappingFragment StoreEntitySet="Reference">
+                <ScalarProperty Name="TourDate" ColumnName="TourDate" />
+                <ScalarProperty Name="TourBy" ColumnName="TourBy" />
+                <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />
+                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="TPLDBModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="AuthorizationId" ColumnName="AuthorizationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="TPLDBModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

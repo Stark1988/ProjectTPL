@@ -37,6 +37,7 @@ namespace RT.DL
         public virtual DbSet<MstBranch> MstBranches { get; set; }
         public virtual DbSet<MstCity> MstCities { get; set; }
         public virtual DbSet<MstCourier> MstCouriers { get; set; }
+        public virtual DbSet<MstState> MstStates { get; set; }
         public virtual DbSet<MstSubAgent> MstSubAgents { get; set; }
         public virtual DbSet<MstTransport> MstTransports { get; set; }
         public virtual DbSet<MstUser> MstUsers { get; set; }
@@ -46,6 +47,5 @@ namespace RT.DL
         public virtual DbSet<Reference> References { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
-        public virtual DbSet<MstState> MstStates { get; set; }
     }
 }
