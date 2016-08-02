@@ -16,32 +16,14 @@ namespace raghani_tradelinks
         {
             InitializeComponent();
         }
+        int ID = 0;
 
         private void FrmNewState_FormClosing(object sender, FormClosingEventArgs e)
         {
             MainForm _parentForm = this.ParentForm as MainForm;
             _parentForm.BringContainerFront();
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtStateName.Text.Trim() == "")
-                {
-                    MessageBox.Show("Please enter state name");
-                    txtStateName.Focus();
-                }
-                else
-                {
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+                
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -49,19 +31,104 @@ namespace raghani_tradelinks
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (dxValidationProvider1.Validate())
+            try
             {
-                MstStateMgt state = new MstStateMgt();
-                if (state.InsertState(txtStateName.Text) > 0)
-                    MessageBox.Show("State added successfully.");
-                else
-                    MessageBox.Show("Error in adding State.");
+                if (dxValidationProvider1.Validate())
+                {
+                    MstStateMgt state = new MstStateMgt();
+                    if (state.InsertState(txtStateName.Text) > 0)
+                        MessageBox.Show("State inserted successfully.");
+                    else
+                        MessageBox.Show("Error in adding State.");
+
+                    DisplayData();
+                    ClearData();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }            
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            dxValidationProvider1.Validate();
+            try
+            {
+                if (dxValidationProvider1.Validate())
+                {
+                    MstStateMgt state = new MstStateMgt();
+                    if (state.UpdateState(ID, txtStateName.Text) > 0)
+                        MessageBox.Show("State updated successfully.");
+                    else
+                        MessageBox.Show("Error in adding State.");
+
+                    DisplayData();
+                    ClearData();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }            
+        }
+
+        private void DisplayData()
+        {
+            try
+            {
+                MstStateMgt state = new MstStateMgt();
+                grdState.DataSource = state.SelectData();
+                grdState.Columns[0].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }            
+        }
+
+        private void ClearData()
+        {
+            ID = 0;
+            txtStateName.Text = "";
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MstStateMgt state = new MstStateMgt();
+                if (state.DeleteState(ID) > 0)
+                    MessageBox.Show("State deleted successfully.");
+                else
+                    MessageBox.Show("Error in adding State.");
+
+                DisplayData();
+                ClearData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }            
+        }
+
+        private void FrmNewState_Load(object sender, EventArgs e)
+        {
+            DisplayData();
+        }
+
+        private void grdState_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                ID = Convert.ToInt32(grdState.Rows[e.RowIndex].Cells[0].Value.ToString());
+                txtStateName.Text = grdState.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
@@ -50,14 +50,14 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.EditValue = "";
+            this.txtUsername.EditValue = "admin";
             this.txtUsername.Location = new System.Drawing.Point(173, 14);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(173, 20);
             this.txtUsername.TabIndex = 0;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Username is required.";
-            this.dxValidationUsername.SetValidationRule(this.txtUsername, conditionValidationRule3);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Username is required.";
+            this.dxValidationUsername.SetValidationRule(this.txtUsername, conditionValidationRule1);
             // 
             // pictureEdit1
             // 
@@ -70,15 +70,15 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.EditValue = "";
+            this.txtPassword.EditValue = "admin";
             this.txtPassword.Location = new System.Drawing.Point(173, 70);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(173, 20);
             this.txtPassword.TabIndex = 2;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Password is required.";
-            this.dxValidationUsername.SetValidationRule(this.txtPassword, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Password is required.";
+            this.dxValidationUsername.SetValidationRule(this.txtPassword, conditionValidationRule2);
             // 
             // labelControl1
             // 
