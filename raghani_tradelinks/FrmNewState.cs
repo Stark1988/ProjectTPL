@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using RT.BL;
 
 namespace raghani_tradelinks
 {
@@ -48,7 +49,14 @@ namespace raghani_tradelinks
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            dxValidationProvider1.Validate();
+            if (dxValidationProvider1.Validate())
+            {
+                MstStateMgt state = new MstStateMgt();
+                if (state.InsertState(txtStateName.Text) > 0)
+                    MessageBox.Show("State added successfully.");
+                else
+                    MessageBox.Show("Error in adding State.");
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

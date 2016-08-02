@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c07dabbee72484287da29bf8b5342e6" Name="Diagram1">
+        <EntityTypeShape EntityType="TPLDBModel.Authorization" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.Customer" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerAccountant" Width="1.5" PointX="7.5" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerContactInfo" Width="1.5" PointX="8.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerInfo" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerProprietor" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerSalesman" Width="1.5" PointX="5.25" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerSisterConcern" Width="1.5" PointX="5.25" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstBank" Width="1.5" PointX="5.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstBranch" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstCity" Width="1.5" PointX="1.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstCourier" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstSubAgent" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstTransport" Width="1.5" PointX="3.75" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstUser" Width="1.5" PointX="7" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstUserRole" Width="1.5" PointX="3.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.MstUserType" Width="1.5" PointX="3.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.Party" Width="1.5" PointX="10" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.Reference" Width="1.5" PointX="7.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.Table" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPLDBModel.UserType" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="TPLDBModel.FK_Authorization_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_Customer_MstBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_Customer_MstSubAgent" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerContactInfo_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerInfo_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerProprietor_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerSalesman_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerSisterConcern_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerContactInfo_MstCity" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_MstCourier_MstBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_MstCourier_MstCity" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_MstSubAgent_MstCity" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_MstTransport_MstCity" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_MstUser_MstUserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_MstUser_MstUserType" ManuallyRouted="false" />
+        <AssociationConnector Association="TPLDBModel.FK_Party_Reference" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TPLDBModel.MstState" Width="1.5" PointX="0.625" PointY="0.5" />
+        <AssociationConnector Association="TPLDBModel.FK_MstCity_MstState" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
