@@ -132,7 +132,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 25);
             this.btnAdd.TabIndex = 26;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Insert";
             // 
             // btnCancel
             // 
@@ -151,7 +151,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 25);
             this.btnEdit.TabIndex = 24;
-            this.btnEdit.Text = "Edit";
+            this.btnEdit.Text = "Update";
             // 
             // lblStateName
             // 
