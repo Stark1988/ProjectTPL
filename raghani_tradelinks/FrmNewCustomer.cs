@@ -45,12 +45,9 @@ namespace raghani_tradelinks
         {
             try
             {
-                string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/branch_list.json"));
-                List<Branch> _branchList = JsonConvert.DeserializeObject<List<Branch>>(result);
-                cmbACCreatedByBranch.Properties.ValueMember = "Name";
-                cmbACCreatedByBranch.Properties.DisplayMember = "Name";
-                cmbACCreatedByBranch.Properties.DataSource = _branchList;
+                BindDrpListData();
 
+                #region Old
                 //BindingList<string> list = new BindingList<string>();
                 //list.AllowNew = true;
                 //gridControl1.DataSource = list;
@@ -70,6 +67,8 @@ namespace raghani_tradelinks
                 //    Value = "Sat"
                 //}
                 //);
+                #endregion
+
                 gridControl1.DataSource = GetSisterConcernDataSource();
                 RepositoryItemImageComboBox ritem = new RepositoryItemImageComboBox();
                 gridControl1.RepositoryItems.Add(ritem);
@@ -88,8 +87,36 @@ namespace raghani_tradelinks
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                HandleException(ex);
             }
+        }
+
+        void HandleException(Exception ex)
+        {
+            MessageBox.Show(ex.ToString());
+        }
+
+        void BindDrpListData()
+        {
+            try
+            {
+                string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/branch_list.json"));
+                List<Branch> _branchList = JsonConvert.DeserializeObject<List<Branch>>(result);
+                cmbACCreatedByBranch.Properties.ValueMember = "Name";
+                cmbACCreatedByBranch.Properties.DisplayMember = "Name";
+                cmbACCreatedByBranch.Properties.DataSource = _branchList;
+
+                result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_dealing_type.json.json"));
+                var _dealingList = JsonConvert.DeserializeObject<List<Branch>>(result);
+                cmbDelingType.Properties.Items.AddRange(_dealingList);
+                //cmbACCreatedByBranch.Properties.DisplayMember = "Name";
+                cmbACCreatedByBranch.Properties.DataSource = _dealingList;
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+
         }
 
         DataTable GetSisterConcernDataSource()

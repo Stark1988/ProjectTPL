@@ -462,7 +462,15 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="JsonFiles\cust_dealing_type.json" />
+    <None Include="JsonFiles\cust_firm_type_list.json" />
     <None Include="JsonFiles\cust_group_list.json" />
+    <None Include="JsonFiles\cust_gr_habbit.json" />
+    <None Include="JsonFiles\cust_priority_list.json" />
+    <None Include="JsonFiles\cust_ref_type.json" />
+    <None Include="JsonFiles\cust_status.json" />
+    <None Include="JsonFiles\cust_visit_freq.json" />
+    <None Include="JsonFiles\cust_zone_list.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
