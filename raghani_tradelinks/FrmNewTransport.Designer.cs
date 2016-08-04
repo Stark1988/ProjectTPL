@@ -29,18 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblCity = new DevExpress.XtraEditors.LabelControl();
-            this.txtCity = new DevExpress.XtraEditors.TextEdit();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.lblAddress = new DevExpress.XtraEditors.LabelControl();
             this.txtTransportName = new DevExpress.XtraEditors.TextEdit();
@@ -65,9 +64,9 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             this.grdTransport = new System.Windows.Forms.DataGridView();
+            this.cmbCity = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTransportName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
@@ -79,10 +78,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtResPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCity.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.cmbCity);
             this.panelControl1.Controls.Add(this.grdTransport);
             this.panelControl1.Controls.Add(this.memoEdit2);
             this.panelControl1.Controls.Add(this.labelControl7);
@@ -99,7 +100,6 @@
             this.panelControl1.Controls.Add(this.txtPin);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.lblCity);
-            this.panelControl1.Controls.Add(this.txtCity);
             this.panelControl1.Controls.Add(this.memoEdit1);
             this.panelControl1.Controls.Add(this.lblAddress);
             this.panelControl1.Controls.Add(this.txtTransportName);
@@ -130,17 +130,6 @@
             this.lblCity.Size = new System.Drawing.Size(19, 13);
             this.lblCity.TabIndex = 32;
             this.lblCity.Text = "City";
-            // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(112, 106);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Properties.MaxLength = 100;
-            this.txtCity.Size = new System.Drawing.Size(130, 20);
-            this.txtCity.TabIndex = 2;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "State Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtCity, conditionValidationRule7);
             // 
             // memoEdit1
             // 
@@ -234,9 +223,9 @@
             this.txtPin.Properties.MaxLength = 100;
             this.txtPin.Size = new System.Drawing.Size(130, 20);
             this.txtPin.TabIndex = 3;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "State Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtPin, conditionValidationRule6);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule7.ErrorText = "State Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtPin, conditionValidationRule7);
             // 
             // labelControl2
             // 
@@ -254,9 +243,9 @@
             this.txtOfficePhone.Properties.MaxLength = 100;
             this.txtOfficePhone.Size = new System.Drawing.Size(130, 20);
             this.txtOfficePhone.TabIndex = 4;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "State Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtOfficePhone, conditionValidationRule5);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "State Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtOfficePhone, conditionValidationRule6);
             // 
             // labelControl3
             // 
@@ -283,9 +272,9 @@
             this.txtMobile.Properties.MaxLength = 100;
             this.txtMobile.Size = new System.Drawing.Size(130, 20);
             this.txtMobile.TabIndex = 6;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "State Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtMobile, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "State Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtMobile, conditionValidationRule4);
             // 
             // labelControl5
             // 
@@ -303,9 +292,9 @@
             this.txtFax.Properties.MaxLength = 100;
             this.txtFax.Size = new System.Drawing.Size(130, 20);
             this.txtFax.TabIndex = 8;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "State Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtFax, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "State Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtFax, conditionValidationRule3);
             // 
             // txtContactPerson
             // 
@@ -314,9 +303,9 @@
             this.txtContactPerson.Properties.MaxLength = 100;
             this.txtContactPerson.Size = new System.Drawing.Size(356, 20);
             this.txtContactPerson.TabIndex = 9;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "State Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtContactPerson, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "State Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtContactPerson, conditionValidationRule2);
             // 
             // labelControl6
             // 
@@ -334,9 +323,9 @@
             this.txtResPhone.Properties.MaxLength = 100;
             this.txtResPhone.Size = new System.Drawing.Size(130, 20);
             this.txtResPhone.TabIndex = 5;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "State Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtResPhone, conditionValidationRule4);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "State Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtResPhone, conditionValidationRule5);
             // 
             // labelControl7
             // 
@@ -366,6 +355,19 @@
             this.grdTransport.Size = new System.Drawing.Size(709, 245);
             this.grdTransport.TabIndex = 48;
             // 
+            // cmbCity
+            // 
+            this.cmbCity.Location = new System.Drawing.Point(112, 106);
+            this.cmbCity.Name = "cmbCity";
+            this.cmbCity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCity.Size = new System.Drawing.Size(130, 20);
+            this.cmbCity.TabIndex = 2;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = "Please select State.";
+            conditionValidationRule1.Value1 = "0";
+            this.dxValidationProvider1.SetValidationRule(this.cmbCity, conditionValidationRule1);
+            // 
             // FrmNewTransport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,7 +380,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTransportName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
@@ -390,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtResPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCity.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -408,7 +410,6 @@
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.LabelControl lblAddress;
         private DevExpress.XtraEditors.LabelControl lblCity;
-        private DevExpress.XtraEditors.TextEdit txtCity;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.MemoEdit memoEdit2;
         private DevExpress.XtraEditors.LabelControl labelControl7;
@@ -424,5 +425,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtPin;
         private System.Windows.Forms.DataGridView grdTransport;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbCity;
     }
 }
