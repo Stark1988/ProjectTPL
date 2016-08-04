@@ -118,7 +118,7 @@
             this.txtPinCode.Location = new System.Drawing.Point(78, 75);
             this.txtPinCode.Name = "txtPinCode";
             this.txtPinCode.Properties.MaxLength = 8;
-            this.txtPinCode.Size = new System.Drawing.Size(102, 20);
+            this.txtPinCode.Size = new System.Drawing.Size(178, 20);
             this.txtPinCode.TabIndex = 33;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "STD Code can not be blank";
