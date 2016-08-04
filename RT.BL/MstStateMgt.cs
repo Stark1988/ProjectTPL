@@ -44,7 +44,8 @@ namespace RT.BL
         {
             MstState state = db.MstStates.Find(Id);
             state.StateName = Name;
-
+            state.UpdatedBy = "admin";
+            state.UpdatedDate = DateTime.Now;
             return db.SaveChanges();
         }
 
@@ -52,7 +53,8 @@ namespace RT.BL
         {
             MstState state = db.MstStates.Find(Id);
             state.IsDeleted = true;
-
+            state.UpdatedBy = "admin";
+            state.UpdatedDate = DateTime.Now;
             return db.SaveChanges();
         }
     }
@@ -65,5 +67,10 @@ namespace RT.BL
         public DateTime? CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

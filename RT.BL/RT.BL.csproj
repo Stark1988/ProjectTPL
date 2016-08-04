@@ -47,7 +47,10 @@
   <ItemGroup>
     <Compile Include="LoginMgmt.cs" />
     <Compile Include="MstBankMgmt.cs" />
+    <Compile Include="MstCityMgmt.cs" />
+    <Compile Include="MstCourierMgmt.cs" />
     <Compile Include="MstStateMgt.cs" />
+    <Compile Include="MstTransportMgmt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

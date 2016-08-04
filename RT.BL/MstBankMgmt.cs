@@ -44,7 +44,8 @@ namespace RT.BL
         {
             MstBank bank = db.MstBanks.Find(Id);
             bank.BankName = Name;
-
+            bank.UpdatedBy = "admin";
+            bank.UpdatedDate = DateTime.Now;
             return db.SaveChanges();
         }
 
@@ -52,7 +53,8 @@ namespace RT.BL
         {
             MstBank bank = db.MstBanks.Find(Id);
             bank.IsDeleted = true;
-
+            bank.UpdatedBy = "admin";
+            bank.UpdatedDate = DateTime.Now;
             return db.SaveChanges();
         }
     }

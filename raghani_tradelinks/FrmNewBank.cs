@@ -97,14 +97,18 @@ namespace raghani_tradelinks
         {
             try
             {
-                MstBankMgmt bank = new MstBankMgmt();
-                if (bank.DeleteBank(ID) > 0)
-                    MessageBox.Show("Bank deleted successfully.");
-                else
-                    MessageBox.Show("Error while deleting Bank.");
+                DialogResult confirm = MessageBox.Show("Confirm Delete: " + txtBankName.Text + "?", "Confirm", MessageBoxButtons.OKCancel);
+                if (confirm == DialogResult.OK)
+                {
+                    MstBankMgmt bank = new MstBankMgmt();
+                    if (bank.DeleteBank(ID) > 0)
+                        MessageBox.Show("Bank deleted successfully.");
+                    else
+                        MessageBox.Show("Error while deleting Bank.");
 
-                DisplayData();
-                ClearData();
+                    DisplayData();
+                    ClearData();
+                }
             }
             catch (Exception ex)
             {

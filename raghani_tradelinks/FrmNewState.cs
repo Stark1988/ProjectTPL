@@ -90,21 +90,25 @@ namespace raghani_tradelinks
         private void ClearData()
         {
             ID = 0;
-            txtStateName.Text = "";
+            txtStateName.Text = string.Empty;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                MstStateMgt state = new MstStateMgt();
-                if (state.DeleteState(ID) > 0)
-                    MessageBox.Show("State deleted successfully.");
-                else
-                    MessageBox.Show("Error in adding State.");
+                DialogResult confirm = MessageBox.Show("Confirm Delete: " + txtStateName.Text + "?", "Confirm", MessageBoxButtons.OKCancel);
+                if (confirm == DialogResult.OK)
+                {
+                    MstStateMgt state = new MstStateMgt();
+                    if (state.DeleteState(ID) > 0)
+                        MessageBox.Show("State deleted successfully.");
+                    else
+                        MessageBox.Show("Error in adding State.");
 
-                DisplayData();
-                ClearData();
+                    DisplayData();
+                    ClearData();
+                }
             }
             catch (Exception ex)
             {

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="AuthorizationId" />
@@ -169,6 +169,7 @@
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="STDCode" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MstCourier">
           <Key>
@@ -908,6 +909,7 @@
           <NavigationProperty Name="MstCouriers" Relationship="TPLDBModel.FK_MstCourier_MstCity" FromRole="MstCity" ToRole="MstCourier" />
           <NavigationProperty Name="MstSubAgents" Relationship="TPLDBModel.FK_MstSubAgent_MstCity" FromRole="MstCity" ToRole="MstSubAgent" />
           <NavigationProperty Name="MstTransports" Relationship="TPLDBModel.FK_MstTransport_MstCity" FromRole="MstCity" ToRole="MstTransport" />
+          <Property Name="STDCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstCourier">
           <Key>
@@ -1446,6 +1448,7 @@
           <EntitySetMapping Name="MstCities">
             <EntityTypeMapping TypeName="TPLDBModel.MstCity">
               <MappingFragment StoreEntitySet="MstCity">
+                <ScalarProperty Name="STDCode" ColumnName="STDCode" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
