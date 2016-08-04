@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginMgmt.cs" />
     <Compile Include="MstBankMgmt.cs" />
     <Compile Include="MstStateMgt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

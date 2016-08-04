@@ -27,8 +27,14 @@ namespace raghani_tradelinks
         {
             if (dxValidationUsername.Validate())
             {
-                if (txtUsername.Text == "admin" && txtPassword.Text == "admin")
+                LoginMgmt login = new LoginMgmt();
+                UserData userData = login.FetchUserData(txtUsername.Text, txtPassword.Text);
+                if (userData != null)
                 {
+                    User.UserId = userData.UserId;
+                    User.UserName = userData.UserName;
+                    User.UserType = userData.UserType;
+
                     MainForm main = new MainForm();
                     this.Hide();
                     main.Show();

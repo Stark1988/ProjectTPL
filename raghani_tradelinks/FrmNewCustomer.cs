@@ -45,7 +45,7 @@ namespace raghani_tradelinks
         {
             try
             {
-                string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "branch_list.json"));
+                string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/branch_list.json"));
                 List<Branch> _branchList = JsonConvert.DeserializeObject<List<Branch>>(result);
                 cmbACCreatedByBranch.Properties.ValueMember = "Name";
                 cmbACCreatedByBranch.Properties.DisplayMember = "Name";
@@ -88,6 +88,7 @@ namespace raghani_tradelinks
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
             }
         }
 

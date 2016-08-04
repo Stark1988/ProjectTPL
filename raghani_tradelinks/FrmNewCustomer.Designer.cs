@@ -1044,13 +1044,15 @@
             // 
             // cmbGroup
             // 
+            this.cmbGroup.EditValue = "Select";
             this.cmbGroup.Location = new System.Drawing.Point(181, 290);
             this.cmbGroup.Name = "cmbGroup";
             this.cmbGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbGroup.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            "Select",
+            "Current",
+            "Reject"});
             this.cmbGroup.Size = new System.Drawing.Size(198, 20);
             this.cmbGroup.TabIndex = 212;
             // 

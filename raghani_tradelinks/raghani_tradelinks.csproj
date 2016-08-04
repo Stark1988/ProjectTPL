@@ -462,6 +462,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="JsonFiles\cust_group_list.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -499,7 +500,7 @@
     <None Include="Resources\botask_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="branch_list.json">
+    <None Include="JsonFiles\branch_list.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\wizard_32x32.png" />
@@ -587,6 +588,7 @@
       <Name>RT.BL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
