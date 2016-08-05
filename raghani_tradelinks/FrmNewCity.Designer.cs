@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.lblCityName = new DevExpress.XtraEditors.LabelControl();
             this.lblSTDCode = new DevExpress.XtraEditors.LabelControl();
             this.lblState = new DevExpress.XtraEditors.LabelControl();
@@ -44,18 +41,16 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.cmbState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.dxValidationProvider2 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.cmbState = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPinCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCityName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCityName
@@ -84,6 +79,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.cmbState);
             this.panelControl1.Controls.Add(this.grdCity);
             this.panelControl1.Controls.Add(this.txtPinCode);
             this.panelControl1.Controls.Add(this.txtCityName);
@@ -92,7 +88,6 @@
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Controls.Add(this.btnEdit);
             this.panelControl1.Controls.Add(this.lblState);
-            this.panelControl1.Controls.Add(this.cmbState);
             this.panelControl1.Controls.Add(this.lblCityName);
             this.panelControl1.Controls.Add(this.lblSTDCode);
             this.panelControl1.Location = new System.Drawing.Point(12, 41);
@@ -121,11 +116,8 @@
             this.txtPinCode.Size = new System.Drawing.Size(178, 20);
             this.txtPinCode.TabIndex = 33;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "STD Code can not be blank";
-            this.dxValidationProvider2.SetValidationRule(this.txtPinCode, conditionValidationRule1);
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Pincode can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtPinCode, conditionValidationRule2);
+            conditionValidationRule1.ErrorText = "Pincode can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtPinCode, conditionValidationRule1);
             // 
             // txtCityName
             // 
@@ -134,9 +126,9 @@
             this.txtCityName.Properties.MaxLength = 25;
             this.txtCityName.Size = new System.Drawing.Size(178, 20);
             this.txtCityName.TabIndex = 32;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "City Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtCityName, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "City Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtCityName, conditionValidationRule2);
             // 
             // btnDelete
             // 
@@ -179,19 +171,6 @@
             this.btnEdit.Text = "Update";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // cmbState
-            // 
-            this.cmbState.Location = new System.Drawing.Point(78, 12);
-            this.cmbState.Name = "cmbState";
-            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbState.Size = new System.Drawing.Size(178, 20);
-            this.cmbState.TabIndex = 5;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule4.ErrorText = "Please select State.";
-            conditionValidationRule4.Value1 = "0";
-            this.dxValidationProvider1.SetValidationRule(this.cmbState, conditionValidationRule4);
-            // 
             // lblTitle
             // 
             this.lblTitle.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
@@ -203,6 +182,15 @@
             this.lblTitle.Size = new System.Drawing.Size(776, 35);
             this.lblTitle.TabIndex = 27;
             this.lblTitle.Text = "City Maintainance";
+            // 
+            // cmbState
+            // 
+            this.cmbState.Location = new System.Drawing.Point(78, 12);
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbState.Size = new System.Drawing.Size(178, 20);
+            this.cmbState.TabIndex = 35;
             // 
             // FrmNewCity
             // 
@@ -224,9 +212,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPinCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCityName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,8 +232,7 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
         private DevExpress.XtraEditors.TextEdit txtPinCode;
         private DevExpress.XtraEditors.TextEdit txtCityName;
-        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider2;
         private System.Windows.Forms.DataGridView grdCity;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbState;
+        private DevExpress.XtraEditors.LookUpEdit cmbState;
     }
 }
