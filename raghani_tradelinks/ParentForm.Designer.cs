@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
-            this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.navbarImageCollection = new DevExpress.Utils.ImageCollection();
             this.MenuManager = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
             this.iNewCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.iNewSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.iCity = new DevExpress.XtraBars.BarButtonItem();
@@ -70,7 +69,7 @@
             this.iNewBank = new DevExpress.XtraBars.BarButtonItem();
             this.iNewCourier = new DevExpress.XtraBars.BarButtonItem();
             this.iNewAgent = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
             this.MastersPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.MastersPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TransactionPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -104,9 +103,9 @@
             this.lblShortCut3 = new DevExpress.XtraEditors.LabelControl();
             this.lblShortCut2 = new DevExpress.XtraEditors.LabelControl();
             this.lblShortCut1 = new DevExpress.XtraEditors.LabelControl();
-            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
             this.badge1 = new DevExpress.Utils.VisualEffects.Badge();
-            this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
+            this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager();
             this.badge2 = new DevExpress.Utils.VisualEffects.Badge();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
@@ -578,6 +577,7 @@
             this.iNewAgent.Id = 7;
             this.iNewAgent.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewAgent.LargeGlyph")));
             this.iNewAgent.Name = "iNewAgent";
+            this.iNewAgent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iNewAgent_ItemClick);
             // 
             // ribbonImageCollectionLarge
             // 

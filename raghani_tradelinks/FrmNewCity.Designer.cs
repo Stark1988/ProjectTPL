@@ -34,6 +34,7 @@
             this.lblSTDCode = new DevExpress.XtraEditors.LabelControl();
             this.lblState = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.cmbState = new DevExpress.XtraEditors.LookUpEdit();
             this.grdCity = new System.Windows.Forms.DataGridView();
             this.txtPinCode = new DevExpress.XtraEditors.TextEdit();
             this.txtCityName = new DevExpress.XtraEditors.TextEdit();
@@ -43,14 +44,13 @@
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.cmbState = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPinCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCityName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCityName
@@ -92,8 +92,17 @@
             this.panelControl1.Controls.Add(this.lblSTDCode);
             this.panelControl1.Location = new System.Drawing.Point(12, 41);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(566, 395);
+            this.panelControl1.Size = new System.Drawing.Size(752, 395);
             this.panelControl1.TabIndex = 12;
+            // 
+            // cmbState
+            // 
+            this.cmbState.Location = new System.Drawing.Point(78, 12);
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbState.Size = new System.Drawing.Size(178, 20);
+            this.cmbState.TabIndex = 35;
             // 
             // grdCity
             // 
@@ -104,7 +113,7 @@
             this.grdCity.Location = new System.Drawing.Point(7, 141);
             this.grdCity.Name = "grdCity";
             this.grdCity.ReadOnly = true;
-            this.grdCity.Size = new System.Drawing.Size(548, 245);
+            this.grdCity.Size = new System.Drawing.Size(724, 245);
             this.grdCity.TabIndex = 34;
             this.grdCity.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdCity_RowHeaderMouseClick);
             // 
@@ -183,15 +192,6 @@
             this.lblTitle.TabIndex = 27;
             this.lblTitle.Text = "City Maintainance";
             // 
-            // cmbState
-            // 
-            this.cmbState.Location = new System.Drawing.Point(78, 12);
-            this.cmbState.Name = "cmbState";
-            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbState.Size = new System.Drawing.Size(178, 20);
-            this.cmbState.TabIndex = 35;
-            // 
             // FrmNewCity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,11 +209,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPinCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCityName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

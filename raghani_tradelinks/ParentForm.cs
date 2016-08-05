@@ -505,12 +505,30 @@ namespace raghani_tradelinks
         {
             try
             {
-                if (!IsOpen("FrmNewBank"))
+                if (!IsOpen("FrmNewCourier"))
                 {
                     FrmNewCourier _frmFrmNewCourier = new FrmNewCourier();
                     _frmFrmNewCourier.MdiParent = this;
                     ParentFormSplitContainer.SendToBack();
                     _frmFrmNewCourier.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+
+        private void iNewAgent_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmNewSubAgent"))
+                {
+                    FrmNewSubAgent _frmFrmNewSubAgent = new FrmNewSubAgent();
+                    _frmFrmNewSubAgent.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmNewSubAgent.Show();
                 }
             }
             catch (Exception ex)

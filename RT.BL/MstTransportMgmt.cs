@@ -66,7 +66,7 @@ namespace RT.BL
             return db.SaveChanges();
         }
 
-        public int UpdateCourier(int Id, TransportData transportData)
+        public int UpdateTransport(int Id, TransportData transportData)
         {
             MstTransport trans = db.MstTransports.Find(Id);
             trans.TransportName = transportData.TransportName;
@@ -84,7 +84,7 @@ namespace RT.BL
             return db.SaveChanges();
         }
 
-        public int DeleteCourier(int Id)
+        public int DeleteTransport(int Id)
         {
             MstTransport transport = db.MstTransports.Find(Id);
 
