@@ -68,6 +68,12 @@ namespace raghani_tradelinks
             {
                 if (dxValidationProvider1.Validate())
                 {
+                    if (ID == -1)
+                    {
+                        MessageBox.Show("Please select a Transport to update");
+                        return;
+                    }
+
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");

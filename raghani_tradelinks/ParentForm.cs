@@ -518,5 +518,23 @@ namespace raghani_tradelinks
                 HandleException(ex);
             }
         }
+
+        private void iNewAgent_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmNewSubAgent"))
+                {
+                    FrmNewSubAgent _frmFrmNewSubAgent = new FrmNewSubAgent();
+                    _frmFrmNewSubAgent.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmNewSubAgent.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
     }
 }

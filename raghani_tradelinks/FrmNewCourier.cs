@@ -88,6 +88,8 @@ namespace raghani_tradelinks
             cmbCity.EditValue = -1;
             cmbState.EditValue = -1;
             txtOfficePhone.Text = string.Empty;
+            txtContactPerson.Text = string.Empty;
+            txtPin.Text = string.Empty;
             txtFax.Text = string.Empty;
             txtRemarks.Text = string.Empty;
         }
@@ -98,6 +100,12 @@ namespace raghani_tradelinks
             {
                 if (dxValidationProvider1.Validate())
                 {
+                    if (ID == -1)
+                    {
+                        MessageBox.Show("Please select a Courier to update");
+                        return;
+                    }
+
                     if ((int)cmbBranch.EditValue == -1)
                     {
                         MessageBox.Show("Please select Branch");
