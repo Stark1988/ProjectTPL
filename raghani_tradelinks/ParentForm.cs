@@ -505,7 +505,7 @@ namespace raghani_tradelinks
         {
             try
             {
-                if (!IsOpen("FrmNewBank"))
+                if (!IsOpen("FrmNewCourier"))
                 {
                     FrmNewCourier _frmFrmNewCourier = new FrmNewCourier();
                     _frmFrmNewCourier.MdiParent = this;

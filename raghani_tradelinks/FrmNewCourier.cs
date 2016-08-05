@@ -148,23 +148,30 @@ namespace raghani_tradelinks
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (ID == -1)
+            try
             {
-                MessageBox.Show("Please select a courier to delete");
-                return;
+                if (ID == -1)
+                {
+                    MessageBox.Show("Please select a courier to delete");
+                    return;
+                }
+
+                DialogResult confirm = MessageBox.Show("Confirm Delete: " + txtCourierName.Text + "?", "Confirm", MessageBoxButtons.OKCancel);
+                if (confirm == DialogResult.OK)
+                {
+                    MstCourierMgmt courier = new MstCourierMgmt();
+                    if (courier.DeleteCourier(ID) > 0)
+                        MessageBox.Show("Courier deleted successfully.");
+                    else
+                        MessageBox.Show("Error while deleting Courier.");
+
+                    DisplayData();
+                    ClearData();
+                }
             }
-
-            DialogResult confirm = MessageBox.Show("Confirm Delete: " + txtCourierName.Text + "?", "Confirm", MessageBoxButtons.OKCancel);
-            if (confirm == DialogResult.OK)
+            catch(Exception ex)
             {
-                MstCourierMgmt courier = new MstCourierMgmt();
-                if (courier.DeleteCourier(ID) > 0)
-                    MessageBox.Show("Courier deleted successfully.");
-                else
-                    MessageBox.Show("Error while deleting Courier.");
-
-                DisplayData();
-                ClearData();
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -259,6 +266,12 @@ namespace raghani_tradelinks
             {
                 cmbState.EditValue = -1;
             }
+        }
+
+        private void FrmNewCourier_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainForm _parentForm = this.ParentForm as MainForm;
+            _parentForm.BringContainerFront();
         }
     }
 }

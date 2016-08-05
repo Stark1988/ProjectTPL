@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.cmbState = new DevExpress.XtraEditors.LookUpEdit();
             this.cmbCity = new DevExpress.XtraEditors.LookUpEdit();
             this.cmbBranch = new DevExpress.XtraEditors.LookUpEdit();
             this.grdCity = new System.Windows.Forms.DataGridView();
@@ -63,9 +64,9 @@
             this.lblStateName = new DevExpress.XtraEditors.LabelControl();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.cmbState = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBranch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).BeginInit();
@@ -79,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCourierName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -115,8 +115,18 @@
             this.panelControl1.Controls.Add(this.lblStateName);
             this.panelControl1.Location = new System.Drawing.Point(12, 41);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(903, 556);
+            this.panelControl1.Size = new System.Drawing.Size(989, 556);
             this.panelControl1.TabIndex = 29;
+            // 
+            // cmbState
+            // 
+            this.cmbState.Enabled = false;
+            this.cmbState.Location = new System.Drawing.Point(595, 101);
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbState.Size = new System.Drawing.Size(187, 20);
+            this.cmbState.TabIndex = 7;
             // 
             // cmbCity
             // 
@@ -146,7 +156,7 @@
             this.grdCity.Location = new System.Drawing.Point(19, 274);
             this.grdCity.Name = "grdCity";
             this.grdCity.ReadOnly = true;
-            this.grdCity.Size = new System.Drawing.Size(843, 256);
+            this.grdCity.Size = new System.Drawing.Size(953, 256);
             this.grdCity.TabIndex = 209;
             this.grdCity.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdCity_RowHeaderMouseClick);
             // 
@@ -157,9 +167,9 @@
             this.txtRate.Properties.MaxLength = 100;
             this.txtRate.Size = new System.Drawing.Size(187, 20);
             this.txtRate.TabIndex = 4;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Rate can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtRate, conditionValidationRule5);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Rate can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtRate, conditionValidationRule1);
             // 
             // labelControl9
             // 
@@ -186,9 +196,9 @@
             this.txtShortName.Properties.MaxLength = 100;
             this.txtShortName.Size = new System.Drawing.Size(187, 20);
             this.txtShortName.TabIndex = 1;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Short Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtShortName, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Short Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtShortName, conditionValidationRule2);
             // 
             // labelControl3
             // 
@@ -282,9 +292,9 @@
             this.txtPin.Properties.MaxLength = 100;
             this.txtPin.Size = new System.Drawing.Size(130, 20);
             this.txtPin.TabIndex = 6;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Pin can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtPin, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Pin can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtPin, conditionValidationRule3);
             // 
             // labelControl1
             // 
@@ -327,9 +337,9 @@
             this.txtCourierName.Properties.MaxLength = 100;
             this.txtCourierName.Size = new System.Drawing.Size(356, 20);
             this.txtCourierName.TabIndex = 0;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Courier Name can not be blank.";
-            this.dxValidationProvider1.SetValidationRule(this.txtCourierName, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Courier Name can not be blank.";
+            this.dxValidationProvider1.SetValidationRule(this.txtCourierName, conditionValidationRule4);
             // 
             // btnDelete
             // 
@@ -393,16 +403,6 @@
             this.lblTitle.TabIndex = 30;
             this.lblTitle.Text = "Courier Maintainance";
             // 
-            // cmbState
-            // 
-            this.cmbState.Enabled = false;
-            this.cmbState.Location = new System.Drawing.Point(595, 101);
-            this.cmbState.Name = "cmbState";
-            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbState.Size = new System.Drawing.Size(187, 20);
-            this.cmbState.TabIndex = 7;
-            // 
             // FrmNewCourier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,10 +412,13 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "FrmNewCourier";
             this.Text = "FrmNewCourier";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmNewCourier_FormClosing);
             this.Load += new System.EventHandler(this.FrmNewCourier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBranch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).EndInit();
@@ -429,7 +432,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCourierName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
