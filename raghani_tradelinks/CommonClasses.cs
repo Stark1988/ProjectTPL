@@ -12,6 +12,36 @@ namespace raghani_tradelinks
         public string PhoneNumber { get; set; }
     }
 
+    class DealingType
+    {
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
+    class GRHabbit
+    {
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
+    class VisistFrequency
+    {
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
     public class User
     {
         public static int UserId { get; set; }

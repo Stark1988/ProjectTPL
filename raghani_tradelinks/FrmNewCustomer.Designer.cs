@@ -205,7 +205,7 @@
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit9 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbGRHabbit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
@@ -221,7 +221,7 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.cmbDelingType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbVisistFreq = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -281,9 +281,9 @@
             this.NewCustomerInfoTabPage.SuspendLayout();
             this.InfoPageScrollableControl.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbGRHabbit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDelingType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbVisistFreq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMBoy1.Properties)).BeginInit();
@@ -973,9 +973,7 @@
             this.cmbPriority.Name = "cmbPriority";
             this.cmbPriority.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbPriority.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            this.cmbPriority.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPriority.Size = new System.Drawing.Size(269, 20);
             this.cmbPriority.TabIndex = 218;
             // 
@@ -994,9 +992,7 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbStatus.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            this.cmbStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbStatus.Size = new System.Drawing.Size(269, 20);
             this.cmbStatus.TabIndex = 216;
             // 
@@ -1015,9 +1011,7 @@
             this.cmbTypeOfFirm.Name = "cmbTypeOfFirm";
             this.cmbTypeOfFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbTypeOfFirm.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            this.cmbTypeOfFirm.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTypeOfFirm.Size = new System.Drawing.Size(269, 20);
             this.cmbTypeOfFirm.TabIndex = 214;
             // 
@@ -1873,7 +1867,7 @@
             // 
             this.InfoPageScrollableControl.AutoScrollMinSize = new System.Drawing.Size(0, 600);
             this.InfoPageScrollableControl.Controls.Add(this.panel2);
-            this.InfoPageScrollableControl.Controls.Add(this.comboBoxEdit9);
+            this.InfoPageScrollableControl.Controls.Add(this.cmbGRHabbit);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl18);
             this.InfoPageScrollableControl.Controls.Add(this.textBox6);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl17);
@@ -1889,7 +1883,7 @@
             this.InfoPageScrollableControl.Controls.Add(this.labelControl11);
             this.InfoPageScrollableControl.Controls.Add(this.cmbDelingType);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl9);
-            this.InfoPageScrollableControl.Controls.Add(this.comboBoxEdit1);
+            this.InfoPageScrollableControl.Controls.Add(this.cmbVisistFreq);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl5);
             this.InfoPageScrollableControl.Controls.Add(this.textBox1);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl7);
@@ -2029,17 +2023,15 @@
             this.labelControl24.TabIndex = 191;
             this.labelControl24.Text = "Accountant (1)";
             // 
-            // comboBoxEdit9
+            // cmbGRHabbit
             // 
-            this.comboBoxEdit9.Location = new System.Drawing.Point(635, 116);
-            this.comboBoxEdit9.Name = "comboBoxEdit9";
-            this.comboBoxEdit9.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbGRHabbit.Location = new System.Drawing.Point(635, 116);
+            this.cmbGRHabbit.Name = "cmbGRHabbit";
+            this.cmbGRHabbit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit9.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit9.Size = new System.Drawing.Size(198, 20);
-            this.comboBoxEdit9.TabIndex = 243;
+            this.cmbGRHabbit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbGRHabbit.Size = new System.Drawing.Size(198, 20);
+            this.cmbGRHabbit.TabIndex = 243;
             // 
             // labelControl18
             // 
@@ -2157,9 +2149,7 @@
             this.cmbDelingType.Name = "cmbDelingType";
             this.cmbDelingType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbDelingType.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            this.cmbDelingType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbDelingType.Size = new System.Drawing.Size(198, 20);
             this.cmbDelingType.TabIndex = 225;
             // 
@@ -2172,17 +2162,15 @@
             this.labelControl9.TabIndex = 224;
             this.labelControl9.Text = "Dealing Type";
             // 
-            // comboBoxEdit1
+            // cmbVisistFreq
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(635, 62);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbVisistFreq.Location = new System.Drawing.Point(635, 62);
+            this.cmbVisistFreq.Name = "cmbVisistFreq";
+            this.cmbVisistFreq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(198, 20);
-            this.comboBoxEdit1.TabIndex = 223;
+            this.cmbVisistFreq.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbVisistFreq.Size = new System.Drawing.Size(198, 20);
+            this.cmbVisistFreq.TabIndex = 223;
             // 
             // labelControl5
             // 
@@ -2417,9 +2405,9 @@
             this.InfoPageScrollableControl.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbGRHabbit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDelingType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbVisistFreq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMBoy1.Properties)).EndInit();
@@ -2617,7 +2605,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private System.Windows.Forms.TextBox textBox9;
         private DevExpress.XtraEditors.LabelControl labelControl24;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit9;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbGRHabbit;
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private System.Windows.Forms.TextBox textBox6;
         private DevExpress.XtraEditors.LabelControl labelControl17;
@@ -2633,7 +2621,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.ComboBoxEdit cmbDelingType;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbVisistFreq;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.TextBox textBox1;
         private DevExpress.XtraEditors.LabelControl labelControl7;
