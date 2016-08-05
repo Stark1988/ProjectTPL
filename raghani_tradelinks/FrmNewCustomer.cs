@@ -105,41 +105,52 @@ namespace raghani_tradelinks
                 cmbACCreatedByBranch.Properties.ValueMember = "Name";
                 cmbACCreatedByBranch.Properties.DisplayMember = "Name";
                 cmbACCreatedByBranch.Properties.DataSource = _branchList;
+                cmbACCreatedByBranch.EditValue = 1;
 
                 result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_dealing_type.json"));
                 var _dealingList = JsonConvert.DeserializeObject<List<DealingType>>(result);
                 cmbDelingType.Properties.Items.AddRange(_dealingList);
                 cmbDelingType.SelectedIndex = 0;
 
+                result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_firm_type_list.json"));
+                var _typeOfFirm = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
+                cmbTypeOfFirm.Properties.Items.AddRange(_typeOfFirm);
+                cmbTypeOfFirm.SelectedIndex = 0;
+
                 result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_gr_habbit.json"));
                 var _grHabbit = JsonConvert.DeserializeObject<List<GRHabbit>>(result);
                 cmbGRHabbit.Properties.Items.AddRange(_grHabbit);
                 cmbGRHabbit.SelectedIndex = 0;
 
-                result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_visit_freq.json"));
-                var _visitFreq = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
-                cmbVisistFreq.Properties.Items.AddRange(_visitFreq);
-                cmbVisistFreq.SelectedIndex = 0;
-
-                result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_firm_type_list.json"));
-                var _typeOfFirm = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
-                cmbTypeOfFirm.Properties.Items.AddRange(_typeOfFirm);
-                cmbTypeOfFirm.SelectedIndex = 0;
+                result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_group_list.json"));
+                var _grpList = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
+                cmbGroup.Properties.Items.AddRange(_grpList);
+                cmbGroup.SelectedIndex = 0;
 
                 result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_priority_list.json"));
                 var _priority = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
                 cmbPriority.Properties.Items.AddRange(_priority);
                 cmbPriority.SelectedIndex = 0;
 
+                result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_ref_type.json"));
+                var _refType = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
+                cmbRefType.Properties.Items.AddRange(_refType);
+                cmbRefType.SelectedIndex = 0;
+
                 result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_status.json"));
                 var _status = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
                 cmbStatus.Properties.Items.AddRange(_status);
                 cmbStatus.SelectedIndex = 0;
 
-                //result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_status.json"));
-                //var _status = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
-                //cmbStatus.Properties.Items.AddRange(_status);
-                //cmbStatus.SelectedIndex = 0;
+                result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_visit_freq.json"));
+                var _visitFreq = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
+                cmbVisistFreq.Properties.Items.AddRange(_visitFreq);
+                cmbVisistFreq.SelectedIndex = 0;
+
+                result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/cust_zone_list.json"));
+                var _zone = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
+                cmbZone.Properties.Items.AddRange(_zone);
+                cmbZone.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -152,6 +163,11 @@ namespace raghani_tradelinks
             DataTable dt = new DataTable();
             dt.Columns.Add("ExistingSisterConcern", typeof(string));
             return dt;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            validator1.Validate();
         }
     }
 }

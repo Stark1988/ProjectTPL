@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -119,8 +120,6 @@
             this.lblState = new DevExpress.XtraEditors.LabelControl();
             this.txtPin = new System.Windows.Forms.TextBox();
             this.lblCityPin = new DevExpress.XtraEditors.LabelControl();
-            this.txtAddress2 = new System.Windows.Forms.TextBox();
-            this.txtAddress3 = new System.Windows.Forms.TextBox();
             this.txtAlias = new System.Windows.Forms.TextBox();
             this.lblAlias = new DevExpress.XtraEditors.LabelControl();
             this.txtAddress1 = new System.Windows.Forms.TextBox();
@@ -240,6 +239,8 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.txtEnteredBy = new System.Windows.Forms.TextBox();
             this.lblEnteredBy = new DevExpress.XtraEditors.LabelControl();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.validator1 = new Itboy.Components.Validator(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbACCreatedByBranch.Properties)).BeginInit();
@@ -293,6 +294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -312,6 +314,7 @@
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panelControl1
             // 
@@ -482,8 +485,6 @@
             this.MainPageScrollableControl.Controls.Add(this.lblState);
             this.MainPageScrollableControl.Controls.Add(this.txtPin);
             this.MainPageScrollableControl.Controls.Add(this.lblCityPin);
-            this.MainPageScrollableControl.Controls.Add(this.txtAddress2);
-            this.MainPageScrollableControl.Controls.Add(this.txtAddress3);
             this.MainPageScrollableControl.Controls.Add(this.txtAlias);
             this.MainPageScrollableControl.Controls.Add(this.lblAlias);
             this.MainPageScrollableControl.Controls.Add(this.txtAddress1);
@@ -1026,15 +1027,12 @@
             // 
             // cmbGroup
             // 
-            this.cmbGroup.EditValue = "Select";
+            this.cmbGroup.EditValue = "";
             this.cmbGroup.Location = new System.Drawing.Point(181, 290);
             this.cmbGroup.Name = "cmbGroup";
             this.cmbGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbGroup.Properties.Items.AddRange(new object[] {
-            "Select",
-            "Current",
-            "Reject"});
+            this.cmbGroup.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbGroup.Size = new System.Drawing.Size(198, 20);
             this.cmbGroup.TabIndex = 212;
             // 
@@ -1044,9 +1042,7 @@
             this.cmbZone.Name = "cmbZone";
             this.cmbZone.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbZone.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            this.cmbZone.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbZone.Size = new System.Drawing.Size(198, 20);
             this.cmbZone.TabIndex = 211;
             // 
@@ -1088,6 +1084,7 @@
             // 
             // cmbCashCredit
             // 
+            this.cmbCashCredit.EditValue = "Cash";
             this.cmbCashCredit.Location = new System.Drawing.Point(181, 18);
             this.cmbCashCredit.Name = "cmbCashCredit";
             this.cmbCashCredit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1170,7 +1167,7 @@
             // 
             // txtPin
             // 
-            this.txtPin.Location = new System.Drawing.Point(385, 179);
+            this.txtPin.Location = new System.Drawing.Point(401, 180);
             this.txtPin.Name = "txtPin";
             this.txtPin.Size = new System.Drawing.Size(130, 21);
             this.txtPin.TabIndex = 198;
@@ -1183,20 +1180,6 @@
             this.lblCityPin.Size = new System.Drawing.Size(51, 13);
             this.lblCityPin.TabIndex = 197;
             this.lblCityPin.Text = "City / Pin";
-            // 
-            // txtAddress2
-            // 
-            this.txtAddress2.Location = new System.Drawing.Point(181, 125);
-            this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(391, 21);
-            this.txtAddress2.TabIndex = 196;
-            // 
-            // txtAddress3
-            // 
-            this.txtAddress3.Location = new System.Drawing.Point(181, 151);
-            this.txtAddress3.Name = "txtAddress3";
-            this.txtAddress3.Size = new System.Drawing.Size(391, 21);
-            this.txtAddress3.TabIndex = 195;
             // 
             // txtAlias
             // 
@@ -1217,8 +1200,9 @@
             // txtAddress1
             // 
             this.txtAddress1.Location = new System.Drawing.Point(181, 100);
+            this.txtAddress1.Multiline = true;
             this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(391, 21);
+            this.txtAddress1.Size = new System.Drawing.Size(391, 73);
             this.txtAddress1.TabIndex = 192;
             // 
             // lblAddress
@@ -1234,8 +1218,10 @@
             // 
             this.txtName.Location = new System.Drawing.Point(181, 46);
             this.txtName.Name = "txtName";
+            this.validator1.SetRequiredMessage(this.txtName, "Name can not be blank.");
             this.txtName.Size = new System.Drawing.Size(391, 21);
             this.txtName.TabIndex = 190;
+            this.validator1.SetType(this.txtName, Itboy.Components.ValidationType.Required);
             // 
             // lblName
             // 
@@ -1814,9 +1800,7 @@
             this.cmbRefType.Name = "cmbRefType";
             this.cmbRefType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbRefType.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            this.cmbRefType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbRefType.Size = new System.Drawing.Size(161, 20);
             this.cmbRefType.TabIndex = 210;
             // 
@@ -2338,6 +2322,13 @@
             this.lblEnteredBy.TabIndex = 5;
             this.lblEnteredBy.Text = "Entered By";
             // 
+            // validator1
+            // 
+            this.validator1.BlinkRate = 0;
+            this.validator1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.validator1.Form = this;
+            this.validator1.Mode = Itboy.Components.ValidationMode.Submit;
+            // 
             // FrmNewCustomer
             // 
             this.AcceptButton = this.btnSave;
@@ -2418,6 +2409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2495,8 +2487,6 @@
         private DevExpress.XtraEditors.LabelControl lblState;
         private System.Windows.Forms.TextBox txtPin;
         private DevExpress.XtraEditors.LabelControl lblCityPin;
-        private System.Windows.Forms.TextBox txtAddress2;
-        private System.Windows.Forms.TextBox txtAddress3;
         private System.Windows.Forms.TextBox txtAlias;
         private DevExpress.XtraEditors.LabelControl lblAlias;
         private System.Windows.Forms.TextBox txtAddress1;
@@ -2636,6 +2626,8 @@
         private DevExpress.XtraEditors.XtraScrollableControl SisterConcernScrollableControl;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private Itboy.Components.Validator validator1;
 
 
     }

@@ -157,6 +157,9 @@
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Validator">
+      <HintPath>..\..\Samples\demo\Validator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonClasses.cs" />
