@@ -1,4 +1,5 @@
-﻿using RT.BL;
+﻿using DevExpress.XtraEditors.Controls;
+using RT.BL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ namespace raghani_tradelinks
 {
     public partial class FrmNewCity : Form
     {
-        int ID = 0;
+        int ID = -1;
         List<StateData> states = null;
 
         public FrmNewCity()
@@ -41,24 +42,30 @@ namespace raghani_tradelinks
 
         private void ClearData()
         {
-            ID = 0;
+            ID = -1;
             txtCityName.Text = string.Empty;
             txtPinCode.Text = string.Empty;
-            cmbState.SelectedIndex = -1;
+            cmbState.EditValue = -1;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dxValidationProvider1.Validate() && dxValidationProvider2.Validate())
+            if (dxValidationProvider1.Validate())
             {
-                if (cmbState.SelectedIndex == -1)
+                if (ID == -1)
+                {
+                    MessageBox.Show("Please select a City to edit");
+                    return;
+                }
+
+                if ((int)cmbState.EditValue == -1)
                 {
                     MessageBox.Show("Please select State");
                     return;
                 }
 
                 MstCityMgmt city = new MstCityMgmt();
-                if (city.UpdateCity(ID, txtCityName.Text, ((StateData)cmbState.SelectedItem).ID, txtPinCode.Text) > 0)
+                if (city.UpdateCity(ID, txtCityName.Text, (int)cmbState.EditValue, txtPinCode.Text) > 0)
                     MessageBox.Show("City updated successfully.");
                 else
                     MessageBox.Show("Error while updating City.");
@@ -70,16 +77,16 @@ namespace raghani_tradelinks
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (dxValidationProvider1.Validate() && dxValidationProvider2.Validate())
+            if (dxValidationProvider1.Validate())
             {
-                if (cmbState.SelectedIndex == -1)
+                if ((int)cmbState.EditValue == -1)
                 {
                     MessageBox.Show("Please select State");
                     return;
                 }
 
                 MstCityMgmt city = new MstCityMgmt();
-                if (city.InsertCity(txtCityName.Text, ((StateData)cmbState.SelectedItem).ID, txtPinCode.Text) > 0)
+                if (city.InsertCity(txtCityName.Text, (int)cmbState.EditValue, txtPinCode.Text) > 0)
                     MessageBox.Show("City inserted successfully.");
                 else
                     MessageBox.Show("Error in adding City.");
@@ -91,6 +98,12 @@ namespace raghani_tradelinks
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (ID == -1)
+            {
+                MessageBox.Show("Please select a City to delete");
+                return;
+            }
+
             DialogResult confirm = MessageBox.Show("Confirm Delete: " + txtCityName.Text + "?", "Confirm", MessageBoxButtons.OKCancel);
             if (confirm == DialogResult.OK)
             {
@@ -111,17 +124,19 @@ namespace raghani_tradelinks
                 MstCityMgmtData citiesData = city.SelectData();
                 grdCity.DataSource = citiesData.Cities;
                 grdCity.Columns[0].Visible = false;
+                grdCity.Columns[2].Visible = false;
 
                 states = citiesData.States;
 
-                cmbState.Properties.Items.Clear();
-                cmbState.Properties.NullText = "Select State";
-                cmbState.SelectedIndex = -1;
-
-                foreach (StateData sd in states)
-                {
-                    cmbState.Properties.Items.Add(sd);
-                }
+                states.Insert(0, new StateData { ID = -1, Name = "Select State" });
+                cmbState.Properties.DataSource = states;
+                cmbState.Properties.Columns.Add(new LookUpColumnInfo("ID") { Visible = false });
+                cmbState.Properties.Columns.Add(new LookUpColumnInfo("Name"));
+                cmbState.Properties.DisplayMember = "Name";
+                cmbState.Properties.ValueMember = "ID";
+                cmbState.EditValue = -1;
+                cmbState.Properties.ShowHeader = false;
+                
             }            
             catch (Exception ex)
             {
@@ -141,8 +156,7 @@ namespace raghani_tradelinks
                 ID = Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[0].Value.ToString());
                 txtCityName.Text = grdCity.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtPinCode.Text = grdCity.Rows[e.RowIndex].Cells[4].Value.ToString();
-
-                cmbState.SelectedIndex = cmbState.Properties.Items.IndexOf(states.FirstOrDefault(s => s.ID == Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[2].Value)));
+                cmbState.EditValue = Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[2].Value.ToString());
             }
             catch (Exception ex)
             {
