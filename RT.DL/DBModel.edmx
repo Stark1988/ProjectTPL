@@ -178,7 +178,7 @@
           <Property Name="CourierMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourierName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Rate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="3" />
           <Property Name="fkBranchId" Type="int" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="fkCityId" Type="int" />
@@ -190,6 +190,8 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Pin" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="MstState">
           <Key>
@@ -918,7 +920,7 @@
           <Property Name="CourierMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CourierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="3" />
           <Property Name="fkBranchId" Type="Int32" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="fkCityId" Type="Int32" />
@@ -932,6 +934,8 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="MstBranch" Relationship="TPLDBModel.FK_MstCourier_MstBranch" FromRole="MstCourier" ToRole="MstBranch" />
           <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstCourier_MstCity" FromRole="MstCourier" ToRole="MstCity" />
+          <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstState">
           <Key>
@@ -1463,6 +1467,8 @@
           <EntitySetMapping Name="MstCouriers">
             <EntityTypeMapping TypeName="TPLDBModel.MstCourier">
               <MappingFragment StoreEntitySet="MstCourier">
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
