@@ -24,6 +24,7 @@ namespace RT.DL
             this.CustomerSisterConcerns = new HashSet<CustomerSisterConcern>();
             this.Parties = new HashSet<Party>();
             this.References = new HashSet<Reference>();
+            this.OrderEntries = new HashSet<OrderEntry>();
         }
     
         public int CustomerId { get; set; }
@@ -60,5 +61,6 @@ namespace RT.DL
         public virtual ICollection<CustomerSisterConcern> CustomerSisterConcerns { get; set; }
         public virtual ICollection<Party> Parties { get; set; }
         public virtual ICollection<Reference> References { get; set; }
+        public virtual ICollection<OrderEntry> OrderEntries { get; set; }
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="MstStateMgt.cs" />
     <Compile Include="MstSubAgentMgmt.cs" />
     <Compile Include="MstTransportMgmt.cs" />
+    <Compile Include="OrderMgmt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
