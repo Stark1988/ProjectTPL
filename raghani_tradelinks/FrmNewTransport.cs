@@ -29,6 +29,7 @@ namespace raghani_tradelinks
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");
+                        cmbCity.Focus();
                         return;
                     }
 
@@ -43,6 +44,7 @@ namespace raghani_tradelinks
                         OfficePhone = txtOfficePhone.Text,
                         Fax = txtFax.Text,
                         Remarks = txtRemarks.Text,
+                        Pin = txtPin.Text
                     };
 
                     MstTransportMgmt transportMgmt = new MstTransportMgmt();
@@ -77,6 +79,7 @@ namespace raghani_tradelinks
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");
+                        cmbCity.Focus();
                         return;
                     }
 
@@ -91,6 +94,7 @@ namespace raghani_tradelinks
                         OfficePhone = txtOfficePhone.Text,
                         Fax = txtFax.Text,
                         Remarks = txtRemarks.Text,
+                        Pin = txtPin.Text
                     };
 
                     MstTransportMgmt transportMgmt = new MstTransportMgmt();
@@ -147,17 +151,18 @@ namespace raghani_tradelinks
         {
             try
             {
-                ID = Convert.ToInt32(grdTransport.Rows[e.RowIndex].Cells[0].Value.ToString());
-                txtTransportName.Text = grdTransport.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtContactPerson.Text = grdTransport.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtAddress.Text = grdTransport.Rows[e.RowIndex].Cells[3].Value.ToString();
-                cmbCity.EditValue = Convert.ToInt32(grdTransport.Rows[e.RowIndex].Cells[4].Value.ToString());
-                txtOfficePhone.Text = grdTransport.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtFax.Text = grdTransport.Rows[e.RowIndex].Cells[7].Value.ToString();
-                txtResPhone.Text = grdTransport.Rows[e.RowIndex].Cells[8].Value.ToString();
-                txtMobile.Text = grdTransport.Rows[e.RowIndex].Cells[9].Value.ToString();
-                txtRemarks.Text = grdTransport.Rows[e.RowIndex].Cells[10].Value.ToString();
-
+                ID = grdTransport.Rows[e.RowIndex].Cells[0].Value != null ? Convert.ToInt32(grdTransport.Rows[e.RowIndex].Cells[0].Value.ToString()) : -1;
+                txtTransportName.Text = grdTransport.Rows[e.RowIndex].Cells[1].Value != null ? grdTransport.Rows[e.RowIndex].Cells[1].Value.ToString() : string.Empty;
+                txtContactPerson.Text = grdTransport.Rows[e.RowIndex].Cells[2].Value != null ? grdTransport.Rows[e.RowIndex].Cells[2].Value.ToString() : string.Empty;
+                txtAddress.Text = grdTransport.Rows[e.RowIndex].Cells[3].Value != null ? grdTransport.Rows[e.RowIndex].Cells[3].Value.ToString() : string.Empty;
+                cmbCity.EditValue = grdTransport.Rows[e.RowIndex].Cells[4].Value != null ? Convert.ToInt32(grdTransport.Rows[e.RowIndex].Cells[4].Value.ToString()) : -1;
+                txtOfficePhone.Text = grdTransport.Rows[e.RowIndex].Cells[6].Value != null ? grdTransport.Rows[e.RowIndex].Cells[6].Value.ToString() : string.Empty;
+                txtFax.Text = grdTransport.Rows[e.RowIndex].Cells[7].Value != null ? grdTransport.Rows[e.RowIndex].Cells[7].Value.ToString() : string.Empty;
+                txtResPhone.Text = grdTransport.Rows[e.RowIndex].Cells[8].Value != null ? grdTransport.Rows[e.RowIndex].Cells[8].Value.ToString() : string.Empty;
+                txtMobile.Text = grdTransport.Rows[e.RowIndex].Cells[9].Value != null ? grdTransport.Rows[e.RowIndex].Cells[9].Value.ToString() : string.Empty;
+                txtRemarks.Text = grdTransport.Rows[e.RowIndex].Cells[10].Value != null ? grdTransport.Rows[e.RowIndex].Cells[10].Value.ToString() : string.Empty;
+                txtPin.Text = grdTransport.Rows[e.RowIndex].Cells[11].Value != null ? grdTransport.Rows[e.RowIndex].Cells[11].Value.ToString() : string.Empty;
+                
             }
             catch (Exception ex)
             {
@@ -209,6 +214,7 @@ namespace raghani_tradelinks
             txtFax.Text = string.Empty;
             txtContactPerson.Text = string.Empty;
             txtRemarks.Text = string.Empty;
+            
         }
 
         private void FrmNewTransport_FormClosing(object sender, FormClosingEventArgs e)

@@ -173,7 +173,11 @@ namespace raghani_tradelinks
                 if (validator1.Validate() == true && dxValidationProvider1.Validate() == true)
                 {
                     List<clsCustomerSisterConcern> lstSisConcern = new List<clsCustomerSisterConcern>();
+                    for (int i = 0; i < gridView1.DataRowCount; i++)
+                    {
+                     
 
+                    }
 
                     MstCustomerMgt cust = new MstCustomerMgt();
 

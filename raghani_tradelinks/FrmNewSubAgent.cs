@@ -43,6 +43,7 @@ namespace raghani_tradelinks
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");
+                        cmbCity.Focus();
                         return;
                     }
 
@@ -51,6 +52,7 @@ namespace raghani_tradelinks
                         SubAgentName = txtSubAgentName.Text,
                         Address = txtAddress.Text,
                         CityId = (int)cmbCity.EditValue,
+                        Pin = txtPin.Text,
                         OfficePhone = txtOfficePhone.Text,
                         Fax = txtFax.Text,
                         ResPhone = txtResPhone.Text,
@@ -63,6 +65,9 @@ namespace raghani_tradelinks
                         MessageBox.Show("Sub Agent added successfully.");
                     else
                         MessageBox.Show("Error while adding Sub Agent.");
+
+                    DisplayData();
+                    ClearData();
                 }
             }
             catch(Exception ex)
@@ -86,6 +91,7 @@ namespace raghani_tradelinks
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");
+                        cmbCity.Focus();
                         return;
                     }
 
@@ -98,7 +104,8 @@ namespace raghani_tradelinks
                         Fax = txtFax.Text,
                         ResPhone = txtResPhone.Text,
                         MobileNumber = txtMobile.Text,
-                        Remarks = txtRemarks.Text
+                        Remarks = txtRemarks.Text,
+                        Pin = txtPin.Text
                     };
 
                     MstSubAgentMgmt subAgentMgmt = new MstSubAgentMgmt();
@@ -106,6 +113,9 @@ namespace raghani_tradelinks
                         MessageBox.Show("Sub Agent updated successfully.");
                     else
                         MessageBox.Show("Error while updating Sub Agent.");
+
+                    DisplayData();
+                    ClearData();
                 }
             }
             catch (Exception ex)
@@ -210,13 +220,41 @@ namespace raghani_tradelinks
 
         private void cmbCity_EditValueChanged(object sender, EventArgs e)
         {
-            if ((int)cmbCity.EditValue != -1)
+            try
             {
-                cmbState.EditValue = cities.FirstOrDefault(c => c.ID == (int)cmbCity.EditValue).StateId;
+                if ((int)cmbCity.EditValue != -1)
+                {
+                    cmbState.EditValue = cities.FirstOrDefault(c => c.ID == (int)cmbCity.EditValue).StateId;
+                }
+                else
+                {
+                    cmbState.EditValue = -1;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                cmbState.EditValue = -1;
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void grdSubAgent_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                ID = grdSubAgent.Rows[e.RowIndex].Cells[0].Value != null ? Convert.ToInt32(grdSubAgent.Rows[e.RowIndex].Cells[0].Value.ToString()) : -1;
+                txtSubAgentName.Text = grdSubAgent.Rows[e.RowIndex].Cells[1].Value != null ? grdSubAgent.Rows[e.RowIndex].Cells[1].Value.ToString() : string.Empty;
+                txtAddress.Text = grdSubAgent.Rows[e.RowIndex].Cells[2].Value != null ? grdSubAgent.Rows[e.RowIndex].Cells[2].Value.ToString() : string.Empty;
+                cmbCity.EditValue = grdSubAgent.Rows[e.RowIndex].Cells[3].Value != null ? Convert.ToInt32(grdSubAgent.Rows[e.RowIndex].Cells[3].Value.ToString()) : -1;
+                txtOfficePhone.Text = grdSubAgent.Rows[e.RowIndex].Cells[5].Value != null ? grdSubAgent.Rows[e.RowIndex].Cells[5].Value.ToString() : string.Empty;
+                txtFax.Text = grdSubAgent.Rows[e.RowIndex].Cells[6].Value != null ? grdSubAgent.Rows[e.RowIndex].Cells[6].Value.ToString() : string.Empty;
+                txtResPhone.Text = grdSubAgent.Rows[e.RowIndex].Cells[7].Value != null ? grdSubAgent.Rows[e.RowIndex].Cells[7].Value.ToString() : string.Empty;
+                txtMobile.Text = grdSubAgent.Rows[e.RowIndex].Cells[8].Value != null ? grdSubAgent.Rows[e.RowIndex].Cells[8].Value.ToString() : string.Empty;
+                txtRemarks.Text = grdSubAgent.Rows[e.RowIndex].Cells[9].Value != null ? grdSubAgent.Rows[e.RowIndex].Cells[9].Value.ToString() : string.Empty;
+                txtPin.Text = grdSubAgent.Rows[e.RowIndex].Cells[10].Value != null ? grdSubAgent.Rows[e.RowIndex].Cells[10].Value.ToString() : string.Empty;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

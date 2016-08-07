@@ -27,6 +27,7 @@ namespace RT.BL
                                               OfficePhone = agent.OfficePhone,
                                               Fax = agent.Fax,
                                               Remarks = agent.Remarks,
+                                              Pin = agent.Pin,
                                               CreatedBy = agent.CreatedBy,
                                               CreatedDate = agent.CreatedDate,
                                               UpdatedBy = agent.UpdatedBy,
@@ -51,11 +52,12 @@ namespace RT.BL
             subAgent.ResPhone = subAgentData.ResPhone;
             subAgent.MobileNumber = subAgentData.MobileNumber;
             subAgent.Remarks = subAgentData.Remarks;
+            subAgent.Pin = subAgentData.Pin;
             subAgent.CreatedBy = "admin";
             subAgent.CreatedDate = DateTime.Now;
             subAgent.UpdatedBy = "admin";
             subAgent.UpdatedDate = DateTime.Now;
-
+            subAgent.IsDeleted = false;
             db.MstSubAgents.Add(subAgent);
             return db.SaveChanges();
         }
@@ -71,6 +73,7 @@ namespace RT.BL
             subAgent.ResPhone = subAgentData.ResPhone;
             subAgent.MobileNumber = subAgentData.MobileNumber;
             subAgent.Remarks = subAgentData.Remarks;
+            subAgent.Pin = subAgentData.Pin;
             subAgent.UpdatedBy = "admin";
             subAgent.UpdatedDate = DateTime.Now;
 
@@ -107,6 +110,7 @@ namespace RT.BL
         public string ResPhone { get; set; }
         public string MobileNumber { get; set; }
         public string Remarks { get; set; }
+        public string Pin { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }

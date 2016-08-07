@@ -12,25 +12,23 @@ namespace RT.DL
     using System;
     using System.Collections.Generic;
     
-    public partial class MstTransport
+    public partial class SupplierContactInfo
     {
-        public int TransportId { get; set; }
-        public string TransportName { get; set; }
-        public string ContactPerson { get; set; }
+        public int SupplierContactInfoId { get; set; }
+        public Nullable<int> fkSupplierId { get; set; }
         public string Address { get; set; }
-        public Nullable<int> fkCityId { get; set; }
+        public string City { get; set; }
         public string OfficePhone { get; set; }
         public string Fax { get; set; }
+        public string Residence { get; set; }
+        public string ResidenceCity { get; set; }
         public string ResPhone { get; set; }
-        public string MobileNumber { get; set; }
-        public string Remarks { get; set; }
-        public string CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public string UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> IsDeleted { get; set; }
+        public string Email { get; set; }
+        public string SMSName { get; set; }
+        public string SMSCellNumber { get; set; }
         public string Pin { get; set; }
+        public string ResidencePin { get; set; }
     
-        public virtual MstCity MstCity { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

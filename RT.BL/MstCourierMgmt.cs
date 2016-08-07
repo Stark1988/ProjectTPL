@@ -31,6 +31,8 @@ namespace RT.BL
                                             OfficePhone = cour.OfficePhone,
                                             Fax = cour.Fax,
                                             Remarks = cour.Remarks,
+                                            Pin = cour.Pin,
+                                            ContactPerson = cour.ContactPerson,
                                             CreatedBy = cour.CreatedBy,
                                             CreatedDate = cour.CreatedDate,
                                             UpdatedBy = cour.UpdatedBy,
@@ -59,6 +61,8 @@ namespace RT.BL
         {
             MstCourier courier = new MstCourier();
             courier.CourierName = courierData.Name;
+            courier.Pin = courierData.Pin;
+            courier.ContactPerson = courierData.ContactPerson;
             courier.CreatedBy = "admin";
             courier.CreatedDate = DateTime.Now;
             courier.IsDeleted = false;
@@ -91,6 +95,8 @@ namespace RT.BL
             courier.OfficePhone = courierData.OfficePhone;
             courier.Fax = courierData.Fax;
             courier.Remarks = courierData.Remarks;
+            courier.Pin = courierData.Pin;
+            courier.ContactPerson = courierData.ContactPerson;
 
             return db.SaveChanges();
         }
@@ -120,7 +126,7 @@ namespace RT.BL
         public int ID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public Nullable<decimal> Rate { get; set; }
+        public Nullable<decimal> Rate { get; set; }        
         public Nullable<int> BranchId { get; set; }
         public string BranchName { get; set; }
         public string Address { get; set; }
@@ -129,6 +135,8 @@ namespace RT.BL
         public string OfficePhone { get; set; }
         public string Fax { get; set; }
         public string Remarks { get; set; }
+        public string Pin { get; set; }
+        public string ContactPerson { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }

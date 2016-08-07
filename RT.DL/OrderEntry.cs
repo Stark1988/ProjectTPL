@@ -12,25 +12,24 @@ namespace RT.DL
     using System;
     using System.Collections.Generic;
     
-    public partial class MstTransport
+    public partial class OrderEntry
     {
-        public int TransportId { get; set; }
-        public string TransportName { get; set; }
-        public string ContactPerson { get; set; }
-        public string Address { get; set; }
-        public Nullable<int> fkCityId { get; set; }
-        public string OfficePhone { get; set; }
-        public string Fax { get; set; }
-        public string ResPhone { get; set; }
-        public string MobileNumber { get; set; }
-        public string Remarks { get; set; }
-        public string CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public string UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> IsDeleted { get; set; }
-        public string Pin { get; set; }
+        public OrderEntry()
+        {
+            this.OrderDetails = new HashSet<OrderDetail>();
+        }
     
-        public virtual MstCity MstCity { get; set; }
+        public int OrderId { get; set; }
+        public Nullable<System.DateTime> OrderDate { get; set; }
+        public Nullable<int> fkCustomerId { get; set; }
+        public string OrderOrVIsit { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
+    
+        public virtual Customer Customer { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

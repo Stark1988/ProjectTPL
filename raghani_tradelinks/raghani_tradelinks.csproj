@@ -158,7 +158,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Validator">
-      <HintPath>..\..\Samples\demo\Validator.dll</HintPath>
+      <HintPath>..\References\Validator.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

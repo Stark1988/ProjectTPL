@@ -16,7 +16,7 @@ namespace raghani_tradelinks
         {
             InitializeComponent();
         }
-        int ID = 0;
+        int ID = -1;
 
         private void FrmNewState_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -57,6 +57,12 @@ namespace raghani_tradelinks
             {
                 if (dxValidationProvider1.Validate())
                 {
+                    if (ID == -1)
+                    {
+                        MessageBox.Show("Please select a State to update");
+                        return;
+                    }
+
                     MstStateMgt state = new MstStateMgt();
                     if (state.UpdateState(ID, txtStateName.Text) > 0)
                         MessageBox.Show("State updated successfully.");
@@ -89,7 +95,7 @@ namespace raghani_tradelinks
 
         private void ClearData()
         {
-            ID = 0;
+            ID = -1;
             txtStateName.Text = string.Empty;
         }
 
@@ -100,6 +106,12 @@ namespace raghani_tradelinks
                 DialogResult confirm = MessageBox.Show("Confirm Delete: " + txtStateName.Text + "?", "Confirm", MessageBoxButtons.OKCancel);
                 if (confirm == DialogResult.OK)
                 {
+                    if (ID == -1)
+                    {
+                        MessageBox.Show("Please select a State to delete");
+                        return;
+                    }
+
                     MstStateMgt state = new MstStateMgt();
                     if (state.DeleteState(ID) > 0)
                         MessageBox.Show("State deleted successfully.");
@@ -125,8 +137,8 @@ namespace raghani_tradelinks
         {
             try
             {
-                ID = Convert.ToInt32(grdState.Rows[e.RowIndex].Cells[0].Value.ToString());
-                txtStateName.Text = grdState.Rows[e.RowIndex].Cells[1].Value.ToString();
+                ID = grdState.Rows[e.RowIndex].Cells[0].Value != null ? Convert.ToInt32(grdState.Rows[e.RowIndex].Cells[0].Value.ToString()) : -1;
+                txtStateName.Text = grdState.Rows[e.RowIndex].Cells[1].Value != null ? grdState.Rows[e.RowIndex].Cells[1].Value.ToString() : string.Empty;
             }
             catch (Exception ex)
             {

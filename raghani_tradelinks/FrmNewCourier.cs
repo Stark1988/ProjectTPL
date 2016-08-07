@@ -32,12 +32,14 @@ namespace raghani_tradelinks
                     if((int)cmbBranch.EditValue == -1)
                     {
                         MessageBox.Show("Please select Branch");
+                        cmbBranch.Focus();
                         return;
                     }
 
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");
+                        cmbCity.Focus();
                         return;
                     }
 
@@ -45,6 +47,7 @@ namespace raghani_tradelinks
                     if(!Decimal.TryParse(txtRate.Text, out rate))
                     {
                         MessageBox.Show("Please enter valid value for rate");
+                        txtRate.Focus();
                         return;
                     }
 
@@ -58,7 +61,9 @@ namespace raghani_tradelinks
                         CityId = (int)cmbCity.EditValue,
                         OfficePhone = txtOfficePhone.Text,
                         Fax = txtFax.Text,
-                        Remarks = txtRemarks.Text
+                        Remarks = txtRemarks.Text,
+                        Pin = txtPin.Text,
+                        ContactPerson = txtContactPerson.Text
                     };
 
                     MstCourierMgmt courierMgmt = new MstCourierMgmt();
@@ -109,12 +114,14 @@ namespace raghani_tradelinks
                     if ((int)cmbBranch.EditValue == -1)
                     {
                         MessageBox.Show("Please select Branch");
+                        cmbBranch.Focus();
                         return;
                     }
 
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");
+                        cmbCity.Focus();
                         return;
                     }
 
@@ -122,6 +129,7 @@ namespace raghani_tradelinks
                     if (!Decimal.TryParse(txtRate.Text, out rate))
                     {
                         MessageBox.Show("Please enter valid value for rate");
+                        txtRate.Focus();
                         return;
                     }
 
@@ -135,7 +143,9 @@ namespace raghani_tradelinks
                         CityId = (int)cmbCity.EditValue,
                         OfficePhone = txtOfficePhone.Text,
                         Fax = txtFax.Text,
-                        Remarks = txtRemarks.Text
+                        Remarks = txtRemarks.Text,
+                        Pin = txtPin.Text,
+                        ContactPerson = txtContactPerson.Text
                     };
 
                     MstCourierMgmt courierMgmt = new MstCourierMgmt();
@@ -246,17 +256,19 @@ namespace raghani_tradelinks
         {
             try
             {
-                ID = Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[0].Value.ToString());
-                txtCourierName.Text = grdCity.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtShortName.Text = grdCity.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtRate.Text = grdCity.Rows[e.RowIndex].Cells[3].Value.ToString();
-                cmbBranch.EditValue = Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[4].Value.ToString());
-                txtAddress.Text = grdCity.Rows[e.RowIndex].Cells[6].Value.ToString();
-                cmbCity.EditValue = Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[7].Value.ToString());
-                cmbState.EditValue = cities.FirstOrDefault(c => c.ID == (int)cmbCity.EditValue).StateId;
-                txtOfficePhone.Text = grdCity.Rows[e.RowIndex].Cells[9].Value.ToString();
-                txtFax.Text = grdCity.Rows[e.RowIndex].Cells[10].Value.ToString();
-                txtRemarks.Text = grdCity.Rows[e.RowIndex].Cells[11].Value.ToString();
+                ID = grdCity.Rows[e.RowIndex].Cells[0].Value != null ? Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[0].Value.ToString()) : -1;
+                txtCourierName.Text = grdCity.Rows[e.RowIndex].Cells[1].Value != null ? grdCity.Rows[e.RowIndex].Cells[1].Value.ToString() : string.Empty;
+                txtShortName.Text = grdCity.Rows[e.RowIndex].Cells[2].Value != null ? grdCity.Rows[e.RowIndex].Cells[2].Value.ToString() : string.Empty;
+                txtRate.Text = grdCity.Rows[e.RowIndex].Cells[3].Value != null ? grdCity.Rows[e.RowIndex].Cells[3].Value.ToString() : string.Empty;
+                cmbBranch.EditValue = grdCity.Rows[e.RowIndex].Cells[4].Value != null ? Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[4].Value.ToString()) : -1;
+                txtAddress.Text = grdCity.Rows[e.RowIndex].Cells[6].Value != null ? grdCity.Rows[e.RowIndex].Cells[6].Value.ToString() : string.Empty;
+                cmbCity.EditValue = grdCity.Rows[e.RowIndex].Cells[7].Value != null ? Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[7].Value.ToString()) : -1;
+                cmbState.EditValue = cities.FirstOrDefault(c => c.ID == (int)cmbCity.EditValue) != null ? cities.FirstOrDefault(c => c.ID == (int)cmbCity.EditValue).StateId : -1;
+                txtOfficePhone.Text = grdCity.Rows[e.RowIndex].Cells[9].Value != null ? grdCity.Rows[e.RowIndex].Cells[9].Value.ToString() : string.Empty;
+                txtFax.Text = grdCity.Rows[e.RowIndex].Cells[10].Value != null ? grdCity.Rows[e.RowIndex].Cells[10].Value.ToString() : string.Empty;
+                txtRemarks.Text = grdCity.Rows[e.RowIndex].Cells[11].Value != null ? grdCity.Rows[e.RowIndex].Cells[11].Value.ToString() : string.Empty;
+                txtPin.Text = grdCity.Rows[e.RowIndex].Cells[12].Value != null ? grdCity.Rows[e.RowIndex].Cells[12].Value.ToString() : string.Empty;
+                txtContactPerson.Text = grdCity.Rows[e.RowIndex].Cells[13].Value != null ? grdCity.Rows[e.RowIndex].Cells[13].Value.ToString() : string.Empty;
             }
             catch (Exception ex)
             {
