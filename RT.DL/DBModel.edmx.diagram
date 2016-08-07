@@ -7,7 +7,6 @@
       <Diagram DiagramId="9c07dabbee72484287da29bf8b5342e6" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="TPLDBModel.Authorization" Width="1.5" PointX="5.25" PointY="28.25" />
         <EntityTypeShape EntityType="TPLDBModel.Customer" Width="1.5" PointX="3" PointY="12.75" />
-        <EntityTypeShape EntityType="TPLDBModel.CustomerAccountant" Width="1.5" PointX="7.5" PointY="21.125" />
         <EntityTypeShape EntityType="TPLDBModel.CustomerContactInfo" Width="1.5" PointX="8.25" PointY="14.125" />
         <EntityTypeShape EntityType="TPLDBModel.CustomerInfo" Width="1.5" PointX="5.25" PointY="19.5" />
         <EntityTypeShape EntityType="TPLDBModel.CustomerProprietor" Width="1.5" PointX="5.25" PointY="25.5" />
@@ -23,8 +22,6 @@
         <EntityTypeShape EntityType="TPLDBModel.MstUser" Width="1.5" PointX="6" PointY="1" />
         <EntityTypeShape EntityType="TPLDBModel.MstUserRole" Width="1.5" PointX="3.75" PointY="1.75" />
         <EntityTypeShape EntityType="TPLDBModel.MstUserType" Width="1.5" PointX="3.75" PointY="35.75" />
-        <EntityTypeShape EntityType="TPLDBModel.Party" Width="1.5" PointX="10" PointY="6" />
-        <EntityTypeShape EntityType="TPLDBModel.Reference" Width="1.5" PointX="7.75" PointY="6.375" />
         <EntityTypeShape EntityType="TPLDBModel.Table" Width="1.5" PointX="7.75" PointY="9.75" />
         <EntityTypeShape EntityType="TPLDBModel.UserType" Width="1.5" PointX="9.75" PointY="9.75" />
         <AssociationConnector Association="TPLDBModel.FK_Authorization_Customer" />
@@ -35,7 +32,6 @@
         <AssociationConnector Association="TPLDBModel.FK_CustomerProprietor_Customer" />
         <AssociationConnector Association="TPLDBModel.FK_CustomerSalesman_Customer" />
         <AssociationConnector Association="TPLDBModel.FK_CustomerSisterConcern_Customer" />
-        <AssociationConnector Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo" />
         <AssociationConnector Association="TPLDBModel.FK_CustomerContactInfo_MstCity" />
         <AssociationConnector Association="TPLDBModel.FK_MstCourier_MstBranch" />
         <AssociationConnector Association="TPLDBModel.FK_MstCity_MstState" />
@@ -44,6 +40,12 @@
         <AssociationConnector Association="TPLDBModel.FK_MstTransport_MstCity" />
         <AssociationConnector Association="TPLDBModel.FK_MstUser_MstUserRole" />
         <AssociationConnector Association="TPLDBModel.FK_MstUser_MstUserType" />
+        <EntityTypeShape EntityType="TPLDBModel.CustomerAccountant" Width="1.5" PointX="5.25" PointY="11.375" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo" />
+        <EntityTypeShape EntityType="TPLDBModel.Party" Width="1.5" PointX="7.5" PointY="28.125" />
+        <EntityTypeShape EntityType="TPLDBModel.Reference" Width="1.5" PointX="5.25" PointY="44.25" />
+        <AssociationConnector Association="TPLDBModel.FK_Party_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_Reference_Customer" />
         <AssociationConnector Association="TPLDBModel.FK_Party_Reference" />
       </Diagram>
     </edmx:Diagrams>

@@ -27,7 +27,6 @@ namespace RT.DL
     
         public virtual DbSet<Authorization> Authorizations { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<CustomerAccountant> CustomerAccountants { get; set; }
         public virtual DbSet<CustomerContactInfo> CustomerContactInfoes { get; set; }
         public virtual DbSet<CustomerInfo> CustomerInfoes { get; set; }
         public virtual DbSet<CustomerProprietor> CustomerProprietors { get; set; }
@@ -43,9 +42,10 @@ namespace RT.DL
         public virtual DbSet<MstUser> MstUsers { get; set; }
         public virtual DbSet<MstUserRole> MstUserRoles { get; set; }
         public virtual DbSet<MstUserType> MstUserTypes { get; set; }
-        public virtual DbSet<Party> Parties { get; set; }
-        public virtual DbSet<Reference> References { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<CustomerAccountant> CustomerAccountants { get; set; }
+        public virtual DbSet<Party> Parties { get; set; }
+        public virtual DbSet<Reference> References { get; set; }
     }
 }

@@ -19,6 +19,6 @@ namespace RT.DL
         public string AccountantName { get; set; }
         public string ContactNumber { get; set; }
     
-        public virtual CustomerInfo CustomerInfo { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

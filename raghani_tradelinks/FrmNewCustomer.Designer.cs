@@ -32,7 +32,7 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.cmbACCreatedByBranch = new DevExpress.XtraEditors.LookUpEdit();
+            this.cmbACCreatedByBranch = new System.Windows.Forms.ComboBox();
             this.chkBrandNewAC = new System.Windows.Forms.CheckBox();
             this.lblACCreatedByBranch = new DevExpress.XtraEditors.LabelControl();
             this.lblBrandNewAC = new DevExpress.XtraEditors.LabelControl();
@@ -44,6 +44,7 @@
             this.NewCustomerTabControl = new DevExpress.XtraTab.XtraTabControl();
             this.NewCustomerMainTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.MainPageScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.cmbSubAgent = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSalesman3MobileNo = new System.Windows.Forms.MaskedTextBox();
             this.lblSalesman3MobileNo = new DevExpress.XtraEditors.LabelControl();
@@ -80,8 +81,6 @@
             this.lblRemSMSCell1 = new DevExpress.XtraEditors.LabelControl();
             this.txtRemSMSCell2 = new System.Windows.Forms.TextBox();
             this.lblRemSMSCell2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPassword = new DevExpress.XtraEditors.LabelControl();
             this.txtLastOAC = new System.Windows.Forms.TextBox();
             this.lblLastOAC = new DevExpress.XtraEditors.LabelControl();
             this.txtSMSCellNo = new System.Windows.Forms.TextBox();
@@ -106,7 +105,6 @@
             this.lblTypeOfFirm = new DevExpress.XtraEditors.LabelControl();
             this.cmbGroup = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbZone = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbSubAgent = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbCity = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbCashCredit = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -130,12 +128,6 @@
             this.NewCustomerReferenceTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.ReferencePageScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
             this.pnlAuthorizationContainer = new System.Windows.Forms.Panel();
-            this.cmbMarketBoy3 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbMarketBoy2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbMarketBoy1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblMarketBoy = new DevExpress.XtraEditors.LabelControl();
-            this.cmbMBoyBranch = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblMBoyBranch = new DevExpress.XtraEditors.LabelControl();
             this.cmbBranchHead = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblBranchHead = new DevExpress.XtraEditors.LabelControl();
             this.cmbDirector3 = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -206,44 +198,35 @@
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.cmbGRHabbit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtDirectDealing = new System.Windows.Forms.TextBox();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskCreaditLimit = new System.Windows.Forms.MaskedTextBox();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtHotel = new System.Windows.Forms.TextBox();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTransPref = new System.Windows.Forms.TextBox();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPaymentHabbit = new System.Windows.Forms.TextBox();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.cmbDelingType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.cmbVisistFreq = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtOtherAgent = new System.Windows.Forms.TextBox();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbMBoy1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtAbuse = new System.Windows.Forms.TextBox();
             this.lblAbuse = new DevExpress.XtraEditors.LabelControl();
-            this.lblMBoy1 = new DevExpress.XtraEditors.LabelControl();
             this.NewCustomerSisterConcernTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.SisterConcernScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.txtEnteredBy = new System.Windows.Forms.TextBox();
-            this.lblEnteredBy = new DevExpress.XtraEditors.LabelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.validator1 = new Itboy.Components.Validator(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbACCreatedByBranch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NewCustomerTabControl)).BeginInit();
@@ -257,17 +240,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbTypeOfFirm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbZone.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbSubAgent.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCashCredit.Properties)).BeginInit();
             this.NewCustomerReferenceTabPage.SuspendLayout();
             this.ReferencePageScrollableControl.SuspendLayout();
             this.pnlAuthorizationContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMarketBoy3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMarketBoy2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMarketBoy1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMBoyBranch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBranchHead.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDirector3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDirector2.Properties)).BeginInit();
@@ -285,9 +263,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbGRHabbit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDelingType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbVisistFreq.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMBoy1.Properties)).BeginInit();
             this.NewCustomerSisterConcernTabPage.SuspendLayout();
             this.SisterConcernScrollableControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -300,19 +275,19 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(526, 9);
+            this.btnCancel.Location = new System.Drawing.Point(123, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 0;
+            this.btnCancel.TabIndex = 88;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(415, 9);
+            this.btnSave.Location = new System.Drawing.Point(12, 6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
+            this.btnSave.TabIndex = 87;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -334,12 +309,10 @@
             // 
             // cmbACCreatedByBranch
             // 
-            this.cmbACCreatedByBranch.EditValue = "Branch";
-            this.cmbACCreatedByBranch.Location = new System.Drawing.Point(526, 7);
+            this.cmbACCreatedByBranch.FormattingEnabled = true;
+            this.cmbACCreatedByBranch.Location = new System.Drawing.Point(522, 8);
             this.cmbACCreatedByBranch.Name = "cmbACCreatedByBranch";
-            this.cmbACCreatedByBranch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbACCreatedByBranch.Size = new System.Drawing.Size(149, 20);
+            this.cmbACCreatedByBranch.Size = new System.Drawing.Size(166, 21);
             this.cmbACCreatedByBranch.TabIndex = 8;
             // 
             // chkBrandNewAC
@@ -374,7 +347,7 @@
             this.txtCustomerACNo.Location = new System.Drawing.Point(125, 8);
             this.txtCustomerACNo.Name = "txtCustomerACNo";
             this.txtCustomerACNo.Size = new System.Drawing.Size(130, 21);
-            this.txtCustomerACNo.TabIndex = 4;
+            this.txtCustomerACNo.TabIndex = 1;
             // 
             // txtCustomerCreatedOn
             // 
@@ -433,6 +406,7 @@
             // MainPageScrollableControl
             // 
             this.MainPageScrollableControl.AutoScrollMinSize = new System.Drawing.Size(0, 600);
+            this.MainPageScrollableControl.Controls.Add(this.cmbSubAgent);
             this.MainPageScrollableControl.Controls.Add(this.panel1);
             this.MainPageScrollableControl.Controls.Add(this.pnlProprietorContainer);
             this.MainPageScrollableControl.Controls.Add(this.chkNoLRAddressPrinting);
@@ -445,8 +419,6 @@
             this.MainPageScrollableControl.Controls.Add(this.lblRemSMSCell1);
             this.MainPageScrollableControl.Controls.Add(this.txtRemSMSCell2);
             this.MainPageScrollableControl.Controls.Add(this.lblRemSMSCell2);
-            this.MainPageScrollableControl.Controls.Add(this.txtPassword);
-            this.MainPageScrollableControl.Controls.Add(this.lblPassword);
             this.MainPageScrollableControl.Controls.Add(this.txtLastOAC);
             this.MainPageScrollableControl.Controls.Add(this.lblLastOAC);
             this.MainPageScrollableControl.Controls.Add(this.txtSMSCellNo);
@@ -471,7 +443,6 @@
             this.MainPageScrollableControl.Controls.Add(this.lblTypeOfFirm);
             this.MainPageScrollableControl.Controls.Add(this.cmbGroup);
             this.MainPageScrollableControl.Controls.Add(this.cmbZone);
-            this.MainPageScrollableControl.Controls.Add(this.cmbSubAgent);
             this.MainPageScrollableControl.Controls.Add(this.cmbCity);
             this.MainPageScrollableControl.Controls.Add(this.cmbState);
             this.MainPageScrollableControl.Controls.Add(this.cmbCashCredit);
@@ -498,6 +469,14 @@
             this.MainPageScrollableControl.Size = new System.Drawing.Size(1228, 471);
             this.MainPageScrollableControl.TabIndex = 0;
             // 
+            // cmbSubAgent
+            // 
+            this.cmbSubAgent.FormattingEnabled = true;
+            this.cmbSubAgent.Location = new System.Drawing.Point(181, 343);
+            this.cmbSubAgent.Name = "cmbSubAgent";
+            this.cmbSubAgent.Size = new System.Drawing.Size(398, 21);
+            this.cmbSubAgent.TabIndex = 15;
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -521,7 +500,7 @@
             // txtSalesman3MobileNo
             // 
             this.txtSalesman3MobileNo.HidePromptOnLeave = true;
-            this.txtSalesman3MobileNo.Location = new System.Drawing.Point(387, 63);
+            this.txtSalesman3MobileNo.Location = new System.Drawing.Point(394, 62);
             this.txtSalesman3MobileNo.Mask = "00000000000";
             this.txtSalesman3MobileNo.Name = "txtSalesman3MobileNo";
             this.txtSalesman3MobileNo.Size = new System.Drawing.Size(115, 21);
@@ -530,7 +509,7 @@
             // lblSalesman3MobileNo
             // 
             this.lblSalesman3MobileNo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblSalesman3MobileNo.Location = new System.Drawing.Point(321, 67);
+            this.lblSalesman3MobileNo.Location = new System.Drawing.Point(328, 66);
             this.lblSalesman3MobileNo.Name = "lblSalesman3MobileNo";
             this.lblSalesman3MobileNo.Size = new System.Drawing.Size(57, 13);
             this.lblSalesman3MobileNo.TabIndex = 210;
@@ -555,7 +534,7 @@
             // txtSalesman2MobileNo
             // 
             this.txtSalesman2MobileNo.HidePromptOnLeave = true;
-            this.txtSalesman2MobileNo.Location = new System.Drawing.Point(387, 36);
+            this.txtSalesman2MobileNo.Location = new System.Drawing.Point(394, 35);
             this.txtSalesman2MobileNo.Mask = "00000000000";
             this.txtSalesman2MobileNo.Name = "txtSalesman2MobileNo";
             this.txtSalesman2MobileNo.Size = new System.Drawing.Size(115, 21);
@@ -564,7 +543,7 @@
             // lblSalesman2MobileNo
             // 
             this.lblSalesman2MobileNo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblSalesman2MobileNo.Location = new System.Drawing.Point(321, 40);
+            this.lblSalesman2MobileNo.Location = new System.Drawing.Point(328, 39);
             this.lblSalesman2MobileNo.Name = "lblSalesman2MobileNo";
             this.lblSalesman2MobileNo.Size = new System.Drawing.Size(57, 13);
             this.lblSalesman2MobileNo.TabIndex = 206;
@@ -589,7 +568,7 @@
             // txtSalesman1MobileNo
             // 
             this.txtSalesman1MobileNo.HidePromptOnLeave = true;
-            this.txtSalesman1MobileNo.Location = new System.Drawing.Point(387, 10);
+            this.txtSalesman1MobileNo.Location = new System.Drawing.Point(394, 9);
             this.txtSalesman1MobileNo.Mask = "00000000000";
             this.txtSalesman1MobileNo.Name = "txtSalesman1MobileNo";
             this.txtSalesman1MobileNo.Size = new System.Drawing.Size(115, 21);
@@ -598,7 +577,7 @@
             // lblSalesman1MobileNo
             // 
             this.lblSalesman1MobileNo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblSalesman1MobileNo.Location = new System.Drawing.Point(321, 14);
+            this.lblSalesman1MobileNo.Location = new System.Drawing.Point(328, 13);
             this.lblSalesman1MobileNo.Name = "lblSalesman1MobileNo";
             this.lblSalesman1MobileNo.Size = new System.Drawing.Size(57, 13);
             this.lblSalesman1MobileNo.TabIndex = 202;
@@ -608,8 +587,10 @@
             // 
             this.txtSalesman1.Location = new System.Drawing.Point(111, 10);
             this.txtSalesman1.Name = "txtSalesman1";
+            this.validator1.SetRequiredMessage(this.txtSalesman1, "Salesman(1) can not be blank.");
             this.txtSalesman1.Size = new System.Drawing.Size(198, 21);
             this.txtSalesman1.TabIndex = 192;
+            this.validator1.SetType(this.txtSalesman1, Itboy.Components.ValidationType.Required);
             // 
             // lblSalesman1
             // 
@@ -643,7 +624,7 @@
             // txtProprietor3MobileNo
             // 
             this.txtProprietor3MobileNo.HidePromptOnLeave = true;
-            this.txtProprietor3MobileNo.Location = new System.Drawing.Point(387, 63);
+            this.txtProprietor3MobileNo.Location = new System.Drawing.Point(394, 63);
             this.txtProprietor3MobileNo.Mask = "00000000000";
             this.txtProprietor3MobileNo.Name = "txtProprietor3MobileNo";
             this.txtProprietor3MobileNo.Size = new System.Drawing.Size(115, 21);
@@ -652,7 +633,7 @@
             // lblProprietor3MobileNo
             // 
             this.lblProprietor3MobileNo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblProprietor3MobileNo.Location = new System.Drawing.Point(321, 67);
+            this.lblProprietor3MobileNo.Location = new System.Drawing.Point(328, 67);
             this.lblProprietor3MobileNo.Name = "lblProprietor3MobileNo";
             this.lblProprietor3MobileNo.Size = new System.Drawing.Size(57, 13);
             this.lblProprietor3MobileNo.TabIndex = 210;
@@ -677,7 +658,7 @@
             // txtProprietor2MobileNo
             // 
             this.txtProprietor2MobileNo.HidePromptOnLeave = true;
-            this.txtProprietor2MobileNo.Location = new System.Drawing.Point(387, 36);
+            this.txtProprietor2MobileNo.Location = new System.Drawing.Point(394, 36);
             this.txtProprietor2MobileNo.Mask = "00000000000";
             this.txtProprietor2MobileNo.Name = "txtProprietor2MobileNo";
             this.txtProprietor2MobileNo.Size = new System.Drawing.Size(115, 21);
@@ -686,7 +667,7 @@
             // lblProprietor2MobileNo
             // 
             this.lblProprietor2MobileNo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblProprietor2MobileNo.Location = new System.Drawing.Point(321, 40);
+            this.lblProprietor2MobileNo.Location = new System.Drawing.Point(328, 40);
             this.lblProprietor2MobileNo.Name = "lblProprietor2MobileNo";
             this.lblProprietor2MobileNo.Size = new System.Drawing.Size(57, 13);
             this.lblProprietor2MobileNo.TabIndex = 206;
@@ -711,7 +692,7 @@
             // txtProprietor1MobileNo
             // 
             this.txtProprietor1MobileNo.HidePromptOnLeave = true;
-            this.txtProprietor1MobileNo.Location = new System.Drawing.Point(387, 10);
+            this.txtProprietor1MobileNo.Location = new System.Drawing.Point(394, 10);
             this.txtProprietor1MobileNo.Mask = "00000000000";
             this.txtProprietor1MobileNo.Name = "txtProprietor1MobileNo";
             this.txtProprietor1MobileNo.Size = new System.Drawing.Size(115, 21);
@@ -720,7 +701,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Location = new System.Drawing.Point(321, 14);
+            this.labelControl1.Location = new System.Drawing.Point(328, 14);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(57, 13);
             this.labelControl1.TabIndex = 202;
@@ -730,8 +711,10 @@
             // 
             this.txtProprietor1.Location = new System.Drawing.Point(111, 10);
             this.txtProprietor1.Name = "txtProprietor1";
+            this.validator1.SetRequiredMessage(this.txtProprietor1, "Propreitor(1) can not be blank");
             this.txtProprietor1.Size = new System.Drawing.Size(198, 21);
             this.txtProprietor1.TabIndex = 192;
+            this.validator1.SetType(this.txtProprietor1, Itboy.Components.ValidationType.Required);
             // 
             // lblProprietor1
             // 
@@ -748,7 +731,7 @@
             this.chkNoLRAddressPrinting.Location = new System.Drawing.Point(796, 446);
             this.chkNoLRAddressPrinting.Name = "chkNoLRAddressPrinting";
             this.chkNoLRAddressPrinting.Size = new System.Drawing.Size(15, 14);
-            this.chkNoLRAddressPrinting.TabIndex = 246;
+            this.chkNoLRAddressPrinting.TabIndex = 31;
             this.chkNoLRAddressPrinting.UseVisualStyleBackColor = true;
             // 
             // lblNoLRAddressPrinting
@@ -764,8 +747,10 @@
             // 
             this.txtRemContactPerson.Location = new System.Drawing.Point(796, 282);
             this.txtRemContactPerson.Name = "txtRemContactPerson";
+            this.validator1.SetRequiredMessage(this.txtRemContactPerson, "Rem Contact Person can not be blank");
             this.txtRemContactPerson.Size = new System.Drawing.Size(269, 21);
-            this.txtRemContactPerson.TabIndex = 244;
+            this.txtRemContactPerson.TabIndex = 26;
+            this.validator1.SetType(this.txtRemContactPerson, Itboy.Components.ValidationType.Required);
             // 
             // lblRemContactPerson
             // 
@@ -781,7 +766,7 @@
             this.txtRemContactPhone.Location = new System.Drawing.Point(796, 309);
             this.txtRemContactPhone.Name = "txtRemContactPhone";
             this.txtRemContactPhone.Size = new System.Drawing.Size(269, 21);
-            this.txtRemContactPhone.TabIndex = 242;
+            this.txtRemContactPhone.TabIndex = 27;
             // 
             // lblRemContactPhone
             // 
@@ -796,8 +781,10 @@
             // 
             this.txtRemSMSCell1.Location = new System.Drawing.Point(796, 335);
             this.txtRemSMSCell1.Name = "txtRemSMSCell1";
+            this.validator1.SetRequiredMessage(this.txtRemSMSCell1, "Rem SMS Cell 1 can not be blank");
             this.txtRemSMSCell1.Size = new System.Drawing.Size(269, 21);
-            this.txtRemSMSCell1.TabIndex = 240;
+            this.txtRemSMSCell1.TabIndex = 28;
+            this.validator1.SetType(this.txtRemSMSCell1, Itboy.Components.ValidationType.Required);
             // 
             // lblRemSMSCell1
             // 
@@ -813,7 +800,7 @@
             this.txtRemSMSCell2.Location = new System.Drawing.Point(796, 361);
             this.txtRemSMSCell2.Name = "txtRemSMSCell2";
             this.txtRemSMSCell2.Size = new System.Drawing.Size(269, 21);
-            this.txtRemSMSCell2.TabIndex = 238;
+            this.txtRemSMSCell2.TabIndex = 29;
             // 
             // lblRemSMSCell2
             // 
@@ -824,28 +811,12 @@
             this.lblRemSMSCell2.TabIndex = 237;
             this.lblRemSMSCell2.Text = "Rem SMS Cell 2";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(796, 388);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(269, 21);
-            this.txtPassword.TabIndex = 236;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.Location = new System.Drawing.Point(655, 392);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(54, 13);
-            this.lblPassword.TabIndex = 235;
-            this.lblPassword.Text = "Password";
-            // 
             // txtLastOAC
             // 
             this.txtLastOAC.Location = new System.Drawing.Point(796, 414);
             this.txtLastOAC.Name = "txtLastOAC";
             this.txtLastOAC.Size = new System.Drawing.Size(269, 21);
-            this.txtLastOAC.TabIndex = 234;
+            this.txtLastOAC.TabIndex = 30;
             // 
             // lblLastOAC
             // 
@@ -861,7 +832,7 @@
             this.txtSMSCellNo.Location = new System.Drawing.Point(796, 256);
             this.txtSMSCellNo.Name = "txtSMSCellNo";
             this.txtSMSCellNo.Size = new System.Drawing.Size(269, 21);
-            this.txtSMSCellNo.TabIndex = 232;
+            this.txtSMSCellNo.TabIndex = 25;
             // 
             // lblSMSCellNo
             // 
@@ -877,7 +848,7 @@
             this.txtSMSName.Location = new System.Drawing.Point(796, 229);
             this.txtSMSName.Name = "txtSMSName";
             this.txtSMSName.Size = new System.Drawing.Size(269, 21);
-            this.txtSMSName.TabIndex = 230;
+            this.txtSMSName.TabIndex = 24;
             // 
             // lblSMSName
             // 
@@ -893,7 +864,7 @@
             this.txtEmail.Location = new System.Drawing.Point(796, 201);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(269, 21);
-            this.txtEmail.TabIndex = 228;
+            this.txtEmail.TabIndex = 23;
             // 
             // lblEmail
             // 
@@ -908,8 +879,10 @@
             // 
             this.txtTIN.Location = new System.Drawing.Point(796, 118);
             this.txtTIN.Name = "txtTIN";
+            this.validator1.SetRequiredMessage(this.txtTIN, "TIN can not be blank.");
             this.txtTIN.Size = new System.Drawing.Size(269, 21);
-            this.txtTIN.TabIndex = 226;
+            this.txtTIN.TabIndex = 20;
+            this.validator1.SetType(this.txtTIN, Itboy.Components.ValidationType.Required);
             // 
             // lblTIN
             // 
@@ -924,8 +897,10 @@
             // 
             this.txtCSTNo.Location = new System.Drawing.Point(796, 145);
             this.txtCSTNo.Name = "txtCSTNo";
+            this.validator1.SetRequiredMessage(this.txtCSTNo, "CST No. can not be blank.");
             this.txtCSTNo.Size = new System.Drawing.Size(269, 21);
-            this.txtCSTNo.TabIndex = 224;
+            this.txtCSTNo.TabIndex = 21;
+            this.validator1.SetType(this.txtCSTNo, Itboy.Components.ValidationType.Required);
             // 
             // lblCSTNo
             // 
@@ -940,8 +915,10 @@
             // 
             this.txtGSTNo.Location = new System.Drawing.Point(796, 173);
             this.txtGSTNo.Name = "txtGSTNo";
+            this.validator1.SetRequiredMessage(this.txtGSTNo, "GST No. can not be blank.");
             this.txtGSTNo.Size = new System.Drawing.Size(269, 21);
-            this.txtGSTNo.TabIndex = 222;
+            this.txtGSTNo.TabIndex = 22;
+            this.validator1.SetType(this.txtGSTNo, Itboy.Components.ValidationType.Required);
             // 
             // lblGSTNo
             // 
@@ -956,8 +933,10 @@
             // 
             this.txtSTDCode.Location = new System.Drawing.Point(796, 92);
             this.txtSTDCode.Name = "txtSTDCode";
+            this.validator1.SetRequiredMessage(this.txtSTDCode, "STD Code can not be blank.");
             this.txtSTDCode.Size = new System.Drawing.Size(269, 21);
-            this.txtSTDCode.TabIndex = 220;
+            this.txtSTDCode.TabIndex = 19;
+            this.validator1.SetType(this.txtSTDCode, Itboy.Components.ValidationType.Required);
             // 
             // lblSTDCode
             // 
@@ -976,7 +955,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbPriority.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPriority.Size = new System.Drawing.Size(269, 20);
-            this.cmbPriority.TabIndex = 218;
+            this.cmbPriority.TabIndex = 17;
             // 
             // lblPriority
             // 
@@ -995,7 +974,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbStatus.Size = new System.Drawing.Size(269, 20);
-            this.cmbStatus.TabIndex = 216;
+            this.cmbStatus.TabIndex = 18;
             // 
             // lblStatus
             // 
@@ -1014,7 +993,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbTypeOfFirm.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTypeOfFirm.Size = new System.Drawing.Size(269, 20);
-            this.cmbTypeOfFirm.TabIndex = 214;
+            this.cmbTypeOfFirm.TabIndex = 16;
             // 
             // lblTypeOfFirm
             // 
@@ -1034,7 +1013,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbGroup.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbGroup.Size = new System.Drawing.Size(198, 20);
-            this.cmbGroup.TabIndex = 212;
+            this.cmbGroup.TabIndex = 13;
             // 
             // cmbZone
             // 
@@ -1044,19 +1023,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbZone.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbZone.Size = new System.Drawing.Size(198, 20);
-            this.cmbZone.TabIndex = 211;
-            // 
-            // cmbSubAgent
-            // 
-            this.cmbSubAgent.Location = new System.Drawing.Point(181, 343);
-            this.cmbSubAgent.Name = "cmbSubAgent";
-            this.cmbSubAgent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSubAgent.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbSubAgent.Size = new System.Drawing.Size(391, 20);
-            this.cmbSubAgent.TabIndex = 210;
+            this.cmbZone.TabIndex = 14;
             // 
             // cmbCity
             // 
@@ -1068,7 +1035,7 @@
             "Cash",
             "Credit"});
             this.cmbCity.Size = new System.Drawing.Size(198, 20);
-            this.cmbCity.TabIndex = 209;
+            this.cmbCity.TabIndex = 8;
             // 
             // cmbState
             // 
@@ -1080,7 +1047,7 @@
             "Cash",
             "Credit"});
             this.cmbState.Size = new System.Drawing.Size(198, 20);
-            this.cmbState.TabIndex = 208;
+            this.cmbState.TabIndex = 10;
             // 
             // cmbCashCredit
             // 
@@ -1093,7 +1060,7 @@
             "Cash",
             "Credit"});
             this.cmbCashCredit.Size = new System.Drawing.Size(198, 20);
-            this.cmbCashCredit.TabIndex = 207;
+            this.cmbCashCredit.TabIndex = 4;
             // 
             // lblSubAgent
             // 
@@ -1127,7 +1094,7 @@
             this.txtFaxNo.Location = new System.Drawing.Point(181, 263);
             this.txtFaxNo.Name = "txtFaxNo";
             this.txtFaxNo.Size = new System.Drawing.Size(198, 21);
-            this.txtFaxNo.TabIndex = 203;
+            this.txtFaxNo.TabIndex = 12;
             // 
             // lblFaxNo
             // 
@@ -1145,7 +1112,7 @@
             this.txtPhoneOffice.Mask = "000-000000000000";
             this.txtPhoneOffice.Name = "txtPhoneOffice";
             this.txtPhoneOffice.Size = new System.Drawing.Size(198, 21);
-            this.txtPhoneOffice.TabIndex = 201;
+            this.txtPhoneOffice.TabIndex = 11;
             // 
             // lblPhoneOffice
             // 
@@ -1170,7 +1137,7 @@
             this.txtPin.Location = new System.Drawing.Point(401, 180);
             this.txtPin.Name = "txtPin";
             this.txtPin.Size = new System.Drawing.Size(130, 21);
-            this.txtPin.TabIndex = 198;
+            this.txtPin.TabIndex = 9;
             // 
             // lblCityPin
             // 
@@ -1185,8 +1152,10 @@
             // 
             this.txtAlias.Location = new System.Drawing.Point(181, 73);
             this.txtAlias.Name = "txtAlias";
+            this.validator1.SetRequiredMessage(this.txtAlias, "Alias can not be blank.");
             this.txtAlias.Size = new System.Drawing.Size(391, 21);
-            this.txtAlias.TabIndex = 194;
+            this.txtAlias.TabIndex = 6;
+            this.validator1.SetType(this.txtAlias, Itboy.Components.ValidationType.Required);
             // 
             // lblAlias
             // 
@@ -1202,8 +1171,10 @@
             this.txtAddress1.Location = new System.Drawing.Point(181, 100);
             this.txtAddress1.Multiline = true;
             this.txtAddress1.Name = "txtAddress1";
+            this.validator1.SetRequiredMessage(this.txtAddress1, "Address can not be blank");
             this.txtAddress1.Size = new System.Drawing.Size(391, 73);
-            this.txtAddress1.TabIndex = 192;
+            this.txtAddress1.TabIndex = 7;
+            this.validator1.SetType(this.txtAddress1, Itboy.Components.ValidationType.Required);
             // 
             // lblAddress
             // 
@@ -1220,7 +1191,7 @@
             this.txtName.Name = "txtName";
             this.validator1.SetRequiredMessage(this.txtName, "Name can not be blank.");
             this.txtName.Size = new System.Drawing.Size(391, 21);
-            this.txtName.TabIndex = 190;
+            this.txtName.TabIndex = 5;
             this.validator1.SetType(this.txtName, Itboy.Components.ValidationType.Required);
             // 
             // lblName
@@ -1265,12 +1236,6 @@
             // pnlAuthorizationContainer
             // 
             this.pnlAuthorizationContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlAuthorizationContainer.Controls.Add(this.cmbMarketBoy3);
-            this.pnlAuthorizationContainer.Controls.Add(this.cmbMarketBoy2);
-            this.pnlAuthorizationContainer.Controls.Add(this.cmbMarketBoy1);
-            this.pnlAuthorizationContainer.Controls.Add(this.lblMarketBoy);
-            this.pnlAuthorizationContainer.Controls.Add(this.cmbMBoyBranch);
-            this.pnlAuthorizationContainer.Controls.Add(this.lblMBoyBranch);
             this.pnlAuthorizationContainer.Controls.Add(this.cmbBranchHead);
             this.pnlAuthorizationContainer.Controls.Add(this.lblBranchHead);
             this.pnlAuthorizationContainer.Controls.Add(this.cmbDirector3);
@@ -1282,70 +1247,6 @@
             this.pnlAuthorizationContainer.Size = new System.Drawing.Size(362, 161);
             this.pnlAuthorizationContainer.TabIndex = 223;
             // 
-            // cmbMarketBoy3
-            // 
-            this.cmbMarketBoy3.Location = new System.Drawing.Point(202, 127);
-            this.cmbMarketBoy3.Name = "cmbMarketBoy3";
-            this.cmbMarketBoy3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbMarketBoy3.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbMarketBoy3.Size = new System.Drawing.Size(144, 20);
-            this.cmbMarketBoy3.TabIndex = 236;
-            // 
-            // cmbMarketBoy2
-            // 
-            this.cmbMarketBoy2.Location = new System.Drawing.Point(202, 100);
-            this.cmbMarketBoy2.Name = "cmbMarketBoy2";
-            this.cmbMarketBoy2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbMarketBoy2.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbMarketBoy2.Size = new System.Drawing.Size(144, 20);
-            this.cmbMarketBoy2.TabIndex = 235;
-            // 
-            // cmbMarketBoy1
-            // 
-            this.cmbMarketBoy1.Location = new System.Drawing.Point(202, 73);
-            this.cmbMarketBoy1.Name = "cmbMarketBoy1";
-            this.cmbMarketBoy1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbMarketBoy1.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbMarketBoy1.Size = new System.Drawing.Size(144, 20);
-            this.cmbMarketBoy1.TabIndex = 234;
-            // 
-            // lblMarketBoy
-            // 
-            this.lblMarketBoy.Location = new System.Drawing.Point(202, 53);
-            this.lblMarketBoy.Name = "lblMarketBoy";
-            this.lblMarketBoy.Size = new System.Drawing.Size(54, 13);
-            this.lblMarketBoy.TabIndex = 233;
-            this.lblMarketBoy.Text = "Market Boy";
-            // 
-            // cmbMBoyBranch
-            // 
-            this.cmbMBoyBranch.Location = new System.Drawing.Point(202, 27);
-            this.cmbMBoyBranch.Name = "cmbMBoyBranch";
-            this.cmbMBoyBranch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbMBoyBranch.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbMBoyBranch.Size = new System.Drawing.Size(144, 20);
-            this.cmbMBoyBranch.TabIndex = 232;
-            // 
-            // lblMBoyBranch
-            // 
-            this.lblMBoyBranch.Location = new System.Drawing.Point(202, 7);
-            this.lblMBoyBranch.Name = "lblMBoyBranch";
-            this.lblMBoyBranch.Size = new System.Drawing.Size(66, 13);
-            this.lblMBoyBranch.TabIndex = 231;
-            this.lblMBoyBranch.Text = "M.Boy Branch";
-            // 
             // cmbBranchHead
             // 
             this.cmbBranchHead.Location = new System.Drawing.Point(12, 127);
@@ -1355,8 +1256,8 @@
             this.cmbBranchHead.Properties.Items.AddRange(new object[] {
             "Cash",
             "Credit"});
-            this.cmbBranchHead.Size = new System.Drawing.Size(154, 20);
-            this.cmbBranchHead.TabIndex = 230;
+            this.cmbBranchHead.Size = new System.Drawing.Size(311, 20);
+            this.cmbBranchHead.TabIndex = 69;
             // 
             // lblBranchHead
             // 
@@ -1375,8 +1276,8 @@
             this.cmbDirector3.Properties.Items.AddRange(new object[] {
             "Cash",
             "Credit"});
-            this.cmbDirector3.Size = new System.Drawing.Size(154, 20);
-            this.cmbDirector3.TabIndex = 228;
+            this.cmbDirector3.Size = new System.Drawing.Size(311, 20);
+            this.cmbDirector3.TabIndex = 68;
             // 
             // cmbDirector2
             // 
@@ -1387,8 +1288,8 @@
             this.cmbDirector2.Properties.Items.AddRange(new object[] {
             "Cash",
             "Credit"});
-            this.cmbDirector2.Size = new System.Drawing.Size(154, 20);
-            this.cmbDirector2.TabIndex = 227;
+            this.cmbDirector2.Size = new System.Drawing.Size(311, 20);
+            this.cmbDirector2.TabIndex = 67;
             // 
             // cmbDirector1
             // 
@@ -1399,8 +1300,8 @@
             this.cmbDirector1.Properties.Items.AddRange(new object[] {
             "Cash",
             "Credit"});
-            this.cmbDirector1.Size = new System.Drawing.Size(154, 20);
-            this.cmbDirector1.TabIndex = 226;
+            this.cmbDirector1.Size = new System.Drawing.Size(311, 20);
+            this.cmbDirector1.TabIndex = 66;
             // 
             // lblDirector
             // 
@@ -1424,7 +1325,7 @@
             this.txtParty5.Location = new System.Drawing.Point(79, 225);
             this.txtParty5.Name = "txtParty5";
             this.txtParty5.Size = new System.Drawing.Size(198, 21);
-            this.txtParty5.TabIndex = 221;
+            this.txtParty5.TabIndex = 60;
             // 
             // pnlPartyReferenceContainer
             // 
@@ -1473,40 +1374,40 @@
             this.pnlPartyReferenceContainer.Controls.Add(this.shapeContainer1);
             this.pnlPartyReferenceContainer.Location = new System.Drawing.Point(66, 49);
             this.pnlPartyReferenceContainer.Name = "pnlPartyReferenceContainer";
-            this.pnlPartyReferenceContainer.Size = new System.Drawing.Size(1084, 207);
+            this.pnlPartyReferenceContainer.Size = new System.Drawing.Size(1142, 207);
             this.pnlPartyReferenceContainer.TabIndex = 1;
             // 
             // txtRemarks4
             // 
-            this.txtRemarks4.Location = new System.Drawing.Point(793, 148);
+            this.txtRemarks4.Location = new System.Drawing.Point(839, 148);
             this.txtRemarks4.Name = "txtRemarks4";
             this.txtRemarks4.Size = new System.Drawing.Size(273, 21);
-            this.txtRemarks4.TabIndex = 250;
+            this.txtRemarks4.TabIndex = 59;
             // 
             // txtRemarks3
             // 
-            this.txtRemarks3.Location = new System.Drawing.Point(793, 121);
+            this.txtRemarks3.Location = new System.Drawing.Point(839, 121);
             this.txtRemarks3.Name = "txtRemarks3";
             this.txtRemarks3.Size = new System.Drawing.Size(273, 21);
-            this.txtRemarks3.TabIndex = 249;
+            this.txtRemarks3.TabIndex = 53;
             // 
             // txtRemarks2
             // 
-            this.txtRemarks2.Location = new System.Drawing.Point(793, 94);
+            this.txtRemarks2.Location = new System.Drawing.Point(839, 94);
             this.txtRemarks2.Name = "txtRemarks2";
             this.txtRemarks2.Size = new System.Drawing.Size(273, 21);
-            this.txtRemarks2.TabIndex = 248;
+            this.txtRemarks2.TabIndex = 47;
             // 
             // txtRemarks1
             // 
-            this.txtRemarks1.Location = new System.Drawing.Point(793, 67);
+            this.txtRemarks1.Location = new System.Drawing.Point(839, 67);
             this.txtRemarks1.Name = "txtRemarks1";
             this.txtRemarks1.Size = new System.Drawing.Size(273, 21);
-            this.txtRemarks1.TabIndex = 247;
+            this.txtRemarks1.TabIndex = 41;
             // 
             // lblRemarks
             // 
-            this.lblRemarks.Location = new System.Drawing.Point(793, 48);
+            this.lblRemarks.Location = new System.Drawing.Point(839, 48);
             this.lblRemarks.Name = "lblRemarks";
             this.lblRemarks.Size = new System.Drawing.Size(41, 13);
             this.lblRemarks.TabIndex = 246;
@@ -1514,42 +1415,44 @@
             // 
             // txtRemarks5
             // 
-            this.txtRemarks5.Location = new System.Drawing.Point(793, 175);
+            this.txtRemarks5.Location = new System.Drawing.Point(839, 175);
             this.txtRemarks5.Name = "txtRemarks5";
             this.txtRemarks5.Size = new System.Drawing.Size(273, 21);
-            this.txtRemarks5.TabIndex = 251;
+            this.txtRemarks5.TabIndex = 65;
             // 
             // txtSpokenBy4
             // 
-            this.txtSpokenBy4.Location = new System.Drawing.Point(626, 148);
+            this.txtSpokenBy4.Location = new System.Drawing.Point(658, 148);
             this.txtSpokenBy4.Name = "txtSpokenBy4";
             this.txtSpokenBy4.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenBy4.TabIndex = 244;
+            this.txtSpokenBy4.TabIndex = 58;
             // 
             // txtSpokenBy3
             // 
-            this.txtSpokenBy3.Location = new System.Drawing.Point(626, 121);
+            this.txtSpokenBy3.Location = new System.Drawing.Point(658, 121);
             this.txtSpokenBy3.Name = "txtSpokenBy3";
             this.txtSpokenBy3.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenBy3.TabIndex = 243;
+            this.txtSpokenBy3.TabIndex = 52;
             // 
             // txtSpokenBy2
             // 
-            this.txtSpokenBy2.Location = new System.Drawing.Point(626, 94);
+            this.txtSpokenBy2.Location = new System.Drawing.Point(658, 94);
             this.txtSpokenBy2.Name = "txtSpokenBy2";
             this.txtSpokenBy2.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenBy2.TabIndex = 242;
+            this.txtSpokenBy2.TabIndex = 46;
             // 
             // txtSpokenBy1
             // 
-            this.txtSpokenBy1.Location = new System.Drawing.Point(626, 67);
+            this.txtSpokenBy1.Location = new System.Drawing.Point(658, 67);
             this.txtSpokenBy1.Name = "txtSpokenBy1";
+            this.validator1.SetRequiredMessage(this.txtSpokenBy1, "Spoken By can not be blank.");
             this.txtSpokenBy1.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenBy1.TabIndex = 241;
+            this.txtSpokenBy1.TabIndex = 40;
+            this.validator1.SetType(this.txtSpokenBy1, Itboy.Components.ValidationType.Required);
             // 
             // lblSpokenBy
             // 
-            this.lblSpokenBy.Location = new System.Drawing.Point(626, 48);
+            this.lblSpokenBy.Location = new System.Drawing.Point(658, 48);
             this.lblSpokenBy.Name = "lblSpokenBy";
             this.lblSpokenBy.Size = new System.Drawing.Size(50, 13);
             this.lblSpokenBy.TabIndex = 240;
@@ -1557,59 +1460,66 @@
             // 
             // txtSpokenBy5
             // 
-            this.txtSpokenBy5.Location = new System.Drawing.Point(626, 175);
+            this.txtSpokenBy5.Location = new System.Drawing.Point(658, 175);
             this.txtSpokenBy5.Name = "txtSpokenBy5";
             this.txtSpokenBy5.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenBy5.TabIndex = 245;
+            this.txtSpokenBy5.TabIndex = 64;
             // 
             // txtSpokenDt5
             // 
             this.txtSpokenDt5.HidePromptOnLeave = true;
-            this.txtSpokenDt5.Location = new System.Drawing.Point(527, 176);
-            this.txtSpokenDt5.Mask = "00-00-0000";
+            this.txtSpokenDt5.Location = new System.Drawing.Point(549, 176);
+            this.txtSpokenDt5.Mask = "00/00/0000";
             this.txtSpokenDt5.Name = "txtSpokenDt5";
             this.txtSpokenDt5.Size = new System.Drawing.Size(86, 21);
-            this.txtSpokenDt5.TabIndex = 239;
+            this.txtSpokenDt5.TabIndex = 63;
+            this.txtSpokenDt5.ValidatingType = typeof(System.DateTime);
             // 
             // txtSpokenDt4
             // 
             this.txtSpokenDt4.HidePromptOnLeave = true;
-            this.txtSpokenDt4.Location = new System.Drawing.Point(527, 149);
-            this.txtSpokenDt4.Mask = "00-00-0000";
+            this.txtSpokenDt4.Location = new System.Drawing.Point(549, 149);
+            this.txtSpokenDt4.Mask = "00/00/0000";
             this.txtSpokenDt4.Name = "txtSpokenDt4";
             this.txtSpokenDt4.Size = new System.Drawing.Size(86, 21);
-            this.txtSpokenDt4.TabIndex = 238;
+            this.txtSpokenDt4.TabIndex = 57;
+            this.txtSpokenDt4.ValidatingType = typeof(System.DateTime);
             // 
             // txtSpokenDt3
             // 
             this.txtSpokenDt3.HidePromptOnLeave = true;
-            this.txtSpokenDt3.Location = new System.Drawing.Point(527, 122);
-            this.txtSpokenDt3.Mask = "00-00-0000";
+            this.txtSpokenDt3.Location = new System.Drawing.Point(549, 122);
+            this.txtSpokenDt3.Mask = "00/00/0000";
             this.txtSpokenDt3.Name = "txtSpokenDt3";
             this.txtSpokenDt3.Size = new System.Drawing.Size(86, 21);
-            this.txtSpokenDt3.TabIndex = 237;
+            this.txtSpokenDt3.TabIndex = 51;
+            this.txtSpokenDt3.ValidatingType = typeof(System.DateTime);
             // 
             // txtSpokenDt2
             // 
             this.txtSpokenDt2.HidePromptOnLeave = true;
-            this.txtSpokenDt2.Location = new System.Drawing.Point(527, 94);
-            this.txtSpokenDt2.Mask = "00-00-0000";
+            this.txtSpokenDt2.Location = new System.Drawing.Point(549, 94);
+            this.txtSpokenDt2.Mask = "00/00/0000";
             this.txtSpokenDt2.Name = "txtSpokenDt2";
             this.txtSpokenDt2.Size = new System.Drawing.Size(86, 21);
-            this.txtSpokenDt2.TabIndex = 236;
+            this.txtSpokenDt2.TabIndex = 45;
+            this.txtSpokenDt2.ValidatingType = typeof(System.DateTime);
             // 
             // txtSpokenDt1
             // 
             this.txtSpokenDt1.HidePromptOnLeave = true;
-            this.txtSpokenDt1.Location = new System.Drawing.Point(527, 67);
-            this.txtSpokenDt1.Mask = "00-00-0000";
+            this.txtSpokenDt1.Location = new System.Drawing.Point(549, 67);
+            this.txtSpokenDt1.Mask = "00/00/0000";
             this.txtSpokenDt1.Name = "txtSpokenDt1";
+            this.validator1.SetRequiredMessage(this.txtSpokenDt1, "Spoken Dt. can not be blank.");
             this.txtSpokenDt1.Size = new System.Drawing.Size(86, 21);
-            this.txtSpokenDt1.TabIndex = 235;
+            this.txtSpokenDt1.TabIndex = 39;
+            this.validator1.SetType(this.txtSpokenDt1, Itboy.Components.ValidationType.Required);
+            this.txtSpokenDt1.ValidatingType = typeof(System.DateTime);
             // 
             // lblSpokenDt
             // 
-            this.lblSpokenDt.Location = new System.Drawing.Point(527, 48);
+            this.lblSpokenDt.Location = new System.Drawing.Point(549, 48);
             this.lblSpokenDt.Name = "lblSpokenDt";
             this.lblSpokenDt.Size = new System.Drawing.Size(53, 13);
             this.lblSpokenDt.TabIndex = 234;
@@ -1617,35 +1527,37 @@
             // 
             // txtSpokenTo4
             // 
-            this.txtSpokenTo4.Location = new System.Drawing.Point(360, 148);
+            this.txtSpokenTo4.Location = new System.Drawing.Point(375, 148);
             this.txtSpokenTo4.Name = "txtSpokenTo4";
             this.txtSpokenTo4.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenTo4.TabIndex = 232;
+            this.txtSpokenTo4.TabIndex = 56;
             // 
             // txtSpokenTo3
             // 
-            this.txtSpokenTo3.Location = new System.Drawing.Point(360, 121);
+            this.txtSpokenTo3.Location = new System.Drawing.Point(375, 121);
             this.txtSpokenTo3.Name = "txtSpokenTo3";
             this.txtSpokenTo3.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenTo3.TabIndex = 231;
+            this.txtSpokenTo3.TabIndex = 50;
             // 
             // txtSpokenTo2
             // 
-            this.txtSpokenTo2.Location = new System.Drawing.Point(360, 94);
+            this.txtSpokenTo2.Location = new System.Drawing.Point(375, 94);
             this.txtSpokenTo2.Name = "txtSpokenTo2";
             this.txtSpokenTo2.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenTo2.TabIndex = 230;
+            this.txtSpokenTo2.TabIndex = 44;
             // 
             // txtSpokenTo1
             // 
-            this.txtSpokenTo1.Location = new System.Drawing.Point(360, 67);
+            this.txtSpokenTo1.Location = new System.Drawing.Point(375, 67);
             this.txtSpokenTo1.Name = "txtSpokenTo1";
+            this.validator1.SetRequiredMessage(this.txtSpokenTo1, "Spoken To can not be blank");
             this.txtSpokenTo1.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenTo1.TabIndex = 229;
+            this.txtSpokenTo1.TabIndex = 37;
+            this.validator1.SetType(this.txtSpokenTo1, Itboy.Components.ValidationType.Required);
             // 
             // lblSpokenTo
             // 
-            this.lblSpokenTo.Location = new System.Drawing.Point(360, 48);
+            this.lblSpokenTo.Location = new System.Drawing.Point(375, 48);
             this.lblSpokenTo.Name = "lblSpokenTo";
             this.lblSpokenTo.Size = new System.Drawing.Size(50, 13);
             this.lblSpokenTo.TabIndex = 228;
@@ -1653,14 +1565,14 @@
             // 
             // txtSpokenTo5
             // 
-            this.txtSpokenTo5.Location = new System.Drawing.Point(360, 175);
+            this.txtSpokenTo5.Location = new System.Drawing.Point(375, 175);
             this.txtSpokenTo5.Name = "txtSpokenTo5";
             this.txtSpokenTo5.Size = new System.Drawing.Size(152, 21);
-            this.txtSpokenTo5.TabIndex = 233;
+            this.txtSpokenTo5.TabIndex = 62;
             // 
             // cmbNature4
             // 
-            this.cmbNature4.Location = new System.Drawing.Point(223, 149);
+            this.cmbNature4.Location = new System.Drawing.Point(232, 149);
             this.cmbNature4.Name = "cmbNature4";
             this.cmbNature4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1668,11 +1580,11 @@
             "Cash",
             "Credit"});
             this.cmbNature4.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature4.TabIndex = 227;
+            this.cmbNature4.TabIndex = 55;
             // 
             // cmbNature5
             // 
-            this.cmbNature5.Location = new System.Drawing.Point(223, 176);
+            this.cmbNature5.Location = new System.Drawing.Point(232, 176);
             this.cmbNature5.Name = "cmbNature5";
             this.cmbNature5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1680,11 +1592,11 @@
             "Cash",
             "Credit"});
             this.cmbNature5.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature5.TabIndex = 226;
+            this.cmbNature5.TabIndex = 61;
             // 
             // cmbNature3
             // 
-            this.cmbNature3.Location = new System.Drawing.Point(223, 122);
+            this.cmbNature3.Location = new System.Drawing.Point(232, 122);
             this.cmbNature3.Name = "cmbNature3";
             this.cmbNature3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1692,11 +1604,11 @@
             "Cash",
             "Credit"});
             this.cmbNature3.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature3.TabIndex = 224;
+            this.cmbNature3.TabIndex = 49;
             // 
             // cmbNature2
             // 
-            this.cmbNature2.Location = new System.Drawing.Point(223, 95);
+            this.cmbNature2.Location = new System.Drawing.Point(232, 95);
             this.cmbNature2.Name = "cmbNature2";
             this.cmbNature2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1704,11 +1616,11 @@
             "Cash",
             "Credit"});
             this.cmbNature2.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature2.TabIndex = 223;
+            this.cmbNature2.TabIndex = 43;
             // 
             // cmbNature1
             // 
-            this.cmbNature1.Location = new System.Drawing.Point(223, 68);
+            this.cmbNature1.Location = new System.Drawing.Point(232, 68);
             this.cmbNature1.Name = "cmbNature1";
             this.cmbNature1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1716,11 +1628,11 @@
             "Cash",
             "Credit"});
             this.cmbNature1.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature1.TabIndex = 222;
+            this.cmbNature1.TabIndex = 36;
             // 
             // lblNature
             // 
-            this.lblNature.Location = new System.Drawing.Point(223, 48);
+            this.lblNature.Location = new System.Drawing.Point(232, 48);
             this.lblNature.Name = "lblNature";
             this.lblNature.Size = new System.Drawing.Size(33, 13);
             this.lblNature.TabIndex = 221;
@@ -1731,28 +1643,30 @@
             this.txtParty4.Location = new System.Drawing.Point(12, 148);
             this.txtParty4.Name = "txtParty4";
             this.txtParty4.Size = new System.Drawing.Size(198, 21);
-            this.txtParty4.TabIndex = 220;
+            this.txtParty4.TabIndex = 54;
             // 
             // txtParty3
             // 
             this.txtParty3.Location = new System.Drawing.Point(12, 121);
             this.txtParty3.Name = "txtParty3";
             this.txtParty3.Size = new System.Drawing.Size(198, 21);
-            this.txtParty3.TabIndex = 219;
+            this.txtParty3.TabIndex = 48;
             // 
             // txtParty2
             // 
             this.txtParty2.Location = new System.Drawing.Point(12, 94);
             this.txtParty2.Name = "txtParty2";
             this.txtParty2.Size = new System.Drawing.Size(198, 21);
-            this.txtParty2.TabIndex = 218;
+            this.txtParty2.TabIndex = 42;
             // 
             // txtParty1
             // 
             this.txtParty1.Location = new System.Drawing.Point(12, 67);
             this.txtParty1.Name = "txtParty1";
+            this.validator1.SetRequiredMessage(this.txtParty1, "Party can not be blank.");
             this.txtParty1.Size = new System.Drawing.Size(198, 21);
-            this.txtParty1.TabIndex = 217;
+            this.txtParty1.TabIndex = 35;
+            this.validator1.SetType(this.txtParty1, Itboy.Components.ValidationType.Required);
             // 
             // lblParty
             // 
@@ -1766,10 +1680,11 @@
             // 
             this.txtTourDt.HidePromptOnLeave = true;
             this.txtTourDt.Location = new System.Drawing.Point(626, 7);
-            this.txtTourDt.Mask = "00-00-0000";
+            this.txtTourDt.Mask = "00/00/0000";
             this.txtTourDt.Name = "txtTourDt";
             this.txtTourDt.Size = new System.Drawing.Size(122, 21);
-            this.txtTourDt.TabIndex = 214;
+            this.txtTourDt.TabIndex = 34;
+            this.txtTourDt.ValidatingType = typeof(System.DateTime);
             // 
             // labelControl2
             // 
@@ -1784,7 +1699,7 @@
             this.txtTourBy.Location = new System.Drawing.Point(334, 7);
             this.txtTourBy.Name = "txtTourBy";
             this.txtTourBy.Size = new System.Drawing.Size(198, 21);
-            this.txtTourBy.TabIndex = 212;
+            this.txtTourBy.TabIndex = 33;
             // 
             // lblTourBy
             // 
@@ -1802,7 +1717,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbRefType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbRefType.Size = new System.Drawing.Size(161, 20);
-            this.cmbRefType.TabIndex = 210;
+            this.cmbRefType.TabIndex = 32;
             // 
             // lblRefType
             // 
@@ -1819,7 +1734,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1082, 205);
+            this.shapeContainer1.Size = new System.Drawing.Size(1140, 205);
             this.shapeContainer1.TabIndex = 215;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1853,32 +1768,26 @@
             this.InfoPageScrollableControl.Controls.Add(this.panel2);
             this.InfoPageScrollableControl.Controls.Add(this.cmbGRHabbit);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl18);
-            this.InfoPageScrollableControl.Controls.Add(this.textBox6);
+            this.InfoPageScrollableControl.Controls.Add(this.txtRemarks);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl17);
-            this.InfoPageScrollableControl.Controls.Add(this.textBox5);
+            this.InfoPageScrollableControl.Controls.Add(this.txtDirectDealing);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl16);
-            this.InfoPageScrollableControl.Controls.Add(this.maskedTextBox1);
+            this.InfoPageScrollableControl.Controls.Add(this.mskCreaditLimit);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl14);
-            this.InfoPageScrollableControl.Controls.Add(this.textBox4);
+            this.InfoPageScrollableControl.Controls.Add(this.txtHotel);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl13);
-            this.InfoPageScrollableControl.Controls.Add(this.textBox3);
+            this.InfoPageScrollableControl.Controls.Add(this.txtTransPref);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl12);
-            this.InfoPageScrollableControl.Controls.Add(this.textBox2);
+            this.InfoPageScrollableControl.Controls.Add(this.txtPaymentHabbit);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl11);
             this.InfoPageScrollableControl.Controls.Add(this.cmbDelingType);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl9);
             this.InfoPageScrollableControl.Controls.Add(this.cmbVisistFreq);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl5);
-            this.InfoPageScrollableControl.Controls.Add(this.textBox1);
+            this.InfoPageScrollableControl.Controls.Add(this.txtOtherAgent);
             this.InfoPageScrollableControl.Controls.Add(this.labelControl7);
-            this.InfoPageScrollableControl.Controls.Add(this.comboBoxEdit3);
-            this.InfoPageScrollableControl.Controls.Add(this.labelControl4);
-            this.InfoPageScrollableControl.Controls.Add(this.comboBoxEdit2);
-            this.InfoPageScrollableControl.Controls.Add(this.labelControl3);
-            this.InfoPageScrollableControl.Controls.Add(this.cmbMBoy1);
             this.InfoPageScrollableControl.Controls.Add(this.txtAbuse);
             this.InfoPageScrollableControl.Controls.Add(this.lblAbuse);
-            this.InfoPageScrollableControl.Controls.Add(this.lblMBoy1);
             this.InfoPageScrollableControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoPageScrollableControl.Location = new System.Drawing.Point(0, 0);
             this.InfoPageScrollableControl.Name = "InfoPageScrollableControl";
@@ -1912,7 +1821,7 @@
             this.maskedTextBox2.Mask = "00000000000";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(115, 21);
-            this.maskedTextBox2.TabIndex = 211;
+            this.maskedTextBox2.TabIndex = 84;
             // 
             // labelControl19
             // 
@@ -1928,7 +1837,7 @@
             this.textBox7.Location = new System.Drawing.Point(111, 63);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(198, 21);
-            this.textBox7.TabIndex = 209;
+            this.textBox7.TabIndex = 83;
             // 
             // labelControl20
             // 
@@ -1946,7 +1855,7 @@
             this.maskedTextBox3.Mask = "00000000000";
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(115, 21);
-            this.maskedTextBox3.TabIndex = 207;
+            this.maskedTextBox3.TabIndex = 82;
             // 
             // labelControl21
             // 
@@ -1962,7 +1871,7 @@
             this.textBox8.Location = new System.Drawing.Point(111, 36);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(198, 21);
-            this.textBox8.TabIndex = 205;
+            this.textBox8.TabIndex = 81;
             // 
             // labelControl22
             // 
@@ -1980,7 +1889,7 @@
             this.maskedTextBox4.Mask = "00000000000";
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(115, 21);
-            this.maskedTextBox4.TabIndex = 203;
+            this.maskedTextBox4.TabIndex = 80;
             // 
             // labelControl23
             // 
@@ -1996,7 +1905,7 @@
             this.textBox9.Location = new System.Drawing.Point(111, 10);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(198, 21);
-            this.textBox9.TabIndex = 192;
+            this.textBox9.TabIndex = 79;
             // 
             // labelControl24
             // 
@@ -2015,7 +1924,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbGRHabbit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbGRHabbit.Size = new System.Drawing.Size(198, 20);
-            this.cmbGRHabbit.TabIndex = 243;
+            this.cmbGRHabbit.TabIndex = 78;
             // 
             // labelControl18
             // 
@@ -2026,102 +1935,104 @@
             this.labelControl18.TabIndex = 242;
             this.labelControl18.Text = "GR Habbit";
             // 
-            // textBox6
+            // txtRemarks
             // 
-            this.textBox6.Location = new System.Drawing.Point(178, 291);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(654, 43);
-            this.textBox6.TabIndex = 241;
+            this.txtRemarks.Location = new System.Drawing.Point(178, 246);
+            this.txtRemarks.Multiline = true;
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(654, 43);
+            this.txtRemarks.TabIndex = 85;
             // 
             // labelControl17
             // 
             this.labelControl17.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl17.Location = new System.Drawing.Point(79, 294);
+            this.labelControl17.Location = new System.Drawing.Point(79, 249);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(51, 13);
             this.labelControl17.TabIndex = 240;
             this.labelControl17.Text = "Remarks";
             // 
-            // textBox5
+            // txtDirectDealing
             // 
-            this.textBox5.Location = new System.Drawing.Point(178, 344);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(654, 53);
-            this.textBox5.TabIndex = 239;
+            this.txtDirectDealing.Location = new System.Drawing.Point(178, 299);
+            this.txtDirectDealing.Multiline = true;
+            this.txtDirectDealing.Name = "txtDirectDealing";
+            this.txtDirectDealing.Size = new System.Drawing.Size(654, 53);
+            this.txtDirectDealing.TabIndex = 86;
             // 
             // labelControl16
             // 
             this.labelControl16.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl16.Location = new System.Drawing.Point(79, 347);
+            this.labelControl16.Location = new System.Drawing.Point(79, 302);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(79, 13);
             this.labelControl16.TabIndex = 238;
             this.labelControl16.Text = "Direct Dealing";
             // 
-            // maskedTextBox1
+            // mskCreaditLimit
             // 
-            this.maskedTextBox1.HidePromptOnLeave = true;
-            this.maskedTextBox1.Location = new System.Drawing.Point(178, 261);
-            this.maskedTextBox1.Mask = "0000000000.00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(122, 21);
-            this.maskedTextBox1.TabIndex = 235;
+            this.mskCreaditLimit.HidePromptOnLeave = true;
+            this.mskCreaditLimit.Location = new System.Drawing.Point(178, 185);
+            this.mskCreaditLimit.Mask = "0000000000.00";
+            this.mskCreaditLimit.Name = "mskCreaditLimit";
+            this.validator1.SetRequiredMessage(this.mskCreaditLimit, "Credit Limit can not be blank.");
+            this.mskCreaditLimit.Size = new System.Drawing.Size(122, 21);
+            this.mskCreaditLimit.TabIndex = 74;
+            this.validator1.SetType(this.mskCreaditLimit, Itboy.Components.ValidationType.Required);
             // 
             // labelControl14
             // 
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl14.Location = new System.Drawing.Point(79, 264);
+            this.labelControl14.Location = new System.Drawing.Point(79, 188);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(65, 13);
             this.labelControl14.TabIndex = 234;
             this.labelControl14.Text = "Credit Limit";
             // 
-            // textBox4
+            // txtHotel
             // 
-            this.textBox4.Location = new System.Drawing.Point(178, 230);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(300, 21);
-            this.textBox4.TabIndex = 233;
+            this.txtHotel.Location = new System.Drawing.Point(178, 154);
+            this.txtHotel.Name = "txtHotel";
+            this.txtHotel.Size = new System.Drawing.Size(300, 21);
+            this.txtHotel.TabIndex = 73;
             // 
             // labelControl13
             // 
             this.labelControl13.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl13.Location = new System.Drawing.Point(79, 233);
+            this.labelControl13.Location = new System.Drawing.Point(79, 157);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(30, 13);
             this.labelControl13.TabIndex = 232;
             this.labelControl13.Text = "Hotel";
             // 
-            // textBox3
+            // txtTransPref
             // 
-            this.textBox3.Location = new System.Drawing.Point(178, 201);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(300, 21);
-            this.textBox3.TabIndex = 231;
+            this.txtTransPref.Location = new System.Drawing.Point(178, 125);
+            this.txtTransPref.Name = "txtTransPref";
+            this.txtTransPref.Size = new System.Drawing.Size(300, 21);
+            this.txtTransPref.TabIndex = 72;
             // 
             // labelControl12
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl12.Location = new System.Drawing.Point(79, 204);
+            this.labelControl12.Location = new System.Drawing.Point(79, 128);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(85, 13);
             this.labelControl12.TabIndex = 230;
             this.labelControl12.Text = "Transport Pref.";
             // 
-            // textBox2
+            // txtPaymentHabbit
             // 
-            this.textBox2.Location = new System.Drawing.Point(178, 142);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 53);
-            this.textBox2.TabIndex = 229;
+            this.txtPaymentHabbit.Location = new System.Drawing.Point(178, 66);
+            this.txtPaymentHabbit.Multiline = true;
+            this.txtPaymentHabbit.Name = "txtPaymentHabbit";
+            this.txtPaymentHabbit.Size = new System.Drawing.Size(300, 53);
+            this.txtPaymentHabbit.TabIndex = 71;
             // 
             // labelControl11
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl11.Location = new System.Drawing.Point(79, 145);
+            this.labelControl11.Location = new System.Drawing.Point(79, 69);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(91, 13);
             this.labelControl11.TabIndex = 228;
@@ -2135,7 +2046,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbDelingType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbDelingType.Size = new System.Drawing.Size(198, 20);
-            this.cmbDelingType.TabIndex = 225;
+            this.cmbDelingType.TabIndex = 77;
             // 
             // labelControl9
             // 
@@ -2154,7 +2065,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbVisistFreq.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbVisistFreq.Size = new System.Drawing.Size(198, 20);
-            this.cmbVisistFreq.TabIndex = 223;
+            this.cmbVisistFreq.TabIndex = 76;
             // 
             // labelControl5
             // 
@@ -2165,12 +2076,12 @@
             this.labelControl5.TabIndex = 222;
             this.labelControl5.Text = "Visit Frequency";
             // 
-            // textBox1
+            // txtOtherAgent
             // 
-            this.textBox1.Location = new System.Drawing.Point(635, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 21);
-            this.textBox1.TabIndex = 218;
+            this.txtOtherAgent.Location = new System.Drawing.Point(635, 27);
+            this.txtOtherAgent.Name = "txtOtherAgent";
+            this.txtOtherAgent.Size = new System.Drawing.Size(199, 21);
+            this.txtOtherAgent.TabIndex = 75;
             // 
             // labelControl7
             // 
@@ -2181,66 +2092,12 @@
             this.labelControl7.TabIndex = 217;
             this.labelControl7.Text = "Other Agent";
             // 
-            // comboBoxEdit3
-            // 
-            this.comboBoxEdit3.Location = new System.Drawing.Point(178, 89);
-            this.comboBoxEdit3.Name = "comboBoxEdit3";
-            this.comboBoxEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit3.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit3.Size = new System.Drawing.Size(198, 20);
-            this.comboBoxEdit3.TabIndex = 215;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl4.Location = new System.Drawing.Point(79, 92);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(41, 13);
-            this.labelControl4.TabIndex = 214;
-            this.labelControl4.Text = "MBoy 2";
-            // 
-            // comboBoxEdit2
-            // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(178, 116);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(198, 20);
-            this.comboBoxEdit2.TabIndex = 213;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl3.Location = new System.Drawing.Point(79, 119);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(41, 13);
-            this.labelControl3.TabIndex = 212;
-            this.labelControl3.Text = "MBoy 3";
-            // 
-            // cmbMBoy1
-            // 
-            this.cmbMBoy1.Location = new System.Drawing.Point(178, 62);
-            this.cmbMBoy1.Name = "cmbMBoy1";
-            this.cmbMBoy1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbMBoy1.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbMBoy1.Size = new System.Drawing.Size(198, 20);
-            this.cmbMBoy1.TabIndex = 211;
-            // 
             // txtAbuse
             // 
             this.txtAbuse.Location = new System.Drawing.Point(178, 32);
             this.txtAbuse.Name = "txtAbuse";
             this.txtAbuse.Size = new System.Drawing.Size(300, 21);
-            this.txtAbuse.TabIndex = 210;
+            this.txtAbuse.TabIndex = 70;
             // 
             // lblAbuse
             // 
@@ -2250,15 +2107,6 @@
             this.lblAbuse.Size = new System.Drawing.Size(35, 13);
             this.lblAbuse.TabIndex = 209;
             this.lblAbuse.Text = "Abuse";
-            // 
-            // lblMBoy1
-            // 
-            this.lblMBoy1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblMBoy1.Location = new System.Drawing.Point(79, 65);
-            this.lblMBoy1.Name = "lblMBoy1";
-            this.lblMBoy1.Size = new System.Drawing.Size(41, 13);
-            this.lblMBoy1.TabIndex = 208;
-            this.lblMBoy1.Text = "MBoy 1";
             // 
             // NewCustomerSisterConcernTabPage
             // 
@@ -2297,9 +2145,7 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Controls.Add(this.txtEnteredBy);
             this.panelControl3.Controls.Add(this.btnSave);
-            this.panelControl3.Controls.Add(this.lblEnteredBy);
             this.panelControl3.Controls.Add(this.btnCancel);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl3.Location = new System.Drawing.Point(0, 542);
@@ -2307,27 +2153,10 @@
             this.panelControl3.Size = new System.Drawing.Size(1238, 39);
             this.panelControl3.TabIndex = 5;
             // 
-            // txtEnteredBy
-            // 
-            this.txtEnteredBy.Location = new System.Drawing.Point(82, 10);
-            this.txtEnteredBy.Name = "txtEnteredBy";
-            this.txtEnteredBy.Size = new System.Drawing.Size(173, 21);
-            this.txtEnteredBy.TabIndex = 6;
-            // 
-            // lblEnteredBy
-            // 
-            this.lblEnteredBy.Location = new System.Drawing.Point(23, 15);
-            this.lblEnteredBy.Name = "lblEnteredBy";
-            this.lblEnteredBy.Size = new System.Drawing.Size(53, 13);
-            this.lblEnteredBy.TabIndex = 5;
-            this.lblEnteredBy.Text = "Entered By";
-            // 
             // validator1
             // 
-            this.validator1.BlinkRate = 0;
             this.validator1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.validator1.Form = this;
-            this.validator1.Mode = Itboy.Components.ValidationMode.Submit;
             // 
             // FrmNewCustomer
             // 
@@ -2349,7 +2178,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbACCreatedByBranch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NewCustomerTabControl)).EndInit();
@@ -2366,7 +2194,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbTypeOfFirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbZone.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbSubAgent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCashCredit.Properties)).EndInit();
@@ -2375,10 +2202,6 @@
             this.ReferencePageScrollableControl.PerformLayout();
             this.pnlAuthorizationContainer.ResumeLayout(false);
             this.pnlAuthorizationContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMarketBoy3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMarketBoy2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMarketBoy1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMBoyBranch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBranchHead.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDirector3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDirector2.Properties)).EndInit();
@@ -2399,16 +2222,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbGRHabbit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDelingType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbVisistFreq.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMBoy1.Properties)).EndInit();
             this.NewCustomerSisterConcernTabPage.ResumeLayout(false);
             this.SisterConcernScrollableControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            this.panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -2430,12 +2249,9 @@
         private System.Windows.Forms.TextBox txtCustomerACNo;
         private DevExpress.XtraTab.XtraTabPage NewCustomerInfoTabPage;
         private DevExpress.XtraTab.XtraTabPage NewCustomerSisterConcernTabPage;
-        private System.Windows.Forms.TextBox txtEnteredBy;
-        private DevExpress.XtraEditors.LabelControl lblEnteredBy;
         private System.Windows.Forms.CheckBox chkBrandNewAC;
         private DevExpress.XtraEditors.LabelControl lblACCreatedByBranch;
         private DevExpress.XtraEditors.LabelControl lblBrandNewAC;
-        private DevExpress.XtraEditors.LookUpEdit cmbACCreatedByBranch;
         private DevExpress.XtraEditors.XtraScrollableControl MainPageScrollableControl;
         private System.Windows.Forms.CheckBox chkNoLRAddressPrinting;
         private DevExpress.XtraEditors.LabelControl lblNoLRAddressPrinting;
@@ -2447,8 +2263,6 @@
         private DevExpress.XtraEditors.LabelControl lblRemSMSCell1;
         private System.Windows.Forms.TextBox txtRemSMSCell2;
         private DevExpress.XtraEditors.LabelControl lblRemSMSCell2;
-        private System.Windows.Forms.TextBox txtPassword;
-        private DevExpress.XtraEditors.LabelControl lblPassword;
         private System.Windows.Forms.TextBox txtLastOAC;
         private DevExpress.XtraEditors.LabelControl lblLastOAC;
         private System.Windows.Forms.TextBox txtSMSCellNo;
@@ -2473,7 +2287,6 @@
         private DevExpress.XtraEditors.LabelControl lblTypeOfFirm;
         private DevExpress.XtraEditors.ComboBoxEdit cmbGroup;
         private DevExpress.XtraEditors.ComboBoxEdit cmbZone;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbSubAgent;
         private DevExpress.XtraEditors.ComboBoxEdit cmbCity;
         private DevExpress.XtraEditors.ComboBoxEdit cmbState;
         private DevExpress.XtraEditors.ComboBoxEdit cmbCashCredit;
@@ -2568,12 +2381,6 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Panel pnlAuthorizationContainer;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbMarketBoy3;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbMarketBoy2;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbMarketBoy1;
-        private DevExpress.XtraEditors.LabelControl lblMarketBoy;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbMBoyBranch;
-        private DevExpress.XtraEditors.LabelControl lblMBoyBranch;
         private DevExpress.XtraEditors.ComboBoxEdit cmbBranchHead;
         private DevExpress.XtraEditors.LabelControl lblBranchHead;
         private DevExpress.XtraEditors.ComboBoxEdit cmbDirector3;
@@ -2597,37 +2404,33 @@
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.ComboBoxEdit cmbGRHabbit;
         private DevExpress.XtraEditors.LabelControl labelControl18;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtRemarks;
         private DevExpress.XtraEditors.LabelControl labelControl17;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtDirectDealing;
         private DevExpress.XtraEditors.LabelControl labelControl16;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskCreaditLimit;
         private DevExpress.XtraEditors.LabelControl labelControl14;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtHotel;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTransPref;
         private DevExpress.XtraEditors.LabelControl labelControl12;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPaymentHabbit;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.ComboBoxEdit cmbDelingType;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.ComboBoxEdit cmbVisistFreq;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtOtherAgent;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbMBoy1;
         private System.Windows.Forms.TextBox txtAbuse;
         private DevExpress.XtraEditors.LabelControl lblAbuse;
-        private DevExpress.XtraEditors.LabelControl lblMBoy1;
         private DevExpress.XtraEditors.XtraScrollableControl SisterConcernScrollableControl;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
         private Itboy.Components.Validator validator1;
+        private System.Windows.Forms.ComboBox cmbACCreatedByBranch;
+        private System.Windows.Forms.ComboBox cmbSubAgent;
 
 
     }

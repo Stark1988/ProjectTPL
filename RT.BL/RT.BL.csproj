@@ -49,6 +49,7 @@
     <Compile Include="MstBankMgmt.cs" />
     <Compile Include="MstCityMgmt.cs" />
     <Compile Include="MstCourierMgmt.cs" />
+    <Compile Include="MstCustomerMgt.cs" />
     <Compile Include="MstStateMgt.cs" />
     <Compile Include="MstSubAgentMgmt.cs" />
     <Compile Include="MstTransportMgmt.cs" />
