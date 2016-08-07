@@ -45,8 +45,6 @@ namespace RT.DL
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
         public virtual DbSet<CustomerAccountant> CustomerAccountants { get; set; }
-        public virtual DbSet<Party> Parties { get; set; }
-        public virtual DbSet<Reference> References { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<OrderEntry> OrderEntries { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
@@ -54,5 +52,7 @@ namespace RT.DL
         public virtual DbSet<SupplierContactInfo> SupplierContactInfoes { get; set; }
         public virtual DbSet<SupplierProprietor> SupplierProprietors { get; set; }
         public virtual DbSet<SupplierSisterConcern> SupplierSisterConcerns { get; set; }
+        public virtual DbSet<Party> Parties { get; set; }
+        public virtual DbSet<Reference> References { get; set; }
     }
 }

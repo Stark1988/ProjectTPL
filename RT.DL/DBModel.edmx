@@ -982,20 +982,6 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
           </AssociationSet>
-          <EntitySet Name="Parties" EntityType="TPLDBModel.Party" />
-          <EntitySet Name="References" EntityType="TPLDBModel.Reference" />
-          <AssociationSet Name="FK_Party_Customer" Association="TPLDBModel.FK_Party_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Party" EntitySet="Parties" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_Customer" Association="TPLDBModel.FK_Reference_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Reference" EntitySet="References" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Party_Reference" Association="TPLDBModel.FK_Party_Reference">
-            <End Role="Reference" EntitySet="References" />
-            <End Role="Party" EntitySet="Parties" />
-          </AssociationSet>
           <EntitySet Name="OrderDetails" EntityType="TPLDBModel.OrderDetail" />
           <EntitySet Name="OrderEntries" EntityType="TPLDBModel.OrderEntry" />
           <EntitySet Name="Suppliers" EntityType="TPLDBModel.Supplier" />
@@ -1006,14 +992,6 @@
           <AssociationSet Name="FK_OrderEntry_Customer" Association="TPLDBModel.FK_OrderEntry_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="OrderEntry" EntitySet="OrderEntries" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Party_Customer1" Association="TPLDBModel.FK_Party_Customer1">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Party" EntitySet="Parties" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_Customer1" Association="TPLDBModel.FK_Reference_Customer1">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Reference" EntitySet="References" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerAccountant_CustomerInfo1" Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo1">
             <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
@@ -1042,6 +1020,20 @@
           <AssociationSet Name="FK_SupplierSisterConcern_Supplier" Association="TPLDBModel.FK_SupplierSisterConcern_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="SupplierSisterConcern" EntitySet="SupplierSisterConcerns" />
+          </AssociationSet>
+          <EntitySet Name="Parties" EntityType="TPLDBModel.Party" />
+          <EntitySet Name="References" EntityType="TPLDBModel.Reference" />
+          <AssociationSet Name="FK_Party_Customer" Association="TPLDBModel.FK_Party_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Party" EntitySet="Parties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reference_Customer" Association="TPLDBModel.FK_Reference_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Reference" EntitySet="References" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Party_Reference" Association="TPLDBModel.FK_Party_Reference">
+            <End Role="Reference" EntitySet="References" />
+            <End Role="Party" EntitySet="Parties" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Authorization">
@@ -1096,11 +1088,9 @@
           <NavigationProperty Name="CustomerSalesmen" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="Customer" ToRole="CustomerSalesman" />
           <NavigationProperty Name="CustomerSisterConcerns" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="Customer" ToRole="CustomerSisterConcern" />
           <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="Customer" ToRole="CustomerAccountant" />
+          <NavigationProperty Name="OrderEntries" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="Customer" ToRole="OrderEntry" />
           <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Customer" ToRole="Party" />
           <NavigationProperty Name="References" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Customer" ToRole="Reference" />
-          <NavigationProperty Name="OrderEntries" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="Customer" ToRole="OrderEntry" />
-          <NavigationProperty Name="Parties1" Relationship="TPLDBModel.FK_Party_Customer1" FromRole="Customer" ToRole="Party" />
-          <NavigationProperty Name="References1" Relationship="TPLDBModel.FK_Reference_Customer1" FromRole="Customer" ToRole="Reference" />
         </EntityType>
         <EntityType Name="CustomerContactInfo">
           <Key>
@@ -1575,74 +1565,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Party">
-          <Key>
-            <PropertyRef Name="PartyId" />
-          </Key>
-          <Property Name="PartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fkReferenceId" Type="Int32" />
-          <Property Name="PartyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SpokenTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SpokenDate" Type="DateTime" Precision="3" />
-          <Property Name="SpokenBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerId" Type="Int32" />
-          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Party" ToRole="Customer" />
-          <NavigationProperty Name="Reference" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Party" ToRole="Reference" />
-          <Property Name="fkCustomerId" Type="Int32" />
-          <NavigationProperty Name="Customer1" Relationship="TPLDBModel.FK_Party_Customer1" FromRole="Party" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="Reference">
-          <Key>
-            <PropertyRef Name="ReferenceId" />
-          </Key>
-          <Property Name="ReferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ReferenceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TourBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TourDate" Type="DateTime" Precision="3" />
-          <Property Name="CustomerId" Type="Int32" />
-          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Reference" ToRole="Customer" />
-          <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Reference" ToRole="Party" />
-          <Property Name="fkCustomerId" Type="Int32" />
-          <NavigationProperty Name="Customer1" Relationship="TPLDBModel.FK_Reference_Customer1" FromRole="Reference" ToRole="Customer" />
-        </EntityType>
-        <Association Name="FK_Party_Customer">
-          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="Party">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_Customer">
-          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="TPLDBModel.Reference" Role="Reference" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="Reference">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Party_Reference">
-          <End Type="TPLDBModel.Reference" Role="Reference" Multiplicity="0..1" />
-          <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reference">
-              <PropertyRef Name="ReferenceId" />
-            </Principal>
-            <Dependent Role="Party">
-              <PropertyRef Name="fkReferenceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="OrderDetail">
           <Key>
             <PropertyRef Name="OrderDetailId" />
@@ -1779,30 +1701,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Party_Customer1">
-          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="Party">
-              <PropertyRef Name="fkCustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_Customer1">
-          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="TPLDBModel.Reference" Role="Reference" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="Reference">
-              <PropertyRef Name="fkCustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CustomerAccountant_CustomerInfo1">
           <End Type="TPLDBModel.CustomerInfo" Role="CustomerInfo" Multiplicity="0..1" />
           <End Type="TPLDBModel.CustomerAccountant" Role="CustomerAccountant" Multiplicity="*" />
@@ -1884,6 +1782,70 @@
             </Principal>
             <Dependent Role="SupplierSisterConcern">
               <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="PartyId" />
+          </Key>
+          <Property Name="PartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkReferenceId" Type="Int32" />
+          <Property Name="PartyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpokenTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpokenDate" Type="DateTime" Precision="3" />
+          <Property Name="SpokenBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Party" ToRole="Customer" />
+          <NavigationProperty Name="Reference" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Party" ToRole="Reference" />
+        </EntityType>
+        <EntityType Name="Reference">
+          <Key>
+            <PropertyRef Name="ReferenceId" />
+          </Key>
+          <Property Name="ReferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferenceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TourBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TourDate" Type="DateTime" Precision="3" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Reference" ToRole="Customer" />
+          <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Reference" ToRole="Party" />
+        </EntityType>
+        <Association Name="FK_Party_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reference_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Reference" Role="Reference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Reference">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Party_Reference">
+          <End Type="TPLDBModel.Reference" Role="Reference" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reference">
+              <PropertyRef Name="ReferenceId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="fkReferenceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2199,32 +2161,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Parties">
-            <EntityTypeMapping TypeName="TPLDBModel.Party">
-              <MappingFragment StoreEntitySet="Party">
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="SpokenBy" ColumnName="SpokenBy" />
-                <ScalarProperty Name="SpokenDate" ColumnName="SpokenDate" />
-                <ScalarProperty Name="SpokenTo" ColumnName="SpokenTo" />
-                <ScalarProperty Name="Nature" ColumnName="Nature" />
-                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
-                <ScalarProperty Name="fkReferenceId" ColumnName="fkReferenceId" />
-                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="References">
-            <EntityTypeMapping TypeName="TPLDBModel.Reference">
-              <MappingFragment StoreEntitySet="Reference">
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="TourDate" ColumnName="TourDate" />
-                <ScalarProperty Name="TourBy" ColumnName="TourBy" />
-                <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />
-                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="TPLDBModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
@@ -2340,6 +2276,32 @@
                 <ScalarProperty Name="SisterConcernDescription" ColumnName="SisterConcernDescription" />
                 <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
                 <ScalarProperty Name="SisterConcernId" ColumnName="SisterConcernId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parties">
+            <EntityTypeMapping TypeName="TPLDBModel.Party">
+              <MappingFragment StoreEntitySet="Party">
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SpokenBy" ColumnName="SpokenBy" />
+                <ScalarProperty Name="SpokenDate" ColumnName="SpokenDate" />
+                <ScalarProperty Name="SpokenTo" ColumnName="SpokenTo" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="fkReferenceId" ColumnName="fkReferenceId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="References">
+            <EntityTypeMapping TypeName="TPLDBModel.Reference">
+              <MappingFragment StoreEntitySet="Reference">
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="TourDate" ColumnName="TourDate" />
+                <ScalarProperty Name="TourBy" ColumnName="TourBy" />
+                <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />
+                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

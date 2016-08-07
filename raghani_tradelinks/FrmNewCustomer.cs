@@ -150,8 +150,6 @@ namespace raghani_tradelinks
                 var _zone = JsonConvert.DeserializeObject<List<VisistFrequency>>(result);
                 cmbZone.Properties.Items.AddRange(_zone);
                 cmbZone.SelectedIndex = 0;
-
-                cmbCity
             }
             catch (Exception ex)
             {
