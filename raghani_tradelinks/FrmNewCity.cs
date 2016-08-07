@@ -61,6 +61,7 @@ namespace raghani_tradelinks
                 if ((int)cmbState.EditValue == -1)
                 {
                     MessageBox.Show("Please select State");
+                    cmbState.Focus();
                     return;
                 }
 
@@ -82,6 +83,7 @@ namespace raghani_tradelinks
                 if ((int)cmbState.EditValue == -1)
                 {
                     MessageBox.Show("Please select State");
+                    cmbState.Focus();
                     return;
                 }
 
@@ -153,10 +155,10 @@ namespace raghani_tradelinks
         {
             try
             {
-                ID = Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[0].Value.ToString());
-                txtCityName.Text = grdCity.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtPinCode.Text = grdCity.Rows[e.RowIndex].Cells[4].Value.ToString();
-                cmbState.EditValue = Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[2].Value.ToString());
+                ID = grdCity.Rows[e.RowIndex].Cells[0].Value != null ? Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[0].Value.ToString()) : -1;
+                txtCityName.Text = grdCity.Rows[e.RowIndex].Cells[1].Value != null ? grdCity.Rows[e.RowIndex].Cells[1].Value.ToString() : string.Empty;
+                txtPinCode.Text = grdCity.Rows[e.RowIndex].Cells[4].Value != null ? grdCity.Rows[e.RowIndex].Cells[4].Value.ToString() : string.Empty;
+                cmbState.EditValue = grdCity.Rows[e.RowIndex].Cells[2].Value != null ? Convert.ToInt32(grdCity.Rows[e.RowIndex].Cells[2].Value.ToString()) : -1;
             }
             catch (Exception ex)
             {

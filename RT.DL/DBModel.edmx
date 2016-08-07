@@ -223,6 +223,7 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Pin" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MstTransport">
           <Key>
@@ -243,6 +244,7 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Pin" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MstUser">
           <Key>
@@ -287,6 +289,7 @@
           <Property Name="SpokenDate" Type="datetime" />
           <Property Name="SpokenBy" Type="nvarchar" MaxLength="50" />
           <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="fkCustomerId" Type="int" />
         </EntityType>
         <EntityType Name="Reference">
           <Key>
@@ -296,6 +299,7 @@
           <Property Name="ReferenceType" Type="nvarchar" MaxLength="50" />
           <Property Name="TourBy" Type="nvarchar" MaxLength="50" />
           <Property Name="TourDate" Type="datetime" />
+          <Property Name="fkCustomerId" Type="int" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -515,6 +519,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Party_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Party" Type="Self.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Party_Reference">
           <End Role="Reference" Type="Self.Reference" Multiplicity="0..1" />
           <End Role="Party" Type="Self.Party" Multiplicity="*" />
@@ -524,6 +540,18 @@
             </Principal>
             <Dependent Role="Party">
               <PropertyRef Name="fkReferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reference_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Reference" Type="Self.Reference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Reference">
+              <PropertyRef Name="fkCustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -618,9 +646,17 @@
             <End Role="MstUserType" EntitySet="MstUserType" />
             <End Role="MstUser" EntitySet="MstUser" />
           </AssociationSet>
+          <AssociationSet Name="FK_Party_Customer" Association="Self.FK_Party_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
           <AssociationSet Name="FK_Party_Reference" Association="Self.FK_Party_Reference">
             <End Role="Reference" EntitySet="Reference" />
             <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reference_Customer" Association="Self.FK_Reference_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Reference" EntitySet="Reference" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -722,6 +758,14 @@
             <End Role="Reference" EntitySet="References" />
             <End Role="Party" EntitySet="Parties" />
           </AssociationSet>
+          <AssociationSet Name="FK_Party_Customer" Association="TPLDBModel.FK_Party_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Party" EntitySet="Parties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reference_Customer" Association="TPLDBModel.FK_Reference_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Reference" EntitySet="References" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Authorization">
           <Key>
@@ -774,6 +818,8 @@
           <NavigationProperty Name="CustomerProprietors" Relationship="TPLDBModel.FK_CustomerProprietor_Customer" FromRole="Customer" ToRole="CustomerProprietor" />
           <NavigationProperty Name="CustomerSalesmen" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="Customer" ToRole="CustomerSalesman" />
           <NavigationProperty Name="CustomerSisterConcerns" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="Customer" ToRole="CustomerSisterConcern" />
+          <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Customer" ToRole="Party" />
+          <NavigationProperty Name="References" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Customer" ToRole="Reference" />
         </EntityType>
         <EntityType Name="CustomerAccountant">
           <Key>
@@ -970,6 +1016,7 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Customers" Relationship="TPLDBModel.FK_Customer_MstSubAgent" FromRole="MstSubAgent" ToRole="Customer" />
           <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstSubAgent_MstCity" FromRole="MstSubAgent" ToRole="MstCity" />
+          <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstTransport">
           <Key>
@@ -991,6 +1038,7 @@
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstTransport_MstCity" FromRole="MstTransport" ToRole="MstCity" />
+          <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstUser">
           <Key>
@@ -1040,6 +1088,8 @@
           <Property Name="SpokenBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Reference" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Party" ToRole="Reference" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Party" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Reference">
           <Key>
@@ -1050,6 +1100,8 @@
           <Property Name="TourBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TourDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Reference" ToRole="Party" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Reference" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -1281,6 +1333,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Party_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reference_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.Reference" Role="Reference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Reference">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1503,6 +1579,7 @@
           <EntitySetMapping Name="MstSubAgents">
             <EntityTypeMapping TypeName="TPLDBModel.MstSubAgent">
               <MappingFragment StoreEntitySet="MstSubAgent">
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -1523,6 +1600,7 @@
           <EntitySetMapping Name="MstTransports">
             <EntityTypeMapping TypeName="TPLDBModel.MstTransport">
               <MappingFragment StoreEntitySet="MstTransport">
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -1578,6 +1656,7 @@
           <EntitySetMapping Name="Parties">
             <EntityTypeMapping TypeName="TPLDBModel.Party">
               <MappingFragment StoreEntitySet="Party">
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
                 <ScalarProperty Name="Remarks" ColumnName="Remarks" />
                 <ScalarProperty Name="SpokenBy" ColumnName="SpokenBy" />
                 <ScalarProperty Name="SpokenDate" ColumnName="SpokenDate" />
@@ -1592,6 +1671,7 @@
           <EntitySetMapping Name="References">
             <EntityTypeMapping TypeName="TPLDBModel.Reference">
               <MappingFragment StoreEntitySet="Reference">
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
                 <ScalarProperty Name="TourDate" ColumnName="TourDate" />
                 <ScalarProperty Name="TourBy" ColumnName="TourBy" />
                 <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />

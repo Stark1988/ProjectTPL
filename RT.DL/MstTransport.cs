@@ -29,6 +29,7 @@ namespace RT.DL
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        public string Pin { get; set; }
     
         public virtual MstCity MstCity { get; set; }
     }

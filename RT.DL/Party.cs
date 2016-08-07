@@ -22,7 +22,9 @@ namespace RT.DL
         public Nullable<System.DateTime> SpokenDate { get; set; }
         public string SpokenBy { get; set; }
         public string Remarks { get; set; }
+        public Nullable<int> fkCustomerId { get; set; }
     
         public virtual Reference Reference { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

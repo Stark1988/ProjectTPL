@@ -125,8 +125,8 @@ namespace raghani_tradelinks
         {
             try
             {
-                ID = Convert.ToInt32(grdBank.Rows[e.RowIndex].Cells[0].Value.ToString());
-                txtBankName.Text = grdBank.Rows[e.RowIndex].Cells[1].Value.ToString();
+                ID = grdBank.Rows[e.RowIndex].Cells[0].Value != null ? Convert.ToInt32(grdBank.Rows[e.RowIndex].Cells[0].Value.ToString()) : -1;
+                txtBankName.Text = grdBank.Rows[e.RowIndex].Cells[1].Value != null ? grdBank.Rows[e.RowIndex].Cells[1].Value.ToString() : string.Empty;
             }
             catch (Exception ex)
             {

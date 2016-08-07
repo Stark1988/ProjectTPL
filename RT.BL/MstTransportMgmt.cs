@@ -30,6 +30,7 @@ namespace RT.BL
                                                 OfficePhone = trans.OfficePhone,
                                                 Fax = trans.Fax,
                                                 Remarks = trans.Remarks,
+                                                Pin = trans.Pin,
                                                 CreatedBy = trans.CreatedBy,
                                                 CreatedDate = trans.CreatedDate,
                                                 UpdatedBy = trans.UpdatedBy,
@@ -55,6 +56,7 @@ namespace RT.BL
                 ResPhone = transportData.ResPhone,
                 MobileNumber = transportData.MobileNumber,
                 Remarks = transportData.Remarks,
+                Pin = transportData.Pin,
                 CreatedBy = "admin",
                 CreatedDate = DateTime.Now,
                 UpdatedBy = "admin",
@@ -78,6 +80,7 @@ namespace RT.BL
             trans.ResPhone = transportData.ResPhone;
             trans.MobileNumber = transportData.MobileNumber;
             trans.Remarks = transportData.Remarks;
+            trans.Pin = transportData.Pin;
             trans.UpdatedBy = "admin";
             trans.UpdatedDate = DateTime.Now;
 
@@ -116,6 +119,7 @@ namespace RT.BL
         public string ResPhone { get; set; }
         public string MobileNumber { get; set; }
         public string Remarks { get; set; }
+        public string Pin { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }

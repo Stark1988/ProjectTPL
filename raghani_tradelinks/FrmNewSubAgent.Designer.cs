@@ -139,6 +139,7 @@
             this.grdSubAgent.ReadOnly = true;
             this.grdSubAgent.Size = new System.Drawing.Size(1104, 256);
             this.grdSubAgent.TabIndex = 209;
+            this.grdSubAgent.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdSubAgent_RowHeaderMouseClick);
             // 
             // txtRemarks
             // 

@@ -32,12 +32,14 @@ namespace raghani_tradelinks
                     if((int)cmbBranch.EditValue == -1)
                     {
                         MessageBox.Show("Please select Branch");
+                        cmbBranch.Focus();
                         return;
                     }
 
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");
+                        cmbCity.Focus();
                         return;
                     }
 
@@ -45,6 +47,7 @@ namespace raghani_tradelinks
                     if(!Decimal.TryParse(txtRate.Text, out rate))
                     {
                         MessageBox.Show("Please enter valid value for rate");
+                        txtRate.Focus();
                         return;
                     }
 
@@ -111,12 +114,14 @@ namespace raghani_tradelinks
                     if ((int)cmbBranch.EditValue == -1)
                     {
                         MessageBox.Show("Please select Branch");
+                        cmbBranch.Focus();
                         return;
                     }
 
                     if ((int)cmbCity.EditValue == -1)
                     {
                         MessageBox.Show("Please select City");
+                        cmbCity.Focus();
                         return;
                     }
 
@@ -124,6 +129,7 @@ namespace raghani_tradelinks
                     if (!Decimal.TryParse(txtRate.Text, out rate))
                     {
                         MessageBox.Show("Please enter valid value for rate");
+                        txtRate.Focus();
                         return;
                     }
 

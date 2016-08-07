@@ -45,6 +45,8 @@
         <AssociationConnector Association="TPLDBModel.FK_MstUser_MstUserRole" />
         <AssociationConnector Association="TPLDBModel.FK_MstUser_MstUserType" />
         <AssociationConnector Association="TPLDBModel.FK_Party_Reference" />
+        <AssociationConnector Association="TPLDBModel.FK_Party_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_Reference_Customer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
