@@ -170,14 +170,15 @@ namespace raghani_tradelinks
         {
             try
             {
-                if (validator1.Validate() == true && dxValidationProvider1.Validate() == true)
+                List<clsCustomerSisterConcern> lstSisConcern = new List<clsCustomerSisterConcern>();
+                for (int i = 0; i < gridView1.DataRowCount; i++)
                 {
-                    List<clsCustomerSisterConcern> lstSisConcern = new List<clsCustomerSisterConcern>();
-                    for (int i = 0; i < gridView1.DataRowCount; i++)
-                    {
-                        var data = gridView1.GetRowCellValue(i, "ExistingSisterConcern");
-                    }
+                    var data = gridView1.GetRowCellValue(i, "ExistingSisterConcern");
+                }
 
+
+                if (validator1.Validate() == true && dxValidationProvider1.Validate() == true)
+                {                    
                     MstCustomerMgt cust = new MstCustomerMgt();
 
                     int id = cust.InsertCustomer(txtCustomerACNo.Text, Convert.ToInt32(cmbACCreatedByBranch.SelectedValue), cmbCashCredit.SelectedText, txtName.Text, txtAlias.Text,
