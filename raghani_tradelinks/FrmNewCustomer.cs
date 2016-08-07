@@ -151,7 +151,7 @@ namespace raghani_tradelinks
                 cmbZone.Properties.Items.AddRange(_zone);
                 cmbZone.SelectedIndex = 0;
 
-                cmbCity
+                
             }
             catch (Exception ex)
             {
@@ -175,8 +175,7 @@ namespace raghani_tradelinks
                     List<clsCustomerSisterConcern> lstSisConcern = new List<clsCustomerSisterConcern>();
                     for (int i = 0; i < gridView1.DataRowCount; i++)
                     {
-                     
-
+                        var data = gridView1.GetRowCellValue(i, "ExistingSisterConcern");
                     }
 
                     MstCustomerMgt cust = new MstCustomerMgt();

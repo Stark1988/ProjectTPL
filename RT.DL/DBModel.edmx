@@ -178,7 +178,7 @@
           <Property Name="CourierMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourierName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Rate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="3" />
           <Property Name="fkBranchId" Type="int" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="fkCityId" Type="int" />
@@ -190,6 +190,8 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Pin" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="MstState">
           <Key>
@@ -221,6 +223,7 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Pin" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MstTransport">
           <Key>
@@ -241,6 +244,7 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Pin" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MstUser">
           <Key>
@@ -273,6 +277,33 @@
           <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeDescription" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailId" />
+          </Key>
+          <Property Name="OrderDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkOrderId" Type="int" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="RedQty" Type="int" />
+          <Property Name="OrQty" Type="int" />
+          <Property Name="BalQty" Type="int" />
+          <Property Name="Accompany" Type="nvarchar" MaxLength="200" />
+          <Property Name="QNK" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="OrderEntry">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="OrderOrVIsit" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
         <EntityType Name="Party">
           <Key>
             <PropertyRef Name="PartyId" />
@@ -285,7 +316,7 @@
           <Property Name="SpokenDate" Type="datetime" />
           <Property Name="SpokenBy" Type="nvarchar" MaxLength="50" />
           <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
-          <Property Name="CustomerId" Type="int" />
+          <Property Name="fkCustomerId" Type="int" />
         </EntityType>
         <EntityType Name="Reference">
           <Key>
@@ -295,7 +326,91 @@
           <Property Name="ReferenceType" Type="nvarchar" MaxLength="50" />
           <Property Name="TourBy" Type="nvarchar" MaxLength="50" />
           <Property Name="TourDate" Type="datetime" />
-          <Property Name="CustomerId" Type="int" />
+          <Property Name="fkCustomerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="SupplierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SupplierACNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+          <Property Name="SupplierGroup" Type="nvarchar" MaxLength="100" />
+          <Property Name="SupplierZone" Type="nvarchar" MaxLength="100" />
+          <Property Name="ODDays" Type="int" />
+          <Property Name="BillTerms" Type="nvarchar" MaxLength="150" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="50" />
+          <Property Name="Variety" Type="nvarchar" MaxLength="100" />
+          <Property Name="FrequencyPerMonth" Type="int" />
+          <Property Name="TanName" Type="nvarchar" MaxLength="100" />
+          <Property Name="TanNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="GlobalCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pin" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServiceTaxOn" Type="nvarchar" MaxLength="100" />
+          <Property Name="Commission" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="PriorityMember" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsStartDailyBilling" Type="bit" />
+          <Property Name="IsBK" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="SupplierBillingDetail">
+          <Key>
+            <PropertyRef Name="SupplierBillingDetailId" />
+          </Key>
+          <Property Name="SupplierBillingDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="IsStopMonthlyBilling" Type="bit" />
+          <Property Name="BillFrequency" Type="int" />
+          <Property Name="SupplierCompany" Type="nvarchar" MaxLength="500" />
+          <Property Name="ITPanNumber" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SupplierContactInfo">
+          <Key>
+            <PropertyRef Name="SupplierContactInfoId" />
+          </Key>
+          <Property Name="SupplierContactInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="OfficePhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="100" />
+          <Property Name="Residence" Type="nvarchar(max)" />
+          <Property Name="ResidenceCity" Type="nvarchar" MaxLength="150" />
+          <Property Name="ResPhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="SMSName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SMSCellNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pin" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResidencePin" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SupplierProprietor">
+          <Key>
+            <PropertyRef Name="ProprietorId" />
+          </Key>
+          <Property Name="ProprietorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="ProprietorName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SupplierSisterConcern">
+          <Key>
+            <PropertyRef Name="SisterConcernId" />
+          </Key>
+          <Property Name="SisterConcernId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="SisterConcernDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -348,11 +463,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerAccountant_CustomerInfo">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="0..1" />
           <End Role="CustomerAccountant" Type="Self.CustomerAccountant" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
+            <Principal Role="CustomerInfo">
+              <PropertyRef Name="CustomerInfoId" />
             </Principal>
             <Dependent Role="CustomerAccountant">
               <PropertyRef Name="fkCustomerInfoId" />
@@ -515,6 +630,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_OrderDetail_OrderEntry">
+          <End Role="OrderEntry" Type="Self.OrderEntry" Multiplicity="0..1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderEntry">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="fkOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderEntry_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="OrderEntry" Type="Self.OrderEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="OrderEntry">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Party_Customer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Party" Type="Self.Party" Multiplicity="*" />
@@ -523,7 +674,7 @@
               <PropertyRef Name="CustomerId" />
             </Principal>
             <Dependent Role="Party">
-              <PropertyRef Name="CustomerId" />
+              <PropertyRef Name="fkCustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -547,7 +698,55 @@
               <PropertyRef Name="CustomerId" />
             </Principal>
             <Dependent Role="Reference">
-              <PropertyRef Name="CustomerId" />
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierBillingDetail_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="SupplierBillingDetail" Type="Self.SupplierBillingDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierBillingDetail">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierContactInfo_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="SupplierContactInfo" Type="Self.SupplierContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierContactInfo">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierProprietor_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="SupplierProprietor" Type="Self.SupplierProprietor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierProprietor">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierSisterConcern_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="SupplierSisterConcern" Type="Self.SupplierSisterConcern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierSisterConcern">
+              <PropertyRef Name="fkSupplierId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -570,8 +769,15 @@
           <EntitySet Name="MstUser" EntityType="Self.MstUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MstUserRole" EntityType="Self.MstUserRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MstUserType" EntityType="Self.MstUserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderEntry" EntityType="Self.OrderEntry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Party" EntityType="Self.Party" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reference" EntityType="Self.Reference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierBillingDetail" EntityType="Self.SupplierBillingDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierContactInfo" EntityType="Self.SupplierContactInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierProprietor" EntityType="Self.SupplierProprietor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierSisterConcern" EntityType="Self.SupplierSisterConcern" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Authorization_Customer" Association="Self.FK_Authorization_Customer">
@@ -587,7 +793,7 @@
             <End Role="Customer" EntitySet="Customer" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerAccountant_CustomerInfo" Association="Self.FK_CustomerAccountant_CustomerInfo">
-            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerInfo" EntitySet="CustomerInfo" />
             <End Role="CustomerAccountant" EntitySet="CustomerAccountant" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerContactInfo_Customer" Association="Self.FK_CustomerContactInfo_Customer">
@@ -642,6 +848,18 @@
             <End Role="MstUserType" EntitySet="MstUserType" />
             <End Role="MstUser" EntitySet="MstUser" />
           </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_OrderEntry" Association="Self.FK_OrderDetail_OrderEntry">
+            <End Role="OrderEntry" EntitySet="OrderEntry" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Supplier" Association="Self.FK_OrderDetail_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderEntry_Customer" Association="Self.FK_OrderEntry_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="OrderEntry" EntitySet="OrderEntry" />
+          </AssociationSet>
           <AssociationSet Name="FK_Party_Customer" Association="Self.FK_Party_Customer">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Party" EntitySet="Party" />
@@ -653,6 +871,22 @@
           <AssociationSet Name="FK_Reference_Customer" Association="Self.FK_Reference_Customer">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Reference" EntitySet="Reference" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierBillingDetail_Supplier" Association="Self.FK_SupplierBillingDetail_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="SupplierBillingDetail" EntitySet="SupplierBillingDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierContactInfo_Supplier" Association="Self.FK_SupplierContactInfo_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="SupplierContactInfo" EntitySet="SupplierContactInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierProprietor_Supplier" Association="Self.FK_SupplierProprietor_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="SupplierProprietor" EntitySet="SupplierProprietor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierSisterConcern_Supplier" Association="Self.FK_SupplierSisterConcern_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="SupplierSisterConcern" EntitySet="SupplierSisterConcern" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -748,8 +982,19 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
           </AssociationSet>
+          <EntitySet Name="OrderDetails" EntityType="TPLDBModel.OrderDetail" />
+          <EntitySet Name="OrderEntries" EntityType="TPLDBModel.OrderEntry" />
           <EntitySet Name="Parties" EntityType="TPLDBModel.Party" />
           <EntitySet Name="References" EntityType="TPLDBModel.Reference" />
+          <EntitySet Name="Suppliers" EntityType="TPLDBModel.Supplier" />
+          <EntitySet Name="SupplierBillingDetails" EntityType="TPLDBModel.SupplierBillingDetail" />
+          <EntitySet Name="SupplierContactInfoes" EntityType="TPLDBModel.SupplierContactInfo" />
+          <EntitySet Name="SupplierProprietors" EntityType="TPLDBModel.SupplierProprietor" />
+          <EntitySet Name="SupplierSisterConcerns" EntityType="TPLDBModel.SupplierSisterConcern" />
+          <AssociationSet Name="FK_OrderEntry_Customer" Association="TPLDBModel.FK_OrderEntry_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="OrderEntry" EntitySet="OrderEntries" />
+          </AssociationSet>
           <AssociationSet Name="FK_Party_Customer" Association="TPLDBModel.FK_Party_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Party" EntitySet="Parties" />
@@ -758,11 +1003,39 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Reference" EntitySet="References" />
           </AssociationSet>
+          <AssociationSet Name="FK_CustomerAccountant_CustomerInfo1" Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo1">
+            <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
+            <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_OrderEntry" Association="TPLDBModel.FK_OrderDetail_OrderEntry">
+            <End Role="OrderEntry" EntitySet="OrderEntries" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Supplier" Association="TPLDBModel.FK_OrderDetail_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_Party_Reference" Association="TPLDBModel.FK_Party_Reference">
             <End Role="Reference" EntitySet="References" />
             <End Role="Party" EntitySet="Parties" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="FK_SupplierBillingDetail_Supplier" Association="TPLDBModel.FK_SupplierBillingDetail_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="SupplierBillingDetail" EntitySet="SupplierBillingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierContactInfo_Supplier" Association="TPLDBModel.FK_SupplierContactInfo_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="SupplierContactInfo" EntitySet="SupplierContactInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierProprietor_Supplier" Association="TPLDBModel.FK_SupplierProprietor_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="SupplierProprietor" EntitySet="SupplierProprietors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierSisterConcern_Supplier" Association="TPLDBModel.FK_SupplierSisterConcern_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="SupplierSisterConcern" EntitySet="SupplierSisterConcerns" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="AuthorizationId" />
@@ -815,9 +1088,10 @@
           <NavigationProperty Name="CustomerSalesmen" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="Customer" ToRole="CustomerSalesman" />
           <NavigationProperty Name="CustomerSisterConcerns" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="Customer" ToRole="CustomerSisterConcern" />
           <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="Customer" ToRole="CustomerAccountant" />
+          <NavigationProperty Name="OrderEntries" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="Customer" ToRole="OrderEntry" />
           <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Customer" ToRole="Party" />
           <NavigationProperty Name="References" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Customer" ToRole="Reference" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="CustomerContactInfo">
           <Key>
             <PropertyRef Name="CustomerContactInfoId" />
@@ -864,6 +1138,7 @@
           <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DirectDealing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerInfo_Customer" FromRole="CustomerInfo" ToRole="Customer" />
+          <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo1" FromRole="CustomerInfo" ToRole="CustomerAccountant" />
         </EntityType>
         <EntityType Name="CustomerProprietor">
           <Key>
@@ -952,7 +1227,7 @@
           <Property Name="CourierMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CourierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="3" />
           <Property Name="fkBranchId" Type="Int32" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="fkCityId" Type="Int32" />
@@ -966,6 +1241,8 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="MstBranch" Relationship="TPLDBModel.FK_MstCourier_MstBranch" FromRole="MstCourier" ToRole="MstBranch" />
           <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstCourier_MstCity" FromRole="MstCourier" ToRole="MstCity" />
+          <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstState">
           <Key>
@@ -1000,6 +1277,7 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Customers" Relationship="TPLDBModel.FK_Customer_MstSubAgent" FromRole="MstSubAgent" ToRole="Customer" />
           <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstSubAgent_MstCity" FromRole="MstSubAgent" ToRole="MstCity" />
+          <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstTransport">
           <Key>
@@ -1021,6 +1299,7 @@
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_MstTransport_MstCity" FromRole="MstTransport" ToRole="MstCity" />
+          <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstUser">
           <Key>
@@ -1272,6 +1551,7 @@
           <Property Name="AccountantName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerAccountant" ToRole="Customer" />
+          <NavigationProperty Name="CustomerInfo" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo1" FromRole="CustomerAccountant" ToRole="CustomerInfo" />
         </EntityType>
         <Association Name="FK_CustomerAccountant_CustomerInfo">
           <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
@@ -1285,6 +1565,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailId" />
+          </Key>
+          <Property Name="OrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkOrderId" Type="Int32" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="RedQty" Type="Int32" />
+          <Property Name="OrQty" Type="Int32" />
+          <Property Name="BalQty" Type="Int32" />
+          <Property Name="Accompany" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="QNK" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderEntry" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderDetail" ToRole="OrderEntry" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_OrderDetail_Supplier" FromRole="OrderDetail" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="OrderEntry">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="OrderOrVIsit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="OrderEntry" ToRole="Customer" />
+          <NavigationProperty Name="OrderDetails" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderEntry" ToRole="OrderDetail" />
+        </EntityType>
         <EntityType Name="Party">
           <Key>
             <PropertyRef Name="PartyId" />
@@ -1297,7 +1608,7 @@
           <Property Name="SpokenDate" Type="DateTime" Precision="3" />
           <Property Name="SpokenBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="fkCustomerId" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Party" ToRole="Customer" />
           <NavigationProperty Name="Reference" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Party" ToRole="Reference" />
         </EntityType>
@@ -1309,10 +1620,115 @@
           <Property Name="ReferenceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TourBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TourDate" Type="DateTime" Precision="3" />
-          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="fkCustomerId" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Reference" ToRole="Customer" />
           <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Reference" FromRole="Reference" ToRole="Party" />
         </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierACNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierGroup" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierZone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ODDays" Type="Int32" />
+          <Property Name="BillTerms" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Variety" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FrequencyPerMonth" Type="Int32" />
+          <Property Name="TanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TanNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GlobalCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceTaxOn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Commission" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="PriorityMember" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsStartDailyBilling" Type="Boolean" />
+          <Property Name="IsBK" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="OrderDetails" Relationship="TPLDBModel.FK_OrderDetail_Supplier" FromRole="Supplier" ToRole="OrderDetail" />
+          <NavigationProperty Name="SupplierBillingDetails" Relationship="TPLDBModel.FK_SupplierBillingDetail_Supplier" FromRole="Supplier" ToRole="SupplierBillingDetail" />
+          <NavigationProperty Name="SupplierContactInfoes" Relationship="TPLDBModel.FK_SupplierContactInfo_Supplier" FromRole="Supplier" ToRole="SupplierContactInfo" />
+          <NavigationProperty Name="SupplierProprietors" Relationship="TPLDBModel.FK_SupplierProprietor_Supplier" FromRole="Supplier" ToRole="SupplierProprietor" />
+          <NavigationProperty Name="SupplierSisterConcerns" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier" FromRole="Supplier" ToRole="SupplierSisterConcern" />
+        </EntityType>
+        <EntityType Name="SupplierBillingDetail">
+          <Key>
+            <PropertyRef Name="SupplierBillingDetailId" />
+          </Key>
+          <Property Name="SupplierBillingDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="IsStopMonthlyBilling" Type="Boolean" />
+          <Property Name="BillFrequency" Type="Int32" />
+          <Property Name="SupplierCompany" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ITPanNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SupplierBillingDetail_Supplier" FromRole="SupplierBillingDetail" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="SupplierContactInfo">
+          <Key>
+            <PropertyRef Name="SupplierContactInfoId" />
+          </Key>
+          <Property Name="SupplierContactInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OfficePhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Residence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResidenceCity" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ResPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SMSName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SMSCellNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResidencePin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SupplierContactInfo_Supplier" FromRole="SupplierContactInfo" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="SupplierProprietor">
+          <Key>
+            <PropertyRef Name="ProprietorId" />
+          </Key>
+          <Property Name="ProprietorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="ProprietorName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SupplierProprietor_Supplier" FromRole="SupplierProprietor" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="SupplierSisterConcern">
+          <Key>
+            <PropertyRef Name="SisterConcernId" />
+          </Key>
+          <Property Name="SisterConcernId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="SisterConcernDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier" FromRole="SupplierSisterConcern" ToRole="Supplier" />
+        </EntityType>
+        <Association Name="FK_OrderEntry_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.OrderEntry" Role="OrderEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="OrderEntry">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Party_Customer">
           <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
           <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
@@ -1321,7 +1737,7 @@
               <PropertyRef Name="CustomerId" />
             </Principal>
             <Dependent Role="Party">
-              <PropertyRef Name="CustomerId" />
+              <PropertyRef Name="fkCustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1333,7 +1749,43 @@
               <PropertyRef Name="CustomerId" />
             </Principal>
             <Dependent Role="Reference">
-              <PropertyRef Name="CustomerId" />
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAccountant_CustomerInfo1">
+          <End Type="TPLDBModel.CustomerInfo" Role="CustomerInfo" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerAccountant" Role="CustomerAccountant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerInfo">
+              <PropertyRef Name="CustomerInfoId" />
+            </Principal>
+            <Dependent Role="CustomerAccountant">
+              <PropertyRef Name="fkCustomerInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_OrderEntry">
+          <End Type="TPLDBModel.OrderEntry" Role="OrderEntry" Multiplicity="0..1" />
+          <End Type="TPLDBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderEntry">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="fkOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="fkSupplierId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1349,7 +1801,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="FK_SupplierBillingDetail_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.SupplierBillingDetail" Role="SupplierBillingDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierBillingDetail">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierContactInfo_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.SupplierContactInfo" Role="SupplierContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierContactInfo">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierProprietor_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.SupplierProprietor" Role="SupplierProprietor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierProprietor">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierSisterConcern_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.SupplierSisterConcern" Role="SupplierSisterConcern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierSisterConcern">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1525,6 +2025,8 @@
           <EntitySetMapping Name="MstCouriers">
             <EntityTypeMapping TypeName="TPLDBModel.MstCourier">
               <MappingFragment StoreEntitySet="MstCourier">
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -1559,6 +2061,7 @@
           <EntitySetMapping Name="MstSubAgents">
             <EntityTypeMapping TypeName="TPLDBModel.MstSubAgent">
               <MappingFragment StoreEntitySet="MstSubAgent">
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -1579,6 +2082,7 @@
           <EntitySetMapping Name="MstTransports">
             <EntityTypeMapping TypeName="TPLDBModel.MstTransport">
               <MappingFragment StoreEntitySet="MstTransport">
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -1657,10 +2161,39 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="TPLDBModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="QNK" ColumnName="QNK" />
+                <ScalarProperty Name="Accompany" ColumnName="Accompany" />
+                <ScalarProperty Name="BalQty" ColumnName="BalQty" />
+                <ScalarProperty Name="OrQty" ColumnName="OrQty" />
+                <ScalarProperty Name="RedQty" ColumnName="RedQty" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="fkOrderId" ColumnName="fkOrderId" />
+                <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderEntries">
+            <EntityTypeMapping TypeName="TPLDBModel.OrderEntry">
+              <MappingFragment StoreEntitySet="OrderEntry">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="OrderOrVIsit" ColumnName="OrderOrVIsit" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Parties">
             <EntityTypeMapping TypeName="TPLDBModel.Party">
               <MappingFragment StoreEntitySet="Party">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
                 <ScalarProperty Name="Remarks" ColumnName="Remarks" />
                 <ScalarProperty Name="SpokenBy" ColumnName="SpokenBy" />
                 <ScalarProperty Name="SpokenDate" ColumnName="SpokenDate" />
@@ -1675,7 +2208,7 @@
           <EntitySetMapping Name="References">
             <EntityTypeMapping TypeName="TPLDBModel.Reference">
               <MappingFragment StoreEntitySet="Reference">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
                 <ScalarProperty Name="TourDate" ColumnName="TourDate" />
                 <ScalarProperty Name="TourBy" ColumnName="TourBy" />
                 <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />
@@ -1683,7 +2216,96 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="TPLDBModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsBK" ColumnName="IsBK" />
+                <ScalarProperty Name="IsStartDailyBilling" ColumnName="IsStartDailyBilling" />
+                <ScalarProperty Name="PriorityMember" ColumnName="PriorityMember" />
+                <ScalarProperty Name="Commission" ColumnName="Commission" />
+                <ScalarProperty Name="ServiceTaxOn" ColumnName="ServiceTaxOn" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="GlobalCode" ColumnName="GlobalCode" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="TanNumber" ColumnName="TanNumber" />
+                <ScalarProperty Name="TanName" ColumnName="TanName" />
+                <ScalarProperty Name="FrequencyPerMonth" ColumnName="FrequencyPerMonth" />
+                <ScalarProperty Name="Variety" ColumnName="Variety" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="BillTerms" ColumnName="BillTerms" />
+                <ScalarProperty Name="ODDays" ColumnName="ODDays" />
+                <ScalarProperty Name="SupplierZone" ColumnName="SupplierZone" />
+                <ScalarProperty Name="SupplierGroup" ColumnName="SupplierGroup" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="SupplierACNumber" ColumnName="SupplierACNumber" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierBillingDetails">
+            <EntityTypeMapping TypeName="TPLDBModel.SupplierBillingDetail">
+              <MappingFragment StoreEntitySet="SupplierBillingDetail">
+                <ScalarProperty Name="ITPanNumber" ColumnName="ITPanNumber" />
+                <ScalarProperty Name="SupplierCompany" ColumnName="SupplierCompany" />
+                <ScalarProperty Name="BillFrequency" ColumnName="BillFrequency" />
+                <ScalarProperty Name="IsStopMonthlyBilling" ColumnName="IsStopMonthlyBilling" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="SupplierBillingDetailId" ColumnName="SupplierBillingDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierContactInfoes">
+            <EntityTypeMapping TypeName="TPLDBModel.SupplierContactInfo">
+              <MappingFragment StoreEntitySet="SupplierContactInfo">
+                <ScalarProperty Name="ResidencePin" ColumnName="ResidencePin" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+                <ScalarProperty Name="SMSCellNumber" ColumnName="SMSCellNumber" />
+                <ScalarProperty Name="SMSName" ColumnName="SMSName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ResPhone" ColumnName="ResPhone" />
+                <ScalarProperty Name="ResidenceCity" ColumnName="ResidenceCity" />
+                <ScalarProperty Name="Residence" ColumnName="Residence" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="SupplierContactInfoId" ColumnName="SupplierContactInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierProprietors">
+            <EntityTypeMapping TypeName="TPLDBModel.SupplierProprietor">
+              <MappingFragment StoreEntitySet="SupplierProprietor">
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="ProprietorName" ColumnName="ProprietorName" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierSisterConcerns">
+            <EntityTypeMapping TypeName="TPLDBModel.SupplierSisterConcern">
+              <MappingFragment StoreEntitySet="SupplierSisterConcern">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SisterConcernDescription" ColumnName="SisterConcernDescription" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="SisterConcernId" ColumnName="SisterConcernId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
