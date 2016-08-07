@@ -65,6 +65,9 @@ namespace raghani_tradelinks
                         MessageBox.Show("Sub Agent added successfully.");
                     else
                         MessageBox.Show("Error while adding Sub Agent.");
+
+                    DisplayData();
+                    ClearData();
                 }
             }
             catch(Exception ex)
@@ -110,6 +113,9 @@ namespace raghani_tradelinks
                         MessageBox.Show("Sub Agent updated successfully.");
                     else
                         MessageBox.Show("Error while updating Sub Agent.");
+
+                    DisplayData();
+                    ClearData();
                 }
             }
             catch (Exception ex)

@@ -57,7 +57,7 @@ namespace RT.BL
             subAgent.CreatedDate = DateTime.Now;
             subAgent.UpdatedBy = "admin";
             subAgent.UpdatedDate = DateTime.Now;
-
+            subAgent.IsDeleted = false;
             db.MstSubAgents.Add(subAgent);
             return db.SaveChanges();
         }
