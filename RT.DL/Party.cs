@@ -23,8 +23,10 @@ namespace RT.DL
         public string SpokenBy { get; set; }
         public string Remarks { get; set; }
         public Nullable<int> CustomerId { get; set; }
+        public Nullable<int> fkCustomerId { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Reference Reference { get; set; }
+        public virtual Customer Customer1 { get; set; }
     }
 }

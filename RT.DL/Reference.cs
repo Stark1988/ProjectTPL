@@ -24,8 +24,10 @@ namespace RT.DL
         public string TourBy { get; set; }
         public Nullable<System.DateTime> TourDate { get; set; }
         public Nullable<int> CustomerId { get; set; }
+        public Nullable<int> fkCustomerId { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual ICollection<Party> Parties { get; set; }
+        public virtual Customer Customer1 { get; set; }
     }
 }

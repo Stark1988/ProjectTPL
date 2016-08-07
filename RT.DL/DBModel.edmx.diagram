@@ -47,8 +47,6 @@
         <AssociationConnector Association="TPLDBModel.FK_Party_Customer" />
         <AssociationConnector Association="TPLDBModel.FK_Reference_Customer" />
         <AssociationConnector Association="TPLDBModel.FK_Party_Reference" />
-        <AssociationConnector Association="TPLDBModel.FK_Party_Customer" />
-        <AssociationConnector Association="TPLDBModel.FK_Reference_Customer" />
         <EntityTypeShape EntityType="TPLDBModel.OrderDetail" Width="1.5" PointX="17.625" PointY="9.875" />
         <EntityTypeShape EntityType="TPLDBModel.OrderEntry" Width="1.5" PointX="15.375" PointY="0.75" />
         <EntityTypeShape EntityType="TPLDBModel.Supplier" Width="1.5" PointX="12.375" PointY="7.75" />
@@ -57,6 +55,16 @@
         <EntityTypeShape EntityType="TPLDBModel.SupplierProprietor" Width="1.5" PointX="14.625" PointY="4.75" />
         <EntityTypeShape EntityType="TPLDBModel.SupplierSisterConcern" Width="1.5" PointX="14.625" PointY="18.875" />
         <AssociationConnector Association="TPLDBModel.FK_OrderEntry_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_OrderDetail_OrderEntry" />
+        <AssociationConnector Association="TPLDBModel.FK_OrderDetail_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_SupplierBillingDetail_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_SupplierContactInfo_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_SupplierProprietor_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_SupplierSisterConcern_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_OrderEntry_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_Party_Customer1" />
+        <AssociationConnector Association="TPLDBModel.FK_Reference_Customer1" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo1" />
         <AssociationConnector Association="TPLDBModel.FK_OrderDetail_OrderEntry" />
         <AssociationConnector Association="TPLDBModel.FK_OrderDetail_Supplier" />
         <AssociationConnector Association="TPLDBModel.FK_SupplierBillingDetail_Supplier" />
