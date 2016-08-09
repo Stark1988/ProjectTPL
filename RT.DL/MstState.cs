@@ -17,6 +17,7 @@ namespace RT.DL
         public MstState()
         {
             this.MstCities = new HashSet<MstCity>();
+            this.CustomerContactInfoes = new HashSet<CustomerContactInfo>();
         }
     
         public int StateId { get; set; }
@@ -28,5 +29,6 @@ namespace RT.DL
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
         public virtual ICollection<MstCity> MstCities { get; set; }
+        public virtual ICollection<CustomerContactInfo> CustomerContactInfoes { get; set; }
     }
 }

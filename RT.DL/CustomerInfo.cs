@@ -14,11 +14,6 @@ namespace RT.DL
     
     public partial class CustomerInfo
     {
-        public CustomerInfo()
-        {
-            this.CustomerAccountants = new HashSet<CustomerAccountant>();
-        }
-    
         public int CustomerInfoId { get; set; }
         public Nullable<int> fkCustomerId { get; set; }
         public string Abuse { get; set; }
@@ -41,6 +36,5 @@ namespace RT.DL
         public string DirectDealing { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual ICollection<CustomerAccountant> CustomerAccountants { get; set; }
     }
 }

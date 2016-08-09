@@ -28,8 +28,11 @@ namespace RT.DL
         public string RemSMSCell2 { get; set; }
         public string Address { get; set; }
         public string STDCode { get; set; }
+        public Nullable<int> fkStateId { get; set; }
+        public string Pincode { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual MstCity MstCity { get; set; }
+        public virtual MstState MstState { get; set; }
     }
 }

@@ -22,14 +22,34 @@ namespace RT.BL
                     }).ToList();
         }
 
+        public List<Customer> SelectSisterCompany()
+        {
+            return (from c in db.Customers
+                    where c.Status != "Rejected"
+                    select new
+                    {
+                        CustomerId = c.CustomerId,
+                        CustomerName = c.CustomerName
+                    }).ToList()
+                    .Select(q => new Customer
+                    {
+                        CustomerId = q.CustomerId,
+                        CustomerName = q.CustomerName
+                    }).ToList();
+        }
+
         public int InsertCustomer(string CustomerACNumber, int CreatedByBranch, string CashCredit, string CustomerName, string Alias, string TypeOfFirm,
                                     string Priority, string Status, string TIN, string CSTNumber, string GSTNumber, string LastOAC, int NoLRAddressPrinting,
                                     int fkSubAgentId, string Zone, string Group, string Username, List<clsAuthorization> lstAuthorization,
                                     List<clsCustomerContactInfo> lstCustContactInfo, List<clsCustomerInfo> lstCustInfo, List<clsCustomerProprietor> lstCustProprietors,
                                     List<clsCustomerSalesman> lstCustSalesman, List<clsCustomerSisterConcern> lstCustSisConcern, List<clsCustomerAccountant> lstCustAccts,
-                                    List<clsParty> lstParty, List<clsReference> lstReference)
+                                    List<clsParty> lstParty, List<clsReference> lstReference, int CustomerId = 0)
         {
-            Customer customer = new Customer();
+            Customer customer;
+            if (CustomerId == 0)
+                customer = new Customer();
+            else
+                customer = db.Customers.Find(CustomerId);
 
             customer.CustomerACNumber = CustomerACNumber;
             customer.fkCreatedByBranchId = CreatedByBranch;
@@ -40,7 +60,8 @@ namespace RT.BL
             customer.Priority = Priority;
             customer.Status = Status;
             customer.TIN = TIN;
-            customer.CSTNumber = CSTNumber;
+            if (CustomerId == 0)
+                customer.CSTNumber = CSTNumber;
             customer.GSTNumber = GSTNumber;
             customer.LastOAC = LastOAC;
             customer.NoLRAddressPrinting = NoLRAddressPrinting;
@@ -53,124 +74,266 @@ namespace RT.BL
             customer.UpdatedDate = DateTime.Now;
             customer.IsDeleted = false;
 
+            int i = 0;
             foreach (clsAuthorization auth in lstAuthorization)
             {
-                Authorization dbAuth = new Authorization();
-                dbAuth.BranchHead = auth.BranchHead;
-                dbAuth.Director1Name = auth.Director1Name;
-                dbAuth.Director2Name = auth.Director2Name;
-                dbAuth.Director3Name = auth.Director3Name;
+                if (CustomerId == 0)
+                {
+                    Authorization dbAuth = new Authorization();
+                    dbAuth.BranchHead = auth.BranchHead;
+                    dbAuth.Director1Name = auth.Director1Name;
+                    dbAuth.Director2Name = auth.Director2Name;
+                    dbAuth.Director3Name = auth.Director3Name;
 
-                customer.Authorizations.Add(dbAuth);
+                    customer.Authorizations.Add(dbAuth);
+                }
+                else
+                {
+                    customer.Authorizations.ElementAt(i).BranchHead = auth.BranchHead;
+                    customer.Authorizations.ElementAt(i).Director1Name = auth.Director1Name;
+                    customer.Authorizations.ElementAt(i).Director2Name = auth.Director2Name;
+                    customer.Authorizations.ElementAt(i).Director3Name = auth.Director3Name;
+                    i++;
+                }
             }
 
+            i = 0;
             foreach (clsCustomerContactInfo custCInfo in lstCustContactInfo)
             {
-                CustomerContactInfo cInfo = new CustomerContactInfo();
-                cInfo.Address = custCInfo.Address;
-                cInfo.Email = custCInfo.Email;
-                cInfo.Fax = custCInfo.Fax;
-                cInfo.fkCityId = custCInfo.fkCityId;
-                cInfo.OfficePhone = custCInfo.OfficePhone;
-                cInfo.RemContactPerson = custCInfo.RemContactPerson;
-                cInfo.RemContactPhone = custCInfo.RemContactPhone;
-                cInfo.RemSMSCell1 = custCInfo.RemSMSCell1;
-                cInfo.RemSMSCell2 = custCInfo.RemSMSCell2;
-                cInfo.SMSCellNumber = custCInfo.SMSCellNumber;
-                cInfo.SMSName = custCInfo.SMSName;
-                cInfo.STDCode = custCInfo.STDCode;
 
-                customer.CustomerContactInfoes.Add(cInfo);
+                if (CustomerId == 0)
+                {
+                    CustomerContactInfo cInfo = new CustomerContactInfo();
+                    cInfo.Address = custCInfo.Address;
+                    cInfo.Email = custCInfo.Email;
+                    cInfo.Fax = custCInfo.Fax;
+                    cInfo.fkCityId = custCInfo.fkCityId;
+                    cInfo.fkStateId = custCInfo.fkStateId;
+                    cInfo.OfficePhone = custCInfo.OfficePhone;
+                    cInfo.RemContactPerson = custCInfo.RemContactPerson;
+                    cInfo.RemContactPhone = custCInfo.RemContactPhone;
+                    cInfo.RemSMSCell1 = custCInfo.RemSMSCell1;
+                    cInfo.RemSMSCell2 = custCInfo.RemSMSCell2;
+                    cInfo.SMSCellNumber = custCInfo.SMSCellNumber;
+                    cInfo.SMSName = custCInfo.SMSName;
+                    cInfo.STDCode = custCInfo.STDCode;
+                    cInfo.Pincode = custCInfo.Pincode;
+
+                    customer.CustomerContactInfoes.Add(cInfo);
+                }
+                else
+                {
+                    customer.CustomerContactInfoes.ElementAt(i).Address = custCInfo.Address;
+                    customer.CustomerContactInfoes.ElementAt(i).Email = custCInfo.Email;
+                    customer.CustomerContactInfoes.ElementAt(i).Fax = custCInfo.Fax;
+                    customer.CustomerContactInfoes.ElementAt(i).fkCityId = custCInfo.fkCityId;
+                    customer.CustomerContactInfoes.ElementAt(i).fkStateId = custCInfo.fkStateId;
+                    customer.CustomerContactInfoes.ElementAt(i).OfficePhone = custCInfo.OfficePhone;
+                    customer.CustomerContactInfoes.ElementAt(i).RemContactPerson = custCInfo.RemContactPerson;
+                    customer.CustomerContactInfoes.ElementAt(i).RemContactPhone = custCInfo.RemContactPhone;
+                    customer.CustomerContactInfoes.ElementAt(i).RemSMSCell1 = custCInfo.RemSMSCell1;
+                    customer.CustomerContactInfoes.ElementAt(i).RemSMSCell2 = custCInfo.RemSMSCell2;
+                    customer.CustomerContactInfoes.ElementAt(i).SMSCellNumber = custCInfo.SMSCellNumber;
+                    customer.CustomerContactInfoes.ElementAt(i).SMSName = custCInfo.SMSName;
+                    customer.CustomerContactInfoes.ElementAt(i).STDCode = custCInfo.STDCode;
+                    customer.CustomerContactInfoes.ElementAt(i).Pincode = custCInfo.Pincode;
+                    i++;
+                }
             }
 
+            i = 0;
             foreach (clsCustomerInfo cInfo in lstCustInfo)
             {
-                CustomerInfo info = new CustomerInfo();
-                info.Abuse = cInfo.Abuse;
-                info.AdmitType = cInfo.AdmitType;
-                info.CreditLimit = cInfo.CreditLimit;
-                info.CustomerInfoId = cInfo.CustomerInfoId;
-                info.DealingType = cInfo.DealingType;
-                info.DirectDealing = cInfo.DirectDealing;
-                info.GRHabbit = cInfo.GRHabbit;
-                info.Hotel = cInfo.Hotel;
-                info.OtherAgent = cInfo.OtherAgent;
-                info.PaymentHabbit = cInfo.PaymentHabbit;
-                info.RapportType = cInfo.RapportType;
-                info.Remarks = cInfo.Remarks;
-                info.Restriction = cInfo.Restriction;
-                info.TransportReference = cInfo.TransportReference;
-                info.VisitFrequency = cInfo.VisitFrequency;
-                info.WorkNature = cInfo.WorkNature;
+                if (CustomerId == 0)
+                {
+                    CustomerInfo info = new CustomerInfo();
+                    info.Abuse = cInfo.Abuse;
+                    info.AdmitType = cInfo.AdmitType;
+                    info.CreditLimit = cInfo.CreditLimit;
+                    info.DealingType = cInfo.DealingType;
+                    info.DirectDealing = cInfo.DirectDealing;
+                    info.GRHabbit = cInfo.GRHabbit;
+                    info.Hotel = cInfo.Hotel;
+                    info.OtherAgent = cInfo.OtherAgent;
+                    info.PaymentHabbit = cInfo.PaymentHabbit;
+                    info.RapportType = cInfo.RapportType;
+                    info.Remarks = cInfo.Remarks;
+                    info.Restriction = cInfo.Restriction;
+                    info.TransportReference = cInfo.TransportReference;
+                    info.VisitFrequency = cInfo.VisitFrequency;
+                    info.WorkNature = cInfo.WorkNature;
 
-                customer.CustomerInfoes.Add(info);
+                    customer.CustomerInfoes.Add(info);
+                }
+                else
+                {
+                    customer.CustomerInfoes.ElementAt(i).Abuse = cInfo.Abuse;
+                    customer.CustomerInfoes.ElementAt(i).AdmitType = cInfo.AdmitType;
+                    customer.CustomerInfoes.ElementAt(i).CreditLimit = cInfo.CreditLimit;
+                    customer.CustomerInfoes.ElementAt(i).DealingType = cInfo.DealingType;
+                    customer.CustomerInfoes.ElementAt(i).DirectDealing = cInfo.DirectDealing;
+                    customer.CustomerInfoes.ElementAt(i).GRHabbit = cInfo.GRHabbit;
+                    customer.CustomerInfoes.ElementAt(i).Hotel = cInfo.Hotel;
+                    customer.CustomerInfoes.ElementAt(i).OtherAgent = cInfo.OtherAgent;
+                    customer.CustomerInfoes.ElementAt(i).PaymentHabbit = cInfo.PaymentHabbit;
+                    customer.CustomerInfoes.ElementAt(i).RapportType = cInfo.RapportType;
+                    customer.CustomerInfoes.ElementAt(i).Remarks = cInfo.Remarks;
+                    customer.CustomerInfoes.ElementAt(i).Restriction = cInfo.Restriction;
+                    customer.CustomerInfoes.ElementAt(i).TransportReference = cInfo.TransportReference;
+                    customer.CustomerInfoes.ElementAt(i).VisitFrequency = cInfo.VisitFrequency;
+                    customer.CustomerInfoes.ElementAt(i).WorkNature = cInfo.WorkNature;
+                    i++;
+                }
             }
 
+            i = 0;
             foreach (clsCustomerProprietor propr in lstCustProprietors)
             {
-                CustomerProprietor cProp = new CustomerProprietor();
-                cProp.ContactNumber = propr.ContactNumber;
-                cProp.ProprietorName = propr.ProprietorName;
+                if (CustomerId == 0)
+                {
+                    CustomerProprietor cProp = new CustomerProprietor();
+                    cProp.ContactNumber = propr.ContactNumber;
+                    cProp.ProprietorName = propr.ProprietorName;
 
-                customer.CustomerProprietors.Add(cProp);
+                    customer.CustomerProprietors.Add(cProp);
+                }
+                else
+                {
+                    customer.CustomerProprietors.ElementAt(i).ContactNumber = propr.ContactNumber;
+                    customer.CustomerProprietors.ElementAt(i).ProprietorName = propr.ProprietorName;
+                    i++;
+                }
             }
 
+            i = 0;
             foreach (clsCustomerSalesman salesman in lstCustSalesman)
             {
-                CustomerSalesman cSalesman = new CustomerSalesman();
-                cSalesman.ContactNumber = salesman.ContactNumber;
-                cSalesman.SalesmanName = salesman.SalesmanName;
+                if (CustomerId == 0)
+                {
+                    CustomerSalesman cSalesman = new CustomerSalesman();
+                    cSalesman.ContactNumber = salesman.ContactNumber;
+                    cSalesman.SalesmanName = salesman.SalesmanName;
 
-                customer.CustomerSalesmen.Add(cSalesman);
+                    customer.CustomerSalesmen.Add(cSalesman);
+                }
+                else
+                {
+                    customer.CustomerSalesmen.ElementAt(i).ContactNumber = salesman.ContactNumber;
+                    customer.CustomerSalesmen.ElementAt(i).SalesmanName = salesman.SalesmanName;
+                    i++;
+                }
             }
 
+            i = 0;
             foreach (clsCustomerSisterConcern concern in lstCustSisConcern)
             {
-                CustomerSisterConcern sisConcrn = new CustomerSisterConcern();
-                sisConcrn.CreatedBy = Username;
-                sisConcrn.CreatedDate = DateTime.Now;
-                sisConcrn.IsDeleted = false;
-                sisConcrn.SisterConcernId = concern.SisterConcernId;
-                sisConcrn.UpdatedBy = Username;
-                sisConcrn.UpdatedDate = DateTime.Now;
+                if (CustomerId == 0)
+                {
+                    CustomerSisterConcern sisConcrn = new CustomerSisterConcern();
+                    sisConcrn.CreatedBy = Username;
+                    sisConcrn.CreatedDate = DateTime.Now;
+                    sisConcrn.IsDeleted = false;
+                    sisConcrn.SisterConcernId = concern.SisterConcernId;
+                    sisConcrn.UpdatedBy = Username;
+                    sisConcrn.UpdatedDate = DateTime.Now;
 
-                customer.CustomerSisterConcerns.Add(sisConcrn);
+                    customer.CustomerSisterConcerns.Add(sisConcrn);
+                }
+                else
+                {
+                    customer.CustomerSisterConcerns.ElementAt(i).CreatedBy = Username;
+                    customer.CustomerSisterConcerns.ElementAt(i).CreatedDate = DateTime.Now;
+                    customer.CustomerSisterConcerns.ElementAt(i).IsDeleted = false;
+                    customer.CustomerSisterConcerns.ElementAt(i).SisterConcernId = concern.SisterConcernId;
+                    customer.CustomerSisterConcerns.ElementAt(i).UpdatedBy = Username;
+                    customer.CustomerSisterConcerns.ElementAt(i).UpdatedDate = DateTime.Now;
+                    i++;
+                }
             }
 
+            i = 0;
             foreach (clsCustomerAccountant cAccts in lstCustAccts)
             {
-                CustomerAccountant acct = new CustomerAccountant();
-                acct.AccountantName = cAccts.AccountantName;
-                acct.ContactNumber = cAccts.ContactNumber;
+                if (CustomerId == 0)
+                {
+                    CustomerAccountant acct = new CustomerAccountant();
+                    acct.AccountantName = cAccts.AccountantName;
+                    acct.ContactNumber = cAccts.ContactNumber;
 
-                customer.CustomerAccountants.Add(acct);
+                    customer.CustomerAccountants.Add(acct);
+                }
+                else
+                {
+                    customer.CustomerAccountants.ElementAt(i).AccountantName = cAccts.AccountantName;
+                    customer.CustomerAccountants.ElementAt(i).ContactNumber = cAccts.ContactNumber;
+                    i++;
+                }
             }
 
+            i = 0;
             foreach (clsParty cParty in lstParty)
             {
-                Party party = new Party();
-                party.Nature = cParty.Nature;
-                party.PartyName = cParty.PartyName;
-                party.Remarks = cParty.Remarks;
-                party.SpokenBy = cParty.SpokenBy;
-                party.SpokenDate = cParty.SpokenDate;
-                party.SpokenTo = cParty.SpokenTo;
+                if (CustomerId == 0)
+                {
+                    Party party = new Party();
+                    party.Nature = cParty.Nature;
+                    party.PartyName = cParty.PartyName;
+                    party.Remarks = cParty.Remarks;
+                    party.SpokenBy = cParty.SpokenBy;
+                    party.SpokenDate = cParty.SpokenDate.Value.Year == 0001 ? null : cParty.SpokenDate;
+                    party.SpokenTo = cParty.SpokenTo;
 
-                db.Parties.Add(party);
+                    customer.Parties.Add(party);
+                }
+                else
+                {
+                    customer.Parties.ElementAt(i).Nature = cParty.Nature;
+                    customer.Parties.ElementAt(i).PartyName = cParty.PartyName;
+                    customer.Parties.ElementAt(i).Remarks = cParty.Remarks;
+                    customer.Parties.ElementAt(i).SpokenBy = cParty.SpokenBy;
+                    customer.Parties.ElementAt(i).SpokenDate = cParty.SpokenDate.Value.Year == 0001 ? null : cParty.SpokenDate;
+                    customer.Parties.ElementAt(i).SpokenTo = cParty.SpokenTo;
+                    i++;
+                }
             }
 
+            i = 0;
             foreach (clsReference cRef in lstReference)
-            { 
-                Reference refe = new Reference();
-                refe.ReferenceType = cRef.ReferenceType;
-                refe.TourBy = cRef.TourBy;
-                refe.TourDate = cRef.TourDate;
+            {
+                if (CustomerId == 0)
+                {
+                    Reference refe = new Reference();
+                    refe.ReferenceType = cRef.ReferenceType;
+                    refe.TourBy = cRef.TourBy;
+                    refe.TourDate = cRef.TourDate;
 
-                db.References.Add(refe);
+                    customer.References.Add(refe);
+                }
+                else
+                {
+                    customer.References.ElementAt(i).ReferenceType = cRef.ReferenceType;
+                    customer.References.ElementAt(i).TourBy = cRef.TourBy;
+                    customer.References.ElementAt(i).TourDate = cRef.TourDate;
+                    i++;
+                }
             }
 
-            db.Customers.Add(customer);
+            if (CustomerId == 0)
+                db.Customers.Add(customer);
             return db.SaveChanges();
+        }
+
+        public List<Customer> SelectCustomer()
+        {
+            return db.Customers
+                    .Where(q => q.Status != "Rejected").Select(q => new { CustomerId = q.CustomerId, CustomerName = q.CustomerName })
+                    .ToList()
+                    .Select(q => new Customer() { CustomerName = q.CustomerName, CustomerId = q.CustomerId }).ToList();
+        }
+
+        public Customer FindCustomer(int CustomerId)
+        {
+            return db.Customers.Find(CustomerId);
         }
     }
 
@@ -192,6 +355,8 @@ namespace RT.BL
         public int CustomerContactInfoId { get; set; }
         public Nullable<int> fkCustomerId { get; set; }
         public Nullable<int> fkCityId { get; set; }
+
+        public Nullable<int> fkStateId { get; set; }
         public string OfficePhone { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
@@ -203,6 +368,7 @@ namespace RT.BL
         public string RemSMSCell2 { get; set; }
         public string Address { get; set; }
         public string STDCode { get; set; }
+        public string Pincode { get; set; }
     }
     public class clsCustomerInfo
     {

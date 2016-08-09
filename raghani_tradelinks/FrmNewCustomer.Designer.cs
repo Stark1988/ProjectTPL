@@ -32,18 +32,12 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.cmbACCreatedByBranch = new System.Windows.Forms.ComboBox();
-            this.chkBrandNewAC = new System.Windows.Forms.CheckBox();
-            this.lblACCreatedByBranch = new DevExpress.XtraEditors.LabelControl();
-            this.lblBrandNewAC = new DevExpress.XtraEditors.LabelControl();
-            this.txtCustomerACNo = new System.Windows.Forms.TextBox();
-            this.txtCustomerCreatedOn = new System.Windows.Forms.TextBox();
-            this.lblCustomerCreatedOn = new DevExpress.XtraEditors.LabelControl();
-            this.lblCustomerACNo = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.NewCustomerTabControl = new DevExpress.XtraTab.XtraTabControl();
             this.NewCustomerMainTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.MainPageScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.cmbState = new System.Windows.Forms.ComboBox();
+            this.cmbCity = new System.Windows.Forms.ComboBox();
             this.cmbSubAgent = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSalesman3MobileNo = new System.Windows.Forms.MaskedTextBox();
@@ -105,8 +99,6 @@
             this.lblTypeOfFirm = new DevExpress.XtraEditors.LabelControl();
             this.cmbGroup = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbZone = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbCity = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbCashCredit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblSubAgent = new DevExpress.XtraEditors.LabelControl();
             this.lblZone = new DevExpress.XtraEditors.LabelControl();
@@ -161,12 +153,6 @@
             this.txtSpokenTo1 = new System.Windows.Forms.TextBox();
             this.lblSpokenTo = new DevExpress.XtraEditors.LabelControl();
             this.txtSpokenTo5 = new System.Windows.Forms.TextBox();
-            this.cmbNature4 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbNature5 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbNature3 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbNature2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbNature1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblNature = new DevExpress.XtraEditors.LabelControl();
             this.txtParty4 = new System.Windows.Forms.TextBox();
             this.txtParty3 = new System.Windows.Forms.TextBox();
             this.txtParty2 = new System.Windows.Forms.TextBox();
@@ -178,8 +164,6 @@
             this.lblTourBy = new DevExpress.XtraEditors.LabelControl();
             this.cmbRefType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblRefType = new DevExpress.XtraEditors.LabelControl();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lblPartyRefence = new DevExpress.XtraEditors.LabelControl();
             this.NewCustomerInfoTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.InfoPageScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
@@ -225,6 +209,15 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.validator1 = new Itboy.Components.Validator(this.components);
+            this.lblCustomerACNo = new DevExpress.XtraEditors.LabelControl();
+            this.lblCustomerCreatedOn = new DevExpress.XtraEditors.LabelControl();
+            this.txtCustomerACNo = new System.Windows.Forms.TextBox();
+            this.lblBrandNewAC = new DevExpress.XtraEditors.LabelControl();
+            this.lblACCreatedByBranch = new DevExpress.XtraEditors.LabelControl();
+            this.chkBrandNewAC = new System.Windows.Forms.CheckBox();
+            this.cmbACCreatedByBranch = new System.Windows.Forms.ComboBox();
+            this.cmbCustomerToEdit = new System.Windows.Forms.ComboBox();
+            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -240,8 +233,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbTypeOfFirm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbZone.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCity.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCashCredit.Properties)).BeginInit();
             this.NewCustomerReferenceTabPage.SuspendLayout();
             this.ReferencePageScrollableControl.SuspendLayout();
@@ -251,11 +242,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbDirector2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDirector1.Properties)).BeginInit();
             this.pnlPartyReferenceContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbRefType.Properties)).BeginInit();
             this.NewCustomerInfoTabPage.SuspendLayout();
             this.InfoPageScrollableControl.SuspendLayout();
@@ -293,12 +279,13 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnGo);
+            this.panelControl1.Controls.Add(this.cmbCustomerToEdit);
             this.panelControl1.Controls.Add(this.cmbACCreatedByBranch);
             this.panelControl1.Controls.Add(this.chkBrandNewAC);
             this.panelControl1.Controls.Add(this.lblACCreatedByBranch);
             this.panelControl1.Controls.Add(this.lblBrandNewAC);
             this.panelControl1.Controls.Add(this.txtCustomerACNo);
-            this.panelControl1.Controls.Add(this.txtCustomerCreatedOn);
             this.panelControl1.Controls.Add(this.lblCustomerCreatedOn);
             this.panelControl1.Controls.Add(this.lblCustomerACNo);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -306,71 +293,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1238, 39);
             this.panelControl1.TabIndex = 3;
-            // 
-            // cmbACCreatedByBranch
-            // 
-            this.cmbACCreatedByBranch.FormattingEnabled = true;
-            this.cmbACCreatedByBranch.Location = new System.Drawing.Point(522, 8);
-            this.cmbACCreatedByBranch.Name = "cmbACCreatedByBranch";
-            this.cmbACCreatedByBranch.Size = new System.Drawing.Size(166, 21);
-            this.cmbACCreatedByBranch.TabIndex = 8;
-            // 
-            // chkBrandNewAC
-            // 
-            this.chkBrandNewAC.AutoSize = true;
-            this.chkBrandNewAC.Checked = true;
-            this.chkBrandNewAC.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkBrandNewAC.Location = new System.Drawing.Point(356, 10);
-            this.chkBrandNewAC.Name = "chkBrandNewAC";
-            this.chkBrandNewAC.Size = new System.Drawing.Size(15, 14);
-            this.chkBrandNewAC.TabIndex = 7;
-            this.chkBrandNewAC.UseVisualStyleBackColor = true;
-            // 
-            // lblACCreatedByBranch
-            // 
-            this.lblACCreatedByBranch.Location = new System.Drawing.Point(404, 11);
-            this.lblACCreatedByBranch.Name = "lblACCreatedByBranch";
-            this.lblACCreatedByBranch.Size = new System.Drawing.Size(111, 13);
-            this.lblACCreatedByBranch.TabIndex = 6;
-            this.lblACCreatedByBranch.Text = "A/C Created by Branch";
-            // 
-            // lblBrandNewAC
-            // 
-            this.lblBrandNewAC.Location = new System.Drawing.Point(271, 11);
-            this.lblBrandNewAC.Name = "lblBrandNewAC";
-            this.lblBrandNewAC.Size = new System.Drawing.Size(73, 13);
-            this.lblBrandNewAC.TabIndex = 5;
-            this.lblBrandNewAC.Text = "Brand New A/C";
-            // 
-            // txtCustomerACNo
-            // 
-            this.txtCustomerACNo.Location = new System.Drawing.Point(125, 8);
-            this.txtCustomerACNo.Name = "txtCustomerACNo";
-            this.txtCustomerACNo.Size = new System.Drawing.Size(130, 21);
-            this.txtCustomerACNo.TabIndex = 1;
-            // 
-            // txtCustomerCreatedOn
-            // 
-            this.txtCustomerCreatedOn.Location = new System.Drawing.Point(808, 7);
-            this.txtCustomerCreatedOn.Name = "txtCustomerCreatedOn";
-            this.txtCustomerCreatedOn.Size = new System.Drawing.Size(130, 21);
-            this.txtCustomerCreatedOn.TabIndex = 3;
-            // 
-            // lblCustomerCreatedOn
-            // 
-            this.lblCustomerCreatedOn.Location = new System.Drawing.Point(696, 11);
-            this.lblCustomerCreatedOn.Name = "lblCustomerCreatedOn";
-            this.lblCustomerCreatedOn.Size = new System.Drawing.Size(105, 13);
-            this.lblCustomerCreatedOn.TabIndex = 2;
-            this.lblCustomerCreatedOn.Text = "Customer Created On";
-            // 
-            // lblCustomerACNo
-            // 
-            this.lblCustomerACNo.Location = new System.Drawing.Point(13, 11);
-            this.lblCustomerACNo.Name = "lblCustomerACNo";
-            this.lblCustomerACNo.Size = new System.Drawing.Size(87, 13);
-            this.lblCustomerACNo.TabIndex = 0;
-            this.lblCustomerACNo.Text = "Customer A/C No.";
             // 
             // panelControl2
             // 
@@ -406,6 +328,8 @@
             // MainPageScrollableControl
             // 
             this.MainPageScrollableControl.AutoScrollMinSize = new System.Drawing.Size(0, 600);
+            this.MainPageScrollableControl.Controls.Add(this.cmbState);
+            this.MainPageScrollableControl.Controls.Add(this.cmbCity);
             this.MainPageScrollableControl.Controls.Add(this.cmbSubAgent);
             this.MainPageScrollableControl.Controls.Add(this.panel1);
             this.MainPageScrollableControl.Controls.Add(this.pnlProprietorContainer);
@@ -443,8 +367,6 @@
             this.MainPageScrollableControl.Controls.Add(this.lblTypeOfFirm);
             this.MainPageScrollableControl.Controls.Add(this.cmbGroup);
             this.MainPageScrollableControl.Controls.Add(this.cmbZone);
-            this.MainPageScrollableControl.Controls.Add(this.cmbCity);
-            this.MainPageScrollableControl.Controls.Add(this.cmbState);
             this.MainPageScrollableControl.Controls.Add(this.cmbCashCredit);
             this.MainPageScrollableControl.Controls.Add(this.lblSubAgent);
             this.MainPageScrollableControl.Controls.Add(this.lblZone);
@@ -468,6 +390,22 @@
             this.MainPageScrollableControl.Name = "MainPageScrollableControl";
             this.MainPageScrollableControl.Size = new System.Drawing.Size(1228, 471);
             this.MainPageScrollableControl.TabIndex = 0;
+            // 
+            // cmbState
+            // 
+            this.cmbState.FormattingEnabled = true;
+            this.cmbState.Location = new System.Drawing.Point(181, 208);
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Size = new System.Drawing.Size(198, 21);
+            this.cmbState.TabIndex = 10;
+            // 
+            // cmbCity
+            // 
+            this.cmbCity.FormattingEnabled = true;
+            this.cmbCity.Location = new System.Drawing.Point(181, 180);
+            this.cmbCity.Name = "cmbCity";
+            this.cmbCity.Size = new System.Drawing.Size(198, 21);
+            this.cmbCity.TabIndex = 8;
             // 
             // cmbSubAgent
             // 
@@ -1025,30 +963,6 @@
             this.cmbZone.Size = new System.Drawing.Size(198, 20);
             this.cmbZone.TabIndex = 14;
             // 
-            // cmbCity
-            // 
-            this.cmbCity.Location = new System.Drawing.Point(181, 179);
-            this.cmbCity.Name = "cmbCity";
-            this.cmbCity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbCity.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbCity.Size = new System.Drawing.Size(198, 20);
-            this.cmbCity.TabIndex = 8;
-            // 
-            // cmbState
-            // 
-            this.cmbState.Location = new System.Drawing.Point(181, 206);
-            this.cmbState.Name = "cmbState";
-            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbState.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbState.Size = new System.Drawing.Size(198, 20);
-            this.cmbState.TabIndex = 10;
-            // 
             // cmbCashCredit
             // 
             this.cmbCashCredit.EditValue = "Cash";
@@ -1354,12 +1268,6 @@
             this.pnlPartyReferenceContainer.Controls.Add(this.txtSpokenTo1);
             this.pnlPartyReferenceContainer.Controls.Add(this.lblSpokenTo);
             this.pnlPartyReferenceContainer.Controls.Add(this.txtSpokenTo5);
-            this.pnlPartyReferenceContainer.Controls.Add(this.cmbNature4);
-            this.pnlPartyReferenceContainer.Controls.Add(this.cmbNature5);
-            this.pnlPartyReferenceContainer.Controls.Add(this.cmbNature3);
-            this.pnlPartyReferenceContainer.Controls.Add(this.cmbNature2);
-            this.pnlPartyReferenceContainer.Controls.Add(this.cmbNature1);
-            this.pnlPartyReferenceContainer.Controls.Add(this.lblNature);
             this.pnlPartyReferenceContainer.Controls.Add(this.txtParty4);
             this.pnlPartyReferenceContainer.Controls.Add(this.txtParty3);
             this.pnlPartyReferenceContainer.Controls.Add(this.txtParty2);
@@ -1371,43 +1279,42 @@
             this.pnlPartyReferenceContainer.Controls.Add(this.lblTourBy);
             this.pnlPartyReferenceContainer.Controls.Add(this.cmbRefType);
             this.pnlPartyReferenceContainer.Controls.Add(this.lblRefType);
-            this.pnlPartyReferenceContainer.Controls.Add(this.shapeContainer1);
             this.pnlPartyReferenceContainer.Location = new System.Drawing.Point(66, 49);
             this.pnlPartyReferenceContainer.Name = "pnlPartyReferenceContainer";
-            this.pnlPartyReferenceContainer.Size = new System.Drawing.Size(1142, 207);
+            this.pnlPartyReferenceContainer.Size = new System.Drawing.Size(989, 207);
             this.pnlPartyReferenceContainer.TabIndex = 1;
             // 
             // txtRemarks4
             // 
-            this.txtRemarks4.Location = new System.Drawing.Point(839, 148);
+            this.txtRemarks4.Location = new System.Drawing.Point(701, 148);
             this.txtRemarks4.Name = "txtRemarks4";
             this.txtRemarks4.Size = new System.Drawing.Size(273, 21);
             this.txtRemarks4.TabIndex = 59;
             // 
             // txtRemarks3
             // 
-            this.txtRemarks3.Location = new System.Drawing.Point(839, 121);
+            this.txtRemarks3.Location = new System.Drawing.Point(701, 121);
             this.txtRemarks3.Name = "txtRemarks3";
             this.txtRemarks3.Size = new System.Drawing.Size(273, 21);
             this.txtRemarks3.TabIndex = 53;
             // 
             // txtRemarks2
             // 
-            this.txtRemarks2.Location = new System.Drawing.Point(839, 94);
+            this.txtRemarks2.Location = new System.Drawing.Point(701, 94);
             this.txtRemarks2.Name = "txtRemarks2";
             this.txtRemarks2.Size = new System.Drawing.Size(273, 21);
             this.txtRemarks2.TabIndex = 47;
             // 
             // txtRemarks1
             // 
-            this.txtRemarks1.Location = new System.Drawing.Point(839, 67);
+            this.txtRemarks1.Location = new System.Drawing.Point(701, 67);
             this.txtRemarks1.Name = "txtRemarks1";
             this.txtRemarks1.Size = new System.Drawing.Size(273, 21);
             this.txtRemarks1.TabIndex = 41;
             // 
             // lblRemarks
             // 
-            this.lblRemarks.Location = new System.Drawing.Point(839, 48);
+            this.lblRemarks.Location = new System.Drawing.Point(701, 48);
             this.lblRemarks.Name = "lblRemarks";
             this.lblRemarks.Size = new System.Drawing.Size(41, 13);
             this.lblRemarks.TabIndex = 246;
@@ -1415,35 +1322,35 @@
             // 
             // txtRemarks5
             // 
-            this.txtRemarks5.Location = new System.Drawing.Point(839, 175);
+            this.txtRemarks5.Location = new System.Drawing.Point(701, 175);
             this.txtRemarks5.Name = "txtRemarks5";
             this.txtRemarks5.Size = new System.Drawing.Size(273, 21);
             this.txtRemarks5.TabIndex = 65;
             // 
             // txtSpokenBy4
             // 
-            this.txtSpokenBy4.Location = new System.Drawing.Point(658, 148);
+            this.txtSpokenBy4.Location = new System.Drawing.Point(520, 148);
             this.txtSpokenBy4.Name = "txtSpokenBy4";
             this.txtSpokenBy4.Size = new System.Drawing.Size(152, 21);
             this.txtSpokenBy4.TabIndex = 58;
             // 
             // txtSpokenBy3
             // 
-            this.txtSpokenBy3.Location = new System.Drawing.Point(658, 121);
+            this.txtSpokenBy3.Location = new System.Drawing.Point(520, 121);
             this.txtSpokenBy3.Name = "txtSpokenBy3";
             this.txtSpokenBy3.Size = new System.Drawing.Size(152, 21);
             this.txtSpokenBy3.TabIndex = 52;
             // 
             // txtSpokenBy2
             // 
-            this.txtSpokenBy2.Location = new System.Drawing.Point(658, 94);
+            this.txtSpokenBy2.Location = new System.Drawing.Point(520, 94);
             this.txtSpokenBy2.Name = "txtSpokenBy2";
             this.txtSpokenBy2.Size = new System.Drawing.Size(152, 21);
             this.txtSpokenBy2.TabIndex = 46;
             // 
             // txtSpokenBy1
             // 
-            this.txtSpokenBy1.Location = new System.Drawing.Point(658, 67);
+            this.txtSpokenBy1.Location = new System.Drawing.Point(520, 67);
             this.txtSpokenBy1.Name = "txtSpokenBy1";
             this.validator1.SetRequiredMessage(this.txtSpokenBy1, "Spoken By can not be blank.");
             this.txtSpokenBy1.Size = new System.Drawing.Size(152, 21);
@@ -1452,7 +1359,7 @@
             // 
             // lblSpokenBy
             // 
-            this.lblSpokenBy.Location = new System.Drawing.Point(658, 48);
+            this.lblSpokenBy.Location = new System.Drawing.Point(520, 48);
             this.lblSpokenBy.Name = "lblSpokenBy";
             this.lblSpokenBy.Size = new System.Drawing.Size(50, 13);
             this.lblSpokenBy.TabIndex = 240;
@@ -1460,7 +1367,7 @@
             // 
             // txtSpokenBy5
             // 
-            this.txtSpokenBy5.Location = new System.Drawing.Point(658, 175);
+            this.txtSpokenBy5.Location = new System.Drawing.Point(520, 175);
             this.txtSpokenBy5.Name = "txtSpokenBy5";
             this.txtSpokenBy5.Size = new System.Drawing.Size(152, 21);
             this.txtSpokenBy5.TabIndex = 64;
@@ -1468,7 +1375,7 @@
             // txtSpokenDt5
             // 
             this.txtSpokenDt5.HidePromptOnLeave = true;
-            this.txtSpokenDt5.Location = new System.Drawing.Point(549, 176);
+            this.txtSpokenDt5.Location = new System.Drawing.Point(411, 176);
             this.txtSpokenDt5.Mask = "00/00/0000";
             this.txtSpokenDt5.Name = "txtSpokenDt5";
             this.txtSpokenDt5.Size = new System.Drawing.Size(86, 21);
@@ -1478,7 +1385,7 @@
             // txtSpokenDt4
             // 
             this.txtSpokenDt4.HidePromptOnLeave = true;
-            this.txtSpokenDt4.Location = new System.Drawing.Point(549, 149);
+            this.txtSpokenDt4.Location = new System.Drawing.Point(411, 149);
             this.txtSpokenDt4.Mask = "00/00/0000";
             this.txtSpokenDt4.Name = "txtSpokenDt4";
             this.txtSpokenDt4.Size = new System.Drawing.Size(86, 21);
@@ -1488,7 +1395,7 @@
             // txtSpokenDt3
             // 
             this.txtSpokenDt3.HidePromptOnLeave = true;
-            this.txtSpokenDt3.Location = new System.Drawing.Point(549, 122);
+            this.txtSpokenDt3.Location = new System.Drawing.Point(411, 122);
             this.txtSpokenDt3.Mask = "00/00/0000";
             this.txtSpokenDt3.Name = "txtSpokenDt3";
             this.txtSpokenDt3.Size = new System.Drawing.Size(86, 21);
@@ -1498,7 +1405,7 @@
             // txtSpokenDt2
             // 
             this.txtSpokenDt2.HidePromptOnLeave = true;
-            this.txtSpokenDt2.Location = new System.Drawing.Point(549, 94);
+            this.txtSpokenDt2.Location = new System.Drawing.Point(411, 94);
             this.txtSpokenDt2.Mask = "00/00/0000";
             this.txtSpokenDt2.Name = "txtSpokenDt2";
             this.txtSpokenDt2.Size = new System.Drawing.Size(86, 21);
@@ -1508,7 +1415,7 @@
             // txtSpokenDt1
             // 
             this.txtSpokenDt1.HidePromptOnLeave = true;
-            this.txtSpokenDt1.Location = new System.Drawing.Point(549, 67);
+            this.txtSpokenDt1.Location = new System.Drawing.Point(411, 67);
             this.txtSpokenDt1.Mask = "00/00/0000";
             this.txtSpokenDt1.Name = "txtSpokenDt1";
             this.validator1.SetRequiredMessage(this.txtSpokenDt1, "Spoken Dt. can not be blank.");
@@ -1519,7 +1426,7 @@
             // 
             // lblSpokenDt
             // 
-            this.lblSpokenDt.Location = new System.Drawing.Point(549, 48);
+            this.lblSpokenDt.Location = new System.Drawing.Point(411, 48);
             this.lblSpokenDt.Name = "lblSpokenDt";
             this.lblSpokenDt.Size = new System.Drawing.Size(53, 13);
             this.lblSpokenDt.TabIndex = 234;
@@ -1527,28 +1434,28 @@
             // 
             // txtSpokenTo4
             // 
-            this.txtSpokenTo4.Location = new System.Drawing.Point(375, 148);
+            this.txtSpokenTo4.Location = new System.Drawing.Point(237, 148);
             this.txtSpokenTo4.Name = "txtSpokenTo4";
             this.txtSpokenTo4.Size = new System.Drawing.Size(152, 21);
             this.txtSpokenTo4.TabIndex = 56;
             // 
             // txtSpokenTo3
             // 
-            this.txtSpokenTo3.Location = new System.Drawing.Point(375, 121);
+            this.txtSpokenTo3.Location = new System.Drawing.Point(237, 121);
             this.txtSpokenTo3.Name = "txtSpokenTo3";
             this.txtSpokenTo3.Size = new System.Drawing.Size(152, 21);
             this.txtSpokenTo3.TabIndex = 50;
             // 
             // txtSpokenTo2
             // 
-            this.txtSpokenTo2.Location = new System.Drawing.Point(375, 94);
+            this.txtSpokenTo2.Location = new System.Drawing.Point(237, 94);
             this.txtSpokenTo2.Name = "txtSpokenTo2";
             this.txtSpokenTo2.Size = new System.Drawing.Size(152, 21);
             this.txtSpokenTo2.TabIndex = 44;
             // 
             // txtSpokenTo1
             // 
-            this.txtSpokenTo1.Location = new System.Drawing.Point(375, 67);
+            this.txtSpokenTo1.Location = new System.Drawing.Point(237, 67);
             this.txtSpokenTo1.Name = "txtSpokenTo1";
             this.validator1.SetRequiredMessage(this.txtSpokenTo1, "Spoken To can not be blank");
             this.txtSpokenTo1.Size = new System.Drawing.Size(152, 21);
@@ -1557,7 +1464,7 @@
             // 
             // lblSpokenTo
             // 
-            this.lblSpokenTo.Location = new System.Drawing.Point(375, 48);
+            this.lblSpokenTo.Location = new System.Drawing.Point(237, 48);
             this.lblSpokenTo.Name = "lblSpokenTo";
             this.lblSpokenTo.Size = new System.Drawing.Size(50, 13);
             this.lblSpokenTo.TabIndex = 228;
@@ -1565,78 +1472,10 @@
             // 
             // txtSpokenTo5
             // 
-            this.txtSpokenTo5.Location = new System.Drawing.Point(375, 175);
+            this.txtSpokenTo5.Location = new System.Drawing.Point(237, 175);
             this.txtSpokenTo5.Name = "txtSpokenTo5";
             this.txtSpokenTo5.Size = new System.Drawing.Size(152, 21);
             this.txtSpokenTo5.TabIndex = 62;
-            // 
-            // cmbNature4
-            // 
-            this.cmbNature4.Location = new System.Drawing.Point(232, 149);
-            this.cmbNature4.Name = "cmbNature4";
-            this.cmbNature4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbNature4.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbNature4.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature4.TabIndex = 55;
-            // 
-            // cmbNature5
-            // 
-            this.cmbNature5.Location = new System.Drawing.Point(232, 176);
-            this.cmbNature5.Name = "cmbNature5";
-            this.cmbNature5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbNature5.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbNature5.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature5.TabIndex = 61;
-            // 
-            // cmbNature3
-            // 
-            this.cmbNature3.Location = new System.Drawing.Point(232, 122);
-            this.cmbNature3.Name = "cmbNature3";
-            this.cmbNature3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbNature3.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbNature3.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature3.TabIndex = 49;
-            // 
-            // cmbNature2
-            // 
-            this.cmbNature2.Location = new System.Drawing.Point(232, 95);
-            this.cmbNature2.Name = "cmbNature2";
-            this.cmbNature2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbNature2.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbNature2.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature2.TabIndex = 43;
-            // 
-            // cmbNature1
-            // 
-            this.cmbNature1.Location = new System.Drawing.Point(232, 68);
-            this.cmbNature1.Name = "cmbNature1";
-            this.cmbNature1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbNature1.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbNature1.Size = new System.Drawing.Size(123, 20);
-            this.cmbNature1.TabIndex = 36;
-            // 
-            // lblNature
-            // 
-            this.lblNature.Location = new System.Drawing.Point(232, 48);
-            this.lblNature.Name = "lblNature";
-            this.lblNature.Size = new System.Drawing.Size(33, 13);
-            this.lblNature.TabIndex = 221;
-            this.lblNature.Text = "Nature";
             // 
             // txtParty4
             // 
@@ -1726,25 +1565,6 @@
             this.lblRefType.Size = new System.Drawing.Size(44, 13);
             this.lblRefType.TabIndex = 0;
             this.lblRefType.Text = "Ref Type";
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1140, 205);
-            this.shapeContainer1.TabIndex = 215;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 0;
-            this.lineShape1.X2 = 1085;
-            this.lineShape1.Y1 = 37;
-            this.lineShape1.Y2 = 37;
             // 
             // lblPartyRefence
             // 
@@ -1973,7 +1793,7 @@
             // 
             this.mskCreaditLimit.HidePromptOnLeave = true;
             this.mskCreaditLimit.Location = new System.Drawing.Point(178, 185);
-            this.mskCreaditLimit.Mask = "0000000000.00";
+            this.mskCreaditLimit.Mask = "00000000000";
             this.mskCreaditLimit.Name = "mskCreaditLimit";
             this.validator1.SetRequiredMessage(this.mskCreaditLimit, "Credit Limit can not be blank.");
             this.mskCreaditLimit.Size = new System.Drawing.Size(122, 21);
@@ -2158,6 +1978,82 @@
             this.validator1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.validator1.Form = this;
             // 
+            // lblCustomerACNo
+            // 
+            this.lblCustomerACNo.Location = new System.Drawing.Point(13, 11);
+            this.lblCustomerACNo.Name = "lblCustomerACNo";
+            this.lblCustomerACNo.Size = new System.Drawing.Size(87, 13);
+            this.lblCustomerACNo.TabIndex = 0;
+            this.lblCustomerACNo.Text = "Customer A/C No.";
+            // 
+            // lblCustomerCreatedOn
+            // 
+            this.lblCustomerCreatedOn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblCustomerCreatedOn.Location = new System.Drawing.Point(696, 11);
+            this.lblCustomerCreatedOn.Name = "lblCustomerCreatedOn";
+            this.lblCustomerCreatedOn.Size = new System.Drawing.Size(134, 13);
+            this.lblCustomerCreatedOn.TabIndex = 2;
+            this.lblCustomerCreatedOn.Text = "Select Customer To Edit";
+            // 
+            // txtCustomerACNo
+            // 
+            this.txtCustomerACNo.Location = new System.Drawing.Point(125, 8);
+            this.txtCustomerACNo.Name = "txtCustomerACNo";
+            this.txtCustomerACNo.Size = new System.Drawing.Size(130, 21);
+            this.txtCustomerACNo.TabIndex = 1;
+            // 
+            // lblBrandNewAC
+            // 
+            this.lblBrandNewAC.Location = new System.Drawing.Point(271, 11);
+            this.lblBrandNewAC.Name = "lblBrandNewAC";
+            this.lblBrandNewAC.Size = new System.Drawing.Size(73, 13);
+            this.lblBrandNewAC.TabIndex = 5;
+            this.lblBrandNewAC.Text = "Brand New A/C";
+            // 
+            // lblACCreatedByBranch
+            // 
+            this.lblACCreatedByBranch.Location = new System.Drawing.Point(404, 11);
+            this.lblACCreatedByBranch.Name = "lblACCreatedByBranch";
+            this.lblACCreatedByBranch.Size = new System.Drawing.Size(111, 13);
+            this.lblACCreatedByBranch.TabIndex = 6;
+            this.lblACCreatedByBranch.Text = "A/C Created by Branch";
+            // 
+            // chkBrandNewAC
+            // 
+            this.chkBrandNewAC.AutoSize = true;
+            this.chkBrandNewAC.Checked = true;
+            this.chkBrandNewAC.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkBrandNewAC.Location = new System.Drawing.Point(356, 10);
+            this.chkBrandNewAC.Name = "chkBrandNewAC";
+            this.chkBrandNewAC.Size = new System.Drawing.Size(15, 14);
+            this.chkBrandNewAC.TabIndex = 7;
+            this.chkBrandNewAC.UseVisualStyleBackColor = true;
+            // 
+            // cmbACCreatedByBranch
+            // 
+            this.cmbACCreatedByBranch.FormattingEnabled = true;
+            this.cmbACCreatedByBranch.Location = new System.Drawing.Point(522, 8);
+            this.cmbACCreatedByBranch.Name = "cmbACCreatedByBranch";
+            this.cmbACCreatedByBranch.Size = new System.Drawing.Size(166, 21);
+            this.cmbACCreatedByBranch.TabIndex = 8;
+            // 
+            // cmbCustomerToEdit
+            // 
+            this.cmbCustomerToEdit.FormattingEnabled = true;
+            this.cmbCustomerToEdit.Location = new System.Drawing.Point(836, 8);
+            this.cmbCustomerToEdit.Name = "cmbCustomerToEdit";
+            this.cmbCustomerToEdit.Size = new System.Drawing.Size(331, 21);
+            this.cmbCustomerToEdit.TabIndex = 9;
+            // 
+            // btnGo
+            // 
+            this.btnGo.Location = new System.Drawing.Point(1173, 6);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(58, 23);
+            this.btnGo.TabIndex = 89;
+            this.btnGo.Text = "Go";
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
             // FrmNewCustomer
             // 
             this.AcceptButton = this.btnSave;
@@ -2194,8 +2090,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbTypeOfFirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbZone.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCity.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCashCredit.Properties)).EndInit();
             this.NewCustomerReferenceTabPage.ResumeLayout(false);
             this.ReferencePageScrollableControl.ResumeLayout(false);
@@ -2208,11 +2102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbDirector1.Properties)).EndInit();
             this.pnlPartyReferenceContainer.ResumeLayout(false);
             this.pnlPartyReferenceContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNature1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbRefType.Properties)).EndInit();
             this.NewCustomerInfoTabPage.ResumeLayout(false);
             this.InfoPageScrollableControl.ResumeLayout(false);
@@ -2238,20 +2127,13 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.TextBox txtCustomerCreatedOn;
-        private DevExpress.XtraEditors.LabelControl lblCustomerCreatedOn;
-        private DevExpress.XtraEditors.LabelControl lblCustomerACNo;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraTab.XtraTabControl NewCustomerTabControl;
         private DevExpress.XtraTab.XtraTabPage NewCustomerMainTabPage;
         private DevExpress.XtraTab.XtraTabPage NewCustomerReferenceTabPage;
-        private System.Windows.Forms.TextBox txtCustomerACNo;
         private DevExpress.XtraTab.XtraTabPage NewCustomerInfoTabPage;
         private DevExpress.XtraTab.XtraTabPage NewCustomerSisterConcernTabPage;
-        private System.Windows.Forms.CheckBox chkBrandNewAC;
-        private DevExpress.XtraEditors.LabelControl lblACCreatedByBranch;
-        private DevExpress.XtraEditors.LabelControl lblBrandNewAC;
         private DevExpress.XtraEditors.XtraScrollableControl MainPageScrollableControl;
         private System.Windows.Forms.CheckBox chkNoLRAddressPrinting;
         private DevExpress.XtraEditors.LabelControl lblNoLRAddressPrinting;
@@ -2287,8 +2169,6 @@
         private DevExpress.XtraEditors.LabelControl lblTypeOfFirm;
         private DevExpress.XtraEditors.ComboBoxEdit cmbGroup;
         private DevExpress.XtraEditors.ComboBoxEdit cmbZone;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbCity;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbState;
         private DevExpress.XtraEditors.ComboBoxEdit cmbCashCredit;
         private DevExpress.XtraEditors.LabelControl lblSubAgent;
         private DevExpress.XtraEditors.LabelControl lblZone;
@@ -2365,12 +2245,6 @@
         private System.Windows.Forms.TextBox txtSpokenTo1;
         private DevExpress.XtraEditors.LabelControl lblSpokenTo;
         private System.Windows.Forms.TextBox txtSpokenTo5;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbNature4;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbNature5;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbNature3;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbNature2;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbNature1;
-        private DevExpress.XtraEditors.LabelControl lblNature;
         private System.Windows.Forms.TextBox txtParty4;
         private System.Windows.Forms.TextBox txtParty3;
         private System.Windows.Forms.TextBox txtParty2;
@@ -2378,8 +2252,6 @@
         private DevExpress.XtraEditors.LabelControl lblParty;
         private System.Windows.Forms.MaskedTextBox txtTourDt;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Panel pnlAuthorizationContainer;
         private DevExpress.XtraEditors.ComboBoxEdit cmbBranchHead;
         private DevExpress.XtraEditors.LabelControl lblBranchHead;
@@ -2429,8 +2301,18 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
         private Itboy.Components.Validator validator1;
-        private System.Windows.Forms.ComboBox cmbACCreatedByBranch;
         private System.Windows.Forms.ComboBox cmbSubAgent;
+        private System.Windows.Forms.ComboBox cmbState;
+        private System.Windows.Forms.ComboBox cmbCity;
+        private DevExpress.XtraEditors.SimpleButton btnGo;
+        private System.Windows.Forms.ComboBox cmbCustomerToEdit;
+        private System.Windows.Forms.ComboBox cmbACCreatedByBranch;
+        private System.Windows.Forms.CheckBox chkBrandNewAC;
+        private DevExpress.XtraEditors.LabelControl lblACCreatedByBranch;
+        private DevExpress.XtraEditors.LabelControl lblBrandNewAC;
+        private System.Windows.Forms.TextBox txtCustomerACNo;
+        private DevExpress.XtraEditors.LabelControl lblCustomerCreatedOn;
+        private DevExpress.XtraEditors.LabelControl lblCustomerACNo;
 
 
     }

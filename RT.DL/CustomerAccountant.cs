@@ -15,11 +15,10 @@ namespace RT.DL
     public partial class CustomerAccountant
     {
         public int CustomerAccountantId { get; set; }
-        public Nullable<int> fkCustomerInfoId { get; set; }
+        public Nullable<int> fkCustomerId { get; set; }
         public string AccountantName { get; set; }
         public string ContactNumber { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual CustomerInfo CustomerInfo { get; set; }
     }
 }

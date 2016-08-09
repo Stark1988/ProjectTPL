@@ -53,7 +53,7 @@
             <PropertyRef Name="CustomerAccountantId" />
           </Key>
           <Property Name="CustomerAccountantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fkCustomerInfoId" Type="int" />
+          <Property Name="fkCustomerId" Type="int" />
           <Property Name="AccountantName" Type="nvarchar" MaxLength="50" />
           <Property Name="ContactNumber" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -64,6 +64,7 @@
           <Property Name="CustomerContactInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerId" Type="int" />
           <Property Name="fkCityId" Type="int" />
+          <Property Name="fkStateId" Type="int" />
           <Property Name="OfficePhone" Type="nvarchar" MaxLength="50" />
           <Property Name="Fax" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -74,6 +75,7 @@
           <Property Name="RemSMSCell1" Type="nvarchar" MaxLength="50" />
           <Property Name="RemSMSCell2" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pincode" Type="nvarchar" MaxLength="100" />
           <Property Name="STDCode" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CustomerInfo">
@@ -463,14 +465,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerAccountant_CustomerInfo">
-          <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="CustomerAccountant" Type="Self.CustomerAccountant" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CustomerInfo">
-              <PropertyRef Name="CustomerInfoId" />
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
             </Principal>
             <Dependent Role="CustomerAccountant">
-              <PropertyRef Name="fkCustomerInfoId" />
+              <PropertyRef Name="fkCustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -495,6 +497,18 @@
             </Principal>
             <Dependent Role="CustomerContactInfo">
               <PropertyRef Name="fkCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerContactInfo_State">
+          <End Role="MstState" Type="Self.MstState" Multiplicity="0..1" />
+          <End Role="CustomerContactInfo" Type="Self.CustomerContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstState">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="CustomerContactInfo">
+              <PropertyRef Name="fkStateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -793,7 +807,7 @@
             <End Role="Customer" EntitySet="Customer" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerAccountant_CustomerInfo" Association="Self.FK_CustomerAccountant_CustomerInfo">
-            <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+            <End Role="Customer" EntitySet="Customer" />
             <End Role="CustomerAccountant" EntitySet="CustomerAccountant" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerContactInfo_Customer" Association="Self.FK_CustomerContactInfo_Customer">
@@ -802,6 +816,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_CustomerContactInfo_MstCity" Association="Self.FK_CustomerContactInfo_MstCity">
             <End Role="MstCity" EntitySet="MstCity" />
+            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerContactInfo_State" Association="Self.FK_CustomerContactInfo_State">
+            <End Role="MstState" EntitySet="MstState" />
             <End Role="CustomerContactInfo" EntitySet="CustomerContactInfo" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerInfo_Customer" Association="Self.FK_CustomerInfo_Customer">
@@ -977,11 +995,6 @@
             <End Role="MstUserType" EntitySet="MstUserTypes" />
             <End Role="MstUser" EntitySet="MstUsers" />
           </AssociationSet>
-          <EntitySet Name="CustomerAccountants" EntityType="TPLDBModel.CustomerAccountant" />
-          <AssociationSet Name="FK_CustomerAccountant_CustomerInfo" Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
-          </AssociationSet>
           <EntitySet Name="OrderDetails" EntityType="TPLDBModel.OrderDetail" />
           <EntitySet Name="OrderEntries" EntityType="TPLDBModel.OrderEntry" />
           <EntitySet Name="Parties" EntityType="TPLDBModel.Party" />
@@ -1002,10 +1015,6 @@
           <AssociationSet Name="FK_Reference_Customer" Association="TPLDBModel.FK_Reference_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Reference" EntitySet="References" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerAccountant_CustomerInfo1" Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo1">
-            <End Role="CustomerInfo" EntitySet="CustomerInfoes" />
-            <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderDetail_OrderEntry" Association="TPLDBModel.FK_OrderDetail_OrderEntry">
             <End Role="OrderEntry" EntitySet="OrderEntries" />
@@ -1034,6 +1043,15 @@
           <AssociationSet Name="FK_SupplierSisterConcern_Supplier" Association="TPLDBModel.FK_SupplierSisterConcern_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="SupplierSisterConcern" EntitySet="SupplierSisterConcerns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerContactInfo_State" Association="TPLDBModel.FK_CustomerContactInfo_State">
+            <End Role="MstState" EntitySet="MstStates" />
+            <End Role="CustomerContactInfo" EntitySet="CustomerContactInfoes" />
+          </AssociationSet>
+          <EntitySet Name="CustomerAccountants" EntityType="TPLDBModel.CustomerAccountant" />
+          <AssociationSet Name="FK_CustomerAccountant_CustomerInfo" Association="TPLDBModel.FK_CustomerAccountant_CustomerInfo">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Authorization">
@@ -1087,10 +1105,10 @@
           <NavigationProperty Name="CustomerProprietors" Relationship="TPLDBModel.FK_CustomerProprietor_Customer" FromRole="Customer" ToRole="CustomerProprietor" />
           <NavigationProperty Name="CustomerSalesmen" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="Customer" ToRole="CustomerSalesman" />
           <NavigationProperty Name="CustomerSisterConcerns" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="Customer" ToRole="CustomerSisterConcern" />
-          <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="Customer" ToRole="CustomerAccountant" />
           <NavigationProperty Name="OrderEntries" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="Customer" ToRole="OrderEntry" />
           <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Customer" ToRole="Party" />
           <NavigationProperty Name="References" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Customer" ToRole="Reference" />
+          <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="Customer" ToRole="CustomerAccountant" />
           </EntityType>
         <EntityType Name="CustomerContactInfo">
           <Key>
@@ -1112,6 +1130,9 @@
           <Property Name="STDCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerContactInfo_Customer" FromRole="CustomerContactInfo" ToRole="Customer" />
           <NavigationProperty Name="MstCity" Relationship="TPLDBModel.FK_CustomerContactInfo_MstCity" FromRole="CustomerContactInfo" ToRole="MstCity" />
+          <Property Name="fkStateId" Type="Int32" />
+          <NavigationProperty Name="MstState" Relationship="TPLDBModel.FK_CustomerContactInfo_State" FromRole="CustomerContactInfo" ToRole="MstState" />
+          <Property Name="Pincode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CustomerInfo">
           <Key>
@@ -1138,7 +1159,6 @@
           <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DirectDealing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerInfo_Customer" FromRole="CustomerInfo" ToRole="Customer" />
-          <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo1" FromRole="CustomerInfo" ToRole="CustomerAccountant" />
         </EntityType>
         <EntityType Name="CustomerProprietor">
           <Key>
@@ -1256,6 +1276,7 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="MstCities" Relationship="TPLDBModel.FK_MstCity_MstState" FromRole="MstState" ToRole="MstCity" />
+          <NavigationProperty Name="CustomerContactInfoes" Relationship="TPLDBModel.FK_CustomerContactInfo_State" FromRole="MstState" ToRole="CustomerContactInfo" />
         </EntityType>
         <EntityType Name="MstSubAgent">
           <Key>
@@ -1542,29 +1563,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="CustomerAccountant">
-          <Key>
-            <PropertyRef Name="CustomerAccountantId" />
-          </Key>
-          <Property Name="CustomerAccountantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fkCustomerInfoId" Type="Int32" />
-          <Property Name="AccountantName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerAccountant" ToRole="Customer" />
-          <NavigationProperty Name="CustomerInfo" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo1" FromRole="CustomerAccountant" ToRole="CustomerInfo" />
-        </EntityType>
-        <Association Name="FK_CustomerAccountant_CustomerInfo">
-          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="TPLDBModel.CustomerAccountant" Role="CustomerAccountant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="CustomerAccountant">
-              <PropertyRef Name="fkCustomerInfoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="OrderDetail">
           <Key>
             <PropertyRef Name="OrderDetailId" />
@@ -1753,18 +1751,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CustomerAccountant_CustomerInfo1">
-          <End Type="TPLDBModel.CustomerInfo" Role="CustomerInfo" Multiplicity="0..1" />
-          <End Type="TPLDBModel.CustomerAccountant" Role="CustomerAccountant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CustomerInfo">
-              <PropertyRef Name="CustomerInfoId" />
-            </Principal>
-            <Dependent Role="CustomerAccountant">
-              <PropertyRef Name="fkCustomerInfoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderDetail_OrderEntry">
           <End Type="TPLDBModel.OrderEntry" Role="OrderEntry" Multiplicity="0..1" />
           <End Type="TPLDBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
@@ -1849,6 +1835,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CustomerContactInfo_State">
+          <End Type="TPLDBModel.MstState" Role="MstState" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerContactInfo" Role="CustomerContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstState">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="CustomerContactInfo">
+              <PropertyRef Name="fkStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CustomerAccountant">
+          <Key>
+            <PropertyRef Name="CustomerAccountantId" />
+          </Key>
+          <Property Name="CustomerAccountantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="AccountantName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="CustomerAccountant" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_CustomerAccountant_CustomerInfo">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerAccountant" Role="CustomerAccountant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerAccountant">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1903,6 +1923,8 @@
           <EntitySetMapping Name="CustomerContactInfoes">
             <EntityTypeMapping TypeName="TPLDBModel.CustomerContactInfo">
               <MappingFragment StoreEntitySet="CustomerContactInfo">
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="fkStateId" ColumnName="fkStateId" />
                 <ScalarProperty Name="STDCode" ColumnName="STDCode" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="RemSMSCell2" ColumnName="RemSMSCell2" />
@@ -2151,16 +2173,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CustomerAccountants">
-            <EntityTypeMapping TypeName="TPLDBModel.CustomerAccountant">
-              <MappingFragment StoreEntitySet="CustomerAccountant">
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-                <ScalarProperty Name="AccountantName" ColumnName="AccountantName" />
-                <ScalarProperty Name="fkCustomerInfoId" ColumnName="fkCustomerInfoId" />
-                <ScalarProperty Name="CustomerAccountantId" ColumnName="CustomerAccountantId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="TPLDBModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
@@ -2302,6 +2314,16 @@
                 <ScalarProperty Name="SisterConcernDescription" ColumnName="SisterConcernDescription" />
                 <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
                 <ScalarProperty Name="SisterConcernId" ColumnName="SisterConcernId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerAccountants">
+            <EntityTypeMapping TypeName="TPLDBModel.CustomerAccountant">
+              <MappingFragment StoreEntitySet="CustomerAccountant">
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="AccountantName" ColumnName="AccountantName" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="CustomerAccountantId" ColumnName="CustomerAccountantId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

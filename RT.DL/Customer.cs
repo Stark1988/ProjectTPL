@@ -22,10 +22,10 @@ namespace RT.DL
             this.CustomerProprietors = new HashSet<CustomerProprietor>();
             this.CustomerSalesmen = new HashSet<CustomerSalesman>();
             this.CustomerSisterConcerns = new HashSet<CustomerSisterConcern>();
-            this.CustomerAccountants = new HashSet<CustomerAccountant>();
             this.OrderEntries = new HashSet<OrderEntry>();
             this.Parties = new HashSet<Party>();
             this.References = new HashSet<Reference>();
+            this.CustomerAccountants = new HashSet<CustomerAccountant>();
         }
     
         public int CustomerId { get; set; }
@@ -60,9 +60,9 @@ namespace RT.DL
         public virtual ICollection<CustomerProprietor> CustomerProprietors { get; set; }
         public virtual ICollection<CustomerSalesman> CustomerSalesmen { get; set; }
         public virtual ICollection<CustomerSisterConcern> CustomerSisterConcerns { get; set; }
-        public virtual ICollection<CustomerAccountant> CustomerAccountants { get; set; }
         public virtual ICollection<OrderEntry> OrderEntries { get; set; }
         public virtual ICollection<Party> Parties { get; set; }
         public virtual ICollection<Reference> References { get; set; }
+        public virtual ICollection<CustomerAccountant> CustomerAccountants { get; set; }
     }
 }
