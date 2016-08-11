@@ -26,6 +26,7 @@ namespace RT.DL
             this.Parties = new HashSet<Party>();
             this.References = new HashSet<Reference>();
             this.CustomerAccountants = new HashSet<CustomerAccountant>();
+            this.OrderTransactions = new HashSet<OrderTransaction>();
         }
     
         public int CustomerId { get; set; }
@@ -64,5 +65,6 @@ namespace RT.DL
         public virtual ICollection<Party> Parties { get; set; }
         public virtual ICollection<Reference> References { get; set; }
         public virtual ICollection<CustomerAccountant> CustomerAccountants { get; set; }
+        public virtual ICollection<OrderTransaction> OrderTransactions { get; set; }
     }
 }

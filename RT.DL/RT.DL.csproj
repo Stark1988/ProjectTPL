@@ -123,6 +123,9 @@
     <Compile Include="OrderEntry.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderTransaction.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Party.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
