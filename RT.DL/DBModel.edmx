@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="AuthorizationId" />
@@ -291,6 +291,7 @@
           <Property Name="BalQty" Type="int" />
           <Property Name="Accompany" Type="nvarchar" MaxLength="200" />
           <Property Name="QNK" Type="nvarchar" MaxLength="150" />
+          <Property Name="TotalQty" Type="int" />
         </EntityType>
         <EntityType Name="OrderEntry">
           <Key>
@@ -305,6 +306,7 @@
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="OrderValue" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Party">
           <Key>
@@ -1579,6 +1581,7 @@
           <Property Name="QNK" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderEntry" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderDetail" ToRole="OrderEntry" />
           <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_OrderDetail_Supplier" FromRole="OrderDetail" ToRole="Supplier" />
+          <Property Name="TotalQty" Type="Int32" />
         </EntityType>
         <EntityType Name="OrderEntry">
           <Key>
@@ -1595,6 +1598,7 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="OrderEntry" ToRole="Customer" />
           <NavigationProperty Name="OrderDetails" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderEntry" ToRole="OrderDetail" />
+          <Property Name="OrderValue" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Party">
           <Key>
@@ -2180,6 +2184,7 @@
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="TPLDBModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
                 <ScalarProperty Name="QNK" ColumnName="QNK" />
                 <ScalarProperty Name="Accompany" ColumnName="Accompany" />
                 <ScalarProperty Name="BalQty" ColumnName="BalQty" />
@@ -2194,6 +2199,7 @@
           <EntitySetMapping Name="OrderEntries">
             <EntityTypeMapping TypeName="TPLDBModel.OrderEntry">
               <MappingFragment StoreEntitySet="OrderEntry">
+                <ScalarProperty Name="OrderValue" ColumnName="OrderValue" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />

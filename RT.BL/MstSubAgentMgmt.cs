@@ -26,6 +26,8 @@ namespace RT.BL
                                               CityName = agent.MstCity.CityName,
                                               OfficePhone = agent.OfficePhone,
                                               Fax = agent.Fax,
+                                              ResPhone = agent.ResPhone,
+                                              MobileNumber = agent.MobileNumber,
                                               Remarks = agent.Remarks,
                                               Pin = agent.Pin,
                                               CreatedBy = agent.CreatedBy,

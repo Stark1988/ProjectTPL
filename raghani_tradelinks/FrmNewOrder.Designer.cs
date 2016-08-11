@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtOrderValue = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTotalQty = new System.Windows.Forms.TextBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -40,29 +42,32 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.lblSupplierACNo = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbCustomer = new DevExpress.XtraEditors.LookUpEdit();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.txtEnteredBy = new System.Windows.Forms.TextBox();
             this.lblEnteredBy = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbOrderVisit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbRefType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblRefType = new DevExpress.XtraEditors.LabelControl();
             this.txtSpokenDt1 = new System.Windows.Forms.MaskedTextBox();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrderValue.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbRefType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCustomer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOrderVisit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txtOrderValue);
             this.panel2.Controls.Add(this.labelControl2);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtTotalQty);
             this.panel2.Controls.Add(this.labelControl3);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.btnCancel);
@@ -72,12 +77,15 @@
             this.panel2.Size = new System.Drawing.Size(1238, 37);
             this.panel2.TabIndex = 5;
             // 
-            // textBox1
+            // txtOrderValue
             // 
-            this.textBox1.Location = new System.Drawing.Point(450, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(107, 20);
-            this.textBox1.TabIndex = 248;
+            this.txtOrderValue.Location = new System.Drawing.Point(458, 10);
+            this.txtOrderValue.Name = "txtOrderValue";
+            this.txtOrderValue.Size = new System.Drawing.Size(123, 20);
+            this.txtOrderValue.TabIndex = 248;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Please enter Order Value";
+            this.dxValidationProvider1.SetValidationRule(this.txtOrderValue, conditionValidationRule1);
             // 
             // labelControl2
             // 
@@ -87,12 +95,12 @@
             this.labelControl2.TabIndex = 247;
             this.labelControl2.Text = "Order Value";
             // 
-            // textBox2
+            // txtTotalQty
             // 
-            this.textBox2.Location = new System.Drawing.Point(250, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(119, 20);
-            this.textBox2.TabIndex = 246;
+            this.txtTotalQty.Location = new System.Drawing.Point(250, 10);
+            this.txtTotalQty.Name = "txtTotalQty";
+            this.txtTotalQty.Size = new System.Drawing.Size(119, 20);
+            this.txtTotalQty.TabIndex = 246;
             // 
             // labelControl3
             // 
@@ -109,6 +117,7 @@
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -118,6 +127,7 @@
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel3
             // 
@@ -157,13 +167,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cmbCustomer);
             this.panel1.Controls.Add(this.textBox13);
             this.panel1.Controls.Add(this.labelControl15);
             this.panel1.Controls.Add(this.txtEnteredBy);
             this.panel1.Controls.Add(this.lblEnteredBy);
-            this.panel1.Controls.Add(this.comboBoxEdit1);
+            this.panel1.Controls.Add(this.cmbOrderVisit);
             this.panel1.Controls.Add(this.labelControl1);
-            this.panel1.Controls.Add(this.cmbRefType);
             this.panel1.Controls.Add(this.lblRefType);
             this.panel1.Controls.Add(this.txtSpokenDt1);
             this.panel1.Controls.Add(this.lblSupplierACNo);
@@ -172,6 +182,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1238, 47);
             this.panel1.TabIndex = 4;
+            // 
+            // cmbCustomer
+            // 
+            this.cmbCustomer.Location = new System.Drawing.Point(268, 13);
+            this.cmbCustomer.Name = "cmbCustomer";
+            this.cmbCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCustomer.Size = new System.Drawing.Size(278, 20);
+            this.cmbCustomer.TabIndex = 245;
             // 
             // textBox13
             // 
@@ -203,17 +222,17 @@
             this.lblEnteredBy.TabIndex = 241;
             this.lblEnteredBy.Text = "Entered By";
             // 
-            // comboBoxEdit1
+            // cmbOrderVisit
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(634, 13);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbOrderVisit.Location = new System.Drawing.Point(634, 13);
+            this.cmbOrderVisit.Name = "cmbOrderVisit";
+            this.cmbOrderVisit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            this.cmbOrderVisit.Properties.Items.AddRange(new object[] {
             "Cash",
             "Credit"});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(144, 20);
-            this.comboBoxEdit1.TabIndex = 240;
+            this.cmbOrderVisit.Size = new System.Drawing.Size(144, 20);
+            this.cmbOrderVisit.TabIndex = 240;
             // 
             // labelControl1
             // 
@@ -222,18 +241,6 @@
             this.labelControl1.Size = new System.Drawing.Size(57, 13);
             this.labelControl1.TabIndex = 239;
             this.labelControl1.Text = "Order / Visit";
-            // 
-            // cmbRefType
-            // 
-            this.cmbRefType.Location = new System.Drawing.Point(261, 13);
-            this.cmbRefType.Name = "cmbRefType";
-            this.cmbRefType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbRefType.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbRefType.Size = new System.Drawing.Size(278, 20);
-            this.cmbRefType.TabIndex = 238;
             // 
             // lblRefType
             // 
@@ -267,13 +274,15 @@
             this.Load += new System.EventHandler(this.FrmNewOrder_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrderValue.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbRefType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCustomer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOrderVisit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,17 +298,18 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.MaskedTextBox txtSpokenDt1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbOrderVisit;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbRefType;
         private DevExpress.XtraEditors.LabelControl lblRefType;
-        private System.Windows.Forms.TextBox textBox1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTotalQty;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.TextBox textBox13;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private System.Windows.Forms.TextBox txtEnteredBy;
         private DevExpress.XtraEditors.LabelControl lblEnteredBy;
+        private DevExpress.XtraEditors.LookUpEdit cmbCustomer;
+        private DevExpress.XtraEditors.TextEdit txtOrderValue;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
     }
 }

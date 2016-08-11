@@ -22,6 +22,7 @@ namespace RT.DL
         public Nullable<int> BalQty { get; set; }
         public string Accompany { get; set; }
         public string QNK { get; set; }
+        public Nullable<int> TotalQty { get; set; }
     
         public virtual OrderEntry OrderEntry { get; set; }
         public virtual Supplier Supplier { get; set; }
