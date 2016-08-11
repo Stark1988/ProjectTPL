@@ -28,58 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.NewSupplierTabControl = new DevExpress.XtraTab.XtraTabControl();
             this.MainTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.chkBK = new System.Windows.Forms.CheckBox();
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit7 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbPriorityMember = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkDailyBill = new System.Windows.Forms.CheckBox();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtSMSCell = new System.Windows.Forms.TextBox();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtSMSName = new System.Windows.Forms.TextBox();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtCommission = new System.Windows.Forms.TextBox();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit6 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbSTaxOn = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txtPanNo = new System.Windows.Forms.TextBox();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit5 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbSuppCompany = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit4 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbBillFreq = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.chkBrandNewAC = new System.Windows.Forms.CheckBox();
+            this.chkStopMonthlyBill = new System.Windows.Forms.CheckBox();
             this.lblBrandNewAC = new DevExpress.XtraEditors.LabelControl();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtGlobalCode = new System.Windows.Forms.TextBox();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtTanNo = new System.Windows.Forms.TextBox();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtTanName = new System.Windows.Forms.TextBox();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbPriority = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbVariety = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtBillTerms = new System.Windows.Forms.TextBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtODDays = new System.Windows.Forms.TextBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cmbGroup = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbZone = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -105,11 +104,10 @@
             this.lblResidenceState = new DevExpress.XtraEditors.LabelControl();
             this.txtResidencePin = new System.Windows.Forms.TextBox();
             this.lblResidenceCityPin = new DevExpress.XtraEditors.LabelControl();
-            this.txtResidenceAddress2 = new System.Windows.Forms.TextBox();
             this.txtResidenceAddress1 = new System.Windows.Forms.TextBox();
             this.lblResidence = new DevExpress.XtraEditors.LabelControl();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtState = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
             this.txtFaxNo = new System.Windows.Forms.TextBox();
             this.lblFaxNo = new DevExpress.XtraEditors.LabelControl();
             this.txtPhoneOffice = new System.Windows.Forms.MaskedTextBox();
@@ -117,8 +115,6 @@
             this.lblState = new DevExpress.XtraEditors.LabelControl();
             this.txtPin = new System.Windows.Forms.TextBox();
             this.lblCityPin = new DevExpress.XtraEditors.LabelControl();
-            this.txtAddress2 = new System.Windows.Forms.TextBox();
-            this.txtAddress3 = new System.Windows.Forms.TextBox();
             this.txtAlias = new System.Windows.Forms.TextBox();
             this.lblAlias = new DevExpress.XtraEditors.LabelControl();
             this.txtAddress1 = new System.Windows.Forms.TextBox();
@@ -132,25 +128,24 @@
             this.txtSupplierACNo = new System.Windows.Forms.TextBox();
             this.lblSupplierACNo = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.txtEnteredBy = new System.Windows.Forms.TextBox();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.lblEnteredBy = new DevExpress.XtraEditors.LabelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.validator1 = new Itboy.Components.Validator(this.components);
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbSupplierEditList = new System.Windows.Forms.ComboBox();
+            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.NewSupplierTabControl)).BeginInit();
             this.NewSupplierTabControl.SuspendLayout();
             this.MainTabPage.SuspendLayout();
             this.xtraScrollableControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPriorityMember.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSTaxOn.Properties)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSuppCompany.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBillFreq.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbVariety.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbZone.Properties)).BeginInit();
             this.pnlProprietorContainer.SuspendLayout();
@@ -185,47 +180,45 @@
             // 
             this.xtraScrollableControl1.Appearance.BackColor = System.Drawing.Color.White;
             this.xtraScrollableControl1.Appearance.Options.UseBackColor = true;
-            this.xtraScrollableControl1.Controls.Add(this.simpleButton1);
+            this.xtraScrollableControl1.Controls.Add(this.chkBK);
             this.xtraScrollableControl1.Controls.Add(this.labelControl26);
-            this.xtraScrollableControl1.Controls.Add(this.comboBoxEdit7);
+            this.xtraScrollableControl1.Controls.Add(this.cmbPriorityMember);
             this.xtraScrollableControl1.Controls.Add(this.labelControl24);
-            this.xtraScrollableControl1.Controls.Add(this.checkBox1);
+            this.xtraScrollableControl1.Controls.Add(this.chkDailyBill);
             this.xtraScrollableControl1.Controls.Add(this.labelControl25);
-            this.xtraScrollableControl1.Controls.Add(this.textBox16);
+            this.xtraScrollableControl1.Controls.Add(this.txtSMSCell);
             this.xtraScrollableControl1.Controls.Add(this.labelControl22);
-            this.xtraScrollableControl1.Controls.Add(this.textBox17);
+            this.xtraScrollableControl1.Controls.Add(this.txtSMSName);
             this.xtraScrollableControl1.Controls.Add(this.labelControl23);
-            this.xtraScrollableControl1.Controls.Add(this.textBox15);
+            this.xtraScrollableControl1.Controls.Add(this.txtCommission);
             this.xtraScrollableControl1.Controls.Add(this.labelControl21);
-            this.xtraScrollableControl1.Controls.Add(this.comboBoxEdit6);
+            this.xtraScrollableControl1.Controls.Add(this.cmbSTaxOn);
             this.xtraScrollableControl1.Controls.Add(this.panel4);
             this.xtraScrollableControl1.Controls.Add(this.labelControl20);
             this.xtraScrollableControl1.Controls.Add(this.textBox12);
             this.xtraScrollableControl1.Controls.Add(this.labelControl14);
             this.xtraScrollableControl1.Controls.Add(this.textBox11);
             this.xtraScrollableControl1.Controls.Add(this.labelControl13);
-            this.xtraScrollableControl1.Controls.Add(this.textBox10);
+            this.xtraScrollableControl1.Controls.Add(this.txtGlobalCode);
             this.xtraScrollableControl1.Controls.Add(this.labelControl12);
-            this.xtraScrollableControl1.Controls.Add(this.textBox9);
+            this.xtraScrollableControl1.Controls.Add(this.txtRemarks);
             this.xtraScrollableControl1.Controls.Add(this.labelControl17);
-            this.xtraScrollableControl1.Controls.Add(this.textBox8);
+            this.xtraScrollableControl1.Controls.Add(this.txtEmail);
             this.xtraScrollableControl1.Controls.Add(this.labelControl11);
-            this.xtraScrollableControl1.Controls.Add(this.textBox6);
+            this.xtraScrollableControl1.Controls.Add(this.txtTanNo);
             this.xtraScrollableControl1.Controls.Add(this.labelControl9);
-            this.xtraScrollableControl1.Controls.Add(this.textBox7);
+            this.xtraScrollableControl1.Controls.Add(this.txtTanName);
             this.xtraScrollableControl1.Controls.Add(this.labelControl10);
             this.xtraScrollableControl1.Controls.Add(this.labelControl8);
             this.xtraScrollableControl1.Controls.Add(this.textBox5);
             this.xtraScrollableControl1.Controls.Add(this.labelControl7);
-            this.xtraScrollableControl1.Controls.Add(this.comboBoxEdit3);
+            this.xtraScrollableControl1.Controls.Add(this.cmbPriority);
             this.xtraScrollableControl1.Controls.Add(this.labelControl6);
-            this.xtraScrollableControl1.Controls.Add(this.comboBoxEdit2);
+            this.xtraScrollableControl1.Controls.Add(this.cmbVariety);
             this.xtraScrollableControl1.Controls.Add(this.labelControl5);
-            this.xtraScrollableControl1.Controls.Add(this.textBox4);
+            this.xtraScrollableControl1.Controls.Add(this.txtBillTerms);
             this.xtraScrollableControl1.Controls.Add(this.labelControl3);
-            this.xtraScrollableControl1.Controls.Add(this.comboBoxEdit1);
-            this.xtraScrollableControl1.Controls.Add(this.labelControl4);
-            this.xtraScrollableControl1.Controls.Add(this.textBox3);
+            this.xtraScrollableControl1.Controls.Add(this.txtODDays);
             this.xtraScrollableControl1.Controls.Add(this.labelControl2);
             this.xtraScrollableControl1.Controls.Add(this.cmbGroup);
             this.xtraScrollableControl1.Controls.Add(this.cmbZone);
@@ -239,11 +232,10 @@
             this.xtraScrollableControl1.Controls.Add(this.lblResidenceState);
             this.xtraScrollableControl1.Controls.Add(this.txtResidencePin);
             this.xtraScrollableControl1.Controls.Add(this.lblResidenceCityPin);
-            this.xtraScrollableControl1.Controls.Add(this.txtResidenceAddress2);
             this.xtraScrollableControl1.Controls.Add(this.txtResidenceAddress1);
             this.xtraScrollableControl1.Controls.Add(this.lblResidence);
-            this.xtraScrollableControl1.Controls.Add(this.textBox2);
-            this.xtraScrollableControl1.Controls.Add(this.textBox1);
+            this.xtraScrollableControl1.Controls.Add(this.txtState);
+            this.xtraScrollableControl1.Controls.Add(this.txtCity);
             this.xtraScrollableControl1.Controls.Add(this.txtFaxNo);
             this.xtraScrollableControl1.Controls.Add(this.lblFaxNo);
             this.xtraScrollableControl1.Controls.Add(this.txtPhoneOffice);
@@ -251,8 +243,6 @@
             this.xtraScrollableControl1.Controls.Add(this.lblState);
             this.xtraScrollableControl1.Controls.Add(this.txtPin);
             this.xtraScrollableControl1.Controls.Add(this.lblCityPin);
-            this.xtraScrollableControl1.Controls.Add(this.txtAddress2);
-            this.xtraScrollableControl1.Controls.Add(this.txtAddress3);
             this.xtraScrollableControl1.Controls.Add(this.txtAlias);
             this.xtraScrollableControl1.Controls.Add(this.lblAlias);
             this.xtraScrollableControl1.Controls.Add(this.txtAddress1);
@@ -266,14 +256,14 @@
             this.xtraScrollableControl1.Size = new System.Drawing.Size(1232, 629);
             this.xtraScrollableControl1.TabIndex = 240;
             // 
-            // simpleButton1
+            // chkBK
             // 
-            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButton1.Location = new System.Drawing.Point(972, 540);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(23, 23);
-            this.simpleButton1.TabIndex = 329;
-            this.simpleButton1.Text = "|||";
+            this.chkBK.AutoSize = true;
+            this.chkBK.Location = new System.Drawing.Point(960, 545);
+            this.chkBK.Name = "chkBK";
+            this.chkBK.Size = new System.Drawing.Size(15, 14);
+            this.chkBK.TabIndex = 329;
+            this.chkBK.UseVisualStyleBackColor = true;
             // 
             // labelControl26
             // 
@@ -284,17 +274,17 @@
             this.labelControl26.TabIndex = 328;
             this.labelControl26.Text = "BK";
             // 
-            // comboBoxEdit7
+            // cmbPriorityMember
             // 
-            this.comboBoxEdit7.Location = new System.Drawing.Point(408, 572);
-            this.comboBoxEdit7.Name = "comboBoxEdit7";
-            this.comboBoxEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbPriorityMember.Location = new System.Drawing.Point(408, 572);
+            this.cmbPriorityMember.Name = "cmbPriorityMember";
+            this.cmbPriorityMember.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit7.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit7.Size = new System.Drawing.Size(116, 20);
-            this.comboBoxEdit7.TabIndex = 327;
+            this.cmbPriorityMember.Properties.Items.AddRange(new object[] {
+            "No"});
+            this.cmbPriorityMember.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbPriorityMember.Size = new System.Drawing.Size(116, 20);
+            this.cmbPriorityMember.TabIndex = 327;
             // 
             // labelControl24
             // 
@@ -305,14 +295,14 @@
             this.labelControl24.TabIndex = 326;
             this.labelControl24.Text = "Priority Member";
             // 
-            // checkBox1
+            // chkDailyBill
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(155, 575);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 325;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkDailyBill.AutoSize = true;
+            this.chkDailyBill.Location = new System.Drawing.Point(155, 575);
+            this.chkDailyBill.Name = "chkDailyBill";
+            this.chkDailyBill.Size = new System.Drawing.Size(15, 14);
+            this.chkDailyBill.TabIndex = 325;
+            this.chkDailyBill.UseVisualStyleBackColor = true;
             // 
             // labelControl25
             // 
@@ -323,12 +313,12 @@
             this.labelControl25.TabIndex = 324;
             this.labelControl25.Text = "Start Daily Billing";
             // 
-            // textBox16
+            // txtSMSCell
             // 
-            this.textBox16.Location = new System.Drawing.Point(669, 567);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(229, 21);
-            this.textBox16.TabIndex = 323;
+            this.txtSMSCell.Location = new System.Drawing.Point(669, 567);
+            this.txtSMSCell.Name = "txtSMSCell";
+            this.txtSMSCell.Size = new System.Drawing.Size(229, 21);
+            this.txtSMSCell.TabIndex = 323;
             // 
             // labelControl22
             // 
@@ -339,12 +329,12 @@
             this.labelControl22.TabIndex = 322;
             this.labelControl22.Text = "SMS Cell No.";
             // 
-            // textBox17
+            // txtSMSName
             // 
-            this.textBox17.Location = new System.Drawing.Point(669, 540);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(229, 21);
-            this.textBox17.TabIndex = 321;
+            this.txtSMSName.Location = new System.Drawing.Point(669, 540);
+            this.txtSMSName.Name = "txtSMSName";
+            this.txtSMSName.Size = new System.Drawing.Size(229, 21);
+            this.txtSMSName.TabIndex = 321;
             // 
             // labelControl23
             // 
@@ -355,56 +345,56 @@
             this.labelControl23.TabIndex = 320;
             this.labelControl23.Text = "SMS Name";
             // 
-            // textBox15
+            // txtCommission
             // 
-            this.textBox15.Location = new System.Drawing.Point(408, 541);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(116, 21);
-            this.textBox15.TabIndex = 319;
+            this.txtCommission.Location = new System.Drawing.Point(437, 542);
+            this.txtCommission.Name = "txtCommission";
+            this.validator1.SetRequiredMessage(this.txtCommission, "Commission can not be blank.");
+            this.txtCommission.Size = new System.Drawing.Size(116, 21);
+            this.txtCommission.TabIndex = 319;
+            this.validator1.SetType(this.txtCommission, Itboy.Components.ValidationType.Required);
             // 
             // labelControl21
             // 
             this.labelControl21.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl21.Location = new System.Drawing.Point(337, 545);
+            this.labelControl21.Location = new System.Drawing.Point(363, 544);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(68, 13);
             this.labelControl21.TabIndex = 318;
             this.labelControl21.Text = "Commission";
             // 
-            // comboBoxEdit6
+            // cmbSTaxOn
             // 
-            this.comboBoxEdit6.Location = new System.Drawing.Point(155, 542);
-            this.comboBoxEdit6.Name = "comboBoxEdit6";
-            this.comboBoxEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbSTaxOn.Location = new System.Drawing.Point(155, 542);
+            this.cmbSTaxOn.Name = "cmbSTaxOn";
+            this.cmbSTaxOn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit6.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit6.Size = new System.Drawing.Size(176, 20);
-            this.comboBoxEdit6.TabIndex = 317;
+            this.cmbSTaxOn.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbSTaxOn.Size = new System.Drawing.Size(176, 20);
+            this.cmbSTaxOn.TabIndex = 317;
             // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.textBox14);
+            this.panel4.Controls.Add(this.txtPanNo);
             this.panel4.Controls.Add(this.labelControl19);
-            this.panel4.Controls.Add(this.comboBoxEdit5);
+            this.panel4.Controls.Add(this.cmbSuppCompany);
             this.panel4.Controls.Add(this.labelControl18);
-            this.panel4.Controls.Add(this.comboBoxEdit4);
+            this.panel4.Controls.Add(this.cmbBillFreq);
             this.panel4.Controls.Add(this.labelControl16);
-            this.panel4.Controls.Add(this.chkBrandNewAC);
+            this.panel4.Controls.Add(this.chkStopMonthlyBill);
             this.panel4.Controls.Add(this.lblBrandNewAC);
             this.panel4.Location = new System.Drawing.Point(20, 489);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(878, 39);
             this.panel4.TabIndex = 308;
             // 
-            // textBox14
+            // txtPanNo
             // 
-            this.textBox14.Location = new System.Drawing.Point(747, 8);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(121, 21);
-            this.textBox14.TabIndex = 315;
+            this.txtPanNo.Location = new System.Drawing.Point(747, 8);
+            this.txtPanNo.Name = "txtPanNo";
+            this.txtPanNo.Size = new System.Drawing.Size(121, 21);
+            this.txtPanNo.TabIndex = 315;
             // 
             // labelControl19
             // 
@@ -415,17 +405,15 @@
             this.labelControl19.TabIndex = 314;
             this.labelControl19.Text = "I.T. Pan No.";
             // 
-            // comboBoxEdit5
+            // cmbSuppCompany
             // 
-            this.comboBoxEdit5.Location = new System.Drawing.Point(526, 9);
-            this.comboBoxEdit5.Name = "comboBoxEdit5";
-            this.comboBoxEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbSuppCompany.Location = new System.Drawing.Point(526, 9);
+            this.cmbSuppCompany.Name = "cmbSuppCompany";
+            this.cmbSuppCompany.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit5.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit5.Size = new System.Drawing.Size(140, 20);
-            this.comboBoxEdit5.TabIndex = 313;
+            this.cmbSuppCompany.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbSuppCompany.Size = new System.Drawing.Size(140, 20);
+            this.cmbSuppCompany.TabIndex = 313;
             // 
             // labelControl18
             // 
@@ -436,17 +424,15 @@
             this.labelControl18.TabIndex = 312;
             this.labelControl18.Text = "Supplier Company";
             // 
-            // comboBoxEdit4
+            // cmbBillFreq
             // 
-            this.comboBoxEdit4.Location = new System.Drawing.Point(262, 9);
-            this.comboBoxEdit4.Name = "comboBoxEdit4";
-            this.comboBoxEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbBillFreq.Location = new System.Drawing.Point(262, 9);
+            this.cmbBillFreq.Name = "cmbBillFreq";
+            this.cmbBillFreq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit4.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit4.Size = new System.Drawing.Size(128, 20);
-            this.comboBoxEdit4.TabIndex = 311;
+            this.cmbBillFreq.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbBillFreq.Size = new System.Drawing.Size(128, 20);
+            this.cmbBillFreq.TabIndex = 311;
             // 
             // labelControl16
             // 
@@ -457,14 +443,14 @@
             this.labelControl16.TabIndex = 310;
             this.labelControl16.Text = "Bill Frequency";
             // 
-            // chkBrandNewAC
+            // chkStopMonthlyBill
             // 
-            this.chkBrandNewAC.AutoSize = true;
-            this.chkBrandNewAC.Location = new System.Drawing.Point(134, 11);
-            this.chkBrandNewAC.Name = "chkBrandNewAC";
-            this.chkBrandNewAC.Size = new System.Drawing.Size(15, 14);
-            this.chkBrandNewAC.TabIndex = 309;
-            this.chkBrandNewAC.UseVisualStyleBackColor = true;
+            this.chkStopMonthlyBill.AutoSize = true;
+            this.chkStopMonthlyBill.Location = new System.Drawing.Point(134, 11);
+            this.chkStopMonthlyBill.Name = "chkStopMonthlyBill";
+            this.chkStopMonthlyBill.Size = new System.Drawing.Size(15, 14);
+            this.chkStopMonthlyBill.TabIndex = 309;
+            this.chkStopMonthlyBill.UseVisualStyleBackColor = true;
             // 
             // lblBrandNewAC
             // 
@@ -516,12 +502,14 @@
             this.labelControl13.TabIndex = 296;
             this.labelControl13.Text = "Password";
             // 
-            // textBox10
+            // txtGlobalCode
             // 
-            this.textBox10.Location = new System.Drawing.Point(669, 338);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(80, 21);
-            this.textBox10.TabIndex = 295;
+            this.txtGlobalCode.Location = new System.Drawing.Point(669, 338);
+            this.txtGlobalCode.Name = "txtGlobalCode";
+            this.validator1.SetRequiredMessage(this.txtGlobalCode, "Global Code can not be blank.");
+            this.txtGlobalCode.Size = new System.Drawing.Size(80, 21);
+            this.txtGlobalCode.TabIndex = 295;
+            this.validator1.SetType(this.txtGlobalCode, Itboy.Components.ValidationType.Required);
             // 
             // labelControl12
             // 
@@ -532,13 +520,13 @@
             this.labelControl12.TabIndex = 294;
             this.labelControl12.Text = "Global Code";
             // 
-            // textBox9
+            // txtRemarks
             // 
-            this.textBox9.Location = new System.Drawing.Point(669, 295);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(229, 36);
-            this.textBox9.TabIndex = 293;
+            this.txtRemarks.Location = new System.Drawing.Point(669, 295);
+            this.txtRemarks.Multiline = true;
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(229, 36);
+            this.txtRemarks.TabIndex = 293;
             // 
             // labelControl17
             // 
@@ -549,12 +537,12 @@
             this.labelControl17.TabIndex = 292;
             this.labelControl17.Text = "Remarks";
             // 
-            // textBox8
+            // txtEmail
             // 
-            this.textBox8.Location = new System.Drawing.Point(669, 270);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(229, 21);
-            this.textBox8.TabIndex = 291;
+            this.txtEmail.Location = new System.Drawing.Point(669, 270);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(229, 21);
+            this.txtEmail.TabIndex = 291;
             // 
             // labelControl11
             // 
@@ -565,12 +553,12 @@
             this.labelControl11.TabIndex = 290;
             this.labelControl11.Text = "Email";
             // 
-            // textBox6
+            // txtTanNo
             // 
-            this.textBox6.Location = new System.Drawing.Point(669, 245);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(229, 21);
-            this.textBox6.TabIndex = 289;
+            this.txtTanNo.Location = new System.Drawing.Point(669, 245);
+            this.txtTanNo.Name = "txtTanNo";
+            this.txtTanNo.Size = new System.Drawing.Size(229, 21);
+            this.txtTanNo.TabIndex = 289;
             // 
             // labelControl9
             // 
@@ -581,12 +569,12 @@
             this.labelControl9.TabIndex = 288;
             this.labelControl9.Text = "Tan No.";
             // 
-            // textBox7
+            // txtTanName
             // 
-            this.textBox7.Location = new System.Drawing.Point(669, 220);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(229, 21);
-            this.textBox7.TabIndex = 287;
+            this.txtTanName.Location = new System.Drawing.Point(669, 220);
+            this.txtTanName.Name = "txtTanName";
+            this.txtTanName.Size = new System.Drawing.Size(229, 21);
+            this.txtTanName.TabIndex = 287;
             // 
             // labelControl10
             // 
@@ -600,7 +588,7 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl8.Location = new System.Drawing.Point(755, 191);
+            this.labelControl8.Location = new System.Drawing.Point(775, 191);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(37, 13);
             this.labelControl8.TabIndex = 285;
@@ -610,8 +598,11 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(669, 187);
             this.textBox5.Name = "textBox5";
+            this.validator1.SetRequiredMessage(this.textBox5, "Frequenct every month can not be blank.");
             this.textBox5.Size = new System.Drawing.Size(80, 21);
             this.textBox5.TabIndex = 284;
+            this.validator1.SetType(this.textBox5, Itboy.Components.ValidationType.Required);
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // labelControl7
             // 
@@ -622,17 +613,15 @@
             this.labelControl7.TabIndex = 283;
             this.labelControl7.Text = "Frequency every";
             // 
-            // comboBoxEdit3
+            // cmbPriority
             // 
-            this.comboBoxEdit3.Location = new System.Drawing.Point(669, 137);
-            this.comboBoxEdit3.Name = "comboBoxEdit3";
-            this.comboBoxEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbPriority.Location = new System.Drawing.Point(669, 137);
+            this.cmbPriority.Name = "cmbPriority";
+            this.cmbPriority.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit3.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit3.Size = new System.Drawing.Size(229, 20);
-            this.comboBoxEdit3.TabIndex = 282;
+            this.cmbPriority.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbPriority.Size = new System.Drawing.Size(229, 20);
+            this.cmbPriority.TabIndex = 282;
             // 
             // labelControl6
             // 
@@ -643,17 +632,15 @@
             this.labelControl6.TabIndex = 281;
             this.labelControl6.Text = "Priority";
             // 
-            // comboBoxEdit2
+            // cmbVariety
             // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(669, 161);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbVariety.Location = new System.Drawing.Point(669, 161);
+            this.cmbVariety.Name = "cmbVariety";
+            this.cmbVariety.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(229, 20);
-            this.comboBoxEdit2.TabIndex = 280;
+            this.cmbVariety.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbVariety.Size = new System.Drawing.Size(229, 20);
+            this.cmbVariety.TabIndex = 280;
             // 
             // labelControl5
             // 
@@ -664,12 +651,12 @@
             this.labelControl5.TabIndex = 279;
             this.labelControl5.Text = "Variety";
             // 
-            // textBox4
+            // txtBillTerms
             // 
-            this.textBox4.Location = new System.Drawing.Point(669, 88);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(229, 21);
-            this.textBox4.TabIndex = 278;
+            this.txtBillTerms.Location = new System.Drawing.Point(669, 88);
+            this.txtBillTerms.Name = "txtBillTerms";
+            this.txtBillTerms.Size = new System.Drawing.Size(229, 21);
+            this.txtBillTerms.TabIndex = 278;
             // 
             // labelControl3
             // 
@@ -680,33 +667,16 @@
             this.labelControl3.TabIndex = 277;
             this.labelControl3.Text = "Bill Terms";
             // 
-            // comboBoxEdit1
+            // txtODDays
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(669, 113);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(229, 20);
-            this.comboBoxEdit1.TabIndex = 276;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl4.Location = new System.Drawing.Point(568, 117);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(58, 13);
-            this.labelControl4.TabIndex = 275;
-            this.labelControl4.Text = "Document";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(669, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 21);
-            this.textBox3.TabIndex = 274;
+            this.txtODDays.Location = new System.Drawing.Point(669, 62);
+            this.txtODDays.MaxLength = 2;
+            this.txtODDays.Name = "txtODDays";
+            this.validator1.SetRequiredMessage(this.txtODDays, "OD Days can not be blank.");
+            this.txtODDays.Size = new System.Drawing.Size(229, 21);
+            this.txtODDays.TabIndex = 274;
+            this.validator1.SetType(this.txtODDays, Itboy.Components.ValidationType.Required);
+            this.txtODDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtODDays_KeyPress);
             // 
             // labelControl2
             // 
@@ -723,9 +693,7 @@
             this.cmbGroup.Name = "cmbGroup";
             this.cmbGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbGroup.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            this.cmbGroup.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbGroup.Size = new System.Drawing.Size(229, 20);
             this.cmbGroup.TabIndex = 272;
             // 
@@ -735,9 +703,7 @@
             this.cmbZone.Name = "cmbZone";
             this.cmbZone.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbZone.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            this.cmbZone.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbZone.Size = new System.Drawing.Size(229, 20);
             this.cmbZone.TabIndex = 271;
             // 
@@ -782,7 +748,7 @@
             // txtProprietor3MobileNo
             // 
             this.txtProprietor3MobileNo.HidePromptOnLeave = true;
-            this.txtProprietor3MobileNo.Location = new System.Drawing.Point(387, 63);
+            this.txtProprietor3MobileNo.Location = new System.Drawing.Point(395, 63);
             this.txtProprietor3MobileNo.Mask = "00000000000";
             this.txtProprietor3MobileNo.Name = "txtProprietor3MobileNo";
             this.txtProprietor3MobileNo.Size = new System.Drawing.Size(115, 21);
@@ -791,7 +757,7 @@
             // lblProprietor3MobileNo
             // 
             this.lblProprietor3MobileNo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblProprietor3MobileNo.Location = new System.Drawing.Point(321, 67);
+            this.lblProprietor3MobileNo.Location = new System.Drawing.Point(329, 67);
             this.lblProprietor3MobileNo.Name = "lblProprietor3MobileNo";
             this.lblProprietor3MobileNo.Size = new System.Drawing.Size(57, 13);
             this.lblProprietor3MobileNo.TabIndex = 210;
@@ -816,7 +782,7 @@
             // txtProprietor2MobileNo
             // 
             this.txtProprietor2MobileNo.HidePromptOnLeave = true;
-            this.txtProprietor2MobileNo.Location = new System.Drawing.Point(387, 36);
+            this.txtProprietor2MobileNo.Location = new System.Drawing.Point(395, 36);
             this.txtProprietor2MobileNo.Mask = "00000000000";
             this.txtProprietor2MobileNo.Name = "txtProprietor2MobileNo";
             this.txtProprietor2MobileNo.Size = new System.Drawing.Size(115, 21);
@@ -825,7 +791,7 @@
             // lblProprietor2MobileNo
             // 
             this.lblProprietor2MobileNo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblProprietor2MobileNo.Location = new System.Drawing.Point(321, 40);
+            this.lblProprietor2MobileNo.Location = new System.Drawing.Point(329, 40);
             this.lblProprietor2MobileNo.Name = "lblProprietor2MobileNo";
             this.lblProprietor2MobileNo.Size = new System.Drawing.Size(57, 13);
             this.lblProprietor2MobileNo.TabIndex = 206;
@@ -850,16 +816,18 @@
             // txtProprietor1MobileNo
             // 
             this.txtProprietor1MobileNo.HidePromptOnLeave = true;
-            this.txtProprietor1MobileNo.Location = new System.Drawing.Point(387, 10);
+            this.txtProprietor1MobileNo.Location = new System.Drawing.Point(395, 10);
             this.txtProprietor1MobileNo.Mask = "00000000000";
             this.txtProprietor1MobileNo.Name = "txtProprietor1MobileNo";
+            this.validator1.SetRequiredMessage(this.txtProprietor1MobileNo, "Proprietor(1) Mobile can not be blank.");
             this.txtProprietor1MobileNo.Size = new System.Drawing.Size(115, 21);
             this.txtProprietor1MobileNo.TabIndex = 203;
+            this.validator1.SetType(this.txtProprietor1MobileNo, Itboy.Components.ValidationType.Required);
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Location = new System.Drawing.Point(321, 14);
+            this.labelControl1.Location = new System.Drawing.Point(329, 14);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(57, 13);
             this.labelControl1.TabIndex = 202;
@@ -869,8 +837,10 @@
             // 
             this.txtProprietor1.Location = new System.Drawing.Point(111, 10);
             this.txtProprietor1.Name = "txtProprietor1";
+            this.validator1.SetRegularExpressionMessage(this.txtProprietor1, "Proprietor(1) can not be blank.");
             this.txtProprietor1.Size = new System.Drawing.Size(198, 21);
             this.txtProprietor1.TabIndex = 192;
+            this.validator1.SetType(this.txtProprietor1, Itboy.Components.ValidationType.Required);
             // 
             // lblProprietor1
             // 
@@ -885,15 +855,19 @@
             // 
             this.txtResidenceState.Location = new System.Drawing.Point(133, 324);
             this.txtResidenceState.Name = "txtResidenceState";
+            this.validator1.SetRegularExpressionMessage(this.txtResidenceState, "Residence State can not be blank.");
             this.txtResidenceState.Size = new System.Drawing.Size(198, 21);
             this.txtResidenceState.TabIndex = 267;
+            this.validator1.SetType(this.txtResidenceState, Itboy.Components.ValidationType.Required);
             // 
             // txtResidenceCity
             // 
             this.txtResidenceCity.Location = new System.Drawing.Point(133, 298);
             this.txtResidenceCity.Name = "txtResidenceCity";
+            this.validator1.SetRegularExpressionMessage(this.txtResidenceCity, "Residence City can not be blank.");
             this.txtResidenceCity.Size = new System.Drawing.Size(198, 21);
             this.txtResidenceCity.TabIndex = 266;
+            this.validator1.SetType(this.txtResidenceCity, Itboy.Components.ValidationType.Required);
             // 
             // txtResidencePhone
             // 
@@ -924,10 +898,12 @@
             // 
             // txtResidencePin
             // 
-            this.txtResidencePin.Location = new System.Drawing.Point(337, 298);
+            this.txtResidencePin.Location = new System.Drawing.Point(364, 298);
             this.txtResidencePin.Name = "txtResidencePin";
+            this.validator1.SetRequiredMessage(this.txtResidencePin, "Residence Pin can not be blank.");
             this.txtResidencePin.Size = new System.Drawing.Size(130, 21);
             this.txtResidencePin.TabIndex = 262;
+            this.validator1.SetType(this.txtResidencePin, Itboy.Components.ValidationType.Required);
             // 
             // lblResidenceCityPin
             // 
@@ -938,19 +914,15 @@
             this.lblResidenceCityPin.TabIndex = 261;
             this.lblResidenceCityPin.Text = "City / Pin";
             // 
-            // txtResidenceAddress2
-            // 
-            this.txtResidenceAddress2.Location = new System.Drawing.Point(133, 272);
-            this.txtResidenceAddress2.Name = "txtResidenceAddress2";
-            this.txtResidenceAddress2.Size = new System.Drawing.Size(391, 21);
-            this.txtResidenceAddress2.TabIndex = 260;
-            // 
             // txtResidenceAddress1
             // 
             this.txtResidenceAddress1.Location = new System.Drawing.Point(133, 247);
+            this.txtResidenceAddress1.Multiline = true;
             this.txtResidenceAddress1.Name = "txtResidenceAddress1";
-            this.txtResidenceAddress1.Size = new System.Drawing.Size(391, 21);
+            this.validator1.SetRegularExpressionMessage(this.txtResidenceAddress1, "Residence Address can not be blank.");
+            this.txtResidenceAddress1.Size = new System.Drawing.Size(391, 45);
             this.txtResidenceAddress1.TabIndex = 258;
+            this.validator1.SetType(this.txtResidenceAddress1, Itboy.Components.ValidationType.Required);
             // 
             // lblResidence
             // 
@@ -961,19 +933,22 @@
             this.lblResidence.TabIndex = 257;
             this.lblResidence.Text = "Residence";
             // 
-            // textBox2
+            // txtState
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 165);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(198, 21);
-            this.textBox2.TabIndex = 256;
+            this.txtState.Location = new System.Drawing.Point(133, 165);
+            this.txtState.Name = "txtState";
+            this.validator1.SetRequiredMessage(this.txtState, "State can not be blank.");
+            this.txtState.Size = new System.Drawing.Size(198, 21);
+            this.txtState.TabIndex = 256;
+            this.validator1.SetType(this.txtState, Itboy.Components.ValidationType.Required);
             // 
-            // textBox1
+            // txtCity
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 139);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 21);
-            this.textBox1.TabIndex = 255;
+            this.txtCity.Location = new System.Drawing.Point(133, 139);
+            this.txtCity.Name = "txtCity";
+            this.validator1.SetRequiredMessage(this.txtCity, "City can not be blank.");
+            this.txtCity.Size = new System.Drawing.Size(198, 21);
+            this.txtCity.TabIndex = 255;
             // 
             // txtFaxNo
             // 
@@ -997,8 +972,10 @@
             this.txtPhoneOffice.Location = new System.Drawing.Point(133, 191);
             this.txtPhoneOffice.Mask = "000-000000000000";
             this.txtPhoneOffice.Name = "txtPhoneOffice";
+            this.validator1.SetRequiredMessage(this.txtPhoneOffice, "Phone Office can not be blank.");
             this.txtPhoneOffice.Size = new System.Drawing.Size(198, 21);
             this.txtPhoneOffice.TabIndex = 252;
+            this.validator1.SetType(this.txtPhoneOffice, Itboy.Components.ValidationType.Required);
             // 
             // lblPhoneOffice
             // 
@@ -1020,10 +997,12 @@
             // 
             // txtPin
             // 
-            this.txtPin.Location = new System.Drawing.Point(337, 139);
+            this.txtPin.Location = new System.Drawing.Point(364, 139);
             this.txtPin.Name = "txtPin";
+            this.validator1.SetRequiredMessage(this.txtPin, "Pin can not be blank.");
             this.txtPin.Size = new System.Drawing.Size(130, 21);
             this.txtPin.TabIndex = 249;
+            this.validator1.SetType(this.txtPin, Itboy.Components.ValidationType.Required);
             // 
             // lblCityPin
             // 
@@ -1033,20 +1012,6 @@
             this.lblCityPin.Size = new System.Drawing.Size(51, 13);
             this.lblCityPin.TabIndex = 248;
             this.lblCityPin.Text = "City / Pin";
-            // 
-            // txtAddress2
-            // 
-            this.txtAddress2.Location = new System.Drawing.Point(133, 88);
-            this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(391, 21);
-            this.txtAddress2.TabIndex = 247;
-            // 
-            // txtAddress3
-            // 
-            this.txtAddress3.Location = new System.Drawing.Point(133, 113);
-            this.txtAddress3.Name = "txtAddress3";
-            this.txtAddress3.Size = new System.Drawing.Size(391, 21);
-            this.txtAddress3.TabIndex = 246;
             // 
             // txtAlias
             // 
@@ -1067,9 +1032,12 @@
             // txtAddress1
             // 
             this.txtAddress1.Location = new System.Drawing.Point(133, 63);
+            this.txtAddress1.Multiline = true;
             this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(391, 21);
+            this.validator1.SetRequiredMessage(this.txtAddress1, "Address can not be blank.");
+            this.txtAddress1.Size = new System.Drawing.Size(391, 70);
             this.txtAddress1.TabIndex = 243;
+            this.validator1.SetType(this.txtAddress1, Itboy.Components.ValidationType.Required);
             // 
             // lblAddress
             // 
@@ -1084,8 +1052,10 @@
             // 
             this.txtName.Location = new System.Drawing.Point(133, 13);
             this.txtName.Name = "txtName";
+            this.validator1.SetRequiredMessage(this.txtName, "Name can not be blank.");
             this.txtName.Size = new System.Drawing.Size(391, 21);
             this.txtName.TabIndex = 241;
+            this.validator1.SetType(this.txtName, Itboy.Components.ValidationType.Required);
             // 
             // lblName
             // 
@@ -1123,6 +1093,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnGo);
+            this.panel1.Controls.Add(this.cmbSupplierEditList);
+            this.panel1.Controls.Add(this.labelControl4);
             this.panel1.Controls.Add(this.txtSupplierACNo);
             this.panel1.Controls.Add(this.lblSupplierACNo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1130,13 +1103,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1238, 47);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtSupplierACNo
             // 
             this.txtSupplierACNo.Location = new System.Drawing.Point(122, 13);
             this.txtSupplierACNo.Name = "txtSupplierACNo";
+            this.validator1.SetRequiredMessage(this.txtSupplierACNo, "Supplier A/C No. can not be blank.");
             this.txtSupplierACNo.Size = new System.Drawing.Size(288, 20);
             this.txtSupplierACNo.TabIndex = 6;
+            this.validator1.SetType(this.txtSupplierACNo, Itboy.Components.ValidationType.Required);
             // 
             // lblSupplierACNo
             // 
@@ -1148,11 +1124,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox13);
-            this.panel2.Controls.Add(this.labelControl15);
-            this.panel2.Controls.Add(this.txtEnteredBy);
             this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Controls.Add(this.lblEnteredBy);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 704);
@@ -1160,52 +1132,24 @@
             this.panel2.Size = new System.Drawing.Size(1238, 37);
             this.panel2.TabIndex = 2;
             // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(409, 9);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(173, 20);
-            this.textBox13.TabIndex = 12;
-            // 
-            // labelControl15
-            // 
-            this.labelControl15.Location = new System.Drawing.Point(343, 12);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(45, 13);
-            this.labelControl15.TabIndex = 11;
-            this.labelControl15.Text = "Edited By";
-            // 
-            // txtEnteredBy
-            // 
-            this.txtEnteredBy.Location = new System.Drawing.Point(134, 9);
-            this.txtEnteredBy.Name = "txtEnteredBy";
-            this.txtEnteredBy.Size = new System.Drawing.Size(173, 20);
-            this.txtEnteredBy.TabIndex = 10;
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(670, 8);
+            this.btnSave.Location = new System.Drawing.Point(12, 6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
-            // 
-            // lblEnteredBy
-            // 
-            this.lblEnteredBy.Location = new System.Drawing.Point(64, 12);
-            this.lblEnteredBy.Name = "lblEnteredBy";
-            this.lblEnteredBy.Size = new System.Drawing.Size(53, 13);
-            this.lblEnteredBy.TabIndex = 9;
-            this.lblEnteredBy.Text = "Entered By";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(781, 8);
+            this.btnCancel.Location = new System.Drawing.Point(123, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel3
             // 
@@ -1215,6 +1159,37 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1238, 657);
             this.panel3.TabIndex = 3;
+            // 
+            // validator1
+            // 
+            this.validator1.BlinkRate = 0;
+            this.validator1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.validator1.Form = this;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(439, 16);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(104, 13);
+            this.labelControl4.TabIndex = 7;
+            this.labelControl4.Text = "Select Supplier to Edit";
+            // 
+            // cmbSupplierEditList
+            // 
+            this.cmbSupplierEditList.FormattingEnabled = true;
+            this.cmbSupplierEditList.Location = new System.Drawing.Point(553, 12);
+            this.cmbSupplierEditList.Name = "cmbSupplierEditList";
+            this.cmbSupplierEditList.Size = new System.Drawing.Size(346, 21);
+            this.cmbSupplierEditList.TabIndex = 8;
+            // 
+            // btnGo
+            // 
+            this.btnGo.Location = new System.Drawing.Point(914, 12);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(75, 23);
+            this.btnGo.TabIndex = 9;
+            this.btnGo.Text = "Go";
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // FrmNewSupplier
             // 
@@ -1236,15 +1211,14 @@
             this.MainTabPage.ResumeLayout(false);
             this.xtraScrollableControl1.ResumeLayout(false);
             this.xtraScrollableControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPriorityMember.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSTaxOn.Properties)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSuppCompany.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBillFreq.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbVariety.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbZone.Properties)).EndInit();
             this.pnlProprietorContainer.ResumeLayout(false);
@@ -1255,7 +1229,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1279,11 +1252,10 @@
         private DevExpress.XtraEditors.LabelControl lblResidenceState;
         private System.Windows.Forms.TextBox txtResidencePin;
         private DevExpress.XtraEditors.LabelControl lblResidenceCityPin;
-        private System.Windows.Forms.TextBox txtResidenceAddress2;
         private System.Windows.Forms.TextBox txtResidenceAddress1;
         private DevExpress.XtraEditors.LabelControl lblResidence;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtState;
+        private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtFaxNo;
         private DevExpress.XtraEditors.LabelControl lblFaxNo;
         private System.Windows.Forms.MaskedTextBox txtPhoneOffice;
@@ -1291,8 +1263,6 @@
         private DevExpress.XtraEditors.LabelControl lblState;
         private System.Windows.Forms.TextBox txtPin;
         private DevExpress.XtraEditors.LabelControl lblCityPin;
-        private System.Windows.Forms.TextBox txtAddress2;
-        private System.Windows.Forms.TextBox txtAddress3;
         private System.Windows.Forms.TextBox txtAlias;
         private DevExpress.XtraEditors.LabelControl lblAlias;
         private System.Windows.Forms.TextBox txtAddress1;
@@ -1312,24 +1282,22 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.TextBox txtProprietor1;
         private DevExpress.XtraEditors.LabelControl lblProprietor1;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtEmail;
         private DevExpress.XtraEditors.LabelControl labelControl11;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtTanNo;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtTanName;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private System.Windows.Forms.TextBox textBox5;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbPriority;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbVariety;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtBillTerms;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtODDays;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.ComboBoxEdit cmbGroup;
         private DevExpress.XtraEditors.ComboBoxEdit cmbZone;
@@ -1339,40 +1307,40 @@
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private System.Windows.Forms.TextBox textBox11;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtGlobalCode;
         private DevExpress.XtraEditors.LabelControl labelControl12;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtRemarks;
         private DevExpress.XtraEditors.LabelControl labelControl17;
-        private System.Windows.Forms.TextBox textBox13;
-        private DevExpress.XtraEditors.LabelControl labelControl15;
-        private System.Windows.Forms.TextBox txtEnteredBy;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.LabelControl lblEnteredBy;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit7;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbPriorityMember;
         private DevExpress.XtraEditors.LabelControl labelControl24;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkDailyBill;
         private DevExpress.XtraEditors.LabelControl labelControl25;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtSMSCell;
         private DevExpress.XtraEditors.LabelControl labelControl22;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txtSMSName;
         private DevExpress.XtraEditors.LabelControl labelControl23;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtCommission;
         private DevExpress.XtraEditors.LabelControl labelControl21;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit6;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbSTaxOn;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txtPanNo;
         private DevExpress.XtraEditors.LabelControl labelControl19;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit5;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbSuppCompany;
         private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit4;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbBillFreq;
         private DevExpress.XtraEditors.LabelControl labelControl16;
-        private System.Windows.Forms.CheckBox chkBrandNewAC;
+        private System.Windows.Forms.CheckBox chkStopMonthlyBill;
         private DevExpress.XtraEditors.LabelControl lblBrandNewAC;
         private DevExpress.XtraEditors.LabelControl labelControl20;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LabelControl labelControl26;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.CheckBox chkBK;
+        private Itboy.Components.Validator validator1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private System.Windows.Forms.ComboBox cmbSupplierEditList;
+        private DevExpress.XtraEditors.SimpleButton btnGo;
     }
 }

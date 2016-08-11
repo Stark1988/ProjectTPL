@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection();
-            this.navbarImageCollection = new DevExpress.Utils.ImageCollection();
+            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.MenuManager = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.iNewCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.iNewSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.iCity = new DevExpress.XtraBars.BarButtonItem();
@@ -69,7 +70,8 @@
             this.iNewBank = new DevExpress.XtraBars.BarButtonItem();
             this.iNewCourier = new DevExpress.XtraBars.BarButtonItem();
             this.iNewAgent = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.iNewTransport = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.MastersPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.MastersPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TransactionPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -103,11 +105,10 @@
             this.lblShortCut3 = new DevExpress.XtraEditors.LabelControl();
             this.lblShortCut2 = new DevExpress.XtraEditors.LabelControl();
             this.lblShortCut1 = new DevExpress.XtraEditors.LabelControl();
-            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.badge1 = new DevExpress.Utils.VisualEffects.Badge();
-            this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager();
+            this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
             this.badge2 = new DevExpress.Utils.VisualEffects.Badge();
-            this.iNewTransport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuManager)).BeginInit();
@@ -581,6 +582,15 @@
             this.iNewAgent.Name = "iNewAgent";
             this.iNewAgent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iNewAgent_ItemClick);
             // 
+            // iNewTransport
+            // 
+            this.iNewTransport.Caption = "Transport";
+            this.iNewTransport.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewTransport.Glyph")));
+            this.iNewTransport.Id = 8;
+            this.iNewTransport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewTransport.LargeGlyph")));
+            this.iNewTransport.Name = "iNewTransport";
+            this.iNewTransport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iNewTransport_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -730,7 +740,7 @@
             // 
             this.ParentFormSplitContainer.Panel2.Controls.Add(this.pnlShortCutContainer);
             this.ParentFormSplitContainer.Size = new System.Drawing.Size(1252, 507);
-            this.ParentFormSplitContainer.SplitterDistance = 1126;
+            this.ParentFormSplitContainer.SplitterDistance = 1129;
             this.ParentFormSplitContainer.SplitterWidth = 1;
             this.ParentFormSplitContainer.TabIndex = 20;
             // 
@@ -741,7 +751,7 @@
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.lblTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblTime.Location = new System.Drawing.Point(829, 450);
+            this.lblTime.Location = new System.Drawing.Point(832, 450);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(317, 55);
             this.lblTime.TabIndex = 13;
@@ -770,7 +780,7 @@
             this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCompanyName.Location = new System.Drawing.Point(0, 0);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(1126, 46);
+            this.lblCompanyName.Size = new System.Drawing.Size(1129, 46);
             this.lblCompanyName.TabIndex = 11;
             this.lblCompanyName.Text = "RAGHANI TRADELINKS (P) LTD. (AHMEDABAD)";
             // 
@@ -794,7 +804,7 @@
             this.pnlShortCutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShortCutContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlShortCutContainer.Name = "pnlShortCutContainer";
-            this.pnlShortCutContainer.Size = new System.Drawing.Size(125, 507);
+            this.pnlShortCutContainer.Size = new System.Drawing.Size(122, 507);
             this.pnlShortCutContainer.TabIndex = 15;
             // 
             // lblShortCut13
@@ -949,15 +959,6 @@
             this.badge2.Properties.Offset = new System.Drawing.Point(560, 40);
             this.badge2.Properties.Text = "0";
             this.badge2.TargetElement = this.MenuManager;
-            // 
-            // iNewTransport
-            // 
-            this.iNewTransport.Caption = "Transport";
-            this.iNewTransport.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewTransport.Glyph")));
-            this.iNewTransport.Id = 8;
-            this.iNewTransport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iNewTransport.LargeGlyph")));
-            this.iNewTransport.Name = "iNewTransport";
-            this.iNewTransport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iNewTransport_ItemClick);
             // 
             // MainForm
             // 

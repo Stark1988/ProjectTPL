@@ -42,6 +42,16 @@ namespace raghani_tradelinks
         }
     }
 
+    class SupplierJsonParse
+    {
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
     public class User
     {
         public static int UserId { get; set; }

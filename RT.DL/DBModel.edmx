@@ -381,10 +381,12 @@
           <Property Name="fkSupplierId" Type="int" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
           <Property Name="OfficePhone" Type="nvarchar" MaxLength="100" />
           <Property Name="Fax" Type="nvarchar" MaxLength="100" />
           <Property Name="Residence" Type="nvarchar(max)" />
           <Property Name="ResidenceCity" Type="nvarchar" MaxLength="150" />
+          <Property Name="ResidenceState" Type="nvarchar" MaxLength="50" />
           <Property Name="ResPhone" Type="nvarchar" MaxLength="100" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="SMSName" Type="nvarchar" MaxLength="50" />
@@ -1690,6 +1692,8 @@
           <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ResidencePin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SupplierContactInfo_Supplier" FromRole="SupplierContactInfo" ToRole="Supplier" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResidenceState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SupplierProprietor">
           <Key>
@@ -2276,6 +2280,8 @@
           <EntitySetMapping Name="SupplierContactInfoes">
             <EntityTypeMapping TypeName="TPLDBModel.SupplierContactInfo">
               <MappingFragment StoreEntitySet="SupplierContactInfo">
+                <ScalarProperty Name="ResidenceState" ColumnName="ResidenceState" />
+                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="ResidencePin" ColumnName="ResidencePin" />
                 <ScalarProperty Name="Pin" ColumnName="Pin" />
                 <ScalarProperty Name="SMSCellNumber" ColumnName="SMSCellNumber" />

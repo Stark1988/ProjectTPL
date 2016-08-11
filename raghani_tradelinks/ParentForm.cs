@@ -146,7 +146,20 @@ namespace raghani_tradelinks
 
         private void iNewSupplier_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            try
+            {
+                if (!IsOpen("FrmNewSupplier"))
+                {
+                    FrmNewSupplier _frmNewSupplier = new FrmNewSupplier();
+                    _frmNewSupplier.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmNewSupplier.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
         }
 
         private void iNewOrder_ItemClick(object sender, ItemClickEventArgs e)

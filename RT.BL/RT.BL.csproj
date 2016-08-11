@@ -54,7 +54,7 @@
     <Compile Include="MstSubAgentMgmt.cs" />
     <Compile Include="MstTransportMgmt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SupplierData.cs" />
+    <Compile Include="MstSupplierMgmt.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RT.DL\RT.DL.csproj">

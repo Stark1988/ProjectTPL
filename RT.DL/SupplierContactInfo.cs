@@ -28,6 +28,8 @@ namespace RT.DL
         public string SMSCellNumber { get; set; }
         public string Pin { get; set; }
         public string ResidencePin { get; set; }
+        public string State { get; set; }
+        public string ResidenceState { get; set; }
     
         public virtual Supplier Supplier { get; set; }
     }

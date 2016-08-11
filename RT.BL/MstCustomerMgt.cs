@@ -25,7 +25,7 @@ namespace RT.BL
         public List<Customer> SelectSisterCompany()
         {
             return (from c in db.Customers
-                    where c.Status != "Rejected"
+                    //where c.Status != "Rejected"
                     select new
                     {
                         CustomerId = c.CustomerId,
@@ -326,7 +326,8 @@ namespace RT.BL
         public List<Customer> SelectCustomer()
         {
             return db.Customers
-                    .Where(q => q.Status != "Rejected").Select(q => new { CustomerId = q.CustomerId, CustomerName = q.CustomerName })
+                    //.Where(q => q.Status != "Rejected")
+                    .Select(q => new { CustomerId = q.CustomerId, CustomerName = q.CustomerName })
                     .ToList()
                     .Select(q => new Customer() { CustomerName = q.CustomerName, CustomerId = q.CustomerId }).ToList();
         }

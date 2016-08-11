@@ -163,11 +163,12 @@ namespace raghani_tradelinks
                 cmbSubAgent.DisplayMember = "SubAgentName";
                 cmbSubAgent.ValueMember = "SubAgentId";
                 cmbSubAgent.DataSource = (new MstSubAgentMgmt()).SelectData().SubAgents;
-
-                cmbCustomerToEdit.Items.Insert(0, "Select");
+                                
                 cmbCustomerToEdit.DisplayMember = "CustomerName";
                 cmbCustomerToEdit.ValueMember = "CustomerId";
-                cmbCustomerToEdit.DataSource = (new MstCustomerMgt()).SelectCustomer();
+                List<Customer> lstCust =  (new MstCustomerMgt()).SelectCustomer();
+                lstCust.Insert(0, new Customer() { CustomerName = "Select", CustomerId = 0 });
+                cmbCustomerToEdit.DataSource = lstCust;
             }
             catch (Exception ex)
             {
