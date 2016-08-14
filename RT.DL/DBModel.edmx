@@ -262,6 +262,7 @@
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="ContactNumber" Type="nvarchar" MaxLength="15" />
           <Property Name="fkUserTypeId" Type="int" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="60" />
         </EntityType>
         <EntityType Name="MstUserRole">
           <Key>
@@ -1419,6 +1420,7 @@
           <Property Name="fkUserTypeId" Type="Int32" />
           <NavigationProperty Name="MstUserRole" Relationship="TPLDBModel.FK_MstUser_MstUserRole" FromRole="MstUser" ToRole="MstUserRole" />
           <NavigationProperty Name="MstUserType" Relationship="TPLDBModel.FK_MstUser_MstUserType" FromRole="MstUser" ToRole="MstUserType" />
+          <Property Name="FullName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstUserRole">
           <Key>
@@ -2266,6 +2268,7 @@
           <EntitySetMapping Name="MstUsers">
             <EntityTypeMapping TypeName="TPLDBModel.MstUser">
               <MappingFragment StoreEntitySet="MstUser">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="fkUserTypeId" ColumnName="fkUserTypeId" />
                 <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />

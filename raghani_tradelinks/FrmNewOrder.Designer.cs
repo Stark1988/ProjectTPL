@@ -43,10 +43,6 @@
             this.lblSupplierACNo = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCustomer = new DevExpress.XtraEditors.LookUpEdit();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.txtEnteredBy = new System.Windows.Forms.TextBox();
-            this.lblEnteredBy = new DevExpress.XtraEditors.LabelControl();
             this.cmbOrderVisit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblRefType = new DevExpress.XtraEditors.LabelControl();
@@ -168,10 +164,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.cmbCustomer);
-            this.panel1.Controls.Add(this.textBox13);
-            this.panel1.Controls.Add(this.labelControl15);
-            this.panel1.Controls.Add(this.txtEnteredBy);
-            this.panel1.Controls.Add(this.lblEnteredBy);
             this.panel1.Controls.Add(this.cmbOrderVisit);
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Controls.Add(this.lblRefType);
@@ -191,36 +183,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbCustomer.Size = new System.Drawing.Size(278, 20);
             this.cmbCustomer.TabIndex = 245;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(1073, 14);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(107, 20);
-            this.textBox13.TabIndex = 244;
-            // 
-            // labelControl15
-            // 
-            this.labelControl15.Location = new System.Drawing.Point(1007, 17);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(45, 13);
-            this.labelControl15.TabIndex = 243;
-            this.labelControl15.Text = "Edited By";
-            // 
-            // txtEnteredBy
-            // 
-            this.txtEnteredBy.Location = new System.Drawing.Point(873, 14);
-            this.txtEnteredBy.Name = "txtEnteredBy";
-            this.txtEnteredBy.Size = new System.Drawing.Size(119, 20);
-            this.txtEnteredBy.TabIndex = 242;
-            // 
-            // lblEnteredBy
-            // 
-            this.lblEnteredBy.Location = new System.Drawing.Point(803, 17);
-            this.lblEnteredBy.Name = "lblEnteredBy";
-            this.lblEnteredBy.Size = new System.Drawing.Size(53, 13);
-            this.lblEnteredBy.TabIndex = 241;
-            this.lblEnteredBy.Text = "Entered By";
             // 
             // cmbOrderVisit
             // 
@@ -304,10 +266,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.TextBox txtTotalQty;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private System.Windows.Forms.TextBox textBox13;
-        private DevExpress.XtraEditors.LabelControl labelControl15;
-        private System.Windows.Forms.TextBox txtEnteredBy;
-        private DevExpress.XtraEditors.LabelControl lblEnteredBy;
         private DevExpress.XtraEditors.LookUpEdit cmbCustomer;
         private DevExpress.XtraEditors.TextEdit txtOrderValue;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;

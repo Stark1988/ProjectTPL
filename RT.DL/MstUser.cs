@@ -24,6 +24,7 @@ namespace RT.DL
         public bool IsDeleted { get; set; }
         public string ContactNumber { get; set; }
         public Nullable<int> fkUserTypeId { get; set; }
+        public string FullName { get; set; }
     
         public virtual MstUserRole MstUserRole { get; set; }
         public virtual MstUserType MstUserType { get; set; }

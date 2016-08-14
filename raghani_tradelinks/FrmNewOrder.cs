@@ -1,5 +1,7 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
+using Newtonsoft.Json;
 using RT.DL;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -16,6 +19,8 @@ namespace raghani_tradelinks
     public partial class FrmNewOrder : Form
     {
         TPLDBEntities db = null;
+        List<MstUser> userList = null;
+        string selectedAccompany = string.Empty;
 
         public FrmNewOrder()
         {
@@ -53,8 +58,11 @@ namespace raghani_tradelinks
                                                where c.IsDeleted == false
                                                select c).ToList();
 
+                userList = (from u in db.MstUsers
+                                               where u.IsDeleted == false
+                                               select u).ToList();
+
                 customerList.Insert(0, new Customer { CustomerId = -1, CustomerName = "Select Customer" });
-                //supplierList.Insert(0, new Supplier { SupplierId = -1, SupplierName = "Select Supplier" });
 
                 cmbCustomer.Properties.DataSource = customerList;
                 cmbCustomer.Properties.Columns.Add(new LookUpColumnInfo("CustomerId") { Visible = false });
@@ -72,19 +80,40 @@ namespace raghani_tradelinks
                 cmbSupplier.Columns.Add(new LookUpColumnInfo("SupplierId") { Visible = false });
                 cmbSupplier.Columns.Add(new LookUpColumnInfo("SupplierName"));
                 cmbSupplier.ShowHeader = false;
+                cmbSupplier.ForceInitialize();
                 cmbSupplier.NullText = "Select Supplier";
 
                 gridControl1.RepositoryItems.Add(cmbSupplier);
                 gridView1.Columns["Supplier"].ColumnEdit = cmbSupplier;
+                               
+                RepositoryItemLookUpEdit cmbAccompany = new RepositoryItemLookUpEdit();
+                cmbAccompany.DataSource = userList;
+                cmbAccompany.Columns.Clear();
+                cmbAccompany.Columns.Add(new LookUpColumnInfo("FullName"));
+                cmbAccompany.ShowHeader = false;
+                cmbAccompany.NullText = "Select Accompany";
+                cmbAccompany.ValueMember = "UserId";
+                cmbAccompany.DisplayMember = "FullName";
+                gridControl1.RepositoryItems.Add(cmbAccompany);
+                gridView1.Columns["Accompany"].ColumnEdit = cmbAccompany;
 
                 gridView1.CustomRowCellEdit += gridView1_CustomRowCellEdit;
-
-
-
-
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        void cmbAccompany_GetNotInListValue(object sender, GetNotInListValueEventArgs e)
+        {
+            var cmbAccompany = sender as LookUpEdit;
+
+            if (e.FieldName == "UserDisplayName")
+            {
+                var user = ((List<MstUser>)cmbAccompany.Properties.DataSource)[e.RecordIndex];
+                if (user != null)
+                    e.Value = selectedAccompany = string.Format("{0} {1}", user.FirstName, user.LastName);
             }
         }
 
@@ -177,7 +206,7 @@ namespace raghani_tradelinks
                     orderDetail.RedQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["RedQty"]));
                     orderDetail.OrQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["OrQty"]));
                     orderDetail.TotalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]));
-                    orderDetail.Accompany = Convert.ToString(gridView1.GetRowCellValue(i,gridView1.Columns[ "Accompany"]));
+                    orderDetail.Accompany = gridView1.GetRowCellDisplayText(i,gridView1.Columns[ "Accompany"]);
                     orderDetail.QNK = Convert.ToString(gridView1.GetRowCellValue(i, gridView1.Columns["QNK"]));
                     orderDetail.BalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["BalQty"]));
                     orderDetails.Add(orderDetail);
@@ -207,7 +236,7 @@ namespace raghani_tradelinks
             txtOrderValue.Text = string.Empty;
             txtTotalQty.Text = string.Empty;
             gridControl1.DataSource = null;
-            gridView1.Columns.Clear();
+            gridControl1.DataSource = GetOrderDataSource();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
