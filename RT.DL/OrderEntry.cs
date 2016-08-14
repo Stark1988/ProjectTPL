@@ -30,6 +30,7 @@ namespace RT.DL
         public string UpdatedBy { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
         public Nullable<decimal> OrderValue { get; set; }
+        public Nullable<bool> IsNullify { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

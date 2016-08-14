@@ -98,6 +98,11 @@ namespace raghani_tradelinks
                 gridView1.Columns["Accompany"].ColumnEdit = cmbAccompany;
 
                 gridView1.CustomRowCellEdit += gridView1_CustomRowCellEdit;
+
+                string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/OrderOrVisit.json"));
+                var _orderOrVisitList = JsonConvert.DeserializeObject<List<DealingType>>(result);
+                cmbOrderVisit.Properties.Items.AddRange(_orderOrVisitList);
+                cmbOrderVisit.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

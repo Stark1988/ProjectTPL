@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtOrderValue = new DevExpress.XtraEditors.TextEdit();
@@ -47,7 +46,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblRefType = new DevExpress.XtraEditors.LabelControl();
             this.txtSpokenDt1 = new System.Windows.Forms.MaskedTextBox();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderValue.Properties)).BeginInit();
             this.panel3.SuspendLayout();
@@ -190,9 +189,6 @@
             this.cmbOrderVisit.Name = "cmbOrderVisit";
             this.cmbOrderVisit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbOrderVisit.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
             this.cmbOrderVisit.Size = new System.Drawing.Size(144, 20);
             this.cmbOrderVisit.TabIndex = 240;
             // 
