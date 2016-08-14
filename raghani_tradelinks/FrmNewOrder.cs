@@ -37,11 +37,11 @@ namespace raghani_tradelinks
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Supplier", typeof(string));
-            dt.Columns.Add("RedQty", typeof(int));
+            //dt.Columns.Add("RedQty", typeof(int));
             dt.Columns.Add("OrQty", typeof(int));
             dt.Columns.Add("TotalQty", typeof(int));
             dt.Columns.Add("Accompany", typeof(string));
-            dt.Columns.Add("QNK", typeof(string));
+            //dt.Columns.Add("QNK", typeof(string));
             dt.Columns.Add("BalQty", typeof(int));
             return dt;
         }
@@ -97,6 +97,7 @@ namespace raghani_tradelinks
                 gridControl1.RepositoryItems.Add(cmbAccompany);
                 gridView1.Columns["Accompany"].ColumnEdit = cmbAccompany;
 
+                gridView1.CellValueChanged += gridView1_CellValueChanged;
                 gridView1.CustomRowCellEdit += gridView1_CustomRowCellEdit;
 
                 string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/OrderOrVisit.json"));
@@ -105,6 +106,43 @@ namespace raghani_tradelinks
                 cmbOrderVisit.SelectedIndex = 0;
             }
             catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                if (e.Column.FieldName == "TotalQty" || e.Column.FieldName == "OrQty")
+                {
+                    var totalQty = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["TotalQty"]);
+                    var orQty = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["OrQty"]);
+                    if (totalQty != null
+                        && totalQty != DBNull.Value
+                        && orQty != null
+                        && orQty != DBNull.Value)
+                    {
+                        if (!(totalQty is int) || !(orQty is int))
+                        {
+                            MessageBox.Show("Enter valid value for Total and Order quantity");
+                            gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns["TotalQty"], DBNull.Value);
+                            gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns["OrQty"], DBNull.Value);
+                        }
+                        else if ((int)totalQty < (int)orQty)
+                        {
+                            MessageBox.Show("Total quantity should be greater than or equal to order quanity");
+                            gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns["TotalQty"], DBNull.Value);
+                        }
+                        else
+                        {
+                            gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns["BalQty"], (int)totalQty - (int)orQty);
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -126,19 +164,6 @@ namespace raghani_tradelinks
         {
             try
             {
-                int totalQty = 0;
-                if (e.Column.FieldName == "TotalQty")
-                {
-                    for (int i = 0; i < gridView1.DataRowCount; i++)
-                    {
-                        if (gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]) != DBNull.Value)
-                        {
-                            totalQty += Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]));
-                            txtTotalQty.Text = totalQty.ToString();
-                        }
-                    }
-                }
-
                 if (e.Column.FieldName == "Supplier")
                 {
                     if (gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["Supplier"]) != DBNull.Value
@@ -199,7 +224,8 @@ namespace raghani_tradelinks
                     IsDeleted = false,
                     CreatedBy = "admin",
                     CreatedDate = DateTime.Now,
-                    OrderValue = Convert.ToDecimal(txtOrderValue.Text)
+                    OrderValue = Convert.ToDecimal(txtOrderValue.Text),
+                    IsNullify = false
                 };
 
                 List<OrderDetail> orderDetails = new List<OrderDetail>();
@@ -208,11 +234,11 @@ namespace raghani_tradelinks
                 {
                     OrderDetail orderDetail = new OrderDetail();
                     orderDetail.fkSupplierId = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["Supplier"]));
-                    orderDetail.RedQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["RedQty"]));
+                    //orderDetail.RedQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["RedQty"]));
                     orderDetail.OrQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["OrQty"]));
                     orderDetail.TotalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]));
                     orderDetail.Accompany = gridView1.GetRowCellDisplayText(i,gridView1.Columns[ "Accompany"]);
-                    orderDetail.QNK = Convert.ToString(gridView1.GetRowCellValue(i, gridView1.Columns["QNK"]));
+                    //orderDetail.QNK = Convert.ToString(gridView1.GetRowCellValue(i, gridView1.Columns["QNK"]));
                     orderDetail.BalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["BalQty"]));
                     orderDetails.Add(orderDetail);
                 }
