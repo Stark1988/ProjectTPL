@@ -262,6 +262,7 @@
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="ContactNumber" Type="nvarchar" MaxLength="15" />
           <Property Name="fkUserTypeId" Type="int" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="60" />
         </EntityType>
         <EntityType Name="MstUserRole">
           <Key>
@@ -307,6 +308,7 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="OrderValue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsNullify" Type="bit" />
         </EntityType>
         <EntityType Name="OrderTransaction">
           <Key>
@@ -1419,6 +1421,7 @@
           <Property Name="fkUserTypeId" Type="Int32" />
           <NavigationProperty Name="MstUserRole" Relationship="TPLDBModel.FK_MstUser_MstUserRole" FromRole="MstUser" ToRole="MstUserRole" />
           <NavigationProperty Name="MstUserType" Relationship="TPLDBModel.FK_MstUser_MstUserType" FromRole="MstUser" ToRole="MstUserType" />
+          <Property Name="FullName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MstUserRole">
           <Key>
@@ -1677,6 +1680,7 @@
           <NavigationProperty Name="OrderDetails" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderEntry" ToRole="OrderDetail" />
           <Property Name="OrderValue" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="OrderTransactions" Relationship="TPLDBModel.FK_OrderTransaction_OrderEntry" FromRole="OrderEntry" ToRole="OrderTransaction" />
+          <Property Name="IsNullify" Type="Boolean" />
         </EntityType>
         <EntityType Name="Party">
           <Key>
@@ -2266,6 +2270,7 @@
           <EntitySetMapping Name="MstUsers">
             <EntityTypeMapping TypeName="TPLDBModel.MstUser">
               <MappingFragment StoreEntitySet="MstUser">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="fkUserTypeId" ColumnName="fkUserTypeId" />
                 <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
@@ -2331,6 +2336,7 @@
           <EntitySetMapping Name="OrderEntries">
             <EntityTypeMapping TypeName="TPLDBModel.OrderEntry">
               <MappingFragment StoreEntitySet="OrderEntry">
+                <ScalarProperty Name="IsNullify" ColumnName="IsNullify" />
                 <ScalarProperty Name="OrderValue" ColumnName="OrderValue" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />

@@ -1,5 +1,7 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
+using Newtonsoft.Json;
 using RT.DL;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -16,6 +19,8 @@ namespace raghani_tradelinks
     public partial class FrmNewOrder : Form
     {
         TPLDBEntities db = null;
+        List<MstUser> userList = null;
+        string selectedAccompany = string.Empty;
 
         public FrmNewOrder()
         {
@@ -32,11 +37,11 @@ namespace raghani_tradelinks
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Supplier", typeof(string));
-            dt.Columns.Add("RedQty", typeof(int));
+            //dt.Columns.Add("RedQty", typeof(int));
             dt.Columns.Add("OrQty", typeof(int));
             dt.Columns.Add("TotalQty", typeof(int));
             dt.Columns.Add("Accompany", typeof(string));
-            dt.Columns.Add("QNK", typeof(string));
+            //dt.Columns.Add("QNK", typeof(string));
             dt.Columns.Add("BalQty", typeof(int));
             return dt;
         }
@@ -53,8 +58,11 @@ namespace raghani_tradelinks
                                                where c.IsDeleted == false
                                                select c).ToList();
 
+                userList = (from u in db.MstUsers
+                                               where u.IsDeleted == false
+                                               select u).ToList();
+
                 customerList.Insert(0, new Customer { CustomerId = -1, CustomerName = "Select Customer" });
-                //supplierList.Insert(0, new Supplier { SupplierId = -1, SupplierName = "Select Supplier" });
 
                 cmbCustomer.Properties.DataSource = customerList;
                 cmbCustomer.Properties.Columns.Add(new LookUpColumnInfo("CustomerId") { Visible = false });
@@ -72,19 +80,83 @@ namespace raghani_tradelinks
                 cmbSupplier.Columns.Add(new LookUpColumnInfo("SupplierId") { Visible = false });
                 cmbSupplier.Columns.Add(new LookUpColumnInfo("SupplierName"));
                 cmbSupplier.ShowHeader = false;
+                cmbSupplier.ForceInitialize();
                 cmbSupplier.NullText = "Select Supplier";
 
                 gridControl1.RepositoryItems.Add(cmbSupplier);
                 gridView1.Columns["Supplier"].ColumnEdit = cmbSupplier;
+                               
+                RepositoryItemLookUpEdit cmbAccompany = new RepositoryItemLookUpEdit();
+                cmbAccompany.DataSource = userList;
+                cmbAccompany.Columns.Clear();
+                cmbAccompany.Columns.Add(new LookUpColumnInfo("FullName"));
+                cmbAccompany.ShowHeader = false;
+                cmbAccompany.NullText = "Select Accompany";
+                cmbAccompany.ValueMember = "UserId";
+                cmbAccompany.DisplayMember = "FullName";
+                gridControl1.RepositoryItems.Add(cmbAccompany);
+                gridView1.Columns["Accompany"].ColumnEdit = cmbAccompany;
 
+                gridView1.CellValueChanged += gridView1_CellValueChanged;
                 gridView1.CustomRowCellEdit += gridView1_CustomRowCellEdit;
 
-
-
-
+                string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/OrderOrVisit.json"));
+                var _orderOrVisitList = JsonConvert.DeserializeObject<List<DealingType>>(result);
+                cmbOrderVisit.Properties.Items.AddRange(_orderOrVisitList);
+                cmbOrderVisit.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                if (e.Column.FieldName == "TotalQty" || e.Column.FieldName == "OrQty")
+                {
+                    var totalQty = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["TotalQty"]);
+                    var orQty = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["OrQty"]);
+                    if (totalQty != null
+                        && totalQty != DBNull.Value
+                        && orQty != null
+                        && orQty != DBNull.Value)
+                    {
+                        if (!(totalQty is int) || !(orQty is int))
+                        {
+                            MessageBox.Show("Enter valid value for Total and Order quantity");
+                            gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns["TotalQty"], DBNull.Value);
+                            gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns["OrQty"], DBNull.Value);
+                        }
+                        else if ((int)totalQty < (int)orQty)
+                        {
+                            MessageBox.Show("Total quantity should be greater than or equal to order quanity");
+                            gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns["TotalQty"], DBNull.Value);
+                        }
+                        else
+                        {
+                            gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns["BalQty"], (int)totalQty - (int)orQty);
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        void cmbAccompany_GetNotInListValue(object sender, GetNotInListValueEventArgs e)
+        {
+            var cmbAccompany = sender as LookUpEdit;
+
+            if (e.FieldName == "UserDisplayName")
+            {
+                var user = ((List<MstUser>)cmbAccompany.Properties.DataSource)[e.RecordIndex];
+                if (user != null)
+                    e.Value = selectedAccompany = string.Format("{0} {1}", user.FirstName, user.LastName);
             }
         }
 
@@ -92,19 +164,6 @@ namespace raghani_tradelinks
         {
             try
             {
-                int totalQty = 0;
-                if (e.Column.FieldName == "TotalQty")
-                {
-                    for (int i = 0; i < gridView1.DataRowCount; i++)
-                    {
-                        if (gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]) != DBNull.Value)
-                        {
-                            totalQty += Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]));
-                            txtTotalQty.Text = totalQty.ToString();
-                        }
-                    }
-                }
-
                 if (e.Column.FieldName == "Supplier")
                 {
                     if (gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["Supplier"]) != DBNull.Value
@@ -165,7 +224,8 @@ namespace raghani_tradelinks
                     IsDeleted = false,
                     CreatedBy = "admin",
                     CreatedDate = DateTime.Now,
-                    OrderValue = Convert.ToDecimal(txtOrderValue.Text)
+                    OrderValue = Convert.ToDecimal(txtOrderValue.Text),
+                    IsNullify = false
                 };
 
                 List<OrderDetail> orderDetails = new List<OrderDetail>();
@@ -174,11 +234,11 @@ namespace raghani_tradelinks
                 {
                     OrderDetail orderDetail = new OrderDetail();
                     orderDetail.fkSupplierId = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["Supplier"]));
-                    orderDetail.RedQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["RedQty"]));
+                    //orderDetail.RedQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["RedQty"]));
                     orderDetail.OrQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["OrQty"]));
                     orderDetail.TotalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]));
-                    orderDetail.Accompany = Convert.ToString(gridView1.GetRowCellValue(i,gridView1.Columns[ "Accompany"]));
-                    orderDetail.QNK = Convert.ToString(gridView1.GetRowCellValue(i, gridView1.Columns["QNK"]));
+                    orderDetail.Accompany = gridView1.GetRowCellDisplayText(i,gridView1.Columns[ "Accompany"]);
+                    //orderDetail.QNK = Convert.ToString(gridView1.GetRowCellValue(i, gridView1.Columns["QNK"]));
                     orderDetail.BalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["BalQty"]));
                     orderDetails.Add(orderDetail);
                 }
@@ -207,7 +267,7 @@ namespace raghani_tradelinks
             txtOrderValue.Text = string.Empty;
             txtTotalQty.Text = string.Empty;
             gridControl1.DataSource = null;
-            gridView1.Columns.Clear();
+            gridControl1.DataSource = GetOrderDataSource();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
