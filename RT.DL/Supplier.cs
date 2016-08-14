@@ -22,6 +22,7 @@ namespace RT.DL
             this.SupplierProprietors = new HashSet<SupplierProprietor>();
             this.SupplierSisterConcerns = new HashSet<SupplierSisterConcern>();
             this.OrderTransactions = new HashSet<OrderTransaction>();
+            this.SaleLREntries = new HashSet<SaleLREntry>();
         }
     
         public int SupplierId { get; set; }
@@ -58,5 +59,6 @@ namespace RT.DL
         public virtual ICollection<SupplierProprietor> SupplierProprietors { get; set; }
         public virtual ICollection<SupplierSisterConcern> SupplierSisterConcerns { get; set; }
         public virtual ICollection<OrderTransaction> OrderTransactions { get; set; }
+        public virtual ICollection<SaleLREntry> SaleLREntries { get; set; }
     }
 }

@@ -133,6 +133,9 @@
     <Compile Include="Reference.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SaleLREntry.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Supplier.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>

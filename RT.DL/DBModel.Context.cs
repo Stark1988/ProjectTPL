@@ -55,5 +55,6 @@ namespace RT.DL
         public virtual DbSet<SupplierSisterConcern> SupplierSisterConcerns { get; set; }
         public virtual DbSet<CustomerAccountant> CustomerAccountants { get; set; }
         public virtual DbSet<OrderTransaction> OrderTransactions { get; set; }
+        public virtual DbSet<SaleLREntry> SaleLREntries { get; set; }
     }
 }

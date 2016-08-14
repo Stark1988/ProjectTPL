@@ -27,6 +27,7 @@ namespace RT.DL
             this.References = new HashSet<Reference>();
             this.CustomerAccountants = new HashSet<CustomerAccountant>();
             this.OrderTransactions = new HashSet<OrderTransaction>();
+            this.SaleLREntries = new HashSet<SaleLREntry>();
         }
     
         public int CustomerId { get; set; }
@@ -66,5 +67,6 @@ namespace RT.DL
         public virtual ICollection<Reference> References { get; set; }
         public virtual ICollection<CustomerAccountant> CustomerAccountants { get; set; }
         public virtual ICollection<OrderTransaction> OrderTransactions { get; set; }
+        public virtual ICollection<SaleLREntry> SaleLREntries { get; set; }
     }
 }
