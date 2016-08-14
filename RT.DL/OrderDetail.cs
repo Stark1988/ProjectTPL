@@ -14,6 +14,11 @@ namespace RT.DL
     
     public partial class OrderDetail
     {
+        public OrderDetail()
+        {
+            this.OrderTransactions = new HashSet<OrderTransaction>();
+        }
+    
         public int OrderDetailId { get; set; }
         public Nullable<int> fkOrderId { get; set; }
         public Nullable<int> fkSupplierId { get; set; }
@@ -23,8 +28,10 @@ namespace RT.DL
         public string Accompany { get; set; }
         public string QNK { get; set; }
         public Nullable<int> TotalQty { get; set; }
+        public Nullable<bool> IsNullify { get; set; }
     
-        public virtual OrderEntry OrderEntry { get; set; }
         public virtual Supplier Supplier { get; set; }
+        public virtual OrderEntry OrderEntry { get; set; }
+        public virtual ICollection<OrderTransaction> OrderTransactions { get; set; }
     }
 }

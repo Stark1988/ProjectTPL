@@ -293,6 +293,7 @@
           <Property Name="Accompany" Type="nvarchar" MaxLength="200" />
           <Property Name="QNK" Type="nvarchar" MaxLength="150" />
           <Property Name="TotalQty" Type="int" />
+          <Property Name="IsNullify" Type="bit" />
         </EntityType>
         <EntityType Name="OrderEntry">
           <Key>
@@ -308,17 +309,14 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="OrderValue" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="IsNullify" Type="bit" />
         </EntityType>
         <EntityType Name="OrderTransaction">
           <Key>
             <PropertyRef Name="OrderTransactionId" />
           </Key>
-          <Property Name="OrderTransactionId" Type="int" Nullable="false" />
-          <Property Name="fkOrderId" Type="int" />
-          <Property Name="fkSupplierId" Type="int" />
-          <Property Name="fkCustomerId" Type="int" />
-          <Property Name="DespatchQty" Type="int" />
+          <Property Name="OrderTransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkOrderDetailId" Type="int" />
+          <Property Name="DispatchQty" Type="int" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="150" />
@@ -733,39 +731,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderTransaction_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+        <Association Name="FK_OrderTransaction_OrderDetail">
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="0..1" />
           <End Role="OrderTransaction" Type="Self.OrderTransaction" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
+            <Principal Role="OrderDetail">
+              <PropertyRef Name="OrderDetailId" />
             </Principal>
             <Dependent Role="OrderTransaction">
-              <PropertyRef Name="fkCustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderTransaction_OrderEntry">
-          <End Role="OrderEntry" Type="Self.OrderEntry" Multiplicity="0..1" />
-          <End Role="OrderTransaction" Type="Self.OrderTransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrderEntry">
-              <PropertyRef Name="OrderId" />
-            </Principal>
-            <Dependent Role="OrderTransaction">
-              <PropertyRef Name="fkOrderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderTransaction_Supplier">
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
-          <End Role="OrderTransaction" Type="Self.OrderTransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Supplier">
-              <PropertyRef Name="SupplierId" />
-            </Principal>
-            <Dependent Role="OrderTransaction">
-              <PropertyRef Name="fkSupplierId" />
+              <PropertyRef Name="fkOrderDetailId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -993,16 +967,8 @@
             <End Role="Customer" EntitySet="Customer" />
             <End Role="OrderEntry" EntitySet="OrderEntry" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderTransaction_Customer" Association="Self.FK_OrderTransaction_Customer">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="OrderTransaction" EntitySet="OrderTransaction" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderTransaction_OrderEntry" Association="Self.FK_OrderTransaction_OrderEntry">
-            <End Role="OrderEntry" EntitySet="OrderEntry" />
-            <End Role="OrderTransaction" EntitySet="OrderTransaction" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderTransaction_Supplier" Association="Self.FK_OrderTransaction_Supplier">
-            <End Role="Supplier" EntitySet="Supplier" />
+          <AssociationSet Name="FK_OrderTransaction_OrderDetail" Association="Self.FK_OrderTransaction_OrderDetail">
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
             <End Role="OrderTransaction" EntitySet="OrderTransaction" />
           </AssociationSet>
           <AssociationSet Name="FK_Party_Customer" Association="Self.FK_Party_Customer">
@@ -1131,7 +1097,6 @@
             <End Role="MstUser" EntitySet="MstUsers" />
           </AssociationSet>
           <EntitySet Name="OrderDetails" EntityType="TPLDBModel.OrderDetail" />
-          <EntitySet Name="OrderEntries" EntityType="TPLDBModel.OrderEntry" />
           <EntitySet Name="Parties" EntityType="TPLDBModel.Party" />
           <EntitySet Name="References" EntityType="TPLDBModel.Reference" />
           <EntitySet Name="Suppliers" EntityType="TPLDBModel.Supplier" />
@@ -1139,10 +1104,6 @@
           <EntitySet Name="SupplierContactInfoes" EntityType="TPLDBModel.SupplierContactInfo" />
           <EntitySet Name="SupplierProprietors" EntityType="TPLDBModel.SupplierProprietor" />
           <EntitySet Name="SupplierSisterConcerns" EntityType="TPLDBModel.SupplierSisterConcern" />
-          <AssociationSet Name="FK_OrderEntry_Customer" Association="TPLDBModel.FK_OrderEntry_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="OrderEntry" EntitySet="OrderEntries" />
-          </AssociationSet>
           <AssociationSet Name="FK_Party_Customer" Association="TPLDBModel.FK_Party_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Party" EntitySet="Parties" />
@@ -1150,10 +1111,6 @@
           <AssociationSet Name="FK_Reference_Customer" Association="TPLDBModel.FK_Reference_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Reference" EntitySet="References" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderDetail_OrderEntry" Association="TPLDBModel.FK_OrderDetail_OrderEntry">
-            <End Role="OrderEntry" EntitySet="OrderEntries" />
-            <End Role="OrderDetail" EntitySet="OrderDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderDetail_Supplier" Association="TPLDBModel.FK_OrderDetail_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
@@ -1188,19 +1145,6 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerAccountant" EntitySet="CustomerAccountants" />
           </AssociationSet>
-          <EntitySet Name="OrderTransactions" EntityType="TPLDBModel.OrderTransaction" />
-          <AssociationSet Name="FK_OrderTransaction_Customer" Association="TPLDBModel.FK_OrderTransaction_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="OrderTransaction" EntitySet="OrderTransactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderTransaction_OrderEntry" Association="TPLDBModel.FK_OrderTransaction_OrderEntry">
-            <End Role="OrderEntry" EntitySet="OrderEntries" />
-            <End Role="OrderTransaction" EntitySet="OrderTransactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderTransaction_Supplier" Association="TPLDBModel.FK_OrderTransaction_Supplier">
-            <End Role="Supplier" EntitySet="Suppliers" />
-            <End Role="OrderTransaction" EntitySet="OrderTransactions" />
-          </AssociationSet>
           <EntitySet Name="SaleLREntries" EntityType="TPLDBModel.SaleLREntry" />
           <AssociationSet Name="FK_SaleLREntry_ToCustomer" Association="TPLDBModel.FK_SaleLREntry_ToCustomer">
             <End Role="Customer" EntitySet="Customers" />
@@ -1209,6 +1153,20 @@
           <AssociationSet Name="FK_SaleLREntry_ToSupplier" Association="TPLDBModel.FK_SaleLREntry_ToSupplier">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="SaleLREntry" EntitySet="SaleLREntries" />
+          </AssociationSet>
+          <EntitySet Name="OrderEntries" EntityType="TPLDBModel.OrderEntry" />
+          <AssociationSet Name="FK_OrderEntry_Customer" Association="TPLDBModel.FK_OrderEntry_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="OrderEntry" EntitySet="OrderEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_OrderEntry" Association="TPLDBModel.FK_OrderDetail_OrderEntry">
+            <End Role="OrderEntry" EntitySet="OrderEntries" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <EntitySet Name="OrderTransactions" EntityType="TPLDBModel.OrderTransaction" />
+          <AssociationSet Name="FK_OrderTransaction_OrderDetail" Association="TPLDBModel.FK_OrderTransaction_OrderDetail">
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+            <End Role="OrderTransaction" EntitySet="OrderTransactions" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Authorization">
@@ -1262,12 +1220,11 @@
           <NavigationProperty Name="CustomerProprietors" Relationship="TPLDBModel.FK_CustomerProprietor_Customer" FromRole="Customer" ToRole="CustomerProprietor" />
           <NavigationProperty Name="CustomerSalesmen" Relationship="TPLDBModel.FK_CustomerSalesman_Customer" FromRole="Customer" ToRole="CustomerSalesman" />
           <NavigationProperty Name="CustomerSisterConcerns" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="Customer" ToRole="CustomerSisterConcern" />
-          <NavigationProperty Name="OrderEntries" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="Customer" ToRole="OrderEntry" />
           <NavigationProperty Name="Parties" Relationship="TPLDBModel.FK_Party_Customer" FromRole="Customer" ToRole="Party" />
           <NavigationProperty Name="References" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Customer" ToRole="Reference" />
           <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="Customer" ToRole="CustomerAccountant" />
-          <NavigationProperty Name="OrderTransactions" Relationship="TPLDBModel.FK_OrderTransaction_Customer" FromRole="Customer" ToRole="OrderTransaction" />
           <NavigationProperty Name="SaleLREntries" Relationship="TPLDBModel.FK_SaleLREntry_ToCustomer" FromRole="Customer" ToRole="SaleLREntry" />
+          <NavigationProperty Name="OrderEntries" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="Customer" ToRole="OrderEntry" />
           </EntityType>
         <EntityType Name="CustomerContactInfo">
           <Key>
@@ -1735,28 +1692,11 @@
           <Property Name="BalQty" Type="Int32" />
           <Property Name="Accompany" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="QNK" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrderEntry" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderDetail" ToRole="OrderEntry" />
           <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_OrderDetail_Supplier" FromRole="OrderDetail" ToRole="Supplier" />
           <Property Name="TotalQty" Type="Int32" />
-        </EntityType>
-        <EntityType Name="OrderEntry">
-          <Key>
-            <PropertyRef Name="OrderId" />
-          </Key>
-          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderDate" Type="DateTime" Precision="3" />
-          <Property Name="fkCustomerId" Type="Int32" />
-          <Property Name="OrderOrVIsit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="OrderEntry" ToRole="Customer" />
-          <NavigationProperty Name="OrderDetails" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderEntry" ToRole="OrderDetail" />
-          <Property Name="OrderValue" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="OrderTransactions" Relationship="TPLDBModel.FK_OrderTransaction_OrderEntry" FromRole="OrderEntry" ToRole="OrderTransaction" />
           <Property Name="IsNullify" Type="Boolean" />
+          <NavigationProperty Name="OrderEntry" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderDetail" ToRole="OrderEntry" />
+          <NavigationProperty Name="OrderTransactions" Relationship="TPLDBModel.FK_OrderTransaction_OrderDetail" FromRole="OrderDetail" ToRole="OrderTransaction" />
         </EntityType>
         <EntityType Name="Party">
           <Key>
@@ -1822,7 +1762,6 @@
           <NavigationProperty Name="SupplierContactInfoes" Relationship="TPLDBModel.FK_SupplierContactInfo_Supplier" FromRole="Supplier" ToRole="SupplierContactInfo" />
           <NavigationProperty Name="SupplierProprietors" Relationship="TPLDBModel.FK_SupplierProprietor_Supplier" FromRole="Supplier" ToRole="SupplierProprietor" />
           <NavigationProperty Name="SupplierSisterConcerns" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier" FromRole="Supplier" ToRole="SupplierSisterConcern" />
-          <NavigationProperty Name="OrderTransactions" Relationship="TPLDBModel.FK_OrderTransaction_Supplier" FromRole="Supplier" ToRole="OrderTransaction" />
           <NavigationProperty Name="SaleLREntries" Relationship="TPLDBModel.FK_SaleLREntry_ToSupplier" FromRole="Supplier" ToRole="SaleLREntry" />
         </EntityType>
         <EntityType Name="SupplierBillingDetail">
@@ -1883,18 +1822,6 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier" FromRole="SupplierSisterConcern" ToRole="Supplier" />
         </EntityType>
-        <Association Name="FK_OrderEntry_Customer">
-          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="TPLDBModel.OrderEntry" Role="OrderEntry" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="OrderEntry">
-              <PropertyRef Name="fkCustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Party_Customer">
           <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
           <End Type="TPLDBModel.Party" Role="Party" Multiplicity="*" />
@@ -1916,18 +1843,6 @@
             </Principal>
             <Dependent Role="Reference">
               <PropertyRef Name="fkCustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderDetail_OrderEntry">
-          <End Type="TPLDBModel.OrderEntry" Role="OrderEntry" Multiplicity="0..1" />
-          <End Type="TPLDBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrderEntry">
-              <PropertyRef Name="OrderId" />
-            </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="fkOrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2037,59 +1952,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="OrderTransaction">
-          <Key>
-            <PropertyRef Name="OrderTransactionId" />
-          </Key>
-          <Property Name="OrderTransactionId" Type="Int32" Nullable="false" />
-          <Property Name="fkOrderId" Type="Int32" />
-          <Property Name="fkSupplierId" Type="Int32" />
-          <Property Name="fkCustomerId" Type="Int32" />
-          <Property Name="DespatchQty" Type="Int32" />
-          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_OrderTransaction_Customer" FromRole="OrderTransaction" ToRole="Customer" />
-          <NavigationProperty Name="OrderEntry" Relationship="TPLDBModel.FK_OrderTransaction_OrderEntry" FromRole="OrderTransaction" ToRole="OrderEntry" />
-          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_OrderTransaction_Supplier" FromRole="OrderTransaction" ToRole="Supplier" />
-        </EntityType>
-        <Association Name="FK_OrderTransaction_Customer">
-          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="TPLDBModel.OrderTransaction" Role="OrderTransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="OrderTransaction">
-              <PropertyRef Name="fkCustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderTransaction_OrderEntry">
-          <End Type="TPLDBModel.OrderEntry" Role="OrderEntry" Multiplicity="0..1" />
-          <End Type="TPLDBModel.OrderTransaction" Role="OrderTransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrderEntry">
-              <PropertyRef Name="OrderId" />
-            </Principal>
-            <Dependent Role="OrderTransaction">
-              <PropertyRef Name="fkOrderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderTransaction_Supplier">
-          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
-          <End Type="TPLDBModel.OrderTransaction" Role="OrderTransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Supplier">
-              <PropertyRef Name="SupplierId" />
-            </Principal>
-            <Dependent Role="OrderTransaction">
-              <PropertyRef Name="fkSupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="SaleLREntry">
           <Key>
             <PropertyRef Name="SaleId" />
@@ -2146,6 +2008,72 @@
             </Principal>
             <Dependent Role="SaleLREntry">
               <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderEntry">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="OrderOrVIsit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="OrderValue" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="OrderEntry" ToRole="Customer" />
+          <NavigationProperty Name="OrderDetails" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderEntry" ToRole="OrderDetail" />
+        </EntityType>
+        <Association Name="FK_OrderEntry_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.OrderEntry" Role="OrderEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="OrderEntry">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_OrderEntry">
+          <End Type="TPLDBModel.OrderEntry" Role="OrderEntry" Multiplicity="0..1" />
+          <End Type="TPLDBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderEntry">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="fkOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderTransaction">
+          <Key>
+            <PropertyRef Name="OrderTransactionId" />
+          </Key>
+          <Property Name="OrderTransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkOrderDetailId" Type="Int32" />
+          <Property Name="DispatchQty" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OrderDetail" Relationship="TPLDBModel.FK_OrderTransaction_OrderDetail" FromRole="OrderTransaction" ToRole="OrderDetail" />
+        </EntityType>
+        <Association Name="FK_OrderTransaction_OrderDetail">
+          <End Type="TPLDBModel.OrderDetail" Role="OrderDetail" Multiplicity="0..1" />
+          <End Type="TPLDBModel.OrderTransaction" Role="OrderTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetail">
+              <PropertyRef Name="OrderDetailId" />
+            </Principal>
+            <Dependent Role="OrderTransaction">
+              <PropertyRef Name="fkOrderDetailId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2457,6 +2385,7 @@
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="TPLDBModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="IsNullify" ColumnName="IsNullify" />
                 <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
                 <ScalarProperty Name="QNK" ColumnName="QNK" />
                 <ScalarProperty Name="Accompany" ColumnName="Accompany" />
@@ -2466,23 +2395,6 @@
                 <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
                 <ScalarProperty Name="fkOrderId" ColumnName="fkOrderId" />
                 <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderEntries">
-            <EntityTypeMapping TypeName="TPLDBModel.OrderEntry">
-              <MappingFragment StoreEntitySet="OrderEntry">
-                <ScalarProperty Name="IsNullify" ColumnName="IsNullify" />
-                <ScalarProperty Name="OrderValue" ColumnName="OrderValue" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="OrderOrVIsit" ColumnName="OrderOrVIsit" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2613,21 +2525,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderTransactions">
-            <EntityTypeMapping TypeName="TPLDBModel.OrderTransaction">
-              <MappingFragment StoreEntitySet="OrderTransaction">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DespatchQty" ColumnName="DespatchQty" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
-                <ScalarProperty Name="fkOrderId" ColumnName="fkOrderId" />
-                <ScalarProperty Name="OrderTransactionId" ColumnName="OrderTransactionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SaleLREntries">
             <EntityTypeMapping TypeName="TPLDBModel.SaleLREntry">
               <MappingFragment StoreEntitySet="SaleLREntry">
@@ -2659,6 +2556,35 @@
                 <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
                 <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
                 <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderEntries">
+            <EntityTypeMapping TypeName="TPLDBModel.OrderEntry">
+              <MappingFragment StoreEntitySet="OrderEntry">
+                <ScalarProperty Name="OrderValue" ColumnName="OrderValue" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="OrderOrVIsit" ColumnName="OrderOrVIsit" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderTransactions">
+            <EntityTypeMapping TypeName="TPLDBModel.OrderTransaction">
+              <MappingFragment StoreEntitySet="OrderTransaction">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DispatchQty" ColumnName="DispatchQty" />
+                <ScalarProperty Name="fkOrderDetailId" ColumnName="fkOrderDetailId" />
+                <ScalarProperty Name="OrderTransactionId" ColumnName="OrderTransactionId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

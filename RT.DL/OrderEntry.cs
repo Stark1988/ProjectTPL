@@ -17,7 +17,6 @@ namespace RT.DL
         public OrderEntry()
         {
             this.OrderDetails = new HashSet<OrderDetail>();
-            this.OrderTransactions = new HashSet<OrderTransaction>();
         }
     
         public int OrderId { get; set; }
@@ -30,10 +29,8 @@ namespace RT.DL
         public string UpdatedBy { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
         public Nullable<decimal> OrderValue { get; set; }
-        public Nullable<bool> IsNullify { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual ICollection<OrderTransaction> OrderTransactions { get; set; }
     }
 }

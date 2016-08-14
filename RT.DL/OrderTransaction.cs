@@ -15,17 +15,13 @@ namespace RT.DL
     public partial class OrderTransaction
     {
         public int OrderTransactionId { get; set; }
-        public Nullable<int> fkOrderId { get; set; }
-        public Nullable<int> fkSupplierId { get; set; }
-        public Nullable<int> fkCustomerId { get; set; }
-        public Nullable<int> DespatchQty { get; set; }
+        public Nullable<int> fkOrderDetailId { get; set; }
+        public Nullable<int> DispatchQty { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual OrderEntry OrderEntry { get; set; }
-        public virtual Supplier Supplier { get; set; }
+        public virtual OrderDetail OrderDetail { get; set; }
     }
 }
