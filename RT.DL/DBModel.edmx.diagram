@@ -66,6 +66,9 @@
         <AssociationConnector Association="TPLDBModel.FK_OrderTransaction_Customer" />
         <AssociationConnector Association="TPLDBModel.FK_OrderTransaction_OrderEntry" />
         <AssociationConnector Association="TPLDBModel.FK_OrderTransaction_Supplier" />
+        <EntityTypeShape EntityType="TPLDBModel.SaleLREntry" Width="1.5" PointX="17.625" PointY="13.875" />
+        <AssociationConnector Association="TPLDBModel.FK_SaleLREntry_ToCustomer" />
+        <AssociationConnector Association="TPLDBModel.FK_SaleLREntry_ToSupplier" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
