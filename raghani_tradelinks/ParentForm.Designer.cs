@@ -740,7 +740,7 @@
             // 
             this.ParentFormSplitContainer.Panel2.Controls.Add(this.pnlShortCutContainer);
             this.ParentFormSplitContainer.Size = new System.Drawing.Size(1252, 507);
-            this.ParentFormSplitContainer.SplitterDistance = 1129;
+            this.ParentFormSplitContainer.SplitterDistance = 1138;
             this.ParentFormSplitContainer.SplitterWidth = 1;
             this.ParentFormSplitContainer.TabIndex = 20;
             // 
@@ -751,7 +751,7 @@
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.lblTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblTime.Location = new System.Drawing.Point(832, 450);
+            this.lblTime.Location = new System.Drawing.Point(841, 450);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(317, 55);
             this.lblTime.TabIndex = 13;
@@ -780,7 +780,7 @@
             this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCompanyName.Location = new System.Drawing.Point(0, 0);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(1129, 46);
+            this.lblCompanyName.Size = new System.Drawing.Size(1138, 46);
             this.lblCompanyName.TabIndex = 11;
             this.lblCompanyName.Text = "RAGHANI TRADELINKS (P) LTD. (AHMEDABAD)";
             // 
@@ -804,7 +804,7 @@
             this.pnlShortCutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShortCutContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlShortCutContainer.Name = "pnlShortCutContainer";
-            this.pnlShortCutContainer.Size = new System.Drawing.Size(122, 507);
+            this.pnlShortCutContainer.Size = new System.Drawing.Size(113, 507);
             this.pnlShortCutContainer.TabIndex = 15;
             // 
             // lblShortCut13

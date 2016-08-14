@@ -238,7 +238,7 @@ namespace raghani_tradelinks
         {
             try
             {
-                if (!IsOpen("FrmSaleLREntry"))
+                if (!IsOpen("FrmCollectionEntry"))
                 {
                     FrmCollectionEntry _frmCollectionEntry = new FrmCollectionEntry();
                     _frmCollectionEntry.MdiParent = this;

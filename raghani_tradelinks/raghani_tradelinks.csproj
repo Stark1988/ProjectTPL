@@ -474,6 +474,9 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="JsonFiles\collection_entry_source.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="JsonFiles\cust_dealing_type.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

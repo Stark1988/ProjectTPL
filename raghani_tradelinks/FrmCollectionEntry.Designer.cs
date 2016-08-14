@@ -30,13 +30,10 @@
         {
             this.chkNoLRAddressPrinting = new System.Windows.Forms.CheckBox();
             this.lblNoLRAddressPrinting = new DevExpress.XtraEditors.LabelControl();
-            this.cmbPriority = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblPriority = new DevExpress.XtraEditors.LabelControl();
-            this.cmbCashCredit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtPhoneOffice = new System.Windows.Forms.MaskedTextBox();
             this.lblPhoneOffice = new DevExpress.XtraEditors.LabelControl();
             this.lblCashCredit = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtProprietor1 = new System.Windows.Forms.TextBox();
             this.lblProprietor1 = new DevExpress.XtraEditors.LabelControl();
@@ -53,46 +50,49 @@
             this.lblCustomerACNo = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.MainPageScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit5 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.cmbBank = new DevExpress.XtraEditors.LookUpEdit();
+            this.cmbCourier = new DevExpress.XtraEditors.LookUpEdit();
+            this.cmbSupplier = new DevExpress.XtraEditors.LookUpEdit();
+            this.cmbCustomer = new DevExpress.XtraEditors.LookUpEdit();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCashCredit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbSource = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.MainPageScrollableControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBank.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCourier.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSource.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // chkNoLRAddressPrinting
@@ -113,18 +113,6 @@
             this.lblNoLRAddressPrinting.TabIndex = 245;
             this.lblNoLRAddressPrinting.Text = "Direct Y/N)";
             // 
-            // cmbPriority
-            // 
-            this.cmbPriority.Location = new System.Drawing.Point(634, 40);
-            this.cmbPriority.Name = "cmbPriority";
-            this.cmbPriority.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbPriority.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbPriority.Size = new System.Drawing.Size(142, 20);
-            this.cmbPriority.TabIndex = 218;
-            // 
             // lblPriority
             // 
             this.lblPriority.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -133,18 +121,6 @@
             this.lblPriority.Size = new System.Drawing.Size(39, 13);
             this.lblPriority.TabIndex = 217;
             this.lblPriority.Text = "Source";
-            // 
-            // cmbCashCredit
-            // 
-            this.cmbCashCredit.Location = new System.Drawing.Point(189, 67);
-            this.cmbCashCredit.Name = "cmbCashCredit";
-            this.cmbCashCredit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbCashCredit.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbCashCredit.Size = new System.Drawing.Size(325, 20);
-            this.cmbCashCredit.TabIndex = 207;
             // 
             // txtPhoneOffice
             // 
@@ -172,18 +148,6 @@
             this.lblCashCredit.Size = new System.Drawing.Size(81, 13);
             this.lblCashCredit.TabIndex = 188;
             this.lblCashCredit.Text = "Supplier Name";
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(189, 40);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(325, 20);
-            this.comboBoxEdit1.TabIndex = 213;
             // 
             // labelControl5
             // 
@@ -317,6 +281,11 @@
             // MainPageScrollableControl
             // 
             this.MainPageScrollableControl.AutoScrollMinSize = new System.Drawing.Size(0, 600);
+            this.MainPageScrollableControl.Controls.Add(this.cmbSource);
+            this.MainPageScrollableControl.Controls.Add(this.cmbBank);
+            this.MainPageScrollableControl.Controls.Add(this.cmbCourier);
+            this.MainPageScrollableControl.Controls.Add(this.cmbSupplier);
+            this.MainPageScrollableControl.Controls.Add(this.cmbCustomer);
             this.MainPageScrollableControl.Controls.Add(this.textBox9);
             this.MainPageScrollableControl.Controls.Add(this.labelControl11);
             this.MainPageScrollableControl.Controls.Add(this.labelControl10);
@@ -331,13 +300,11 @@
             this.MainPageScrollableControl.Controls.Add(this.gridControl1);
             this.MainPageScrollableControl.Controls.Add(this.labelControl1);
             this.MainPageScrollableControl.Controls.Add(this.labelControl6);
-            this.MainPageScrollableControl.Controls.Add(this.comboBoxEdit2);
             this.MainPageScrollableControl.Controls.Add(this.textBox3);
             this.MainPageScrollableControl.Controls.Add(this.maskedTextBox1);
             this.MainPageScrollableControl.Controls.Add(this.labelControl21);
             this.MainPageScrollableControl.Controls.Add(this.labelControl20);
             this.MainPageScrollableControl.Controls.Add(this.textBox1);
-            this.MainPageScrollableControl.Controls.Add(this.comboBoxEdit5);
             this.MainPageScrollableControl.Controls.Add(this.labelControl4);
             this.MainPageScrollableControl.Controls.Add(this.maskedTextBox4);
             this.MainPageScrollableControl.Controls.Add(this.labelControl19);
@@ -346,14 +313,11 @@
             this.MainPageScrollableControl.Controls.Add(this.labelControl17);
             this.MainPageScrollableControl.Controls.Add(this.chkNoLRAddressPrinting);
             this.MainPageScrollableControl.Controls.Add(this.lblNoLRAddressPrinting);
-            this.MainPageScrollableControl.Controls.Add(this.cmbPriority);
             this.MainPageScrollableControl.Controls.Add(this.lblPriority);
-            this.MainPageScrollableControl.Controls.Add(this.cmbCashCredit);
             this.MainPageScrollableControl.Controls.Add(this.txtPhoneOffice);
             this.MainPageScrollableControl.Controls.Add(this.lblPhoneOffice);
             this.MainPageScrollableControl.Controls.Add(this.lblCashCredit);
             this.MainPageScrollableControl.Controls.Add(this.labelControl5);
-            this.MainPageScrollableControl.Controls.Add(this.comboBoxEdit1);
             this.MainPageScrollableControl.Controls.Add(this.txtProprietor1);
             this.MainPageScrollableControl.Controls.Add(this.lblProprietor1);
             this.MainPageScrollableControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -362,104 +326,145 @@
             this.MainPageScrollableControl.Size = new System.Drawing.Size(1238, 663);
             this.MainPageScrollableControl.TabIndex = 14;
             // 
-            // panel1
+            // cmbBank
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1238, 741);
-            this.panel1.TabIndex = 13;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(762, 16);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 297;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl18.Location = new System.Drawing.Point(671, 16);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(85, 13);
-            this.labelControl18.TabIndex = 296;
-            this.labelControl18.Text = "Returned Draft";
-            // 
-            // maskedTextBox4
-            // 
-            this.maskedTextBox4.HidePromptOnLeave = true;
-            this.maskedTextBox4.Location = new System.Drawing.Point(356, 13);
-            this.maskedTextBox4.Mask = "00-00-0000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(81, 20);
-            this.maskedTextBox4.TabIndex = 299;
-            // 
-            // labelControl19
-            // 
-            this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl19.Location = new System.Drawing.Point(290, 17);
-            this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(60, 13);
-            this.labelControl19.TabIndex = 298;
-            this.labelControl19.Text = "Entry Date";
-            // 
-            // comboBoxEdit5
-            // 
-            this.comboBoxEdit5.Location = new System.Drawing.Point(634, 67);
-            this.comboBoxEdit5.Name = "comboBoxEdit5";
-            this.comboBoxEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbBank.Location = new System.Drawing.Point(189, 128);
+            this.cmbBank.Name = "cmbBank";
+            this.cmbBank.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit5.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit5.Size = new System.Drawing.Size(142, 20);
-            this.comboBoxEdit5.TabIndex = 301;
+            this.cmbBank.Size = new System.Drawing.Size(325, 20);
+            this.cmbBank.TabIndex = 326;
             // 
-            // labelControl4
+            // cmbCourier
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl4.Location = new System.Drawing.Point(549, 70);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(41, 13);
-            this.labelControl4.TabIndex = 300;
-            this.labelControl4.Text = "Courier";
+            this.cmbCourier.Location = new System.Drawing.Point(635, 67);
+            this.cmbCourier.Name = "cmbCourier";
+            this.cmbCourier.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCourier.Size = new System.Drawing.Size(141, 20);
+            this.cmbCourier.TabIndex = 325;
             // 
-            // textBox1
+            // cmbSupplier
             // 
-            this.textBox1.Location = new System.Drawing.Point(256, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(43, 20);
-            this.textBox1.TabIndex = 302;
+            this.cmbSupplier.Location = new System.Drawing.Point(189, 67);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSupplier.Size = new System.Drawing.Size(325, 20);
+            this.cmbSupplier.TabIndex = 323;
             // 
-            // labelControl20
+            // cmbCustomer
             // 
-            this.labelControl20.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl20.Location = new System.Drawing.Point(325, 99);
-            this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(69, 13);
-            this.labelControl20.TabIndex = 303;
-            this.labelControl20.Text = "DD / Chq No.";
+            this.cmbCustomer.Location = new System.Drawing.Point(189, 40);
+            this.cmbCustomer.Name = "cmbCustomer";
+            this.cmbCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCustomer.Size = new System.Drawing.Size(325, 20);
+            this.cmbCustomer.TabIndex = 322;
             // 
-            // maskedTextBox1
+            // textBox9
             // 
-            this.maskedTextBox1.HidePromptOnLeave = true;
-            this.maskedTextBox1.Location = new System.Drawing.Point(634, 95);
-            this.maskedTextBox1.Mask = "00-00-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(142, 20);
-            this.maskedTextBox1.TabIndex = 305;
+            this.textBox9.Location = new System.Drawing.Point(488, 434);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(42, 20);
+            this.textBox9.TabIndex = 321;
             // 
-            // labelControl21
+            // labelControl11
             // 
-            this.labelControl21.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl21.Location = new System.Drawing.Point(549, 99);
-            this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(79, 13);
-            this.labelControl21.TabIndex = 304;
-            this.labelControl21.Text = "DD / Chq Date";
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl11.Location = new System.Drawing.Point(338, 434);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(68, 13);
+            this.labelControl11.TabIndex = 320;
+            this.labelControl11.Text = "No of Copies";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl10.Location = new System.Drawing.Point(338, 407);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(140, 13);
+            this.labelControl10.TabIndex = 319;
+            this.labelControl10.Text = "D/D Printed On Cover No.";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(488, 402);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(141, 20);
+            this.textBox8.TabIndex = 318;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(261, 460);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(42, 20);
+            this.textBox7.TabIndex = 317;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl9.Location = new System.Drawing.Point(95, 464);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(136, 13);
+            this.labelControl9.TabIndex = 316;
+            this.labelControl9.Text = "Print Adjustments (Y/N)";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(261, 432);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(42, 20);
+            this.textBox6.TabIndex = 315;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl8.Location = new System.Drawing.Point(95, 436);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(102, 13);
+            this.labelControl8.TabIndex = 314;
+            this.labelControl8.Text = "Print Details (Y/N)";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(261, 404);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(42, 20);
+            this.textBox5.TabIndex = 313;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl7.Location = new System.Drawing.Point(95, 407);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(156, 13);
+            this.labelControl7.TabIndex = 312;
+            this.labelControl7.Text = "Commission Received (Y/N)";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(147, 373);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(630, 20);
+            this.textBox4.TabIndex = 311;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(95, 167);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(681, 189);
+            this.gridControl1.TabIndex = 310;
+            this.gridControl1.UseEmbeddedNavigator = true;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             // 
             // labelControl1
             // 
@@ -479,18 +484,6 @@
             this.labelControl6.TabIndex = 307;
             this.labelControl6.Text = "Bank Name";
             // 
-            // comboBoxEdit2
-            // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(189, 128);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(325, 20);
-            this.comboBoxEdit2.TabIndex = 308;
-            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(635, 126);
@@ -498,109 +491,101 @@
             this.textBox3.Size = new System.Drawing.Size(141, 20);
             this.textBox3.TabIndex = 306;
             // 
-            // gridControl1
+            // maskedTextBox1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(95, 167);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(681, 189);
-            this.gridControl1.TabIndex = 310;
-            this.gridControl1.UseEmbeddedNavigator = true;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.maskedTextBox1.HidePromptOnLeave = true;
+            this.maskedTextBox1.Location = new System.Drawing.Point(634, 95);
+            this.maskedTextBox1.Mask = "00-00-0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(142, 20);
+            this.maskedTextBox1.TabIndex = 305;
             // 
-            // gridView1
+            // labelControl21
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.labelControl21.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl21.Location = new System.Drawing.Point(549, 99);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(79, 13);
+            this.labelControl21.TabIndex = 304;
+            this.labelControl21.Text = "DD / Chq Date";
             // 
-            // textBox4
+            // labelControl20
             // 
-            this.textBox4.Location = new System.Drawing.Point(147, 373);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(630, 20);
-            this.textBox4.TabIndex = 311;
+            this.labelControl20.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl20.Location = new System.Drawing.Point(325, 99);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(69, 13);
+            this.labelControl20.TabIndex = 303;
+            this.labelControl20.Text = "DD / Chq No.";
             // 
-            // textBox5
+            // textBox1
             // 
-            this.textBox5.Location = new System.Drawing.Point(261, 404);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(42, 20);
-            this.textBox5.TabIndex = 313;
+            this.textBox1.Location = new System.Drawing.Point(256, 96);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(43, 20);
+            this.textBox1.TabIndex = 302;
             // 
-            // labelControl7
+            // labelControl4
             // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl7.Location = new System.Drawing.Point(95, 407);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(156, 13);
-            this.labelControl7.TabIndex = 312;
-            this.labelControl7.Text = "Commission Received (Y/N)";
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl4.Location = new System.Drawing.Point(549, 70);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(41, 13);
+            this.labelControl4.TabIndex = 300;
+            this.labelControl4.Text = "Courier";
             // 
-            // textBox6
+            // maskedTextBox4
             // 
-            this.textBox6.Location = new System.Drawing.Point(261, 432);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(42, 20);
-            this.textBox6.TabIndex = 315;
+            this.maskedTextBox4.HidePromptOnLeave = true;
+            this.maskedTextBox4.Location = new System.Drawing.Point(356, 13);
+            this.maskedTextBox4.Mask = "00-00-0000";
+            this.maskedTextBox4.Name = "maskedTextBox4";
+            this.maskedTextBox4.Size = new System.Drawing.Size(81, 20);
+            this.maskedTextBox4.TabIndex = 299;
             // 
-            // labelControl8
+            // labelControl19
             // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl8.Location = new System.Drawing.Point(95, 436);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(102, 13);
-            this.labelControl8.TabIndex = 314;
-            this.labelControl8.Text = "Print Details (Y/N)";
+            this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl19.Location = new System.Drawing.Point(290, 17);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(60, 13);
+            this.labelControl19.TabIndex = 298;
+            this.labelControl19.Text = "Entry Date";
             // 
-            // textBox7
+            // checkBox2
             // 
-            this.textBox7.Location = new System.Drawing.Point(261, 460);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(42, 20);
-            this.textBox7.TabIndex = 317;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(762, 16);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 297;
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // labelControl9
+            // labelControl18
             // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl9.Location = new System.Drawing.Point(95, 464);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(136, 13);
-            this.labelControl9.TabIndex = 316;
-            this.labelControl9.Text = "Print Adjustments (Y/N)";
+            this.labelControl18.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl18.Location = new System.Drawing.Point(671, 16);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(85, 13);
+            this.labelControl18.TabIndex = 296;
+            this.labelControl18.Text = "Returned Draft";
             // 
-            // labelControl10
+            // panel1
             // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl10.Location = new System.Drawing.Point(338, 407);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(140, 13);
-            this.labelControl10.TabIndex = 319;
-            this.labelControl10.Text = "D/D Printed On Cover No.";
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1238, 741);
+            this.panel1.TabIndex = 13;
             // 
-            // textBox8
+            // cmbSource
             // 
-            this.textBox8.Location = new System.Drawing.Point(488, 402);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(141, 20);
-            this.textBox8.TabIndex = 318;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(488, 434);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(42, 20);
-            this.textBox9.TabIndex = 321;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl11.Location = new System.Drawing.Point(338, 434);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(68, 13);
-            this.labelControl11.TabIndex = 320;
-            this.labelControl11.Text = "No of Copies";
+            this.cmbSource.Location = new System.Drawing.Point(634, 40);
+            this.cmbSource.Name = "cmbSource";
+            this.cmbSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSource.Size = new System.Drawing.Size(142, 20);
+            this.cmbSource.TabIndex = 327;
             // 
             // FrmCollectionEntry
             // 
@@ -616,9 +601,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCollectionEntry_FormClosing);
             this.Load += new System.EventHandler(this.FrmCollectionEntry_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCashCredit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
@@ -627,10 +609,13 @@
             this.panelControl1.PerformLayout();
             this.MainPageScrollableControl.ResumeLayout(false);
             this.MainPageScrollableControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBank.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCourier.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCustomer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSource.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -639,13 +624,10 @@
 
         private System.Windows.Forms.CheckBox chkNoLRAddressPrinting;
         private DevExpress.XtraEditors.LabelControl lblNoLRAddressPrinting;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbPriority;
         private DevExpress.XtraEditors.LabelControl lblPriority;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbCashCredit;
         private System.Windows.Forms.MaskedTextBox txtPhoneOffice;
         private DevExpress.XtraEditors.LabelControl lblPhoneOffice;
         private DevExpress.XtraEditors.LabelControl lblCashCredit;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.TextBox txtProprietor1;
         private DevExpress.XtraEditors.LabelControl lblProprietor1;
@@ -665,7 +647,6 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.LabelControl labelControl20;
         private System.Windows.Forms.TextBox textBox1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.MaskedTextBox maskedTextBox4;
         private DevExpress.XtraEditors.LabelControl labelControl19;
@@ -673,7 +654,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private DevExpress.XtraEditors.LabelControl labelControl21;
@@ -690,5 +670,10 @@
         private System.Windows.Forms.TextBox textBox5;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private System.Windows.Forms.TextBox textBox4;
+        private DevExpress.XtraEditors.LookUpEdit cmbBank;
+        private DevExpress.XtraEditors.LookUpEdit cmbCourier;
+        private DevExpress.XtraEditors.LookUpEdit cmbSupplier;
+        private DevExpress.XtraEditors.LookUpEdit cmbCustomer;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbSource;
     }
 }
