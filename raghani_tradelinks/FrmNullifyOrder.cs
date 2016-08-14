@@ -27,35 +27,7 @@ namespace raghani_tradelinks
         {
             try
             {
-                //gridControl1.DataSource = GetOrderDataSource();
-                List<OrderForSupplier> ordersWithBalQty = db.OrderDetails
-                                            .Where(od => od.OrderEntry.IsDeleted == false && od.OrderEntry.IsNullify == false)
-                                            .GroupBy(od => od.fkSupplierId)
-                                            .Select(orderForSupplier => new OrderForSupplier
-                                            {
-                                                SupplierId = orderForSupplier.FirstOrDefault().fkSupplierId,
-                                                SupplierName = orderForSupplier.FirstOrDefault().Supplier.SupplierName,
-                                                BalanceQty = orderForSupplier.Sum(o => o.BalQty)
-                                            }).ToList();
-
-                grdCmbPendingOrders.Properties.DataSource = ordersWithBalQty;
-                grdCmbPendingOrders.Properties.DisplayMember = "SupplierName";
-                grdCmbPendingOrders.Properties.ValueMember = "SupplierId";
-                grdCmbPendingOrders.Properties.View.OptionsBehavior.AutoPopulateColumns = false;
-
-                GridColumn col1 = grdCmbPendingOrders.Properties.View.Columns.AddField("SupplierName");
-                col1.VisibleIndex = 0;
-                col1.Caption = "Supplier Name";
-                // A column to display the values of the ProductName field.
-                GridColumn col2 = grdCmbPendingOrders.Properties.View.Columns.AddField("BalanceQty");
-                col2.VisibleIndex = 1;
-                col2.Caption = "Balance Qty";
-                
-                grdCmbPendingOrders.Properties.NullText = "Select Supplier";
-                // Set column widths according to their contents.
-                grdCmbPendingOrders.Properties.View.BestFitColumns();
-                // Specify the total dropdown width.
-                grdCmbPendingOrders.Properties.PopupFormWidth = 300;
+                PopulateGridComboPendingOrders();
 
                 grdCmbPendingOrders.EditValueChanged += grdCmbPendingOrders_EditValueChanged;
 
@@ -66,6 +38,45 @@ namespace raghani_tradelinks
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void PopulateGridComboPendingOrders()
+        {
+            if (grdCmbPendingOrders.Properties.View.Columns != null)
+                grdCmbPendingOrders.Properties.View.Columns.Clear();
+
+            var dbTransations = db.OrderTransactions.Where(ot => ot.OrderDetail.OrderEntry.IsDeleted == false && ot.OrderDetail.IsNullify == false);
+
+            List<OrderForSupplier> ordersWithBalQty = db.OrderDetails
+                                        .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false)
+                                        .GroupBy(od => od.fkSupplierId)
+                                        .Select(orderForSupplier => new OrderForSupplier
+                                        {
+                                            SupplierId = orderForSupplier.FirstOrDefault().fkSupplierId,
+                                            SupplierName = orderForSupplier.FirstOrDefault().Supplier.SupplierName,
+                                            BalanceQty = (orderForSupplier.Sum(o => o.OrQty) != null ? orderForSupplier.Sum(o => o.OrQty) : 0)
+                                                            - orderForSupplier.Sum(od => od.OrderTransactions
+                                                                            .Sum(trans => trans.DispatchQty != null ? trans.DispatchQty : 0))
+                                        }).ToList();
+
+            grdCmbPendingOrders.Properties.DataSource = ordersWithBalQty;
+            grdCmbPendingOrders.Properties.DisplayMember = "SupplierName";
+            grdCmbPendingOrders.Properties.ValueMember = "SupplierId";
+            grdCmbPendingOrders.Properties.View.OptionsBehavior.AutoPopulateColumns = false;
+
+            GridColumn col1 = grdCmbPendingOrders.Properties.View.Columns.AddField("SupplierName");
+            col1.VisibleIndex = 0;
+            col1.Caption = "Supplier Name";
+            // A column to display the values of the ProductName field.
+            GridColumn col2 = grdCmbPendingOrders.Properties.View.Columns.AddField("BalanceQty");
+            col2.VisibleIndex = 1;
+            col2.Caption = "Balance Qty";
+
+            grdCmbPendingOrders.Properties.NullText = "Select Supplier";
+            // Set column widths according to their contents.
+            grdCmbPendingOrders.Properties.View.BestFitColumns();
+            // Specify the total dropdown width.
+            grdCmbPendingOrders.Properties.PopupFormWidth = 300;
         }
 
         void grdCmbPendingOrders_EditValueChanged(object sender, EventArgs e)
@@ -88,23 +99,31 @@ namespace raghani_tradelinks
         {
             int selectedSupplierId = (int)grdCmbPendingOrders.EditValue;
 
+            var cs = db.OrderDetails
+                .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false && od.fkSupplierId == selectedSupplierId);
+
             List<OrderByCustomer> ordersByCustomer = db.OrderDetails
-                .Where(od => od.OrderEntry.IsDeleted == false && od.OrderEntry.IsNullify == false && od.fkSupplierId == selectedSupplierId)                
+                .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false && od.fkSupplierId == selectedSupplierId)
                 .Select(orderByCustomer => new OrderByCustomer
                 {
                     OrderId = orderByCustomer.OrderEntry.OrderId,
+                    OrderDetailId = orderByCustomer.OrderDetailId,
                     CustomerId = orderByCustomer.OrderEntry.fkCustomerId,
                     CustomerName = orderByCustomer.OrderEntry.Customer.CustomerName,
                     SupplierId = orderByCustomer.fkSupplierId,
                     OrderDate = orderByCustomer.OrderEntry.OrderDate,
                     OrderQty = orderByCustomer.OrQty,
-                    DispatchQty = orderByCustomer.OrderEntry.OrderTransactions.Sum(ot => ot.DespatchQty),
-                    BalanceQty = orderByCustomer.BalQty,
+                    DispatchQty = orderByCustomer.OrderTransactions
+                                    .Sum(ot => ot.DispatchQty != null ? ot.DispatchQty : 0),
+                    BalanceQty = (orderByCustomer.OrQty != null ? orderByCustomer.OrQty : 0)
+                                    - orderByCustomer.OrderTransactions
+                                                     .Sum(ot => ot.DispatchQty != null ? ot.DispatchQty : 0),
                     IsNullify = false
                 }).ToList();
 
             gridControl1.DataSource = ordersByCustomer;
             gridOrderByCustomer.Columns["OrderId"].Visible = false;
+            gridOrderByCustomer.Columns["OrderDetailId"].Visible = false;
             gridOrderByCustomer.Columns["CustomerId"].Visible = false;
             gridOrderByCustomer.Columns["SupplierId"].Visible = false;
             gridOrderByCustomer.Columns["IsNullify"].Caption = "Nullify Method/Qty";
@@ -113,6 +132,7 @@ namespace raghani_tradelinks
         void gridOrderByCustomer_ShowingEditor(object sender, CancelEventArgs e)
         {
             if (gridOrderByCustomer.FocusedColumn.FieldName == "OrderId"
+                || gridOrderByCustomer.FocusedColumn.FieldName == "OrderDetailId"
                 || gridOrderByCustomer.FocusedColumn.FieldName == "CustomerId"
                 || gridOrderByCustomer.FocusedColumn.FieldName == "CustomerName"
                 || gridOrderByCustomer.FocusedColumn.FieldName == "SupplierId"
@@ -138,9 +158,9 @@ namespace raghani_tradelinks
                 {
                     List<OrderByCustomer> ordersByCustomer = (List<OrderByCustomer>)gridControl1.DataSource;
 
-                    foreach(var orderByCust in ordersByCustomer)
+                    foreach (var orderByCust in ordersByCustomer)
                     {
-                        db.OrderEntries.FirstOrDefault(o => o.OrderId == orderByCust.OrderId).IsNullify = orderByCust.IsNullify;
+                        db.OrderDetails.FirstOrDefault(od => od.OrderDetailId == orderByCust.OrderDetailId).IsNullify = orderByCust.IsNullify;
                     }
 
                     if (db.SaveChanges() > 0)
@@ -150,6 +170,7 @@ namespace raghani_tradelinks
 
                     gridOrderByCustomer.Columns.Clear();
                     PopulateGridOrderByCustomer();
+                    PopulateGridComboPendingOrders();
                 }
                 else
                 {
@@ -178,6 +199,7 @@ namespace raghani_tradelinks
     public class OrderByCustomer
     {
         public int OrderId { get; set; }
+        public int OrderDetailId { get; set; }
         public int? CustomerId { get; set; }
         public string CustomerName { get; set; }
         public int? SupplierId { get; set; }

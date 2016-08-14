@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtOrderValue = new DevExpress.XtraEditors.TextEdit();
@@ -46,7 +47,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblRefType = new DevExpress.XtraEditors.LabelControl();
             this.txtSpokenDt1 = new System.Windows.Forms.MaskedTextBox();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderValue.Properties)).BeginInit();
             this.panel3.SuspendLayout();
@@ -77,7 +78,7 @@
             this.txtOrderValue.Location = new System.Drawing.Point(458, 10);
             this.txtOrderValue.Name = "txtOrderValue";
             this.txtOrderValue.Size = new System.Drawing.Size(123, 20);
-            this.txtOrderValue.TabIndex = 248;
+            this.txtOrderValue.TabIndex = 5;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Please enter Order Value";
             this.dxValidationProvider1.SetValidationRule(this.txtOrderValue, conditionValidationRule1);
@@ -95,7 +96,7 @@
             this.txtTotalQty.Location = new System.Drawing.Point(250, 10);
             this.txtTotalQty.Name = "txtTotalQty";
             this.txtTotalQty.Size = new System.Drawing.Size(119, 20);
-            this.txtTotalQty.TabIndex = 246;
+            this.txtTotalQty.TabIndex = 4;
             // 
             // labelControl3
             // 
@@ -110,7 +111,7 @@
             this.btnSave.Location = new System.Drawing.Point(670, 8);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -140,7 +141,7 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(1238, 657);
-            this.gridControl1.TabIndex = 1;
+            this.gridControl1.TabIndex = 3;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -181,7 +182,7 @@
             this.cmbCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbCustomer.Size = new System.Drawing.Size(278, 20);
-            this.cmbCustomer.TabIndex = 245;
+            this.cmbCustomer.TabIndex = 1;
             // 
             // cmbOrderVisit
             // 
@@ -190,7 +191,7 @@
             this.cmbOrderVisit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbOrderVisit.Size = new System.Drawing.Size(144, 20);
-            this.cmbOrderVisit.TabIndex = 240;
+            this.cmbOrderVisit.TabIndex = 2;
             // 
             // labelControl1
             // 
@@ -215,7 +216,7 @@
             this.txtSpokenDt1.Mask = "00-00-0000";
             this.txtSpokenDt1.Name = "txtSpokenDt1";
             this.txtSpokenDt1.Size = new System.Drawing.Size(86, 20);
-            this.txtSpokenDt1.TabIndex = 236;
+            this.txtSpokenDt1.TabIndex = 0;
             // 
             // FrmNewOrder
             // 

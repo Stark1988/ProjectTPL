@@ -224,8 +224,7 @@ namespace raghani_tradelinks
                     IsDeleted = false,
                     CreatedBy = "admin",
                     CreatedDate = DateTime.Now,
-                    OrderValue = Convert.ToDecimal(txtOrderValue.Text),
-                    IsNullify = false
+                    OrderValue = Convert.ToDecimal(txtOrderValue.Text)
                 };
 
                 List<OrderDetail> orderDetails = new List<OrderDetail>();
@@ -234,12 +233,17 @@ namespace raghani_tradelinks
                 {
                     OrderDetail orderDetail = new OrderDetail();
                     orderDetail.fkSupplierId = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["Supplier"]));
+                    orderDetail.Accompany = gridView1.GetRowCellDisplayText(i, gridView1.Columns["Accompany"]);
+
                     //orderDetail.RedQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["RedQty"]));
-                    orderDetail.OrQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["OrQty"]));
-                    orderDetail.TotalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]));
-                    orderDetail.Accompany = gridView1.GetRowCellDisplayText(i,gridView1.Columns[ "Accompany"]);
                     //orderDetail.QNK = Convert.ToString(gridView1.GetRowCellValue(i, gridView1.Columns["QNK"]));
+                    orderDetail.OrQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["OrQty"]));
+                    orderDetail.OrQty = orderDetail.OrQty.HasValue ? orderDetail.OrQty : 0;
+                    orderDetail.TotalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["TotalQty"]));
+                    orderDetail.TotalQty = orderDetail.TotalQty.HasValue ? orderDetail.TotalQty : 0;
                     orderDetail.BalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["BalQty"]));
+                    orderDetail.BalQty = orderDetail.BalQty.HasValue ? orderDetail.BalQty : 0;
+                    orderDetail.IsNullify = false;
                     orderDetails.Add(orderDetail);
                 }
 
