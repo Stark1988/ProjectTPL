@@ -54,9 +54,11 @@ namespace raghani_tradelinks
                                         {
                                             SupplierId = orderForSupplier.FirstOrDefault().fkSupplierId,
                                             SupplierName = orderForSupplier.FirstOrDefault().Supplier.SupplierName,
-                                            BalanceQty = (orderForSupplier.Sum(o => o.OrQty) != null ? orderForSupplier.Sum(o => o.OrQty) : 0)
+                                            BalanceQty = (orderForSupplier.Select(o=>o.OrQty).DefaultIfEmpty(0).Sum())
                                                             - orderForSupplier.Sum(od => od.OrderTransactions
-                                                                            .Sum(trans => trans.DispatchQty != null ? trans.DispatchQty : 0))
+                                                                            .Select(trans=> trans.DispatchQty)
+                                                                            .DefaultIfEmpty(0)
+                                                                            .Sum())
                                         }).ToList();
 
             grdCmbPendingOrders.Properties.DataSource = ordersWithBalQty;
@@ -114,10 +116,14 @@ namespace raghani_tradelinks
                     OrderDate = orderByCustomer.OrderEntry.OrderDate,
                     OrderQty = orderByCustomer.OrQty,
                     DispatchQty = orderByCustomer.OrderTransactions
-                                    .Sum(ot => ot.DispatchQty != null ? ot.DispatchQty : 0),
-                    BalanceQty = (orderByCustomer.OrQty != null ? orderByCustomer.OrQty : 0)
+                                                    .Select(ot => ot.DispatchQty)
+                                                    .DefaultIfEmpty(0)
+                                                    .Sum(),
+                    BalanceQty = orderByCustomer.OrQty
                                     - orderByCustomer.OrderTransactions
-                                                     .Sum(ot => ot.DispatchQty != null ? ot.DispatchQty : 0),
+                                                        .Select(ot => ot.DispatchQty)
+                                                        .DefaultIfEmpty(0)
+                                                        .Sum(),
                     IsNullify = false
                 }).ToList();
 
