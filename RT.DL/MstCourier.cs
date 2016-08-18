@@ -14,6 +14,11 @@ namespace RT.DL
     
     public partial class MstCourier
     {
+        public MstCourier()
+        {
+            this.CollectionEntries = new HashSet<CollectionEntry>();
+        }
+    
         public int CourierMasterId { get; set; }
         public string CourierName { get; set; }
         public string ShortName { get; set; }
@@ -34,5 +39,6 @@ namespace RT.DL
     
         public virtual MstBranch MstBranch { get; set; }
         public virtual MstCity MstCity { get; set; }
+        public virtual ICollection<CollectionEntry> CollectionEntries { get; set; }
     }
 }

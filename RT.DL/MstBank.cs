@@ -14,6 +14,11 @@ namespace RT.DL
     
     public partial class MstBank
     {
+        public MstBank()
+        {
+            this.CollectionEntries = new HashSet<CollectionEntry>();
+        }
+    
         public int BankId { get; set; }
         public string BankName { get; set; }
         public string BankCode { get; set; }
@@ -22,5 +27,7 @@ namespace RT.DL
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+    
+        public virtual ICollection<CollectionEntry> CollectionEntries { get; set; }
     }
 }

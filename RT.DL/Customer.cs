@@ -25,8 +25,10 @@ namespace RT.DL
             this.Parties = new HashSet<Party>();
             this.References = new HashSet<Reference>();
             this.CustomerAccountants = new HashSet<CustomerAccountant>();
-            this.SaleLREntries = new HashSet<SaleLREntry>();
             this.OrderEntries = new HashSet<OrderEntry>();
+            this.CollectionEntries = new HashSet<CollectionEntry>();
+            this.SaleLREntries = new HashSet<SaleLREntry>();
+            this.Ledgers = new HashSet<Ledger>();
         }
     
         public int CustomerId { get; set; }
@@ -64,7 +66,9 @@ namespace RT.DL
         public virtual ICollection<Party> Parties { get; set; }
         public virtual ICollection<Reference> References { get; set; }
         public virtual ICollection<CustomerAccountant> CustomerAccountants { get; set; }
-        public virtual ICollection<SaleLREntry> SaleLREntries { get; set; }
         public virtual ICollection<OrderEntry> OrderEntries { get; set; }
+        public virtual ICollection<CollectionEntry> CollectionEntries { get; set; }
+        public virtual ICollection<SaleLREntry> SaleLREntries { get; set; }
+        public virtual ICollection<Ledger> Ledgers { get; set; }
     }
 }

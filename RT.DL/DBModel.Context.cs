@@ -53,8 +53,11 @@ namespace RT.DL
         public virtual DbSet<SupplierProprietor> SupplierProprietors { get; set; }
         public virtual DbSet<SupplierSisterConcern> SupplierSisterConcerns { get; set; }
         public virtual DbSet<CustomerAccountant> CustomerAccountants { get; set; }
-        public virtual DbSet<SaleLREntry> SaleLREntries { get; set; }
         public virtual DbSet<OrderEntry> OrderEntries { get; set; }
         public virtual DbSet<OrderTransaction> OrderTransactions { get; set; }
+        public virtual DbSet<CollectionEntry> CollectionEntries { get; set; }
+        public virtual DbSet<CollectionEntryDetail> CollectionEntryDetails { get; set; }
+        public virtual DbSet<SaleLREntry> SaleLREntries { get; set; }
+        public virtual DbSet<Ledger> Ledgers { get; set; }
     }
 }

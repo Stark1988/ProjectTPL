@@ -37,6 +37,7 @@ namespace RT.DL
         public string Narration { get; set; }
         public Nullable<bool> IsLocked { get; set; }
         public Nullable<bool> IsCreditLimitSet { get; set; }
+        public Nullable<bool> IsDirectSale { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
