@@ -29,6 +29,7 @@ namespace RT.DL
         public string QNK { get; set; }
         public Nullable<int> TotalQty { get; set; }
         public Nullable<bool> IsNullify { get; set; }
+        public Nullable<bool> IsFullyExecuted { get; set; }
     
         public virtual Supplier Supplier { get; set; }
         public virtual OrderEntry OrderEntry { get; set; }

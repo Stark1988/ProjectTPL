@@ -64,19 +64,30 @@
         <AssociationConnector Association="TPLDBModel.FK_OrderDetail_OrderEntry" />
         <EntityTypeShape EntityType="TPLDBModel.OrderTransaction" Width="1.5" PointX="19.875" PointY="10.375" />
         <AssociationConnector Association="TPLDBModel.FK_OrderTransaction_OrderDetail" />
-        <EntityTypeShape EntityType="TPLDBModel.CollectionEntry" Width="1.5" PointX="17.625" PointY="1.375" />
-        <EntityTypeShape EntityType="TPLDBModel.CollectionEntryDetail" Width="1.5" PointX="19.875" PointY="3" />
         <EntityTypeShape EntityType="TPLDBModel.SaleLREntry" Width="1.5" PointX="17.625" PointY="14.875" />
-        <AssociationConnector Association="TPLDBModel.FK_CollectionEntry_Customer" />
-        <AssociationConnector Association="TPLDBModel.FK_CollectionEntry_MstBank" />
-        <AssociationConnector Association="TPLDBModel.FK_CollectionEntry_MstCourier" />
-        <AssociationConnector Association="TPLDBModel.FK_CollectionEntry_Supplier" />
-        <AssociationConnector Association="TPLDBModel.FK_CollectionEntryDetail_CollectionEntry" />
         <AssociationConnector Association="TPLDBModel.FK_SaleLREntry_ToCustomer" />
         <AssociationConnector Association="TPLDBModel.FK_SaleLREntry_ToSupplier" />
         <EntityTypeShape EntityType="TPLDBModel.Ledger" Width="1.5" PointX="20.625" PointY="13.875" />
         <AssociationConnector Association="TPLDBModel.FK_Ledger_Customer" />
         <AssociationConnector Association="TPLDBModel.FK_Ledger_Supplier" />
+        <EntityTypeShape EntityType="TPLDBModel.DiscountEntry" Width="1.5" PointX="22.625" PointY="7" />
+        <EntityTypeShape EntityType="TPLDBModel.GRNDebitNote" Width="1.5" PointX="23.625" PointY="14" />
+        <EntityTypeShape EntityType="TPLDBModel.ReturnDraftCheque" Width="1.5" PointX="20.625" PointY="18.375" />
+        <EntityTypeShape EntityType="TPLDBModel.ReturnDraftChequeBillDetail" Width="1.5" PointX="22.875" PointY="20.625" />
+        <AssociationConnector Association="TPLDBModel.FK_DiscountEntry_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_GRNDebitNote_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_ReturnDraftCheque_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_DiscountEntry_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_GRNDebitNote_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_ReturnDraftCheque_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_ReturnDraftChequeBillDetail_ReturnDraftCheque" />
+        <EntityTypeShape EntityType="TPLDBModel.CollectionEntry" Width="1.5" PointX="17.625" PointY="1.75" />
+        <EntityTypeShape EntityType="TPLDBModel.CollectionEntryDetail" Width="1.5" PointX="19.875" PointY="3.375" />
+        <AssociationConnector Association="TPLDBModel.FK_CollectionEntry_Customer" />
+        <AssociationConnector Association="TPLDBModel.FK_CollectionEntry_MstBank" />
+        <AssociationConnector Association="TPLDBModel.FK_CollectionEntry_MstCourier" />
+        <AssociationConnector Association="TPLDBModel.FK_CollectionEntry_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_CollectionEntryDetail_CollectionEntry" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

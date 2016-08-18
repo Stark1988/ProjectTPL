@@ -26,9 +26,12 @@ namespace RT.DL
             this.References = new HashSet<Reference>();
             this.CustomerAccountants = new HashSet<CustomerAccountant>();
             this.OrderEntries = new HashSet<OrderEntry>();
-            this.CollectionEntries = new HashSet<CollectionEntry>();
             this.SaleLREntries = new HashSet<SaleLREntry>();
             this.Ledgers = new HashSet<Ledger>();
+            this.DiscountEntries = new HashSet<DiscountEntry>();
+            this.GRNDebitNotes = new HashSet<GRNDebitNote>();
+            this.ReturnDraftCheques = new HashSet<ReturnDraftCheque>();
+            this.CollectionEntries = new HashSet<CollectionEntry>();
         }
     
         public int CustomerId { get; set; }
@@ -67,8 +70,11 @@ namespace RT.DL
         public virtual ICollection<Reference> References { get; set; }
         public virtual ICollection<CustomerAccountant> CustomerAccountants { get; set; }
         public virtual ICollection<OrderEntry> OrderEntries { get; set; }
-        public virtual ICollection<CollectionEntry> CollectionEntries { get; set; }
         public virtual ICollection<SaleLREntry> SaleLREntries { get; set; }
         public virtual ICollection<Ledger> Ledgers { get; set; }
+        public virtual ICollection<DiscountEntry> DiscountEntries { get; set; }
+        public virtual ICollection<GRNDebitNote> GRNDebitNotes { get; set; }
+        public virtual ICollection<ReturnDraftCheque> ReturnDraftCheques { get; set; }
+        public virtual ICollection<CollectionEntry> CollectionEntries { get; set; }
     }
 }

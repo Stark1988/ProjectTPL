@@ -24,7 +24,7 @@
           <Key>
             <PropertyRef Name="CollectionEntryId" />
           </Key>
-          <Property Name="CollectionEntryId" Type="int" Nullable="false" />
+          <Property Name="CollectionEntryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IsLocked" Type="nchar" MaxLength="10" />
           <Property Name="DraftReceiptDate" Type="datetime" />
           <Property Name="EntryDate" Type="datetime" />
@@ -55,7 +55,7 @@
           <Key>
             <PropertyRef Name="CollectionEntryDetailId" />
           </Key>
-          <Property Name="CollectionEntryDetailId" Type="int" Nullable="false" />
+          <Property Name="CollectionEntryDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCollectionEntryId" Type="int" />
           <Property Name="RefType" Type="nvarchar" MaxLength="100" />
           <Property Name="RefNumber" Type="nvarchar" MaxLength="100" />
@@ -180,6 +180,58 @@
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="DiscountEntry">
+          <Key>
+            <PropertyRef Name="DiscountId" />
+          </Key>
+          <Property Name="DiscountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefType" Type="nvarchar" MaxLength="150" />
+          <Property Name="RefNumber" Type="nvarchar" MaxLength="150" />
+          <Property Name="RefDate" Type="datetime" />
+          <Property Name="RefAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="DiscountDate" Type="datetime" />
+          <Property Name="Source" Type="nvarchar" MaxLength="200" />
+          <Property Name="AdjustedAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Narration" Type="nvarchar" MaxLength="200" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="DiscountDocNo" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsLocked" Type="bit" />
+        </EntityType>
+        <EntityType Name="GRNDebitNote">
+          <Key>
+            <PropertyRef Name="GRNDebitNoteId" />
+          </Key>
+          <Property Name="GRNDebitNoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsLocked" Type="bit" />
+          <Property Name="GRNDebitNoteDate" Type="datetime" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="Source" Type="nvarchar" MaxLength="150" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="GRNNumber" Type="nvarchar" MaxLength="150" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RefType" Type="nvarchar" MaxLength="150" />
+          <Property Name="RefNumber" Type="nvarchar" MaxLength="200" />
+          <Property Name="RefDate" Type="datetime" />
+          <Property Name="RefAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AdjustedAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Narration" Type="nvarchar" MaxLength="250" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="150" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
         </EntityType>
@@ -360,6 +412,7 @@
           <Property Name="QNK" Type="nvarchar" MaxLength="150" />
           <Property Name="TotalQty" Type="int" />
           <Property Name="IsNullify" Type="bit" />
+          <Property Name="IsFullyExecuted" Type="bit" />
         </EntityType>
         <EntityType Name="OrderEntry">
           <Key>
@@ -411,6 +464,37 @@
           <Property Name="TourBy" Type="nvarchar" MaxLength="50" />
           <Property Name="TourDate" Type="datetime" />
           <Property Name="fkCustomerId" Type="int" />
+        </EntityType>
+        <EntityType Name="ReturnDraftCheque">
+          <Key>
+            <PropertyRef Name="ReturnDraftChequeId" />
+          </Key>
+          <Property Name="ReturnDraftChequeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="DraftOrCheque" Type="nvarchar" MaxLength="10" />
+          <Property Name="fkCustomerId" Type="int" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="Documents" Type="nvarchar" MaxLength="200" />
+          <Property Name="Enclosed" Type="nvarchar" MaxLength="200" />
+          <Property Name="Type" Type="nvarchar" MaxLength="200" />
+          <Property Name="PrintLetter" Type="nvarchar" MaxLength="10" />
+          <Property Name="NoOfCopies" Type="int" />
+          <Property Name="DDChequeNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="DDChequeDate" Type="datetime" />
+          <Property Name="DrawnOn" Type="datetime" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="ReturnDraftChequeBillDetail">
+          <Key>
+            <PropertyRef Name="ReturnDraftChequeBillId" />
+          </Key>
+          <Property Name="ReturnDraftChequeBillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkReturnDraftChequeId" Type="int" />
+          <Property Name="BillNo" Type="nvarchar" MaxLength="150" />
+          <Property Name="BillDate" Type="datetime" />
+          <Property Name="BillAmount" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="SaleLREntry">
           <Key>
@@ -738,6 +822,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DiscountEntry_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="DiscountEntry" Type="Self.DiscountEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="DiscountEntry">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiscountEntry_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="DiscountEntry" Type="Self.DiscountEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="DiscountEntry">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRNDebitNote_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="GRNDebitNote" Type="Self.GRNDebitNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="GRNDebitNote">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRNDebitNote_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="GRNDebitNote" Type="Self.GRNDebitNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="GRNDebitNote">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Ledger_Customer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Ledger" Type="Self.Ledger" Multiplicity="*" />
@@ -930,6 +1062,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ReturnDraftCheque_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="ReturnDraftCheque" Type="Self.ReturnDraftCheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ReturnDraftCheque">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnDraftCheque_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="ReturnDraftCheque" Type="Self.ReturnDraftCheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="ReturnDraftCheque">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnDraftChequeBillDetail_ReturnDraftCheque">
+          <End Role="ReturnDraftCheque" Type="Self.ReturnDraftCheque" Multiplicity="0..1" />
+          <End Role="ReturnDraftChequeBillDetail" Type="Self.ReturnDraftChequeBillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDraftCheque">
+              <PropertyRef Name="ReturnDraftChequeId" />
+            </Principal>
+            <Dependent Role="ReturnDraftChequeBillDetail">
+              <PropertyRef Name="fkReturnDraftChequeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SaleLREntry_ToCustomer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="SaleLREntry" Type="Self.SaleLREntry" Multiplicity="*" />
@@ -1013,6 +1181,8 @@
           <EntitySet Name="CustomerProprietor" EntityType="Self.CustomerProprietor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerSalesman" EntityType="Self.CustomerSalesman" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerSisterConcern" EntityType="Self.CustomerSisterConcern" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscountEntry" EntityType="Self.DiscountEntry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRNDebitNote" EntityType="Self.GRNDebitNote" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ledger" EntityType="Self.Ledger" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MstBank" EntityType="Self.MstBank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MstBranch" EntityType="Self.MstBranch" Schema="dbo" store:Type="Tables" />
@@ -1029,6 +1199,8 @@
           <EntitySet Name="OrderTransaction" EntityType="Self.OrderTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Party" EntityType="Self.Party" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reference" EntityType="Self.Reference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReturnDraftCheque" EntityType="Self.ReturnDraftCheque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReturnDraftChequeBillDetail" EntityType="Self.ReturnDraftChequeBillDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleLREntry" EntityType="Self.SaleLREntry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierBillingDetail" EntityType="Self.SupplierBillingDetail" Schema="dbo" store:Type="Tables" />
@@ -1101,6 +1273,22 @@
             <End Role="Customer" EntitySet="Customer" />
             <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcern" />
           </AssociationSet>
+          <AssociationSet Name="FK_DiscountEntry_Customer" Association="Self.FK_DiscountEntry_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="DiscountEntry" EntitySet="DiscountEntry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiscountEntry_Supplier" Association="Self.FK_DiscountEntry_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="DiscountEntry" EntitySet="DiscountEntry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRNDebitNote_Customer" Association="Self.FK_GRNDebitNote_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="GRNDebitNote" EntitySet="GRNDebitNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRNDebitNote_Supplier" Association="Self.FK_GRNDebitNote_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="GRNDebitNote" EntitySet="GRNDebitNote" />
+          </AssociationSet>
           <AssociationSet Name="FK_Ledger_Customer" Association="Self.FK_Ledger_Customer">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Ledger" EntitySet="Ledger" />
@@ -1164,6 +1352,18 @@
           <AssociationSet Name="FK_Reference_Customer" Association="Self.FK_Reference_Customer">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Reference" EntitySet="Reference" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnDraftCheque_Customer" Association="Self.FK_ReturnDraftCheque_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="ReturnDraftCheque" EntitySet="ReturnDraftCheque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnDraftCheque_Supplier" Association="Self.FK_ReturnDraftCheque_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="ReturnDraftCheque" EntitySet="ReturnDraftCheque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnDraftChequeBillDetail_ReturnDraftCheque" Association="Self.FK_ReturnDraftChequeBillDetail_ReturnDraftCheque">
+            <End Role="ReturnDraftCheque" EntitySet="ReturnDraftCheque" />
+            <End Role="ReturnDraftChequeBillDetail" EntitySet="ReturnDraftChequeBillDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_SaleLREntry_ToCustomer" Association="Self.FK_SaleLREntry_ToCustomer">
             <End Role="Customer" EntitySet="Customer" />
@@ -1341,9 +1541,58 @@
             <End Role="OrderDetail" EntitySet="OrderDetails" />
             <End Role="OrderTransaction" EntitySet="OrderTransactions" />
           </AssociationSet>
+          <EntitySet Name="SaleLREntries" EntityType="TPLDBModel.SaleLREntry" />
+          <AssociationSet Name="FK_SaleLREntry_ToCustomer" Association="TPLDBModel.FK_SaleLREntry_ToCustomer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="SaleLREntry" EntitySet="SaleLREntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleLREntry_ToSupplier" Association="TPLDBModel.FK_SaleLREntry_ToSupplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="SaleLREntry" EntitySet="SaleLREntries" />
+          </AssociationSet>
+          <EntitySet Name="Ledgers" EntityType="TPLDBModel.Ledger" />
+          <AssociationSet Name="FK_Ledger_Customer" Association="TPLDBModel.FK_Ledger_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Ledger" EntitySet="Ledgers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ledger_Supplier" Association="TPLDBModel.FK_Ledger_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Ledger" EntitySet="Ledgers" />
+          </AssociationSet>
+          <EntitySet Name="DiscountEntries" EntityType="TPLDBModel.DiscountEntry" />
+          <EntitySet Name="GRNDebitNotes" EntityType="TPLDBModel.GRNDebitNote" />
+          <EntitySet Name="ReturnDraftCheques" EntityType="TPLDBModel.ReturnDraftCheque" />
+          <EntitySet Name="ReturnDraftChequeBillDetails" EntityType="TPLDBModel.ReturnDraftChequeBillDetail" />
+          <AssociationSet Name="FK_DiscountEntry_Customer" Association="TPLDBModel.FK_DiscountEntry_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="DiscountEntry" EntitySet="DiscountEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRNDebitNote_Customer" Association="TPLDBModel.FK_GRNDebitNote_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="GRNDebitNote" EntitySet="GRNDebitNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnDraftCheque_Customer" Association="TPLDBModel.FK_ReturnDraftCheque_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ReturnDraftCheque" EntitySet="ReturnDraftCheques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiscountEntry_Supplier" Association="TPLDBModel.FK_DiscountEntry_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="DiscountEntry" EntitySet="DiscountEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRNDebitNote_Supplier" Association="TPLDBModel.FK_GRNDebitNote_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="GRNDebitNote" EntitySet="GRNDebitNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnDraftCheque_Supplier" Association="TPLDBModel.FK_ReturnDraftCheque_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="ReturnDraftCheque" EntitySet="ReturnDraftCheques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnDraftChequeBillDetail_ReturnDraftCheque" Association="TPLDBModel.FK_ReturnDraftChequeBillDetail_ReturnDraftCheque">
+            <End Role="ReturnDraftCheque" EntitySet="ReturnDraftCheques" />
+            <End Role="ReturnDraftChequeBillDetail" EntitySet="ReturnDraftChequeBillDetails" />
+          </AssociationSet>
           <EntitySet Name="CollectionEntries" EntityType="TPLDBModel.CollectionEntry" />
           <EntitySet Name="CollectionEntryDetails" EntityType="TPLDBModel.CollectionEntryDetail" />
-          <EntitySet Name="SaleLREntries" EntityType="TPLDBModel.SaleLREntry" />
           <AssociationSet Name="FK_CollectionEntry_Customer" Association="TPLDBModel.FK_CollectionEntry_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CollectionEntry" EntitySet="CollectionEntries" />
@@ -1363,23 +1612,6 @@
           <AssociationSet Name="FK_CollectionEntryDetail_CollectionEntry" Association="TPLDBModel.FK_CollectionEntryDetail_CollectionEntry">
             <End Role="CollectionEntry" EntitySet="CollectionEntries" />
             <End Role="CollectionEntryDetail" EntitySet="CollectionEntryDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SaleLREntry_ToCustomer" Association="TPLDBModel.FK_SaleLREntry_ToCustomer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="SaleLREntry" EntitySet="SaleLREntries" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SaleLREntry_ToSupplier" Association="TPLDBModel.FK_SaleLREntry_ToSupplier">
-            <End Role="Supplier" EntitySet="Suppliers" />
-            <End Role="SaleLREntry" EntitySet="SaleLREntries" />
-          </AssociationSet>
-          <EntitySet Name="Ledgers" EntityType="TPLDBModel.Ledger" />
-          <AssociationSet Name="FK_Ledger_Customer" Association="TPLDBModel.FK_Ledger_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Ledger" EntitySet="Ledgers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ledger_Supplier" Association="TPLDBModel.FK_Ledger_Supplier">
-            <End Role="Supplier" EntitySet="Suppliers" />
-            <End Role="Ledger" EntitySet="Ledgers" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Authorization">
@@ -1437,9 +1669,12 @@
           <NavigationProperty Name="References" Relationship="TPLDBModel.FK_Reference_Customer" FromRole="Customer" ToRole="Reference" />
           <NavigationProperty Name="CustomerAccountants" Relationship="TPLDBModel.FK_CustomerAccountant_CustomerInfo" FromRole="Customer" ToRole="CustomerAccountant" />
           <NavigationProperty Name="OrderEntries" Relationship="TPLDBModel.FK_OrderEntry_Customer" FromRole="Customer" ToRole="OrderEntry" />
-          <NavigationProperty Name="CollectionEntries" Relationship="TPLDBModel.FK_CollectionEntry_Customer" FromRole="Customer" ToRole="CollectionEntry" />
           <NavigationProperty Name="SaleLREntries" Relationship="TPLDBModel.FK_SaleLREntry_ToCustomer" FromRole="Customer" ToRole="SaleLREntry" />
           <NavigationProperty Name="Ledgers" Relationship="TPLDBModel.FK_Ledger_Customer" FromRole="Customer" ToRole="Ledger" />
+          <NavigationProperty Name="DiscountEntries" Relationship="TPLDBModel.FK_DiscountEntry_Customer" FromRole="Customer" ToRole="DiscountEntry" />
+          <NavigationProperty Name="GRNDebitNotes" Relationship="TPLDBModel.FK_GRNDebitNote_Customer" FromRole="Customer" ToRole="GRNDebitNote" />
+          <NavigationProperty Name="ReturnDraftCheques" Relationship="TPLDBModel.FK_ReturnDraftCheque_Customer" FromRole="Customer" ToRole="ReturnDraftCheque" />
+          <NavigationProperty Name="CollectionEntries" Relationship="TPLDBModel.FK_CollectionEntry_Customer" FromRole="Customer" ToRole="CollectionEntry" />
           </EntityType>
         <EntityType Name="CustomerContactInfo">
           <Key>
@@ -1914,6 +2149,7 @@
           <Property Name="IsNullify" Type="Boolean" />
           <NavigationProperty Name="OrderEntry" Relationship="TPLDBModel.FK_OrderDetail_OrderEntry" FromRole="OrderDetail" ToRole="OrderEntry" />
           <NavigationProperty Name="OrderTransactions" Relationship="TPLDBModel.FK_OrderTransaction_OrderDetail" FromRole="OrderDetail" ToRole="OrderTransaction" />
+          <Property Name="IsFullyExecuted" Type="Boolean" />
         </EntityType>
         <EntityType Name="Party">
           <Key>
@@ -1979,9 +2215,12 @@
           <NavigationProperty Name="SupplierContactInfoes" Relationship="TPLDBModel.FK_SupplierContactInfo_Supplier" FromRole="Supplier" ToRole="SupplierContactInfo" />
           <NavigationProperty Name="SupplierProprietors" Relationship="TPLDBModel.FK_SupplierProprietor_Supplier" FromRole="Supplier" ToRole="SupplierProprietor" />
           <NavigationProperty Name="SupplierSisterConcerns" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier" FromRole="Supplier" ToRole="SupplierSisterConcern" />
-          <NavigationProperty Name="CollectionEntries" Relationship="TPLDBModel.FK_CollectionEntry_Supplier" FromRole="Supplier" ToRole="CollectionEntry" />
           <NavigationProperty Name="SaleLREntries" Relationship="TPLDBModel.FK_SaleLREntry_ToSupplier" FromRole="Supplier" ToRole="SaleLREntry" />
           <NavigationProperty Name="Ledgers" Relationship="TPLDBModel.FK_Ledger_Supplier" FromRole="Supplier" ToRole="Ledger" />
+          <NavigationProperty Name="DiscountEntries" Relationship="TPLDBModel.FK_DiscountEntry_Supplier" FromRole="Supplier" ToRole="DiscountEntry" />
+          <NavigationProperty Name="GRNDebitNotes" Relationship="TPLDBModel.FK_GRNDebitNote_Supplier" FromRole="Supplier" ToRole="GRNDebitNote" />
+          <NavigationProperty Name="ReturnDraftCheques" Relationship="TPLDBModel.FK_ReturnDraftCheque_Supplier" FromRole="Supplier" ToRole="ReturnDraftCheque" />
+          <NavigationProperty Name="CollectionEntries" Relationship="TPLDBModel.FK_CollectionEntry_Supplier" FromRole="Supplier" ToRole="CollectionEntry" />
         </EntityType>
         <EntityType Name="SupplierBillingDetail">
           <Key>
@@ -2237,61 +2476,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="CollectionEntry">
-          <Key>
-            <PropertyRef Name="CollectionEntryId" />
-          </Key>
-          <Property Name="CollectionEntryId" Type="Int32" Nullable="false" />
-          <Property Name="IsLocked" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DraftReceiptDate" Type="DateTime" Precision="3" />
-          <Property Name="EntryDate" Type="DateTime" Precision="3" />
-          <Property Name="IsDirect" Type="Boolean" />
-          <Property Name="IsReturnedDraft" Type="Boolean" />
-          <Property Name="fkCustomerId" Type="Int32" />
-          <Property Name="fkSupplierId" Type="Int32" />
-          <Property Name="fkBankId" Type="Int32" />
-          <Property Name="fkCourierId" Type="Int32" />
-          <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DraftOrCashOrCheque" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DDOrChequeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DDOrChequeDate" Type="DateTime" Precision="3" />
-          <Property Name="DraftAmount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="IsCommissionReceived" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DDPrintedOnCoverNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsPrintDetails" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="IsPrintAdjustments" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="NoOfCopies" Type="Int32" />
-          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CollectionEntry_Customer" FromRole="CollectionEntry" ToRole="Customer" />
-          <NavigationProperty Name="MstBank" Relationship="TPLDBModel.FK_CollectionEntry_MstBank" FromRole="CollectionEntry" ToRole="MstBank" />
-          <NavigationProperty Name="MstCourier" Relationship="TPLDBModel.FK_CollectionEntry_MstCourier" FromRole="CollectionEntry" ToRole="MstCourier" />
-          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_CollectionEntry_Supplier" FromRole="CollectionEntry" ToRole="Supplier" />
-          <NavigationProperty Name="CollectionEntryDetails" Relationship="TPLDBModel.FK_CollectionEntryDetail_CollectionEntry" FromRole="CollectionEntry" ToRole="CollectionEntryDetail" />
-        </EntityType>
-        <EntityType Name="CollectionEntryDetail">
-          <Key>
-            <PropertyRef Name="CollectionEntryDetailId" />
-          </Key>
-          <Property Name="CollectionEntryDetailId" Type="Int32" Nullable="false" />
-          <Property Name="fkCollectionEntryId" Type="Int32" />
-          <Property Name="RefType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="RefNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="RefDate" Type="DateTime" Precision="3" />
-          <Property Name="RefAmount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="GR" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="AdjustedAmount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="CollectionEntry" Relationship="TPLDBModel.FK_CollectionEntryDetail_CollectionEntry" FromRole="CollectionEntryDetail" ToRole="CollectionEntry" />
-        </EntityType>
         <EntityType Name="SaleLREntry">
           <Key>
             <PropertyRef Name="SaleId" />
@@ -2328,66 +2512,6 @@
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_SaleLREntry_ToCustomer" FromRole="SaleLREntry" ToRole="Customer" />
           <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SaleLREntry_ToSupplier" FromRole="SaleLREntry" ToRole="Supplier" />
         </EntityType>
-        <Association Name="FK_CollectionEntry_Customer">
-          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="CollectionEntry">
-              <PropertyRef Name="fkCustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CollectionEntry_MstBank">
-          <End Type="TPLDBModel.MstBank" Role="MstBank" Multiplicity="0..1" />
-          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MstBank">
-              <PropertyRef Name="BankId" />
-            </Principal>
-            <Dependent Role="CollectionEntry">
-              <PropertyRef Name="fkBankId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CollectionEntry_MstCourier">
-          <End Type="TPLDBModel.MstCourier" Role="MstCourier" Multiplicity="0..1" />
-          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MstCourier">
-              <PropertyRef Name="CourierMasterId" />
-            </Principal>
-            <Dependent Role="CollectionEntry">
-              <PropertyRef Name="fkCourierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CollectionEntry_Supplier">
-          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
-          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Supplier">
-              <PropertyRef Name="SupplierId" />
-            </Principal>
-            <Dependent Role="CollectionEntry">
-              <PropertyRef Name="fkSupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CollectionEntryDetail_CollectionEntry">
-          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="0..1" />
-          <End Type="TPLDBModel.CollectionEntryDetail" Role="CollectionEntryDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CollectionEntry">
-              <PropertyRef Name="CollectionEntryId" />
-            </Principal>
-            <Dependent Role="CollectionEntryDetail">
-              <PropertyRef Name="fkCollectionEntryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SaleLREntry_ToCustomer">
           <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
           <End Type="TPLDBModel.SaleLREntry" Role="SaleLREntry" Multiplicity="*" />
@@ -2452,6 +2576,296 @@
             </Principal>
             <Dependent Role="Ledger">
               <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DiscountEntry">
+          <Key>
+            <PropertyRef Name="DiscountId" />
+          </Key>
+          <Property Name="DiscountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RefNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RefDate" Type="DateTime" Precision="3" />
+          <Property Name="RefAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscountDate" Type="DateTime" Precision="3" />
+          <Property Name="Source" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AdjustedAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Narration" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DiscountDocNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsLocked" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_DiscountEntry_Customer" FromRole="DiscountEntry" ToRole="Customer" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_DiscountEntry_Supplier" FromRole="DiscountEntry" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="GRNDebitNote">
+          <Key>
+            <PropertyRef Name="GRNDebitNoteId" />
+          </Key>
+          <Property Name="GRNDebitNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsLocked" Type="Boolean" />
+          <Property Name="GRNDebitNoteDate" Type="DateTime" Precision="3" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="Source" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="GRNNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RefType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RefNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RefDate" Type="DateTime" Precision="3" />
+          <Property Name="RefAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AdjustedAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Narration" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_GRNDebitNote_Customer" FromRole="GRNDebitNote" ToRole="Customer" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_GRNDebitNote_Supplier" FromRole="GRNDebitNote" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="ReturnDraftCheque">
+          <Key>
+            <PropertyRef Name="ReturnDraftChequeId" />
+          </Key>
+          <Property Name="ReturnDraftChequeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="DraftOrCheque" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="Documents" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Enclosed" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PrintLetter" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfCopies" Type="Int32" />
+          <Property Name="DDChequeNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DDChequeDate" Type="DateTime" Precision="3" />
+          <Property Name="DrawnOn" Type="DateTime" Precision="3" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_ReturnDraftCheque_Customer" FromRole="ReturnDraftCheque" ToRole="Customer" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_ReturnDraftCheque_Supplier" FromRole="ReturnDraftCheque" ToRole="Supplier" />
+          <NavigationProperty Name="ReturnDraftChequeBillDetails" Relationship="TPLDBModel.FK_ReturnDraftChequeBillDetail_ReturnDraftCheque" FromRole="ReturnDraftCheque" ToRole="ReturnDraftChequeBillDetail" />
+        </EntityType>
+        <EntityType Name="ReturnDraftChequeBillDetail">
+          <Key>
+            <PropertyRef Name="ReturnDraftChequeBillId" />
+          </Key>
+          <Property Name="ReturnDraftChequeBillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkReturnDraftChequeId" Type="Int32" />
+          <Property Name="BillNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BillDate" Type="DateTime" Precision="3" />
+          <Property Name="BillAmount" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="ReturnDraftCheque" Relationship="TPLDBModel.FK_ReturnDraftChequeBillDetail_ReturnDraftCheque" FromRole="ReturnDraftChequeBillDetail" ToRole="ReturnDraftCheque" />
+        </EntityType>
+        <Association Name="FK_DiscountEntry_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.DiscountEntry" Role="DiscountEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="DiscountEntry">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRNDebitNote_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.GRNDebitNote" Role="GRNDebitNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="GRNDebitNote">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnDraftCheque_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.ReturnDraftCheque" Role="ReturnDraftCheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ReturnDraftCheque">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiscountEntry_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.DiscountEntry" Role="DiscountEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="DiscountEntry">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRNDebitNote_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.GRNDebitNote" Role="GRNDebitNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="GRNDebitNote">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnDraftCheque_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.ReturnDraftCheque" Role="ReturnDraftCheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="ReturnDraftCheque">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnDraftChequeBillDetail_ReturnDraftCheque">
+          <End Type="TPLDBModel.ReturnDraftCheque" Role="ReturnDraftCheque" Multiplicity="0..1" />
+          <End Type="TPLDBModel.ReturnDraftChequeBillDetail" Role="ReturnDraftChequeBillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDraftCheque">
+              <PropertyRef Name="ReturnDraftChequeId" />
+            </Principal>
+            <Dependent Role="ReturnDraftChequeBillDetail">
+              <PropertyRef Name="fkReturnDraftChequeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CollectionEntry">
+          <Key>
+            <PropertyRef Name="CollectionEntryId" />
+          </Key>
+          <Property Name="CollectionEntryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsLocked" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DraftReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDirect" Type="Boolean" />
+          <Property Name="IsReturnedDraft" Type="Boolean" />
+          <Property Name="fkCustomerId" Type="Int32" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="fkBankId" Type="Int32" />
+          <Property Name="fkCourierId" Type="Int32" />
+          <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DraftOrCashOrCheque" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DDOrChequeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DDOrChequeDate" Type="DateTime" Precision="3" />
+          <Property Name="DraftAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsCommissionReceived" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DDPrintedOnCoverNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsPrintDetails" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IsPrintAdjustments" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NoOfCopies" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CollectionEntry_Customer" FromRole="CollectionEntry" ToRole="Customer" />
+          <NavigationProperty Name="MstBank" Relationship="TPLDBModel.FK_CollectionEntry_MstBank" FromRole="CollectionEntry" ToRole="MstBank" />
+          <NavigationProperty Name="MstCourier" Relationship="TPLDBModel.FK_CollectionEntry_MstCourier" FromRole="CollectionEntry" ToRole="MstCourier" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_CollectionEntry_Supplier" FromRole="CollectionEntry" ToRole="Supplier" />
+          <NavigationProperty Name="CollectionEntryDetails" Relationship="TPLDBModel.FK_CollectionEntryDetail_CollectionEntry" FromRole="CollectionEntry" ToRole="CollectionEntryDetail" />
+        </EntityType>
+        <EntityType Name="CollectionEntryDetail">
+          <Key>
+            <PropertyRef Name="CollectionEntryDetailId" />
+          </Key>
+          <Property Name="CollectionEntryDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCollectionEntryId" Type="Int32" />
+          <Property Name="RefType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RefNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RefDate" Type="DateTime" Precision="3" />
+          <Property Name="RefAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GR" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AdjustedAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CollectionEntry" Relationship="TPLDBModel.FK_CollectionEntryDetail_CollectionEntry" FromRole="CollectionEntryDetail" ToRole="CollectionEntry" />
+        </EntityType>
+        <Association Name="FK_CollectionEntry_Customer">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CollectionEntry">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CollectionEntry_MstBank">
+          <End Type="TPLDBModel.MstBank" Role="MstBank" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstBank">
+              <PropertyRef Name="BankId" />
+            </Principal>
+            <Dependent Role="CollectionEntry">
+              <PropertyRef Name="fkBankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CollectionEntry_MstCourier">
+          <End Type="TPLDBModel.MstCourier" Role="MstCourier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MstCourier">
+              <PropertyRef Name="CourierMasterId" />
+            </Principal>
+            <Dependent Role="CollectionEntry">
+              <PropertyRef Name="fkCourierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CollectionEntry_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="CollectionEntry">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CollectionEntryDetail_CollectionEntry">
+          <End Type="TPLDBModel.CollectionEntry" Role="CollectionEntry" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CollectionEntryDetail" Role="CollectionEntryDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CollectionEntry">
+              <PropertyRef Name="CollectionEntryId" />
+            </Principal>
+            <Dependent Role="CollectionEntryDetail">
+              <PropertyRef Name="fkCollectionEntryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2763,6 +3177,7 @@
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="TPLDBModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="IsFullyExecuted" ColumnName="IsFullyExecuted" />
                 <ScalarProperty Name="IsNullify" ColumnName="IsNullify" />
                 <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
                 <ScalarProperty Name="QNK" ColumnName="QNK" />
@@ -2932,57 +3347,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CollectionEntries">
-            <EntityTypeMapping TypeName="TPLDBModel.CollectionEntry">
-              <MappingFragment StoreEntitySet="CollectionEntry">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="NoOfCopies" ColumnName="NoOfCopies" />
-                <ScalarProperty Name="IsPrintAdjustments" ColumnName="IsPrintAdjustments" />
-                <ScalarProperty Name="IsPrintDetails" ColumnName="IsPrintDetails" />
-                <ScalarProperty Name="DDPrintedOnCoverNumber" ColumnName="DDPrintedOnCoverNumber" />
-                <ScalarProperty Name="IsCommissionReceived" ColumnName="IsCommissionReceived" />
-                <ScalarProperty Name="DraftAmount" ColumnName="DraftAmount" />
-                <ScalarProperty Name="DDOrChequeDate" ColumnName="DDOrChequeDate" />
-                <ScalarProperty Name="DDOrChequeNumber" ColumnName="DDOrChequeNumber" />
-                <ScalarProperty Name="DraftOrCashOrCheque" ColumnName="DraftOrCashOrCheque" />
-                <ScalarProperty Name="Source" ColumnName="Source" />
-                <ScalarProperty Name="fkCourierId" ColumnName="fkCourierId" />
-                <ScalarProperty Name="fkBankId" ColumnName="fkBankId" />
-                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
-                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
-                <ScalarProperty Name="IsReturnedDraft" ColumnName="IsReturnedDraft" />
-                <ScalarProperty Name="IsDirect" ColumnName="IsDirect" />
-                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
-                <ScalarProperty Name="DraftReceiptDate" ColumnName="DraftReceiptDate" />
-                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
-                <ScalarProperty Name="CollectionEntryId" ColumnName="CollectionEntryId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CollectionEntryDetails">
-            <EntityTypeMapping TypeName="TPLDBModel.CollectionEntryDetail">
-              <MappingFragment StoreEntitySet="CollectionEntryDetail">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="AdjustedAmount" ColumnName="AdjustedAmount" />
-                <ScalarProperty Name="GR" ColumnName="GR" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="RefAmount" ColumnName="RefAmount" />
-                <ScalarProperty Name="RefDate" ColumnName="RefDate" />
-                <ScalarProperty Name="RefNumber" ColumnName="RefNumber" />
-                <ScalarProperty Name="RefType" ColumnName="RefType" />
-                <ScalarProperty Name="fkCollectionEntryId" ColumnName="fkCollectionEntryId" />
-                <ScalarProperty Name="CollectionEntryDetailId" ColumnName="CollectionEntryDetailId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SaleLREntries">
             <EntityTypeMapping TypeName="TPLDBModel.SaleLREntry">
               <MappingFragment StoreEntitySet="SaleLREntry">
@@ -3033,6 +3397,144 @@
                 <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
                 <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
                 <ScalarProperty Name="LedgerId" ColumnName="LedgerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiscountEntries">
+            <EntityTypeMapping TypeName="TPLDBModel.DiscountEntry">
+              <MappingFragment StoreEntitySet="DiscountEntry">
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="DiscountDocNo" ColumnName="DiscountDocNo" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Narration" ColumnName="Narration" />
+                <ScalarProperty Name="AdjustedAmount" ColumnName="AdjustedAmount" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="DiscountDate" ColumnName="DiscountDate" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="RefAmount" ColumnName="RefAmount" />
+                <ScalarProperty Name="RefDate" ColumnName="RefDate" />
+                <ScalarProperty Name="RefNumber" ColumnName="RefNumber" />
+                <ScalarProperty Name="RefType" ColumnName="RefType" />
+                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRNDebitNotes">
+            <EntityTypeMapping TypeName="TPLDBModel.GRNDebitNote">
+              <MappingFragment StoreEntitySet="GRNDebitNote">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Narration" ColumnName="Narration" />
+                <ScalarProperty Name="AdjustedAmount" ColumnName="AdjustedAmount" />
+                <ScalarProperty Name="RefAmount" ColumnName="RefAmount" />
+                <ScalarProperty Name="RefDate" ColumnName="RefDate" />
+                <ScalarProperty Name="RefNumber" ColumnName="RefNumber" />
+                <ScalarProperty Name="RefType" ColumnName="RefType" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="GRNNumber" ColumnName="GRNNumber" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="GRNDebitNoteDate" ColumnName="GRNDebitNoteDate" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="GRNDebitNoteId" ColumnName="GRNDebitNoteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnDraftCheques">
+            <EntityTypeMapping TypeName="TPLDBModel.ReturnDraftCheque">
+              <MappingFragment StoreEntitySet="ReturnDraftCheque">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DrawnOn" ColumnName="DrawnOn" />
+                <ScalarProperty Name="DDChequeDate" ColumnName="DDChequeDate" />
+                <ScalarProperty Name="DDChequeNumber" ColumnName="DDChequeNumber" />
+                <ScalarProperty Name="NoOfCopies" ColumnName="NoOfCopies" />
+                <ScalarProperty Name="PrintLetter" ColumnName="PrintLetter" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Enclosed" ColumnName="Enclosed" />
+                <ScalarProperty Name="Documents" ColumnName="Documents" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="DraftOrCheque" ColumnName="DraftOrCheque" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="ReturnDraftChequeId" ColumnName="ReturnDraftChequeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnDraftChequeBillDetails">
+            <EntityTypeMapping TypeName="TPLDBModel.ReturnDraftChequeBillDetail">
+              <MappingFragment StoreEntitySet="ReturnDraftChequeBillDetail">
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+                <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+                <ScalarProperty Name="fkReturnDraftChequeId" ColumnName="fkReturnDraftChequeId" />
+                <ScalarProperty Name="ReturnDraftChequeBillId" ColumnName="ReturnDraftChequeBillId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CollectionEntries">
+            <EntityTypeMapping TypeName="TPLDBModel.CollectionEntry">
+              <MappingFragment StoreEntitySet="CollectionEntry">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="NoOfCopies" ColumnName="NoOfCopies" />
+                <ScalarProperty Name="IsPrintAdjustments" ColumnName="IsPrintAdjustments" />
+                <ScalarProperty Name="IsPrintDetails" ColumnName="IsPrintDetails" />
+                <ScalarProperty Name="DDPrintedOnCoverNumber" ColumnName="DDPrintedOnCoverNumber" />
+                <ScalarProperty Name="IsCommissionReceived" ColumnName="IsCommissionReceived" />
+                <ScalarProperty Name="DraftAmount" ColumnName="DraftAmount" />
+                <ScalarProperty Name="DDOrChequeDate" ColumnName="DDOrChequeDate" />
+                <ScalarProperty Name="DDOrChequeNumber" ColumnName="DDOrChequeNumber" />
+                <ScalarProperty Name="DraftOrCashOrCheque" ColumnName="DraftOrCashOrCheque" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="fkCourierId" ColumnName="fkCourierId" />
+                <ScalarProperty Name="fkBankId" ColumnName="fkBankId" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="IsReturnedDraft" ColumnName="IsReturnedDraft" />
+                <ScalarProperty Name="IsDirect" ColumnName="IsDirect" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="DraftReceiptDate" ColumnName="DraftReceiptDate" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="CollectionEntryId" ColumnName="CollectionEntryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CollectionEntryDetails">
+            <EntityTypeMapping TypeName="TPLDBModel.CollectionEntryDetail">
+              <MappingFragment StoreEntitySet="CollectionEntryDetail">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AdjustedAmount" ColumnName="AdjustedAmount" />
+                <ScalarProperty Name="GR" ColumnName="GR" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="RefAmount" ColumnName="RefAmount" />
+                <ScalarProperty Name="RefDate" ColumnName="RefDate" />
+                <ScalarProperty Name="RefNumber" ColumnName="RefNumber" />
+                <ScalarProperty Name="RefType" ColumnName="RefType" />
+                <ScalarProperty Name="fkCollectionEntryId" ColumnName="fkCollectionEntryId" />
+                <ScalarProperty Name="CollectionEntryDetailId" ColumnName="CollectionEntryDetailId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

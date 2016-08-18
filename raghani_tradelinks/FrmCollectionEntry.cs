@@ -149,6 +149,7 @@ namespace raghani_tradelinks
             cmbPrint.SelectedIndex = 0;
             cmbPrintAdj.SelectedIndex = 0;
             cmbLocked.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 0;
 
             dtpChequeDate.Value = DateTime.Now;
             dtpEntryDate.Value = DateTime.Now;
@@ -179,7 +180,7 @@ namespace raghani_tradelinks
         {
             try
             {
-                if (cmbCustomer.EditValue.ToString() != "-1")
+                if (cmbCustomer.EditValue != null && cmbCustomer.EditValue.ToString() != "-1" && chkNoLRAddressPrinting.Checked == false)
                 {
                     BindGridView();
                 }
@@ -194,7 +195,7 @@ namespace raghani_tradelinks
         {
             try
             {
-                if (cmbSupplier.EditValue.ToString() != "-1")
+                if (cmbSupplier.EditValue != null && cmbSupplier.EditValue.ToString() != "-1" && chkNoLRAddressPrinting.Checked == false)
                 {
                     BindGridView();
                 }
@@ -242,6 +243,16 @@ namespace raghani_tradelinks
                         DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)grdEntry.CurrentRow.Cells[1];
                         cell.Items.Add("No Ref No");
                     }
+                    if (e.ColumnIndex == 6 && grdEntry.CurrentCell != null)
+                    {
+                        double Total = 0.00;
+                        foreach (DataGridViewRow row in grdEntry.Rows)
+                        {
+                            if (row.Cells[e.ColumnIndex].Value != null)
+                                Total += Convert.ToDouble(row.Cells[e.ColumnIndex].Value.ToString());
+                        }
+                        txtDraftAmt.Text = Total.ToString();
+                    }
                 }
 
                 #region Old
@@ -275,9 +286,10 @@ namespace raghani_tradelinks
             txtChequeNo.Text = "";
             txtCopies.Text = "";
             txtCoverNo.Text = "";
-            txtDraftAmt.Text = "";
+            txtDraftAmt.Text = "0.00";
             txtRemarks.Text = "";
 
+            grdEntry.DataSource = null;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -289,11 +301,192 @@ namespace raghani_tradelinks
         {
             try
             {
-
+                SaveData();
             }
             catch (Exception ex)
             {
                 HandleException(ex);
+            }
+        }
+
+        void SaveData()
+        {
+            CollectionEntry colEntry = new CollectionEntry();
+            colEntry.CreatedBy = User.UserName;
+            colEntry.CreatedDate = DateTime.Now;
+            colEntry.DDOrChequeDate = dtpChequeDate.Value;
+            colEntry.DDOrChequeNumber = txtChequeNo.Text;
+            colEntry.DDPrintedOnCoverNumber = txtCoverNo.Text;
+            colEntry.DraftAmount = Convert.ToDecimal(txtDraftAmt.Text);
+            colEntry.DraftOrCashOrCheque = comboBox1.SelectedText;
+            colEntry.DraftReceiptDate = dtpRecptDate.Value;
+            colEntry.EntryDate = dtpEntryDate.Value;
+            if (cmbBank.EditValue.ToString() != "-1")
+                colEntry.fkBankId = Convert.ToInt32(cmbBank.EditValue.ToString());
+            if (cmbCourier.EditValue.ToString() != "-1")
+                colEntry.fkCourierId = Convert.ToInt32(cmbCourier.EditValue.ToString());
+            colEntry.fkCustomerId = Convert.ToInt32(cmbCustomer.EditValue.ToString());
+            colEntry.fkSupplierId = Convert.ToInt32(cmbSupplier.EditValue.ToString());
+            colEntry.IsCommissionReceived = cmbCommRecd.SelectedText;
+            colEntry.IsDeleted = false;
+            colEntry.IsDirect = chkNoLRAddressPrinting.Checked;
+            colEntry.IsLocked = cmbLocked.SelectedText;
+            colEntry.Remark = txtRemarks.Text;
+            colEntry.Source = cmbSource.SelectedText;
+            colEntry.UpdatedBy = User.UserName;
+            colEntry.UpdatedDate = DateTime.Now;
+
+            Ledger ledger = new Ledger();
+
+            foreach (DataGridViewRow row in grdEntry.Rows)
+            {
+                if (row.Cells[0].Value != null)
+                {
+                    CollectionEntryDetail colEntryDetail = new CollectionEntryDetail();
+                    colEntryDetail.AdjustedAmount = Convert.ToDecimal(row.Cells[6].Value);
+
+                    ledger.BillNo = row.Cells[1].FormattedValue.ToString();
+                    ledger.CreateDate = DateTime.Now;
+                    ledger.CreatedBy = User.UserName;
+                    ledger.Credit = Convert.ToDouble(row.Cells[6].Value);
+                    ledger.fkCustomerId = Convert.ToInt32(cmbCustomer.EditValue.ToString());
+                    ledger.fkSupplierId = Convert.ToInt32(cmbSupplier.EditValue.ToString());
+                    ledger.Particulars = "By Collection A/C";
+                    ledger.UpdatedBy = User.UserName;
+                    ledger.UpdatedDate = DateTime.Now;
+                    ledger.Debit = 0;
+                    db.Ledgers.Add(ledger);
+
+                    if (row.Cells[4].Value != null)
+                    {
+                        colEntryDetail.Discount = Convert.ToDecimal(row.Cells[4].Value);
+
+                        DiscountEntry disc = new DiscountEntry();
+                        disc.AdjustedAmount = Convert.ToDecimal(row.Cells[4].Value);
+                        disc.CreatedBy = User.UserName;
+                        disc.CreatedDate = DateTime.Now;
+                        disc.DiscountAmount = Convert.ToDecimal(row.Cells[4].Value);
+                        disc.DiscountDate = dtpRecptDate.Value;
+                        disc.DiscountDocNo = "";
+                        disc.EntryDate = dtpEntryDate.Value;
+                        disc.fkCustomerId = Convert.ToInt32(cmbCustomer.EditValue.ToString());
+                        disc.fkSupplierId = Convert.ToInt32(cmbSupplier.EditValue.ToString());
+                        disc.IsDeleted = false;
+                        disc.IsLocked = false;
+                        disc.Narration = "";
+                        disc.RefAmount = Convert.ToDecimal(row.Cells[3].Value);
+                        disc.RefDate = Convert.ToDateTime(row.Cells[2].Value);
+                        disc.RefNumber = row.Cells[1].FormattedValue.ToString();
+                        disc.RefType = row.Cells[0].Value.ToString();
+                        disc.Remarks = "";
+                        disc.Source = "Ledger Copy";
+                        disc.UpdatedBy = User.UserName;
+                        disc.UpdatedDate = DateTime.Now;
+
+                        ledger = new Ledger();
+                        ledger.BillNo = disc.RefNumber;
+                        ledger.CreateDate = DateTime.Now;
+                        ledger.CreatedBy = User.UserName;
+                        ledger.Credit = Convert.ToDouble(row.Cells[4].Value);
+                        ledger.fkCustomerId = Convert.ToInt32(cmbCustomer.EditValue.ToString());
+                        ledger.fkSupplierId = Convert.ToInt32(cmbSupplier.EditValue.ToString());
+                        ledger.Particulars = "By Discount A/C";
+                        ledger.UpdatedBy = User.UserName;
+                        ledger.UpdatedDate = DateTime.Now;
+                        ledger.Debit = 0;
+
+                        db.Ledgers.Add(ledger);
+                        db.DiscountEntries.Add(disc);
+                    }
+                    else
+                        colEntryDetail.Discount = 0;
+
+                    if (row.Cells[5].Value != null)
+                    {
+                        colEntryDetail.GR = Convert.ToDecimal(row.Cells[5].Value);
+
+                        GRNDebitNote gr = new GRNDebitNote();
+                        gr.AdjustedAmount = Convert.ToDecimal(row.Cells[5].Value);
+                        gr.Amount = Convert.ToDecimal(row.Cells[5].Value);
+                        gr.CreatedBy = User.UserName;
+                        gr.CreatedDate = DateTime.Now;
+                        gr.EntryDate = dtpEntryDate.Value;
+                        gr.fkCustomerId = Convert.ToInt32(cmbCustomer.EditValue.ToString());
+                        gr.fkSupplierId = Convert.ToInt32(cmbSupplier.EditValue.ToString());
+                        gr.GRNDebitNoteDate = dtpRecptDate.Value;
+                        gr.GRNNumber = "111";
+                        gr.IsDeleted = false;
+                        gr.IsLocked = false;
+                        gr.Narration = txtRemarks.Text;
+                        gr.RefAmount = Convert.ToDecimal(row.Cells[3].Value);
+                        gr.RefDate = Convert.ToDateTime(row.Cells[2].Value);
+                        gr.RefNumber = row.Cells[1].FormattedValue.ToString();
+                        gr.RefType = row.Cells[0].Value.ToString();
+                        gr.Remarks = txtRemarks.Text;
+                        gr.Source = "Debit Note";
+                        gr.UpdatedBy = User.UserName;
+                        gr.UpdatedDate = DateTime.Now;
+
+                        ledger = new Ledger();
+                        ledger.BillNo = gr.RefNumber;
+                        ledger.CreateDate = DateTime.Now;
+                        ledger.CreatedBy = User.UserName;
+                        ledger.Credit = Convert.ToDouble(row.Cells[5].Value);
+                        ledger.fkCustomerId = Convert.ToInt32(cmbCustomer.EditValue.ToString());
+                        ledger.fkSupplierId = Convert.ToInt32(cmbSupplier.EditValue.ToString());
+                        ledger.Particulars = "By Goods Return A/C";
+                        ledger.UpdatedBy = User.UserName;
+                        ledger.UpdatedDate = DateTime.Now;
+                        ledger.Debit = 0;
+
+                        db.Ledgers.Add(ledger);
+                        db.GRNDebitNotes.Add(gr);
+                    }
+                    else
+                        colEntryDetail.GR = 0;
+
+                    colEntryDetail.RefAmount = Convert.ToDecimal(row.Cells[3].Value);
+                    colEntryDetail.RefDate = Convert.ToDateTime(row.Cells[2].Value);
+                    colEntryDetail.RefNumber = row.Cells[1].FormattedValue.ToString();
+                    colEntryDetail.RefType = row.Cells[0].Value.ToString();
+                    colEntry.CollectionEntryDetails.Add(colEntryDetail);
+                }
+            }
+
+            db.CollectionEntries.Add(colEntry);
+            db.SaveChanges();
+            MessageBox.Show("Data inserted successfully");
+            ClearControls();
+        }
+
+        private void grdEntry_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 6)
+                {
+                    if (e.FormattedValue.ToString().Length > 0)
+                    {
+                        double value;
+                        if (!double.TryParse(e.FormattedValue.ToString(), out value) || value < 0)
+                        {
+                            e.Cancel = true;
+                            MessageBox.Show("Enter proper value in Cell.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+
+        private void chkNoLRAddressPrinting_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkNoLRAddressPrinting.Checked)
+            {
+                grdEntry.DataSource = null;
             }
         }
     }
