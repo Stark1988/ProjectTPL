@@ -295,6 +295,12 @@
     <Compile Include="FrmNullifyOrdersReport.Designer.cs">
       <DependentUpon>FrmNullifyOrdersReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReturnDraft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReturnDraft.Designer.cs">
+      <DependentUpon>FrmReturnDraft.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSaleLREntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -426,6 +432,9 @@
     <EmbeddedResource Include="FrmNullifyOrdersReport.resx">
       <DependentUpon>FrmNullifyOrdersReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReturnDraft.resx">
+      <DependentUpon>FrmReturnDraft.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSaleLREntry.resx">
       <DependentUpon>FrmSaleLREntry.cs</DependentUpon>
     </EmbeddedResource>
@@ -508,6 +517,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="JsonFiles\OrderOrVisit.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="JsonFiles\returnDraft_documents.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="JsonFiles\returnDraft_draftOrCheque.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="JsonFiles\returnDraft_enclosed.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="JsonFiles\returnDraft_type.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="JsonFiles\source_list.json">

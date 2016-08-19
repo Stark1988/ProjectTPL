@@ -109,6 +109,7 @@
             this.badge1 = new DevExpress.Utils.VisualEffects.Badge();
             this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
             this.badge2 = new DevExpress.Utils.VisualEffects.Badge();
+            this.iReturnDraftCheque = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuManager)).BeginInit();
@@ -185,10 +186,11 @@
             this.iNewBank,
             this.iNewCourier,
             this.iNewAgent,
-            this.iNewTransport});
+            this.iNewTransport,
+            this.iReturnDraftCheque});
             this.MenuManager.LargeImages = this.ribbonImageCollectionLarge;
             this.MenuManager.Location = new System.Drawing.Point(0, 0);
-            this.MenuManager.MaxItemId = 9;
+            this.MenuManager.MaxItemId = 10;
             this.MenuManager.Name = "MenuManager";
             this.MenuManager.PageHeaderItemLinks.Add(this.iAbout);
             this.MenuManager.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -643,6 +645,7 @@
             this.TransactionPageGroup.ItemLinks.Add(this.iCollectionEntry);
             this.TransactionPageGroup.ItemLinks.Add(this.iCommissionReceived);
             this.TransactionPageGroup.ItemLinks.Add(this.iGREntry);
+            this.TransactionPageGroup.ItemLinks.Add(this.iReturnDraftCheque);
             this.TransactionPageGroup.ItemLinks.Add(this.iDailyCommissionBill);
             this.TransactionPageGroup.ItemLinks.Add(this.FinalLinkContainerItem);
             this.TransactionPageGroup.Name = "TransactionPageGroup";
@@ -740,7 +743,7 @@
             // 
             this.ParentFormSplitContainer.Panel2.Controls.Add(this.pnlShortCutContainer);
             this.ParentFormSplitContainer.Size = new System.Drawing.Size(1252, 507);
-            this.ParentFormSplitContainer.SplitterDistance = 1138;
+            this.ParentFormSplitContainer.SplitterDistance = 1141;
             this.ParentFormSplitContainer.SplitterWidth = 1;
             this.ParentFormSplitContainer.TabIndex = 20;
             // 
@@ -751,7 +754,7 @@
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.lblTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblTime.Location = new System.Drawing.Point(841, 450);
+            this.lblTime.Location = new System.Drawing.Point(844, 450);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(317, 55);
             this.lblTime.TabIndex = 13;
@@ -780,7 +783,7 @@
             this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCompanyName.Location = new System.Drawing.Point(0, 0);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(1138, 46);
+            this.lblCompanyName.Size = new System.Drawing.Size(1141, 46);
             this.lblCompanyName.TabIndex = 11;
             this.lblCompanyName.Text = "RAGHANI TRADELINKS (P) LTD. (AHMEDABAD)";
             // 
@@ -804,7 +807,7 @@
             this.pnlShortCutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShortCutContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlShortCutContainer.Name = "pnlShortCutContainer";
-            this.pnlShortCutContainer.Size = new System.Drawing.Size(113, 507);
+            this.pnlShortCutContainer.Size = new System.Drawing.Size(110, 507);
             this.pnlShortCutContainer.TabIndex = 15;
             // 
             // lblShortCut13
@@ -960,6 +963,15 @@
             this.badge2.Properties.Text = "0";
             this.badge2.TargetElement = this.MenuManager;
             // 
+            // iReturnDraftCheque
+            // 
+            this.iReturnDraftCheque.Caption = "Return (Draft/Cheque)";
+            this.iReturnDraftCheque.Glyph = ((System.Drawing.Image)(resources.GetObject("iReturnDraftCheque.Glyph")));
+            this.iReturnDraftCheque.Id = 9;
+            this.iReturnDraftCheque.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iReturnDraftCheque.LargeGlyph")));
+            this.iReturnDraftCheque.Name = "iReturnDraftCheque";
+            this.iReturnDraftCheque.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iReturnDraftCheque_ItemClick);
+            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1080,6 +1092,7 @@
         private DevExpress.XtraBars.BarButtonItem iNewCourier;
         private DevExpress.XtraBars.BarButtonItem iNewAgent;
         private DevExpress.XtraBars.BarButtonItem iNewTransport;
+        private DevExpress.XtraBars.BarButtonItem iReturnDraftCheque;
 
     }
 }

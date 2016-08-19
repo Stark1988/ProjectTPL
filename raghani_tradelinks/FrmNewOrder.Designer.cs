@@ -227,7 +227,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "FrmNewOrder";
-            this.Text = "NewOrder";
+            this.Text = "New Order";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmNewOrder_FormClosing);
             this.Load += new System.EventHandler(this.FrmNewOrder_Load);

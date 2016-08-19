@@ -45,10 +45,8 @@ namespace raghani_tradelinks
             if (grdCmbPendingOrders.Properties.View.Columns != null)
                 grdCmbPendingOrders.Properties.View.Columns.Clear();
 
-            var dbTransations = db.OrderTransactions.Where(ot => ot.OrderDetail.OrderEntry.IsDeleted == false && ot.OrderDetail.IsNullify == false);
-
             List<OrderForSupplier> ordersWithBalQty = db.OrderDetails
-                                        .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false)
+                                        .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false && od.IsFullyExecuted == false)
                                         .GroupBy(od => od.fkSupplierId)
                                         .Select(orderForSupplier => new OrderForSupplier
                                         {
@@ -102,10 +100,10 @@ namespace raghani_tradelinks
             int selectedSupplierId = (int)grdCmbPendingOrders.EditValue;
 
             var cs = db.OrderDetails
-                .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false && od.fkSupplierId == selectedSupplierId);
+                .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false && od.IsFullyExecuted == false && od.fkSupplierId == selectedSupplierId);
 
             List<OrderByCustomer> ordersByCustomer = db.OrderDetails
-                .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false && od.fkSupplierId == selectedSupplierId)
+                .Where(od => od.OrderEntry.IsDeleted == false && od.IsNullify == false && od.IsFullyExecuted == false && od.fkSupplierId == selectedSupplierId)
                 .Select(orderByCustomer => new OrderByCustomer
                 {
                     OrderId = orderByCustomer.OrderEntry.OrderId,
@@ -124,7 +122,8 @@ namespace raghani_tradelinks
                                                         .Select(ot => ot.DispatchQty)
                                                         .DefaultIfEmpty(0)
                                                         .Sum(),
-                    IsNullify = false
+                    IsNullify = false,
+                    IsFullyExecuted = false
                 }).ToList();
 
             gridControl1.DataSource = ordersByCustomer;
@@ -214,5 +213,6 @@ namespace raghani_tradelinks
         public int? BalanceQty { get; set; }
         public DateTime? OrderDate { get; set; }
         public bool IsNullify { get; set; }
+        public bool IsFullyExecuted { get; set; }
     }
 }

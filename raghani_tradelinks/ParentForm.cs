@@ -567,5 +567,23 @@ namespace raghani_tradelinks
                 HandleException(ex);
             }
         }
+
+        private void iReturnDraftCheque_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmReturnDraft"))
+                {
+                    FrmReturnDraft _frmFrmReturnDraft = new FrmReturnDraft();
+                    _frmFrmReturnDraft.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmReturnDraft.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
     }
 }
