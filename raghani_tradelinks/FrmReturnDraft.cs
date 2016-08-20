@@ -88,7 +88,7 @@ namespace raghani_tradelinks
 
                 cmbDraftOrCheckNo.Properties.NullText = "Select Draft/Cheque No.";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CommonMethods.HandleException(ex);
             }
@@ -109,7 +109,7 @@ namespace raghani_tradelinks
                     ClearDependentData();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CommonMethods.HandleException(ex);
             }
@@ -197,24 +197,24 @@ namespace raghani_tradelinks
                     cmbDraftOrCheckNo.Enabled = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CommonMethods.HandleException(ex);
             }
         }
-        
+
         private void CalculateTotalDueAmount()
         {
             try
             {
-                if(bills!=null && bills.Count()>0)
+                if (bills != null && bills.Count() > 0)
                 {
                     decimal? totalBillValue = Convert.ToDecimal(bills.Sum(b => b.BillAmount));
                     decimal? totalDraftValue = 0;
 
-                    if(draftChequeList!=null && draftChequeList.Count()>0)
+                    if (draftChequeList != null && draftChequeList.Count() > 0)
                     {
-                        totalDraftValue = draftChequeList.Sum(d => d.Amount); 
+                        totalDraftValue = draftChequeList.Sum(d => d.Amount);
                     }
 
                     txtAmountDue.Text = Convert.ToString(totalBillValue - totalDraftValue);
@@ -224,7 +224,7 @@ namespace raghani_tradelinks
                     txtAmountDue.Text = string.Empty;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CommonMethods.HandleException(ex);
             }
@@ -250,6 +250,8 @@ namespace raghani_tradelinks
             cmbSupplier.EditValue = -1;
             cmbDraftOrCheque.SelectedIndex = cmbDocuments.SelectedIndex = cmbEnclosed.SelectedIndex = cmbType.SelectedIndex = 0;
             ClearDependentData();
+            draftChequeList = null;
+            bills = null;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -264,13 +266,13 @@ namespace raghani_tradelinks
 
         private void cmbDraftOrCheckNo_EditValueChanged(object sender, EventArgs e)
         {
-            try 
+            try
             {
-                if(cmbDraftOrCheckNo.EditValue!=null && draftChequeList != null && !cmbDraftOrCheckNo.EditValue.ToString().Equals("Select Draft/Cheque No."))
+                if (cmbDraftOrCheckNo.EditValue != null && draftChequeList != null && !cmbDraftOrCheckNo.EditValue.ToString().Equals("Select Draft/Cheque No."))
                 {
                     string selectedDraftCheque = cmbDraftOrCheckNo.EditValue.ToString();
                     DraftChequeDetail dc = draftChequeList.FirstOrDefault(d => d.DraftChequeNumber.Equals(selectedDraftCheque));
-                    if(dc !=null)
+                    if (dc != null)
                     {
                         txtDDChequeDate.Text = Convert.ToString(dc.DraftChequeDate);
                         txtDrawnOn.Text = dc.DrawnOn;
@@ -282,7 +284,7 @@ namespace raghani_tradelinks
                     txtDDChequeDate.Text = string.Empty;
                     txtAmount.Text = string.Empty;
                     txtDrawnOn.Text = string.Empty;
-                    txtReason.Text = string.Empty;                    
+                    txtReason.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -295,13 +297,15 @@ namespace raghani_tradelinks
         {
             try
             {
-                if(string.IsNullOrEmpty(txtDraftReturnDate.Text))
+                DateTime returnDate = DateTime.MinValue;
+
+                if (!DateTime.TryParse(txtDraftReturnDate.Text, out returnDate))
                 {
-                    MessageBox.Show("Please enter draft return date.");
+                    MessageBox.Show("Please enter valid draft return date.");
                     txtDraftReturnDate.Focus();
                     return;
                 }
-                if(cmbCustomer.EditValue==null || (int)cmbCustomer.EditValue==-1)
+                if (cmbCustomer.EditValue == null || (int)cmbCustomer.EditValue == -1)
                 {
                     MessageBox.Show("Please select Customer.");
                     cmbCustomer.Focus();
@@ -324,36 +328,37 @@ namespace raghani_tradelinks
                     MessageBox.Show("Please enter reason for return.");
                     txtReason.Focus();
                     return;
-                }                
+                }
 
                 ReturnDraftCheque returnDraft = new ReturnDraftCheque
                 {
-                    ReturnDate = Convert.ToDateTime(txtDDChequeDate.Text),
-                    DraftOrCheque = cmbDraftOrCheque.SelectedText,
-                    Documents = cmbDocuments.SelectedText,
-                    Enclosed = cmbEnclosed.SelectedText,
+                    ReturnDate = returnDate,
+                    DraftOrCheque = cmbDraftOrCheque.EditValue.ToString(),
+                    Documents = cmbDocuments.EditValue.ToString(),
+                    Enclosed = cmbEnclosed.EditValue.ToString(),
                     fkCustomerId = (int)cmbCustomer.EditValue,
                     fkSupplierId = (int)cmbSupplier.EditValue,
-                    Type = cmbType.SelectedText,
+                    Type = cmbType.EditValue.ToString(),
                     DDChequeNumber = cmbDraftOrCheckNo.EditValue.ToString(),
                     DDChequeDate = Convert.ToDateTime(txtDDChequeDate.Text),
                     DrawnOn = txtDrawnOn.Text,
-                    Amount= Convert.ToDecimal(txtAmount.Text),
-                    Reason=txtReason.Text,
-                    PrintLetter=txtPrintLetter.Text,
-                    NoOfCopies= Convert.ToInt32(txtNoOfCopies.Text),
+                    Amount = Convert.ToDecimal(txtAmount.Text),
+                    Reason = txtReason.Text,
+                    PrintLetter = !string.IsNullOrEmpty(txtPrintLetter.Text) ? txtPrintLetter.Text.ToUpper() : string.Empty,
+                    NoOfCopies = Convert.ToInt32(txtNoOfCopies.Text),
                     CreatedDate = DateTime.Now,
                     CreatedBy = "admin",
-                    IsDeleted=false
+                    IsDeleted = false
                 };
-                                
+
                 List<ReturnDraftChequeBillDetail> billDetails = new List<ReturnDraftChequeBillDetail>();
-                var collectionEntryDetails = db.CollectionEntries.FirstOrDefault(collEntry => collEntry.DDOrChequeNumber.Equals(cmbDraftOrCheckNo.EditValue.ToString())).CollectionEntryDetails;
+                string chequeNumber = cmbDraftOrCheckNo.EditValue.ToString();
+                var collectionEntryDetails = db.CollectionEntries.FirstOrDefault(collEntry => collEntry.DDOrChequeNumber.Equals(chequeNumber)).CollectionEntryDetails;
                 foreach (var bill in collectionEntryDetails)
                 {
                     Ledger ledger = new Ledger
                     {
-                        BillNo= bill.RefNumber,
+                        BillNo = bill.RefNumber,
                         Credit = 0,
                         Debit = Convert.ToDouble(txtAmount.Text),
                         DraftNo = cmbDraftOrCheckNo.EditValue.ToString(),
@@ -376,16 +381,16 @@ namespace raghani_tradelinks
 
                 returnDraft.ReturnDraftChequeBillDetails = billDetails;
 
-                db.CollectionEntries.FirstOrDefault(coll => coll.DDOrChequeNumber.Equals(cmbDraftOrCheckNo.EditValue.ToString())).IsReturnedDraft = true;
-
+                db.CollectionEntries.FirstOrDefault(coll => coll.DDOrChequeNumber.Equals(chequeNumber)).IsReturnedDraft = true;
+                db.ReturnDraftCheques.Add(returnDraft);
                 if (db.SaveChanges() > 0)
-                    MessageBox.Show("Return draft/cheque successfull");
+                    MessageBox.Show("Return draft/cheque successful");
                 else
                     MessageBox.Show("Error occurred while returning draft/cheque");
 
                 ClearData();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CommonMethods.HandleException(ex);
             }
@@ -406,6 +411,5 @@ namespace raghani_tradelinks
         public string BillNo { get; set; }
         public DateTime? BillDate { get; set; }
         public double? BillAmount { get; set; }
-        public bool? IsLocked { get; set; }
     }
 }
