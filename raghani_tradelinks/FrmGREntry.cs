@@ -25,32 +25,27 @@ namespace raghani_tradelinks
         {
             try
             {
-
+                BindDropDownlists();
             }
             catch (Exception ex)
             {
+                CommonMethods.HandleException(ex);
             }
         }
 
         void BindDropDownlists()
         {
-            List<Supplier> supplierList = (from s in db.Suppliers
-                                           where s.IsDeleted == false
-                                           select s).ToList();
-
+            List<Supplier> supplierList = CommonMethods.GetSupplierData();
             supplierList.Insert(0, new Supplier { SupplierId = -1, SupplierName = "Select Supplier" });
             cmbSupplier.DisplayMember = "SupplierName";
             cmbSupplier.ValueMember = "SupplierId";
             cmbSupplier.DataSource = supplierList;
 
 
-            List<Customer> customerList = (from c in db.Customers
-                                           where c.IsDeleted == false
-                                           select c).ToList();
-
+            List<Customer> customerList = CommonMethods.GetCustomerata();
             customerList.Insert(0, new Customer { CustomerId = -1, CustomerName = "Select Customer" });
             cmbCustomer.DisplayMember = "CustomerName";
-            cmbSupplier.ValueMember = "CustomerId";
+            cmbCustomer.ValueMember = "CustomerId";
             cmbCustomer.DataSource = customerList;
 
             string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonFiles/collection_entry_source.json"));

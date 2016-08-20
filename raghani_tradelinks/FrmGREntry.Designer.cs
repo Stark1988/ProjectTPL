@@ -264,6 +264,7 @@
             // 
             // cmbCustomer
             // 
+            this.cmbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCustomer.FormattingEnabled = true;
             this.cmbCustomer.Items.AddRange(new object[] {
             "No",
@@ -275,6 +276,7 @@
             // 
             // cmbSupplier
             // 
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSupplier.FormattingEnabled = true;
             this.cmbSupplier.Items.AddRange(new object[] {
             "No",
