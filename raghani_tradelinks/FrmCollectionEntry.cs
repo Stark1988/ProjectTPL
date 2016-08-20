@@ -182,6 +182,8 @@ namespace raghani_tradelinks
             {
                 if (cmbCustomer.EditValue != null && cmbCustomer.EditValue.ToString() != "-1" && chkNoLRAddressPrinting.Checked == false)
                 {
+                    grdEntry.Rows.Clear();
+                    grdEntry.Columns.Clear();
                     BindGridView();
                 }
             }
@@ -197,6 +199,8 @@ namespace raghani_tradelinks
             {
                 if (cmbSupplier.EditValue != null && cmbSupplier.EditValue.ToString() != "-1" && chkNoLRAddressPrinting.Checked == false)
                 {
+                    grdEntry.Rows.Clear();
+                    grdEntry.Columns.Clear();
                     BindGridView();
                 }
             }
@@ -289,7 +293,8 @@ namespace raghani_tradelinks
             txtDraftAmt.Text = "0.00";
             txtRemarks.Text = "";
 
-            grdEntry.DataSource = null;
+            grdEntry.Rows.Clear();
+            grdEntry.Columns.Clear();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -32,9 +32,15 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.cmbLocked = new System.Windows.Forms.ComboBox();
             this.lblCustomerACNo = new DevExpress.XtraEditors.LabelControl();
             this.MainPageScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.grdEntry = new System.Windows.Forms.DataGridView();
+            this.cmbSupplier = new System.Windows.Forms.ComboBox();
+            this.cmbCustomer = new System.Windows.Forms.ComboBox();
+            this.dtpEntryDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtAmt = new System.Windows.Forms.TextBox();
@@ -46,19 +52,13 @@
             this.lblPhoneOffice = new DevExpress.XtraEditors.LabelControl();
             this.lblCashCredit = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbLocked = new System.Windows.Forms.ComboBox();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpEntryDate = new System.Windows.Forms.DateTimePicker();
-            this.cmbCustomer = new System.Windows.Forms.ComboBox();
-            this.cmbSupplier = new System.Windows.Forms.ComboBox();
-            this.grdEntry = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.MainPageScrollableControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEntry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -78,6 +78,7 @@
             this.btnSave.Size = new System.Drawing.Size(76, 23);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -87,6 +88,7 @@
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panelControl1
             // 
@@ -97,6 +99,18 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1238, 39);
             this.panelControl1.TabIndex = 13;
+            // 
+            // cmbLocked
+            // 
+            this.cmbLocked.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLocked.FormattingEnabled = true;
+            this.cmbLocked.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.cmbLocked.Location = new System.Drawing.Point(137, 9);
+            this.cmbLocked.Name = "cmbLocked";
+            this.cmbLocked.Size = new System.Drawing.Size(61, 21);
+            this.cmbLocked.TabIndex = 1;
             // 
             // lblCustomerACNo
             // 
@@ -114,7 +128,7 @@
             this.MainPageScrollableControl.Controls.Add(this.cmbCustomer);
             this.MainPageScrollableControl.Controls.Add(this.dtpEntryDate);
             this.MainPageScrollableControl.Controls.Add(this.dtpDate);
-            this.MainPageScrollableControl.Controls.Add(this.textBox4);
+            this.MainPageScrollableControl.Controls.Add(this.txtRemarks);
             this.MainPageScrollableControl.Controls.Add(this.labelControl17);
             this.MainPageScrollableControl.Controls.Add(this.labelControl6);
             this.MainPageScrollableControl.Controls.Add(this.txtAmt);
@@ -132,12 +146,62 @@
             this.MainPageScrollableControl.Size = new System.Drawing.Size(1238, 663);
             this.MainPageScrollableControl.TabIndex = 329;
             // 
-            // textBox4
+            // grdEntry
             // 
-            this.textBox4.Location = new System.Drawing.Point(189, 477);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(630, 20);
-            this.textBox4.TabIndex = 345;
+            this.grdEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdEntry.Location = new System.Drawing.Point(137, 107);
+            this.grdEntry.Name = "grdEntry";
+            this.grdEntry.Size = new System.Drawing.Size(682, 364);
+            this.grdEntry.TabIndex = 349;
+            this.grdEntry.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdEntry_CellEndEdit);
+            this.grdEntry.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.grdEntry_CellValidating);
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.cmbSupplier.Location = new System.Drawing.Point(233, 80);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(323, 21);
+            this.cmbSupplier.TabIndex = 348;
+            this.cmbSupplier.SelectedIndexChanged += new System.EventHandler(this.cmbSupplier_SelectedIndexChanged);
+            // 
+            // cmbCustomer
+            // 
+            this.cmbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCustomer.FormattingEnabled = true;
+            this.cmbCustomer.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.cmbCustomer.Location = new System.Drawing.Point(233, 51);
+            this.cmbCustomer.Name = "cmbCustomer";
+            this.cmbCustomer.Size = new System.Drawing.Size(323, 21);
+            this.cmbCustomer.TabIndex = 2;
+            this.cmbCustomer.SelectedIndexChanged += new System.EventHandler(this.cmbCustomer_SelectedIndexChanged);
+            // 
+            // dtpEntryDate
+            // 
+            this.dtpEntryDate.Location = new System.Drawing.Point(423, 22);
+            this.dtpEntryDate.Name = "dtpEntryDate";
+            this.dtpEntryDate.Size = new System.Drawing.Size(133, 20);
+            this.dtpEntryDate.TabIndex = 347;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Location = new System.Drawing.Point(179, 22);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(133, 20);
+            this.dtpDate.TabIndex = 346;
+            // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Location = new System.Drawing.Point(189, 477);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(630, 20);
+            this.txtRemarks.TabIndex = 345;
             // 
             // labelControl17
             // 
@@ -163,6 +227,7 @@
             this.txtAmt.Name = "txtAmt";
             this.txtAmt.Size = new System.Drawing.Size(141, 20);
             this.txtAmt.TabIndex = 342;
+            this.txtAmt.Text = "0.00";
             // 
             // labelControl4
             // 
@@ -189,6 +254,7 @@
             this.cmbPriority.Properties.Items.AddRange(new object[] {
             "Cash",
             "Credit"});
+            this.cmbPriority.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPriority.Size = new System.Drawing.Size(142, 20);
             this.cmbPriority.TabIndex = 339;
             // 
@@ -237,63 +303,6 @@
             this.labelControl5.TabIndex = 333;
             this.labelControl5.Text = "Customer Name";
             // 
-            // cmbLocked
-            // 
-            this.cmbLocked.FormattingEnabled = true;
-            this.cmbLocked.Items.AddRange(new object[] {
-            "No",
-            "Yes"});
-            this.cmbLocked.Location = new System.Drawing.Point(137, 9);
-            this.cmbLocked.Name = "cmbLocked";
-            this.cmbLocked.Size = new System.Drawing.Size(61, 21);
-            this.cmbLocked.TabIndex = 1;
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.Location = new System.Drawing.Point(179, 22);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(133, 20);
-            this.dtpDate.TabIndex = 346;
-            // 
-            // dtpEntryDate
-            // 
-            this.dtpEntryDate.Location = new System.Drawing.Point(423, 22);
-            this.dtpEntryDate.Name = "dtpEntryDate";
-            this.dtpEntryDate.Size = new System.Drawing.Size(133, 20);
-            this.dtpEntryDate.TabIndex = 347;
-            // 
-            // cmbCustomer
-            // 
-            this.cmbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCustomer.FormattingEnabled = true;
-            this.cmbCustomer.Items.AddRange(new object[] {
-            "No",
-            "Yes"});
-            this.cmbCustomer.Location = new System.Drawing.Point(233, 51);
-            this.cmbCustomer.Name = "cmbCustomer";
-            this.cmbCustomer.Size = new System.Drawing.Size(323, 21);
-            this.cmbCustomer.TabIndex = 2;
-            // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Items.AddRange(new object[] {
-            "No",
-            "Yes"});
-            this.cmbSupplier.Location = new System.Drawing.Point(233, 80);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(323, 21);
-            this.cmbSupplier.TabIndex = 348;
-            // 
-            // grdEntry
-            // 
-            this.grdEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdEntry.Location = new System.Drawing.Point(137, 107);
-            this.grdEntry.Name = "grdEntry";
-            this.grdEntry.Size = new System.Drawing.Size(682, 364);
-            this.grdEntry.TabIndex = 349;
-            // 
             // FrmGREntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,8 +324,8 @@
             this.panelControl1.PerformLayout();
             this.MainPageScrollableControl.ResumeLayout(false);
             this.MainPageScrollableControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEntry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,7 +338,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl lblCustomerACNo;
         private DevExpress.XtraEditors.XtraScrollableControl MainPageScrollableControl;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtRemarks;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private System.Windows.Forms.TextBox txtAmt;

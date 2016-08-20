@@ -217,6 +217,12 @@
     <Compile Include="FrmDailyCommissionBill.Designer.cs">
       <DependentUpon>FrmDailyCommissionBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDiscount.Designer.cs">
+      <DependentUpon>FrmDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFinalBillEntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDailyCommissionBill.resx">
       <DependentUpon>FrmDailyCommissionBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiscount.resx">
+      <DependentUpon>FrmDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFinalBillEntry.resx">
       <DependentUpon>FrmFinalBillEntry.cs</DependentUpon>
