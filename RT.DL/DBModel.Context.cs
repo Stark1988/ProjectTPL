@@ -59,9 +59,9 @@ namespace RT.DL
         public virtual DbSet<Ledger> Ledgers { get; set; }
         public virtual DbSet<DiscountEntry> DiscountEntries { get; set; }
         public virtual DbSet<GRNDebitNote> GRNDebitNotes { get; set; }
-        public virtual DbSet<ReturnDraftCheque> ReturnDraftCheques { get; set; }
         public virtual DbSet<ReturnDraftChequeBillDetail> ReturnDraftChequeBillDetails { get; set; }
         public virtual DbSet<CollectionEntry> CollectionEntries { get; set; }
         public virtual DbSet<CollectionEntryDetail> CollectionEntryDetails { get; set; }
+        public virtual DbSet<ReturnDraftCheque> ReturnDraftCheques { get; set; }
     }
 }

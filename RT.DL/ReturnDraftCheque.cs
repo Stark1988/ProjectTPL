@@ -31,10 +31,14 @@ namespace RT.DL
         public Nullable<int> NoOfCopies { get; set; }
         public string DDChequeNumber { get; set; }
         public Nullable<System.DateTime> DDChequeDate { get; set; }
-        public Nullable<System.DateTime> DrawnOn { get; set; }
+        public string DrawnOn { get; set; }
         public Nullable<decimal> Amount { get; set; }
         public string Reason { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Supplier Supplier { get; set; }

@@ -39,15 +39,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDrawnOn = new DevExpress.XtraEditors.TextEdit();
-            this.txtDDChequeDate = new System.Windows.Forms.MaskedTextBox();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtAmount = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbDraftOrCheckNo = new DevExpress.XtraEditors.LookUpEdit();
             this.txtReason = new System.Windows.Forms.TextBox();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDDChequeDate = new System.Windows.Forms.MaskedTextBox();
+            this.txtDrawnOn = new DevExpress.XtraEditors.TextEdit();
+            this.txtAmount = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -55,30 +56,32 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtPrintLetter = new DevExpress.XtraEditors.TextEdit();
             this.txtNoOfCopies = new DevExpress.XtraEditors.TextEdit();
-            this.cmbDraftOrCheckNo = new DevExpress.XtraEditors.LookUpEdit();
             this.cmbDraftOrCheque = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbDocuments = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbEnclosed = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtAmountDue = new DevExpress.XtraEditors.TextEdit();
+            this.gridBillDetails = new System.Windows.Forms.DataGridView();
+            this.BillNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BillDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BillAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCustomer.Properties)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbDraftOrCheckNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDrawnOn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrintLetter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoOfCopies.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbDraftOrCheckNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDraftOrCheque.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDocuments.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEnclosed.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmountDue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBillDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDraftReturnDate
@@ -194,64 +197,24 @@
             this.panel1.Size = new System.Drawing.Size(361, 230);
             this.panel1.TabIndex = 337;
             // 
-            // labelControl2
+            // cmbDraftOrCheckNo
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl2.Location = new System.Drawing.Point(22, 17);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(84, 13);
-            this.labelControl2.TabIndex = 338;
-            this.labelControl2.Text = "DD/Cheque No.";
+            this.cmbDraftOrCheckNo.Enabled = false;
+            this.cmbDraftOrCheckNo.Location = new System.Drawing.Point(129, 14);
+            this.cmbDraftOrCheckNo.Name = "cmbDraftOrCheckNo";
+            this.cmbDraftOrCheckNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbDraftOrCheckNo.Size = new System.Drawing.Size(217, 20);
+            this.cmbDraftOrCheckNo.TabIndex = 348;
+            this.cmbDraftOrCheckNo.EditValueChanged += new System.EventHandler(this.cmbDraftOrCheckNo_EditValueChanged);
             // 
-            // labelControl3
+            // txtReason
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl3.Location = new System.Drawing.Point(22, 42);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(94, 13);
-            this.labelControl3.TabIndex = 339;
-            this.labelControl3.Text = "DD/Cheque Date";
-            // 
-            // txtDrawnOn
-            // 
-            this.txtDrawnOn.Location = new System.Drawing.Point(129, 64);
-            this.txtDrawnOn.Name = "txtDrawnOn";
-            this.txtDrawnOn.Size = new System.Drawing.Size(217, 20);
-            this.txtDrawnOn.TabIndex = 341;
-            // 
-            // txtDDChequeDate
-            // 
-            this.txtDDChequeDate.HidePromptOnLeave = true;
-            this.txtDDChequeDate.Location = new System.Drawing.Point(129, 39);
-            this.txtDDChequeDate.Mask = "00-00-0000";
-            this.txtDDChequeDate.Name = "txtDDChequeDate";
-            this.txtDDChequeDate.Size = new System.Drawing.Size(70, 20);
-            this.txtDDChequeDate.TabIndex = 338;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl4.Location = new System.Drawing.Point(22, 67);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(53, 13);
-            this.labelControl4.TabIndex = 342;
-            this.labelControl4.Text = "Drawn on";
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Location = new System.Drawing.Point(129, 90);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(217, 20);
-            this.txtAmount.TabIndex = 340;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl5.Location = new System.Drawing.Point(22, 93);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(45, 13);
-            this.labelControl5.TabIndex = 343;
-            this.labelControl5.Text = "Amount";
+            this.txtReason.Location = new System.Drawing.Point(22, 141);
+            this.txtReason.Multiline = true;
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(324, 73);
+            this.txtReason.TabIndex = 338;
             // 
             // labelControl6
             // 
@@ -262,13 +225,65 @@
             this.labelControl6.TabIndex = 344;
             this.labelControl6.Text = "Reason";
             // 
-            // txtReason
+            // labelControl5
             // 
-            this.txtReason.Location = new System.Drawing.Point(22, 141);
-            this.txtReason.Multiline = true;
-            this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(324, 73);
-            this.txtReason.TabIndex = 338;
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl5.Location = new System.Drawing.Point(22, 93);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(45, 13);
+            this.labelControl5.TabIndex = 343;
+            this.labelControl5.Text = "Amount";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl4.Location = new System.Drawing.Point(22, 67);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(53, 13);
+            this.labelControl4.TabIndex = 342;
+            this.labelControl4.Text = "Drawn on";
+            // 
+            // txtDDChequeDate
+            // 
+            this.txtDDChequeDate.HidePromptOnLeave = true;
+            this.txtDDChequeDate.Location = new System.Drawing.Point(129, 39);
+            this.txtDDChequeDate.Mask = "00-00-0000";
+            this.txtDDChequeDate.Name = "txtDDChequeDate";
+            this.txtDDChequeDate.ReadOnly = true;
+            this.txtDDChequeDate.Size = new System.Drawing.Size(70, 20);
+            this.txtDDChequeDate.TabIndex = 338;
+            // 
+            // txtDrawnOn
+            // 
+            this.txtDrawnOn.Location = new System.Drawing.Point(129, 64);
+            this.txtDrawnOn.Name = "txtDrawnOn";
+            this.txtDrawnOn.Size = new System.Drawing.Size(217, 20);
+            this.txtDrawnOn.TabIndex = 341;
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(129, 90);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(217, 20);
+            this.txtAmount.TabIndex = 340;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl3.Location = new System.Drawing.Point(22, 42);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(94, 13);
+            this.labelControl3.TabIndex = 339;
+            this.labelControl3.Text = "DD/Cheque Date";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Location = new System.Drawing.Point(22, 17);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(84, 13);
+            this.labelControl2.TabIndex = 338;
+            this.labelControl2.Text = "DD/Cheque No.";
             // 
             // panelControl3
             // 
@@ -287,6 +302,7 @@
             this.btnSave.Size = new System.Drawing.Size(116, 23);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -330,15 +346,6 @@
             this.txtNoOfCopies.Size = new System.Drawing.Size(45, 20);
             this.txtNoOfCopies.TabIndex = 347;
             // 
-            // cmbDraftOrCheckNo
-            // 
-            this.cmbDraftOrCheckNo.Location = new System.Drawing.Point(129, 14);
-            this.cmbDraftOrCheckNo.Name = "cmbDraftOrCheckNo";
-            this.cmbDraftOrCheckNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbDraftOrCheckNo.Size = new System.Drawing.Size(217, 20);
-            this.cmbDraftOrCheckNo.TabIndex = 348;
-            // 
             // cmbDraftOrCheque
             // 
             this.cmbDraftOrCheque.Location = new System.Drawing.Point(141, 37);
@@ -375,14 +382,6 @@
             this.cmbType.Size = new System.Drawing.Size(374, 20);
             this.cmbType.TabIndex = 351;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 124);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(382, 202);
-            this.dataGridView1.TabIndex = 352;
-            // 
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -392,21 +391,59 @@
             this.labelControl9.TabIndex = 353;
             this.labelControl9.Text = "Total Amount Due = ";
             // 
-            // textEdit1
+            // txtAmountDue
             // 
-            this.textEdit1.Location = new System.Drawing.Point(260, 338);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(148, 20);
-            this.textEdit1.TabIndex = 354;
+            this.txtAmountDue.Location = new System.Drawing.Point(260, 338);
+            this.txtAmountDue.Name = "txtAmountDue";
+            this.txtAmountDue.Size = new System.Drawing.Size(148, 20);
+            this.txtAmountDue.TabIndex = 354;
+            // 
+            // gridBillDetails
+            // 
+            this.gridBillDetails.AllowUserToAddRows = false;
+            this.gridBillDetails.AllowUserToDeleteRows = false;
+            this.gridBillDetails.AllowUserToOrderColumns = true;
+            this.gridBillDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBillDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BillNo,
+            this.BillDate,
+            this.BillAmount});
+            this.gridBillDetails.Location = new System.Drawing.Point(26, 124);
+            this.gridBillDetails.Name = "gridBillDetails";
+            this.gridBillDetails.ReadOnly = true;
+            this.gridBillDetails.Size = new System.Drawing.Size(382, 208);
+            this.gridBillDetails.TabIndex = 355;
+            // 
+            // BillNo
+            // 
+            this.BillNo.DataPropertyName = "BillNo";
+            this.BillNo.HeaderText = "Bill No";
+            this.BillNo.Name = "BillNo";
+            this.BillNo.ReadOnly = true;
+            // 
+            // BillDate
+            // 
+            this.BillDate.DataPropertyName = "BillDate";
+            this.BillDate.HeaderText = "Bill Date";
+            this.BillDate.Name = "BillDate";
+            this.BillDate.ReadOnly = true;
+            // 
+            // BillAmount
+            // 
+            this.BillAmount.DataPropertyName = "BillAmount";
+            this.BillAmount.HeaderText = "Bill Amount";
+            this.BillAmount.Name = "BillAmount";
+            this.BillAmount.ReadOnly = true;
+            this.BillAmount.Width = 139;
             // 
             // FrmReturnDraft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 469);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.gridBillDetails);
+            this.Controls.Add(this.txtAmountDue);
             this.Controls.Add(this.labelControl9);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.cmbEnclosed);
             this.Controls.Add(this.cmbDocuments);
@@ -435,19 +472,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCustomer.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbDraftOrCheckNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDrawnOn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPrintLetter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoOfCopies.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbDraftOrCheckNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDraftOrCheque.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDocuments.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEnclosed.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmountDue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBillDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,8 +524,11 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmbDocuments;
         private DevExpress.XtraEditors.ComboBoxEdit cmbEnclosed;
         private DevExpress.XtraEditors.ComboBoxEdit cmbType;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtAmountDue;
+        private System.Windows.Forms.DataGridView gridBillDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BillNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BillDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BillAmount;
     }
 }

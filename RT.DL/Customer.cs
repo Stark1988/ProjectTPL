@@ -30,8 +30,8 @@ namespace RT.DL
             this.Ledgers = new HashSet<Ledger>();
             this.DiscountEntries = new HashSet<DiscountEntry>();
             this.GRNDebitNotes = new HashSet<GRNDebitNote>();
-            this.ReturnDraftCheques = new HashSet<ReturnDraftCheque>();
             this.CollectionEntries = new HashSet<CollectionEntry>();
+            this.ReturnDraftCheques = new HashSet<ReturnDraftCheque>();
         }
     
         public int CustomerId { get; set; }
@@ -74,7 +74,7 @@ namespace RT.DL
         public virtual ICollection<Ledger> Ledgers { get; set; }
         public virtual ICollection<DiscountEntry> DiscountEntries { get; set; }
         public virtual ICollection<GRNDebitNote> GRNDebitNotes { get; set; }
-        public virtual ICollection<ReturnDraftCheque> ReturnDraftCheques { get; set; }
         public virtual ICollection<CollectionEntry> CollectionEntries { get; set; }
+        public virtual ICollection<ReturnDraftCheque> ReturnDraftCheques { get; set; }
     }
 }
