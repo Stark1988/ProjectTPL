@@ -76,6 +76,18 @@ namespace raghani_tradelinks
                 dtpLRRecdDate.Value = DateTime.Now;
                 cmbLocked.SelectedIndex = 0;
                 txtCreditLimitAmt.Enabled = false;
+
+                var last = db.SaleLREntries.OrderByDescending(q => q.SaleId).FirstOrDefault();
+                if (last != null)
+                {
+                    txtBillNo.Text = (last.SaleId + 1).ToString() + "/" + DateTime.Now.ToString("yy") + "-" + DateTime.Now.AddYears(1).ToString("yy");
+                }
+                else
+                {
+                    txtBillNo.Text = 1.ToString() + "/" + DateTime.Now.ToString("yy") + "-" + DateTime.Now.AddYears(1).ToString("yy");
+                }
+                txtBillNo.Enabled = false;
+
             }
             catch (Exception ex)
             {

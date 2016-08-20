@@ -524,6 +524,7 @@
           <Property Name="IsLocked" Type="bit" />
           <Property Name="IsCreditLimitSet" Type="bit" />
           <Property Name="IsDirectSale" Type="bit" />
+          <Property Name="IsOrderAdjusted" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
@@ -2511,6 +2512,7 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_SaleLREntry_ToCustomer" FromRole="SaleLREntry" ToRole="Customer" />
           <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SaleLREntry_ToSupplier" FromRole="SaleLREntry" ToRole="Supplier" />
+          <Property Name="IsOrderAdjusted" Type="Boolean" />
         </EntityType>
         <Association Name="FK_SaleLREntry_ToCustomer">
           <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
@@ -3350,6 +3352,7 @@
           <EntitySetMapping Name="SaleLREntries">
             <EntityTypeMapping TypeName="TPLDBModel.SaleLREntry">
               <MappingFragment StoreEntitySet="SaleLREntry">
+                <ScalarProperty Name="IsOrderAdjusted" ColumnName="IsOrderAdjusted" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />

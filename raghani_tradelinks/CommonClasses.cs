@@ -1,7 +1,9 @@
-﻿using System;
+﻿using RT.DL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace raghani_tradelinks
 {
@@ -57,5 +59,34 @@ namespace raghani_tradelinks
         public static int UserId { get; set; }
         public static string UserName { get; set; }
         public static int UserType { get; set; }
+    }
+
+    public class CommonMethods()
+    {
+        public static void HandleException(Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
+
+        public static List<Supplier> GetSupplierData(TPLDBEntities db)
+        {
+            return  (from s in db.Suppliers
+                    where s.IsDeleted == false
+                    select s).ToList();
+        }
+
+        public static List<Supplier> GetSupplierData(TPLDBEntities db)
+        {
+            return  (from s in db.Suppliers
+                    where s.IsDeleted == false
+                    select s).ToList();
+        }
+
+        public static List<Customer> GetSupplierData(TPLDBEntities db)
+        {
+            return  (from c in db.Customers
+                    where c.IsDeleted == false
+                    select c).ToList();
+        }
     }
 }
