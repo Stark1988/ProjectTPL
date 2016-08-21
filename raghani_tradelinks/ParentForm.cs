@@ -434,7 +434,20 @@ namespace raghani_tradelinks
 
         private void iCustomerLedger_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            try
+            {
+                if (!IsOpen("FrmNewState"))
+                {
+                    FrmCustomerLedger _frmFrmCustomerLedger = new FrmCustomerLedger();
+                    _frmFrmCustomerLedger.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmCustomerLedger.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
         }
 
         private void iState_ItemClick(object sender, ItemClickEventArgs e)

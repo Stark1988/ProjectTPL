@@ -187,6 +187,7 @@ namespace raghani_tradelinks
                     disc.UpdatedDate = DateTime.Now;
 
                     ledger = new Ledger();
+                    ledger.ParticularDate = dtpDate.Value;
                     ledger.BillNo = disc.RefNumber;
                     ledger.CreateDate = DateTime.Now;
                     ledger.CreatedBy = User.UserName;

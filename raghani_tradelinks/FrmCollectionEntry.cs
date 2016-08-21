@@ -350,6 +350,7 @@ namespace raghani_tradelinks
                     CollectionEntryDetail colEntryDetail = new CollectionEntryDetail();
                     colEntryDetail.AdjustedAmount = Convert.ToDecimal(row.Cells[6].Value);
 
+                    ledger.ParticularDate = dtpRecptDate.Value;
                     ledger.BillNo = row.Cells[1].FormattedValue.ToString();
                     ledger.CreateDate = DateTime.Now;
                     ledger.CreatedBy = User.UserName;
@@ -389,6 +390,7 @@ namespace raghani_tradelinks
                         disc.UpdatedDate = DateTime.Now;
 
                         ledger = new Ledger();
+                        ledger.ParticularDate = dtpRecptDate.Value;
                         ledger.BillNo = disc.RefNumber;
                         ledger.CreateDate = DateTime.Now;
                         ledger.CreatedBy = User.UserName;
@@ -433,6 +435,7 @@ namespace raghani_tradelinks
                         gr.UpdatedDate = DateTime.Now;
 
                         ledger = new Ledger();
+                        ledger.ParticularDate = dtpRecptDate.Value;
                         ledger.BillNo = gr.RefNumber;
                         ledger.CreateDate = DateTime.Now;
                         ledger.CreatedBy = User.UserName;

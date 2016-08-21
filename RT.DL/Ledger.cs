@@ -26,6 +26,7 @@ namespace RT.DL
         public string Particulars { get; set; }
         public string BillNo { get; set; }
         public string DraftNo { get; set; }
+        public Nullable<System.DateTime> ParticularDate { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Supplier Supplier { get; set; }

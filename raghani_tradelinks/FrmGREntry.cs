@@ -169,7 +169,7 @@ namespace raghani_tradelinks
                     gr.EntryDate = dtpEntryDate.Value;
                     gr.fkCustomerId = Convert.ToInt32(cmbCustomer.SelectedValue.ToString());
                     gr.fkSupplierId = Convert.ToInt32(cmbSupplier.SelectedValue.ToString());
-                    gr.GRNDebitNoteDate = dtpEntryDate.Value;
+                    gr.GRNDebitNoteDate = dtpDate.Value;
                     gr.GRNNumber = "111";
                     gr.IsDeleted = false;
                     gr.IsLocked = false;
@@ -184,6 +184,7 @@ namespace raghani_tradelinks
                     gr.UpdatedDate = DateTime.Now;
 
                     ledger = new Ledger();
+                    ledger.ParticularDate = dtpDate.Value;
                     ledger.BillNo = gr.RefNumber;
                     ledger.CreateDate = DateTime.Now;
                     ledger.CreatedBy = User.UserName;

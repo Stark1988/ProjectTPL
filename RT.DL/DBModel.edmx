@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="AuthorizationId" />
@@ -240,6 +240,7 @@
             <PropertyRef Name="LedgerId" />
           </Key>
           <Property Name="LedgerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParticularDate" Type="datetime" />
           <Property Name="Particulars" Type="nvarchar" MaxLength="500" />
           <Property Name="BillNo" Type="nvarchar" MaxLength="50" />
           <Property Name="fkCustomerId" Type="int" />
@@ -2560,6 +2561,7 @@
           <Property Name="Particulars" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="BillNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DraftNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ParticularDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Ledger_Customer">
           <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
@@ -3396,6 +3398,7 @@
           <EntitySetMapping Name="Ledgers">
             <EntityTypeMapping TypeName="TPLDBModel.Ledger">
               <MappingFragment StoreEntitySet="Ledger">
+                <ScalarProperty Name="ParticularDate" ColumnName="ParticularDate" />
                 <ScalarProperty Name="DraftNo" ColumnName="DraftNo" />
                 <ScalarProperty Name="BillNo" ColumnName="BillNo" />
                 <ScalarProperty Name="Particulars" ColumnName="Particulars" />
