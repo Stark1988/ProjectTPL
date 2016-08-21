@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.NewSupplierTabControl = new DevExpress.XtraTab.XtraTabControl();
             this.MainTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
@@ -124,17 +123,19 @@
             this.SisterConcernsTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.SisterConcernName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryCmbSisterConcern = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbSupplierEditList = new System.Windows.Forms.ComboBox();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtSupplierACNo = new System.Windows.Forms.TextBox();
             this.lblSupplierACNo = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.validator1 = new Itboy.Components.Validator(this.components);
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbSupplierEditList = new System.Windows.Forms.ComboBox();
-            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
+            this.validator1 = new Itboy.Components.Validator();
             ((System.ComponentModel.ISupportInitialize)(this.NewSupplierTabControl)).BeginInit();
             this.NewSupplierTabControl.SuspendLayout();
             this.MainTabPage.SuspendLayout();
@@ -152,6 +153,7 @@
             this.SisterConcernsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryCmbSisterConcern)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -163,7 +165,7 @@
             this.NewSupplierTabControl.Location = new System.Drawing.Point(0, 0);
             this.NewSupplierTabControl.Name = "NewSupplierTabControl";
             this.NewSupplierTabControl.SelectedTabPage = this.MainTabPage;
-            this.NewSupplierTabControl.Size = new System.Drawing.Size(1238, 657);
+            this.NewSupplierTabControl.Size = new System.Drawing.Size(1238, 649);
             this.NewSupplierTabControl.TabIndex = 0;
             this.NewSupplierTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.MainTabPage,
@@ -173,7 +175,7 @@
             // 
             this.MainTabPage.Controls.Add(this.xtraScrollableControl1);
             this.MainTabPage.Name = "MainTabPage";
-            this.MainTabPage.Size = new System.Drawing.Size(1232, 629);
+            this.MainTabPage.Size = new System.Drawing.Size(1232, 621);
             this.MainTabPage.Text = "Main";
             // 
             // xtraScrollableControl1
@@ -253,7 +255,7 @@
             this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl1.MinimumSize = new System.Drawing.Size(0, 400);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(1232, 629);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(1232, 621);
             this.xtraScrollableControl1.TabIndex = 240;
             // 
             // chkBK
@@ -1070,7 +1072,7 @@
             // 
             this.SisterConcernsTabPage.Controls.Add(this.gridControl1);
             this.SisterConcernsTabPage.Name = "SisterConcernsTabPage";
-            this.SisterConcernsTabPage.Size = new System.Drawing.Size(1232, 629);
+            this.SisterConcernsTabPage.Size = new System.Drawing.Size(1232, 621);
             this.SisterConcernsTabPage.Text = "Sister Concerns";
             // 
             // gridControl1
@@ -1079,7 +1081,9 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(648, 629);
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryCmbSisterConcern});
+            this.gridControl1.Size = new System.Drawing.Size(648, 621);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1087,9 +1091,37 @@
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.SisterConcernName});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            // 
+            // SisterConcernName
+            // 
+            this.SisterConcernName.Caption = "Sister Concern Name";
+            this.SisterConcernName.ColumnEdit = this.repositoryCmbSisterConcern;
+            this.SisterConcernName.FieldName = "SisterConcernName";
+            this.SisterConcernName.Name = "SisterConcernName";
+            this.SisterConcernName.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            this.SisterConcernName.Visible = true;
+            this.SisterConcernName.VisibleIndex = 0;
+            // 
+            // repositoryCmbSisterConcern
+            // 
+            this.repositoryCmbSisterConcern.AutoHeight = false;
+            this.repositoryCmbSisterConcern.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryCmbSisterConcern.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SisterConcernName", "Sister Concern Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SisterConcernId", "SisterConcernId", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default)});
+            this.repositoryCmbSisterConcern.DisplayMember = "SisterConcernName";
+            this.repositoryCmbSisterConcern.Name = "repositoryCmbSisterConcern";
+            this.repositoryCmbSisterConcern.NullText = "Select Sister Concern";
+            this.repositoryCmbSisterConcern.ShowFooter = false;
+            this.repositoryCmbSisterConcern.ShowHeader = false;
+            this.repositoryCmbSisterConcern.UseDropDownRowsAsMaxCount = true;
+            this.repositoryCmbSisterConcern.ValueMember = "SisterConcernId";
             // 
             // panel1
             // 
@@ -1104,6 +1136,31 @@
             this.panel1.Size = new System.Drawing.Size(1238, 47);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnGo
+            // 
+            this.btnGo.Location = new System.Drawing.Point(914, 12);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(75, 23);
+            this.btnGo.TabIndex = 9;
+            this.btnGo.Text = "Go";
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // cmbSupplierEditList
+            // 
+            this.cmbSupplierEditList.FormattingEnabled = true;
+            this.cmbSupplierEditList.Location = new System.Drawing.Point(553, 12);
+            this.cmbSupplierEditList.Name = "cmbSupplierEditList";
+            this.cmbSupplierEditList.Size = new System.Drawing.Size(346, 21);
+            this.cmbSupplierEditList.TabIndex = 8;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(439, 16);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(104, 13);
+            this.labelControl4.TabIndex = 7;
+            this.labelControl4.Text = "Select Supplier to Edit";
             // 
             // txtSupplierACNo
             // 
@@ -1127,7 +1184,7 @@
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 704);
+            this.panel2.Location = new System.Drawing.Point(0, 696);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1238, 37);
             this.panel2.TabIndex = 2;
@@ -1157,7 +1214,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 47);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1238, 657);
+            this.panel3.Size = new System.Drawing.Size(1238, 649);
             this.panel3.TabIndex = 3;
             // 
             // validator1
@@ -1166,37 +1223,12 @@
             this.validator1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.validator1.Form = this;
             // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(439, 16);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(104, 13);
-            this.labelControl4.TabIndex = 7;
-            this.labelControl4.Text = "Select Supplier to Edit";
-            // 
-            // cmbSupplierEditList
-            // 
-            this.cmbSupplierEditList.FormattingEnabled = true;
-            this.cmbSupplierEditList.Location = new System.Drawing.Point(553, 12);
-            this.cmbSupplierEditList.Name = "cmbSupplierEditList";
-            this.cmbSupplierEditList.Size = new System.Drawing.Size(346, 21);
-            this.cmbSupplierEditList.TabIndex = 8;
-            // 
-            // btnGo
-            // 
-            this.btnGo.Location = new System.Drawing.Point(914, 12);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(75, 23);
-            this.btnGo.TabIndex = 9;
-            this.btnGo.Text = "Go";
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
-            // 
             // FrmNewSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(1238, 741);
+            this.ClientSize = new System.Drawing.Size(1238, 733);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1226,6 +1258,7 @@
             this.SisterConcernsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryCmbSisterConcern)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1342,5 +1375,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.ComboBox cmbSupplierEditList;
         private DevExpress.XtraEditors.SimpleButton btnGo;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryCmbSisterConcern;
+        private DevExpress.XtraGrid.Columns.GridColumn SisterConcernName;
     }
 }

@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbCustomerToEdit = new System.Windows.Forms.ComboBox();
+            this.cmbACCreatedByBranch = new System.Windows.Forms.ComboBox();
+            this.chkBrandNewAC = new System.Windows.Forms.CheckBox();
+            this.lblACCreatedByBranch = new DevExpress.XtraEditors.LabelControl();
+            this.lblBrandNewAC = new DevExpress.XtraEditors.LabelControl();
+            this.txtCustomerACNo = new System.Windows.Forms.TextBox();
+            this.lblCustomerCreatedOn = new DevExpress.XtraEditors.LabelControl();
+            this.lblCustomerACNo = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.NewCustomerTabControl = new DevExpress.XtraTab.XtraTabControl();
             this.NewCustomerMainTabPage = new DevExpress.XtraTab.XtraTabPage();
@@ -207,17 +215,10 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.validator1 = new Itboy.Components.Validator(this.components);
-            this.lblCustomerACNo = new DevExpress.XtraEditors.LabelControl();
-            this.lblCustomerCreatedOn = new DevExpress.XtraEditors.LabelControl();
-            this.txtCustomerACNo = new System.Windows.Forms.TextBox();
-            this.lblBrandNewAC = new DevExpress.XtraEditors.LabelControl();
-            this.lblACCreatedByBranch = new DevExpress.XtraEditors.LabelControl();
-            this.chkBrandNewAC = new System.Windows.Forms.CheckBox();
-            this.cmbACCreatedByBranch = new System.Windows.Forms.ComboBox();
-            this.cmbCustomerToEdit = new System.Windows.Forms.ComboBox();
-            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.validator1 = new Itboy.Components.Validator();
+            this.repositoryCmbSisterConcern = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.SisterConcernName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -256,6 +257,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryCmbSisterConcern)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -293,6 +295,82 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1238, 39);
             this.panelControl1.TabIndex = 3;
+            // 
+            // btnGo
+            // 
+            this.btnGo.Location = new System.Drawing.Point(1173, 6);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(58, 23);
+            this.btnGo.TabIndex = 89;
+            this.btnGo.Text = "Go";
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // cmbCustomerToEdit
+            // 
+            this.cmbCustomerToEdit.FormattingEnabled = true;
+            this.cmbCustomerToEdit.Location = new System.Drawing.Point(836, 8);
+            this.cmbCustomerToEdit.Name = "cmbCustomerToEdit";
+            this.cmbCustomerToEdit.Size = new System.Drawing.Size(331, 21);
+            this.cmbCustomerToEdit.TabIndex = 9;
+            // 
+            // cmbACCreatedByBranch
+            // 
+            this.cmbACCreatedByBranch.FormattingEnabled = true;
+            this.cmbACCreatedByBranch.Location = new System.Drawing.Point(522, 8);
+            this.cmbACCreatedByBranch.Name = "cmbACCreatedByBranch";
+            this.cmbACCreatedByBranch.Size = new System.Drawing.Size(166, 21);
+            this.cmbACCreatedByBranch.TabIndex = 8;
+            // 
+            // chkBrandNewAC
+            // 
+            this.chkBrandNewAC.AutoSize = true;
+            this.chkBrandNewAC.Checked = true;
+            this.chkBrandNewAC.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkBrandNewAC.Location = new System.Drawing.Point(356, 10);
+            this.chkBrandNewAC.Name = "chkBrandNewAC";
+            this.chkBrandNewAC.Size = new System.Drawing.Size(15, 14);
+            this.chkBrandNewAC.TabIndex = 7;
+            this.chkBrandNewAC.UseVisualStyleBackColor = true;
+            // 
+            // lblACCreatedByBranch
+            // 
+            this.lblACCreatedByBranch.Location = new System.Drawing.Point(404, 11);
+            this.lblACCreatedByBranch.Name = "lblACCreatedByBranch";
+            this.lblACCreatedByBranch.Size = new System.Drawing.Size(111, 13);
+            this.lblACCreatedByBranch.TabIndex = 6;
+            this.lblACCreatedByBranch.Text = "A/C Created by Branch";
+            // 
+            // lblBrandNewAC
+            // 
+            this.lblBrandNewAC.Location = new System.Drawing.Point(271, 11);
+            this.lblBrandNewAC.Name = "lblBrandNewAC";
+            this.lblBrandNewAC.Size = new System.Drawing.Size(73, 13);
+            this.lblBrandNewAC.TabIndex = 5;
+            this.lblBrandNewAC.Text = "Brand New A/C";
+            // 
+            // txtCustomerACNo
+            // 
+            this.txtCustomerACNo.Location = new System.Drawing.Point(125, 8);
+            this.txtCustomerACNo.Name = "txtCustomerACNo";
+            this.txtCustomerACNo.Size = new System.Drawing.Size(130, 21);
+            this.txtCustomerACNo.TabIndex = 1;
+            // 
+            // lblCustomerCreatedOn
+            // 
+            this.lblCustomerCreatedOn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblCustomerCreatedOn.Location = new System.Drawing.Point(696, 11);
+            this.lblCustomerCreatedOn.Name = "lblCustomerCreatedOn";
+            this.lblCustomerCreatedOn.Size = new System.Drawing.Size(134, 13);
+            this.lblCustomerCreatedOn.TabIndex = 2;
+            this.lblCustomerCreatedOn.Text = "Select Customer To Edit";
+            // 
+            // lblCustomerACNo
+            // 
+            this.lblCustomerACNo.Location = new System.Drawing.Point(13, 11);
+            this.lblCustomerACNo.Name = "lblCustomerACNo";
+            this.lblCustomerACNo.Size = new System.Drawing.Size(87, 13);
+            this.lblCustomerACNo.TabIndex = 0;
+            this.lblCustomerACNo.Text = "Customer A/C No.";
             // 
             // panelControl2
             // 
@@ -1951,6 +2029,8 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryCmbSisterConcern});
             this.gridControl1.Size = new System.Drawing.Size(648, 471);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.UseEmbeddedNavigator = true;
@@ -1959,6 +2039,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.SisterConcernName});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -1978,81 +2060,29 @@
             this.validator1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.validator1.Form = this;
             // 
-            // lblCustomerACNo
+            // repositoryCmbSisterConcern
             // 
-            this.lblCustomerACNo.Location = new System.Drawing.Point(13, 11);
-            this.lblCustomerACNo.Name = "lblCustomerACNo";
-            this.lblCustomerACNo.Size = new System.Drawing.Size(87, 13);
-            this.lblCustomerACNo.TabIndex = 0;
-            this.lblCustomerACNo.Text = "Customer A/C No.";
+            this.repositoryCmbSisterConcern.AutoHeight = false;
+            this.repositoryCmbSisterConcern.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryCmbSisterConcern.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SisterConcernId", "Sister Concern Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SisterConcernName", "Sister Concern Name")});
+            this.repositoryCmbSisterConcern.DisplayMember = "SisterConcernName";
+            this.repositoryCmbSisterConcern.Name = "repositoryCmbSisterConcern";
+            this.repositoryCmbSisterConcern.NullText = "Select Sister Concern";
+            this.repositoryCmbSisterConcern.ShowFooter = false;
+            this.repositoryCmbSisterConcern.ShowHeader = false;
+            this.repositoryCmbSisterConcern.ValueMember = "SisterConcernId";
             // 
-            // lblCustomerCreatedOn
+            // SisterConcernName
             // 
-            this.lblCustomerCreatedOn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblCustomerCreatedOn.Location = new System.Drawing.Point(696, 11);
-            this.lblCustomerCreatedOn.Name = "lblCustomerCreatedOn";
-            this.lblCustomerCreatedOn.Size = new System.Drawing.Size(134, 13);
-            this.lblCustomerCreatedOn.TabIndex = 2;
-            this.lblCustomerCreatedOn.Text = "Select Customer To Edit";
-            // 
-            // txtCustomerACNo
-            // 
-            this.txtCustomerACNo.Location = new System.Drawing.Point(125, 8);
-            this.txtCustomerACNo.Name = "txtCustomerACNo";
-            this.txtCustomerACNo.Size = new System.Drawing.Size(130, 21);
-            this.txtCustomerACNo.TabIndex = 1;
-            // 
-            // lblBrandNewAC
-            // 
-            this.lblBrandNewAC.Location = new System.Drawing.Point(271, 11);
-            this.lblBrandNewAC.Name = "lblBrandNewAC";
-            this.lblBrandNewAC.Size = new System.Drawing.Size(73, 13);
-            this.lblBrandNewAC.TabIndex = 5;
-            this.lblBrandNewAC.Text = "Brand New A/C";
-            // 
-            // lblACCreatedByBranch
-            // 
-            this.lblACCreatedByBranch.Location = new System.Drawing.Point(404, 11);
-            this.lblACCreatedByBranch.Name = "lblACCreatedByBranch";
-            this.lblACCreatedByBranch.Size = new System.Drawing.Size(111, 13);
-            this.lblACCreatedByBranch.TabIndex = 6;
-            this.lblACCreatedByBranch.Text = "A/C Created by Branch";
-            // 
-            // chkBrandNewAC
-            // 
-            this.chkBrandNewAC.AutoSize = true;
-            this.chkBrandNewAC.Checked = true;
-            this.chkBrandNewAC.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkBrandNewAC.Location = new System.Drawing.Point(356, 10);
-            this.chkBrandNewAC.Name = "chkBrandNewAC";
-            this.chkBrandNewAC.Size = new System.Drawing.Size(15, 14);
-            this.chkBrandNewAC.TabIndex = 7;
-            this.chkBrandNewAC.UseVisualStyleBackColor = true;
-            // 
-            // cmbACCreatedByBranch
-            // 
-            this.cmbACCreatedByBranch.FormattingEnabled = true;
-            this.cmbACCreatedByBranch.Location = new System.Drawing.Point(522, 8);
-            this.cmbACCreatedByBranch.Name = "cmbACCreatedByBranch";
-            this.cmbACCreatedByBranch.Size = new System.Drawing.Size(166, 21);
-            this.cmbACCreatedByBranch.TabIndex = 8;
-            // 
-            // cmbCustomerToEdit
-            // 
-            this.cmbCustomerToEdit.FormattingEnabled = true;
-            this.cmbCustomerToEdit.Location = new System.Drawing.Point(836, 8);
-            this.cmbCustomerToEdit.Name = "cmbCustomerToEdit";
-            this.cmbCustomerToEdit.Size = new System.Drawing.Size(331, 21);
-            this.cmbCustomerToEdit.TabIndex = 9;
-            // 
-            // btnGo
-            // 
-            this.btnGo.Location = new System.Drawing.Point(1173, 6);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(58, 23);
-            this.btnGo.TabIndex = 89;
-            this.btnGo.Text = "Go";
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            this.SisterConcernName.Caption = "Sister Concern Name";
+            this.SisterConcernName.ColumnEdit = this.repositoryCmbSisterConcern;
+            this.SisterConcernName.FieldName = "SisterConcernName";
+            this.SisterConcernName.Name = "SisterConcernName";
+            this.SisterConcernName.Visible = true;
+            this.SisterConcernName.VisibleIndex = 0;
             // 
             // FrmNewCustomer
             // 
@@ -2118,6 +2148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryCmbSisterConcern)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2313,6 +2344,8 @@
         private System.Windows.Forms.TextBox txtCustomerACNo;
         private DevExpress.XtraEditors.LabelControl lblCustomerCreatedOn;
         private DevExpress.XtraEditors.LabelControl lblCustomerACNo;
+        private DevExpress.XtraGrid.Columns.GridColumn SisterConcernName;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryCmbSisterConcern;
 
 
     }

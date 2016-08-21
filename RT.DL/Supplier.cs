@@ -27,6 +27,7 @@ namespace RT.DL
             this.GRNDebitNotes = new HashSet<GRNDebitNote>();
             this.CollectionEntries = new HashSet<CollectionEntry>();
             this.ReturnDraftCheques = new HashSet<ReturnDraftCheque>();
+            this.SupplierSisterConcerns1 = new HashSet<SupplierSisterConcern>();
         }
     
         public int SupplierId { get; set; }
@@ -68,5 +69,6 @@ namespace RT.DL
         public virtual ICollection<GRNDebitNote> GRNDebitNotes { get; set; }
         public virtual ICollection<CollectionEntry> CollectionEntries { get; set; }
         public virtual ICollection<ReturnDraftCheque> ReturnDraftCheques { get; set; }
+        public virtual ICollection<SupplierSisterConcern> SupplierSisterConcerns1 { get; set; }
     }
 }

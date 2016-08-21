@@ -29,7 +29,9 @@ namespace raghani_tradelinks
         private void FrmNewSupplier_Load(object sender, EventArgs e)
         {
             BindDrpListData();
-        }
+
+            SetupSisterConcernGrid();
+        }        
 
         void BindDrpListData()
         {
@@ -143,11 +145,21 @@ namespace raghani_tradelinks
                     propr.ProprietorName = txtProprietor3.Text;
                     lstPropr.Add(propr);
 
-                    List<SupplierSisterConcern> lstSisConcrn = new List<SupplierSisterConcern>();
-
+                    List<SuppSisterConcern> lstSisConcrn = new List<SuppSisterConcern>();                    
 
                     if (btnSave.Text == "Save")
                     {
+                        for (int i = 0; i < gridView1.DataRowCount; i++)
+                        {
+                            if (gridView1.GetRowCellValue(i, gridView1.Columns["SisterConcernName"]) != null)
+                            {
+                                lstSisConcrn.Add(new SuppSisterConcern
+                                {
+                                    SisterConcernId = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["SisterConcernName"])),
+                                });
+                            }
+                        }
+
                         int retValue = suppl.InsertCustomer(txtName.Text, txtSupplierACNo.Text, txtAlias.Text, cmbGroup.EditValue.ToString(), cmbZone.EditValue.ToString(),
                                                     Convert.ToInt32(txtODDays.Text), txtBillTerms.Text, cmbPriority.EditValue.ToString(), cmbVariety.EditValue.ToString(),
                                                     Convert.ToInt32(textBox5.Text), txtTanName.Text, txtTanNo.Text, txtRemarks.Text, txtGlobalCode.Text, "", textBox12.Text,
@@ -164,11 +176,22 @@ namespace raghani_tradelinks
                     }
                     else
                     {
+                        int selectedSupplierId = Convert.ToInt32(cmbSupplierEditList.SelectedValue);
+                        DataTable dt = gridControl1.DataSource as DataTable;
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            lstSisConcrn.Add(new SuppSisterConcern
+                            {
+                                SisterConcernId = Convert.ToInt32(dt.Rows[i]["SisterConcernName"]),
+                                OldSisterConcernId = Convert.ToInt32(dt.Rows[i]["OldSisterConcernId"])
+                            });
+                        }
+
                         int retValue = suppl.InsertCustomer(txtName.Text, txtSupplierACNo.Text, txtAlias.Text, cmbGroup.EditValue.ToString(), cmbZone.EditValue.ToString(),
                                                         Convert.ToInt32(txtODDays.Text), txtBillTerms.Text, cmbPriority.EditValue.ToString(), cmbVariety.EditValue.ToString(),
                                                         Convert.ToInt32(textBox5.Text), txtTanName.Text, txtTanNo.Text, txtRemarks.Text, txtGlobalCode.Text, "", textBox12.Text,
                                                         cmbSTaxOn.EditValue.ToString(), Convert.ToDecimal(txtCommission.Text), cmbPriorityMember.EditValue.ToString(), chkDailyBill.Checked,
-                                                        chkBK.Checked, User.UserName, lstBill, lstCInfo, lstPropr, lstSisConcrn, Convert.ToInt32(cmbSupplierEditList.SelectedValue));
+                                                        chkBK.Checked, User.UserName, lstBill, lstCInfo, lstPropr, lstSisConcrn, selectedSupplierId);
                         if (retValue > 0)
                         {
                             MessageBox.Show("Data updated successfully.");
@@ -244,8 +267,33 @@ namespace raghani_tradelinks
                     chkDailyBill.Checked = Convert.ToBoolean(supplier.IsStartDailyBilling);
                     chkBK.Checked = Convert.ToBoolean(supplier.IsBK);
 
+                    int selectedSupplier = Convert.ToInt32(cmbSupplierEditList.SelectedValue);
 
-                    List<SupplierSisterConcern> lstSisConcrn = new List<SupplierSisterConcern>();
+                    List<SuppSisterConcern> lstSisConcrn = new List<SuppSisterConcern>();
+                    foreach(var sisC in supplier.SupplierSisterConcerns
+                                                .Where(sc => sc.IsDeleted == false
+                                                    && sc.fkSupplierId == selectedSupplier))
+                    {
+                        lstSisConcrn.Add(new SuppSisterConcern
+                            {
+                                SisterConcernId = Convert.ToInt32(sisC.fkSupplierSisterConcernId),
+                                SisterConcernName = sisC.Supplier1.SupplierName,
+                                OldSisterConcernId = Convert.ToInt32(sisC.fkSupplierSisterConcernId)
+                            });
+                    }
+
+                    gridControl1.DataSource = GetSisterConcernDataSource(lstSisConcrn);
+
+                    MstSupplierMgmt supplierMgmt = new MstSupplierMgmt();
+                    List<SuppSisterConcern> sisConcerns = supplierMgmt.SelectSupplier()
+                                                            .Where(s=> s.SupplierId!=selectedSupplier)
+                                                            .Select(supp => new SuppSisterConcern
+                                                            {
+                                                                SisterConcernId = supp.SupplierId,
+                                                                SisterConcernName = supp.SupplierName,
+                                                                OldSisterConcernId = supp.SupplierId
+                                                            }).ToList();
+                    repositoryCmbSisterConcern.DataSource = sisConcerns;
 
                     textBox5.Text = supplier.SupplierBillingDetails.ToList()[0].BillFrequency.HasValue ? supplier.SupplierBillingDetails.ToList()[0].BillFrequency.Value.ToString() : "";
                     chkStopMonthlyBill.Checked = supplier.SupplierBillingDetails.ToList()[0].IsStopMonthlyBilling.HasValue ? supplier.SupplierBillingDetails.ToList()[0].IsStopMonthlyBilling.Value : false;
@@ -338,12 +386,55 @@ namespace raghani_tradelinks
             txtProprietor3.Text = "";
 
             cmbSupplierEditList.SelectedIndex = 0;
+            gridControl1.DataSource = GetSisterConcernDataSource();
             btnSave.Text = "Save";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ClearControls();
+        }
+
+        DataTable GetSisterConcernDataSource(List<SuppSisterConcern> sisConcerns = null)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("SisterConcernName", typeof(string));
+            dt.Columns.Add("SisterConcernId", typeof(int));
+            dt.Columns.Add("OldSisterConcernId", typeof(int));
+
+            if (sisConcerns != null)
+            {
+                foreach (var sc in sisConcerns)
+                {
+                    DataRow r = dt.NewRow();
+                    r["SisterConcernName"] = sc.SisterConcernName;
+                    r["SisterConcernId"] = sc.SisterConcernId;
+                    r["OldSisterConcernId"] = sc.OldSisterConcernId;
+                    dt.Rows.Add(r);
+                }
+            }
+
+            return dt;
+        }
+
+        private void SetupSisterConcernGrid()
+        {
+            gridControl1.DataSource = GetSisterConcernDataSource(null);
+            MstSupplierMgmt supplierMgmt = new MstSupplierMgmt();
+            List<SuppSisterConcern> sisConcerns = supplierMgmt.SelectSupplier().Select(supp => new SuppSisterConcern
+            {
+                SisterConcernId = supp.SupplierId,
+                SisterConcernName = supp.SupplierName,
+                OldSisterConcernId = -1
+            }).ToList();
+            repositoryCmbSisterConcern.CustomDisplayText += repositoryCmbSisterConcern_CustomDisplayText;
+            repositoryCmbSisterConcern.DataSource = sisConcerns;
+        }
+
+        void repositoryCmbSisterConcern_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value != null && !e.Value.ToString().ToLower().Contains("system.object"))
+                e.DisplayText = !string.IsNullOrEmpty(e.DisplayText) ? e.DisplayText.ToLower().Contains("system.object") ? string.Empty : e.DisplayText : e.Value.ToString();
         }
     }
 }

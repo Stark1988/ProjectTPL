@@ -28,7 +28,7 @@ namespace RT.BL
                                     string Priority, string Variety, int FrequencyPerMonth, string TanName, string TanNumber, string Remarks, string GlobalCode,
                                     string Password, string Pin, string ServiceTaxOn, decimal Commission, string PriorityMember, bool IsStartDailyBilling, bool IsBK,
                                     string Username, List<SupplierBillingDetail> lstBills, List<SupplierContactInfo> lstContactInfo, List<SupplierProprietor> lstPropr,
-                                    List<SupplierSisterConcern> lstSisConcrn, int SupplierId = 0)
+                                    List<SuppSisterConcern> lstSisConcrn, int SupplierId = 0)
         {
             Supplier supplier;
 
@@ -118,15 +118,24 @@ namespace RT.BL
             }
 
             i++;
-            foreach (SupplierSisterConcern sisC in lstSisConcrn)
+            if (SupplierId != 0 && lstSisConcrn != null)
             {
-                if (SupplierId == 0)
-                    supplier.SupplierSisterConcerns.Add(sisC);
-                else
+                foreach (var existingSisterConcern in supplier.SupplierSisterConcerns)
                 {
-
-                    i++;
+                    supplier.SupplierSisterConcerns.Remove(existingSisterConcern);
                 }
+            }
+            foreach (SuppSisterConcern sisC in lstSisConcrn)
+            {
+                supplier.SupplierSisterConcerns.Add(new SupplierSisterConcern
+                    {
+                        fkSupplierSisterConcernId = sisC.SisterConcernId,
+                        CreatedBy = "admin",
+                        CreatedDate = DateTime.Now,
+                        UpdatedBy = "admin",
+                        UpdatedDate = DateTime.Now,
+                        IsDeleted = false
+                    });
             }
 
             if (SupplierId == 0)
@@ -134,5 +143,12 @@ namespace RT.BL
 
             return db.SaveChanges();
         }
+    }
+
+    public class SuppSisterConcern
+    {
+        public int SisterConcernId { get; set; }
+        public int OldSisterConcernId { get; set; }
+        public string SisterConcernName { get; set; }
     }
 }

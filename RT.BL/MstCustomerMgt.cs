@@ -22,27 +22,27 @@ namespace RT.BL
                     }).ToList();
         }
 
-        public List<Customer> SelectSisterCompany()
-        {
-            return (from c in db.Customers
-                    //where c.Status != "Rejected"
-                    select new
-                    {
-                        CustomerId = c.CustomerId,
-                        CustomerName = c.CustomerName
-                    }).ToList()
-                    .Select(q => new Customer
-                    {
-                        CustomerId = q.CustomerId,
-                        CustomerName = q.CustomerName
-                    }).ToList();
-        }
+        //public List<Customer> SelectSisterCompany()
+        //{
+        //    return (from c in db.Customers
+        //            //where c.Status != "Rejected"
+        //            select new
+        //            {
+        //                CustomerId = c.CustomerId,
+        //                CustomerName = c.CustomerName
+        //            }).ToList()
+        //            .Select(q => new Customer
+        //            {
+        //                CustomerId = q.CustomerId,
+        //                CustomerName = q.CustomerName
+        //            }).ToList();
+        //}
 
         public int InsertCustomer(string CustomerACNumber, int CreatedByBranch, string CashCredit, string CustomerName, string Alias, string TypeOfFirm,
                                     string Priority, string Status, string TIN, string CSTNumber, string GSTNumber, string LastOAC, int NoLRAddressPrinting,
                                     int fkSubAgentId, string Zone, string Group, string Username, List<clsAuthorization> lstAuthorization,
                                     List<clsCustomerContactInfo> lstCustContactInfo, List<clsCustomerInfo> lstCustInfo, List<clsCustomerProprietor> lstCustProprietors,
-                                    List<clsCustomerSalesman> lstCustSalesman, List<clsCustomerSisterConcern> lstCustSisConcern, List<clsCustomerAccountant> lstCustAccts,
+                                    List<clsCustomerSalesman> lstCustSalesman, List<CustSisterConcern> lstCustSisConcern, List<clsCustomerAccountant> lstCustAccts,
                                     List<clsParty> lstParty, List<clsReference> lstReference, int CustomerId = 0)
         {
             Customer customer;
@@ -225,30 +225,27 @@ namespace RT.BL
             }
 
             i = 0;
-            foreach (clsCustomerSisterConcern concern in lstCustSisConcern)
+           
+            var listOfexistingSisterConcern = customer.CustomerSisterConcerns.ToList();
+            if(CustomerId !=0 && lstCustSisConcern!=null)
             {
-                if (CustomerId == 0)
+                foreach (var existingSisterConcern in listOfexistingSisterConcern)
                 {
-                    CustomerSisterConcern sisConcrn = new CustomerSisterConcern();
-                    sisConcrn.CreatedBy = Username;
-                    sisConcrn.CreatedDate = DateTime.Now;
-                    sisConcrn.IsDeleted = false;
-                    sisConcrn.SisterConcernId = concern.SisterConcernId;
-                    sisConcrn.UpdatedBy = Username;
-                    sisConcrn.UpdatedDate = DateTime.Now;
+                    customer.CustomerSisterConcerns.Remove(existingSisterConcern);
+                }
+            }
 
-                    customer.CustomerSisterConcerns.Add(sisConcrn);
-                }
-                else
+            foreach (CustSisterConcern sisC in lstCustSisConcern)
+            {
+                customer.CustomerSisterConcerns.Add(new CustomerSisterConcern
                 {
-                    customer.CustomerSisterConcerns.ElementAt(i).CreatedBy = Username;
-                    customer.CustomerSisterConcerns.ElementAt(i).CreatedDate = DateTime.Now;
-                    customer.CustomerSisterConcerns.ElementAt(i).IsDeleted = false;
-                    customer.CustomerSisterConcerns.ElementAt(i).SisterConcernId = concern.SisterConcernId;
-                    customer.CustomerSisterConcerns.ElementAt(i).UpdatedBy = Username;
-                    customer.CustomerSisterConcerns.ElementAt(i).UpdatedDate = DateTime.Now;
-                    i++;
-                }
+                    fkCustomerSisterConcernId = sisC.SisterConcernId,
+                    CreatedBy = "admin",
+                    CreatedDate = DateTime.Now,
+                    UpdatedBy = "admin",
+                    UpdatedDate = DateTime.Now,
+                    IsDeleted = false
+                });
             }
 
             i = 0;
@@ -447,5 +444,12 @@ namespace RT.BL
         public string TourBy { get; set; }
         public Nullable<System.DateTime> TourDate { get; set; }
         public Nullable<int> CustomerId { get; set; }
+    }
+
+    public class CustSisterConcern
+    {
+        public int SisterConcernId { get; set; }
+        public int OldSisterConcernId { get; set; }
+        public string SisterConcernName { get; set; }
     }
 }

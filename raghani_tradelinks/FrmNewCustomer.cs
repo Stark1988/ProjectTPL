@@ -71,21 +71,23 @@ namespace raghani_tradelinks
                 //);
                 #endregion
 
-                gridControl1.DataSource = GetSisterConcernDataSource();
-                RepositoryItemImageComboBox ritem = new RepositoryItemImageComboBox();
-                gridControl1.RepositoryItems.Add(ritem);
-                gridView1.Columns["ExistingSisterConcern"].ColumnEdit = ritem;
+                SetupSisterConcernGrid();
 
-                MstCustomerMgt cust = new MstCustomerMgt();
-                var data = cust.SelectSisterCompany();
-                foreach (var d in data)
-                {
-                    ritem.Items.Add(new ImageComboBoxItem
-                    {
-                        Description = d.CustomerName,
-                        Value = d.CustomerId
-                    });
-                }
+                //gridControl1.DataSource = GetSisterConcernDataSource();
+                //RepositoryItemImageComboBox ritem = new RepositoryItemImageComboBox();
+                //gridControl1.RepositoryItems.Add(ritem);
+                //gridView1.Columns["ExistingSisterConcern"].ColumnEdit = ritem;
+
+                //MstCustomerMgt cust = new MstCustomerMgt();
+                //var data = cust.SelectSisterCompany();
+                //foreach (var d in data)
+                //{
+                //    ritem.Items.Add(new ImageComboBoxItem
+                //    {
+                //        Description = d.CustomerName,
+                //        Value = d.CustomerId
+                //    });
+                //}
             }
             catch (Exception ex)
             {
@@ -176,12 +178,12 @@ namespace raghani_tradelinks
             }
         }
 
-        DataTable GetSisterConcernDataSource()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("ExistingSisterConcern", typeof(string));
-            return dt;
-        }
+        //DataTable GetSisterConcernDataSource()
+        //{
+        //    DataTable dt = new DataTable();
+        //    dt.Columns.Add("ExistingSisterConcern", typeof(string));
+        //    return dt;
+        //}
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -189,11 +191,11 @@ namespace raghani_tradelinks
             {
                 if (validator1.Validate() == true && dxValidationProvider1.Validate() == true)
                 {
-                    List<clsCustomerSisterConcern> lstSisConcern = new List<clsCustomerSisterConcern>();
-                    for (int i = 0; i < gridView1.DataRowCount; i++)
-                    {
-                        var data = gridView1.GetRowCellValue(i, "ExistingSisterConcern");
-                    }
+                    //List<clsCustomerSisterConcern> lstSisConcern = new List<clsCustomerSisterConcern>();
+                    //for (int i = 0; i < gridView1.DataRowCount; i++)
+                    //{
+                    //    var data = gridView1.GetRowCellValue(i, "ExistingSisterConcern");
+                    //}
 
                     List<clsAuthorization> lstAuthor = new List<clsAuthorization>() {
                                                         new clsAuthorization 
@@ -341,6 +343,22 @@ namespace raghani_tradelinks
                                                 }};
 
                     MstCustomerMgt cust = new MstCustomerMgt();
+
+                    List<CustSisterConcern> lstSisConcern = new List<CustSisterConcern>();
+
+                    DataTable dt = gridControl1.DataSource as DataTable;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        int scId = 0;
+                        bool isIntVal = Int32.TryParse(Convert.ToString(dt.Rows[i]["SisterConcernName"]), out scId);
+                        if (!isIntVal)
+                            Int32.TryParse(Convert.ToString(dt.Rows[i]["SisterConcernId"]), out scId);
+
+                        lstSisConcern.Add(new CustSisterConcern
+                        {
+                            SisterConcernId = scId
+                        });
+                    }
 
                     if (btnSave.Text == "Save")
                     {
@@ -509,6 +527,34 @@ namespace raghani_tradelinks
                     txtTourBy.Text = lstRef[0].TourBy;
                     txtTourDt.Text = lstRef[0].TourDate.HasValue ? lstRef[0].TourDate.Value.ToString("dd-MM-yyyy") : "";
 
+                    int selectedCustomer = Convert.ToInt32(cmbCustomerToEdit.SelectedValue);
+
+                    List<CustSisterConcern> lstSisConcrn = new List<CustSisterConcern>();
+                    foreach (var sisC in customer.CustomerSisterConcerns
+                                                .Where(sc => sc.IsDeleted == false
+                                                    && sc.fkCustomerId == selectedCustomer))
+                    {
+                        lstSisConcrn.Add(new CustSisterConcern
+                        {
+                            SisterConcernId = Convert.ToInt32(sisC.fkCustomerSisterConcernId),
+                            SisterConcernName = sisC.Customer1.CustomerName,
+                            OldSisterConcernId = Convert.ToInt32(sisC.fkCustomerSisterConcernId)
+                        });
+                    }
+
+                    gridControl1.DataSource = GetSisterConcernDataSource(lstSisConcrn);
+
+                    MstCustomerMgt customerMgmt = new MstCustomerMgt();
+                    List<CustSisterConcern> sisConcerns = customerMgmt.SelectCustomer()
+                                                            .Where(s => s.CustomerId != selectedCustomer)
+                                                            .Select(cus => new CustSisterConcern
+                                                            {
+                                                                SisterConcernId = cus.CustomerId,
+                                                                SisterConcernName = cus.CustomerName,
+                                                                OldSisterConcernId = cus.CustomerId
+                                                            }).ToList();
+                    repositoryCmbSisterConcern.DataSource = sisConcerns;
+
                 }
                 else
                     MessageBox.Show("Please select Customer to edit.");
@@ -622,6 +668,50 @@ namespace raghani_tradelinks
             txtTourBy.Text = "";
             txtTourDt.Text = "";
             btnSave.Text = "Save";
+
+            gridControl1.DataSource = GetSisterConcernDataSource();
+        }
+
+        private void SetupSisterConcernGrid()
+        {
+            gridControl1.DataSource = GetSisterConcernDataSource();
+            MstCustomerMgt customerMgmt = new MstCustomerMgt();
+            List<CustSisterConcern> sisConcerns = customerMgmt.SelectCustomer().Select(cust => new CustSisterConcern
+            {
+                SisterConcernId = cust.CustomerId,
+                SisterConcernName = cust.CustomerName,
+                OldSisterConcernId = -1
+            }).ToList();
+            repositoryCmbSisterConcern.CustomDisplayText += repositoryCmbSisterConcern_CustomDisplayText;
+            repositoryCmbSisterConcern.DataSource = sisConcerns;
+        }
+
+        void repositoryCmbSisterConcern_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value != null && !e.Value.ToString().ToLower().Contains("system.object"))
+                e.DisplayText = !string.IsNullOrEmpty(e.DisplayText) ? e.DisplayText.ToLower().Contains("system.object") ? string.Empty : e.DisplayText : e.Value.ToString();
+        }
+
+        DataTable GetSisterConcernDataSource(List<CustSisterConcern> sisConcerns = null)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("SisterConcernName", typeof(string));
+            dt.Columns.Add("SisterConcernId", typeof(int));
+            dt.Columns.Add("OldSisterConcernId", typeof(int));
+
+            if (sisConcerns != null)
+            {
+                foreach (var sc in sisConcerns)
+                {
+                    DataRow r = dt.NewRow();
+                    r["SisterConcernName"] = sc.SisterConcernName;
+                    r["SisterConcernId"] = sc.SisterConcernId;
+                    r["OldSisterConcernId"] = sc.OldSisterConcernId;
+                    dt.Rows.Add(r);
+                }
+            }
+
+            return dt;
         }
     }
 }

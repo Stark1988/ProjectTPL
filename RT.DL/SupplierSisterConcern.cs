@@ -22,7 +22,9 @@ namespace RT.DL
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        public Nullable<int> fkSupplierSisterConcernId { get; set; }
     
         public virtual Supplier Supplier { get; set; }
+        public virtual Supplier Supplier1 { get; set; }
     }
 }

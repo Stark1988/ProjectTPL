@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="AuthorizationId" />
@@ -176,6 +176,7 @@
           </Key>
           <Property Name="SisterConcernId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkCustomerId" Type="int" />
+          <Property Name="fkCustomerSisterConcernId" Type="int" />
           <Property Name="SisterConcernDescription" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedDate" Type="datetime" />
@@ -615,6 +616,7 @@
           </Key>
           <Property Name="SisterConcernId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkSupplierId" Type="int" />
+          <Property Name="fkSupplierSisterConcernId" Type="int" />
           <Property Name="SisterConcernDescription" Type="nvarchar" MaxLength="200" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
           <Property Name="CreatedDate" Type="datetime" />
@@ -825,6 +827,18 @@
             </Principal>
             <Dependent Role="CustomerSisterConcern">
               <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerSisterConcern_Customer_Sister">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CustomerSisterConcern" Type="Self.CustomerSisterConcern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerSisterConcern">
+              <PropertyRef Name="fkCustomerSisterConcernId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1176,6 +1190,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SupplierSisterConcern_Supplier_Sister">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="SupplierSisterConcern" Type="Self.SupplierSisterConcern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierSisterConcern">
+              <PropertyRef Name="fkSupplierSisterConcernId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TPLDBModelStoreContainer">
           <EntitySet Name="Authorization" EntityType="Self.Authorization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CollectionEntry" EntityType="Self.CollectionEntry" Schema="dbo" store:Type="Tables" />
@@ -1276,6 +1302,10 @@
             <End Role="CustomerSalesman" EntitySet="CustomerSalesman" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerSisterConcern_Customer" Association="Self.FK_CustomerSisterConcern_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSisterConcern_Customer_Sister" Association="Self.FK_CustomerSisterConcern_Customer_Sister">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcern" />
           </AssociationSet>
@@ -1392,6 +1422,10 @@
             <End Role="SupplierProprietor" EntitySet="SupplierProprietor" />
           </AssociationSet>
           <AssociationSet Name="FK_SupplierSisterConcern_Supplier" Association="Self.FK_SupplierSisterConcern_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="SupplierSisterConcern" EntitySet="SupplierSisterConcern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierSisterConcern_Supplier_Sister" Association="Self.FK_SupplierSisterConcern_Supplier_Sister">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="SupplierSisterConcern" EntitySet="SupplierSisterConcern" />
           </AssociationSet>
@@ -1619,6 +1653,14 @@
             <End Role="ReturnDraftCheque" EntitySet="ReturnDraftCheques" />
             <End Role="ReturnDraftChequeBillDetail" EntitySet="ReturnDraftChequeBillDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK_SupplierSisterConcern_Supplier_Sister" Association="TPLDBModel.FK_SupplierSisterConcern_Supplier_Sister">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="SupplierSisterConcern" EntitySet="SupplierSisterConcerns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSisterConcern_Customer_Sister" Association="TPLDBModel.FK_CustomerSisterConcern_Customer_Sister">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcerns" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Authorization">
           <Key>
@@ -1681,6 +1723,7 @@
           <NavigationProperty Name="GRNDebitNotes" Relationship="TPLDBModel.FK_GRNDebitNote_Customer" FromRole="Customer" ToRole="GRNDebitNote" />
           <NavigationProperty Name="CollectionEntries" Relationship="TPLDBModel.FK_CollectionEntry_Customer" FromRole="Customer" ToRole="CollectionEntry" />
           <NavigationProperty Name="ReturnDraftCheques" Relationship="TPLDBModel.FK_ReturnDraftCheque_Customer" FromRole="Customer" ToRole="ReturnDraftCheque" />
+          <NavigationProperty Name="CustomerSisterConcerns1" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer_Sister" FromRole="Customer" ToRole="CustomerSisterConcern" />
           </EntityType>
         <EntityType Name="CustomerContactInfo">
           <Key>
@@ -1765,6 +1808,8 @@
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Customer" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer" FromRole="CustomerSisterConcern" ToRole="Customer" />
+          <Property Name="fkCustomerSisterConcernId" Type="Int32" />
+          <NavigationProperty Name="Customer1" Relationship="TPLDBModel.FK_CustomerSisterConcern_Customer_Sister" FromRole="CustomerSisterConcern" ToRole="Customer" />
         </EntityType>
         <EntityType Name="MstBank">
           <Key>
@@ -2227,6 +2272,7 @@
           <NavigationProperty Name="GRNDebitNotes" Relationship="TPLDBModel.FK_GRNDebitNote_Supplier" FromRole="Supplier" ToRole="GRNDebitNote" />
           <NavigationProperty Name="CollectionEntries" Relationship="TPLDBModel.FK_CollectionEntry_Supplier" FromRole="Supplier" ToRole="CollectionEntry" />
           <NavigationProperty Name="ReturnDraftCheques" Relationship="TPLDBModel.FK_ReturnDraftCheque_Supplier" FromRole="Supplier" ToRole="ReturnDraftCheque" />
+          <NavigationProperty Name="SupplierSisterConcerns1" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier_Sister" FromRole="Supplier" ToRole="SupplierSisterConcern" />
         </EntityType>
         <EntityType Name="SupplierBillingDetail">
           <Key>
@@ -2285,6 +2331,8 @@
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier" FromRole="SupplierSisterConcern" ToRole="Supplier" />
+          <Property Name="fkSupplierSisterConcernId" Type="Int32" />
+          <NavigationProperty Name="Supplier1" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier_Sister" FromRole="SupplierSisterConcern" ToRole="Supplier" />
         </EntityType>
         <Association Name="FK_Party_Customer">
           <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
@@ -2881,6 +2929,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SupplierSisterConcern_Supplier_Sister">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.SupplierSisterConcern" Role="SupplierSisterConcern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierSisterConcern">
+              <PropertyRef Name="fkSupplierSisterConcernId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerSisterConcern_Customer_Sister">
+          <End Type="TPLDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="TPLDBModel.CustomerSisterConcern" Role="CustomerSisterConcern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerSisterConcern">
+              <PropertyRef Name="fkCustomerSisterConcernId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3003,6 +3075,7 @@
           <EntitySetMapping Name="CustomerSisterConcerns">
             <EntityTypeMapping TypeName="TPLDBModel.CustomerSisterConcern">
               <MappingFragment StoreEntitySet="CustomerSisterConcern">
+                <ScalarProperty Name="fkCustomerSisterConcernId" ColumnName="fkCustomerSisterConcernId" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -3309,6 +3382,7 @@
           <EntitySetMapping Name="SupplierSisterConcerns">
             <EntityTypeMapping TypeName="TPLDBModel.SupplierSisterConcern">
               <MappingFragment StoreEntitySet="SupplierSisterConcern">
+                <ScalarProperty Name="fkSupplierSisterConcernId" ColumnName="fkSupplierSisterConcernId" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />

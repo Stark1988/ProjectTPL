@@ -88,6 +88,8 @@
         <AssociationConnector Association="TPLDBModel.FK_ReturnDraftCheque_Customer" />
         <AssociationConnector Association="TPLDBModel.FK_ReturnDraftCheque_Supplier" />
         <AssociationConnector Association="TPLDBModel.FK_ReturnDraftChequeBillDetail_ReturnDraftCheque" />
+        <AssociationConnector Association="TPLDBModel.FK_SupplierSisterConcern_Supplier_Sister" />
+        <AssociationConnector Association="TPLDBModel.FK_CustomerSisterConcern_Customer_Sister" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
