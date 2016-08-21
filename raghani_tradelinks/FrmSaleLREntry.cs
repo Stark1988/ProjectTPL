@@ -176,6 +176,9 @@ namespace raghani_tradelinks
                 ot.UpdatedBy = User.UserName;
                 ot.UpdatedDate = DateTime.Now;
 
+                //Order fully executed to be implmented
+                //ot.OrderDetail.OrderEntry.
+
                 Ledger ledger = new Ledger();
                 ledger.CreatedBy = User.UserName;
                 ledger.CreateDate = DateTime.Now;

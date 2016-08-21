@@ -341,12 +341,20 @@ namespace raghani_tradelinks
             colEntry.UpdatedBy = User.UserName;
             colEntry.UpdatedDate = DateTime.Now;
 
+
+
             Ledger ledger = new Ledger();
 
             foreach (DataGridViewRow row in grdEntry.Rows)
             {
                 if (row.Cells[0].Value != null)
                 {
+                    SaleLREntry sale = db.SaleLREntries.FirstOrDefault(q => q.BillNumber == row.Cells[1].FormattedValue.ToString());
+                    if (sale != null && sale.BillAmount == (double)(Convert.ToDecimal(row.Cells[4].Value) + Convert.ToDecimal(row.Cells[5].Value) + Convert.ToDecimal(row.Cells[5].Value)))
+                    {
+                        sale.IsOrderAdjusted = true;
+                    }
+
                     CollectionEntryDetail colEntryDetail = new CollectionEntryDetail();
                     colEntryDetail.AdjustedAmount = Convert.ToDecimal(row.Cells[6].Value);
 

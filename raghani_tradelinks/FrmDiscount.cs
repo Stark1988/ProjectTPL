@@ -199,6 +199,18 @@ namespace raghani_tradelinks
                     ledger.UpdatedDate = DateTime.Now;
                     ledger.Debit = 0;
 
+                    //SaleLREntry sale = db.SaleLREntries.FirstOrDefault(q => q.BillNumber == disc.RefNumber);
+                    //if (sale != null)
+                    //{
+                    //    List<GRNDebitNote> lstGR = db.GRNDebitNotes.Where(q => q.RefNumber == disc.RefNumber).ToList();
+                    //    decimal sumGR = lstGR.Sum(q => q.AdjustedAmount.Value);
+
+                    //    List<DiscountEntry> lstDisc = db.DiscountEntries.Where(q => q.RefNumber == disc.RefNumber).ToList();
+                    //    decimal sumDisc = lstDisc.Sum(q => q.AdjustedAmount.Value) + disc.AdjustedAmount.Value;
+                        
+                    //    if(sale.BillAmount == ())
+                    //}
+
                     db.Ledgers.Add(ledger);
                     db.DiscountEntries.Add(disc);
                 }
