@@ -118,13 +118,15 @@ namespace RT.BL
             }
 
             i++;
+            var listOfexistingSisterConcern = supplier.SupplierSisterConcerns.ToList();
             if (SupplierId != 0 && lstSisConcrn != null)
             {
-                foreach (var existingSisterConcern in supplier.SupplierSisterConcerns)
+                foreach (var existingSisterConcern in listOfexistingSisterConcern)
                 {
                     supplier.SupplierSisterConcerns.Remove(existingSisterConcern);
                 }
             }
+
             foreach (SuppSisterConcern sisC in lstSisConcrn)
             {
                 supplier.SupplierSisterConcerns.Add(new SupplierSisterConcern

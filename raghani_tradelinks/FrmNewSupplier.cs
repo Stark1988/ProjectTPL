@@ -145,21 +145,24 @@ namespace raghani_tradelinks
                     propr.ProprietorName = txtProprietor3.Text;
                     lstPropr.Add(propr);
 
-                    List<SuppSisterConcern> lstSisConcrn = new List<SuppSisterConcern>();                    
+                    List<SuppSisterConcern> lstSisConcrn = new List<SuppSisterConcern>();
+
+                    DataTable dt = gridControl1.DataSource as DataTable;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        int scId = 0;
+                        bool isIntVal = Int32.TryParse(Convert.ToString(dt.Rows[i]["SisterConcernName"]), out scId);
+                        if (!isIntVal)
+                            Int32.TryParse(Convert.ToString(dt.Rows[i]["SisterConcernId"]), out scId);
+
+                        lstSisConcrn.Add(new SuppSisterConcern
+                        {
+                            SisterConcernId = scId
+                        });
+                    }
 
                     if (btnSave.Text == "Save")
                     {
-                        for (int i = 0; i < gridView1.DataRowCount; i++)
-                        {
-                            if (gridView1.GetRowCellValue(i, gridView1.Columns["SisterConcernName"]) != null)
-                            {
-                                lstSisConcrn.Add(new SuppSisterConcern
-                                {
-                                    SisterConcernId = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["SisterConcernName"])),
-                                });
-                            }
-                        }
-
                         int retValue = suppl.InsertCustomer(txtName.Text, txtSupplierACNo.Text, txtAlias.Text, cmbGroup.EditValue.ToString(), cmbZone.EditValue.ToString(),
                                                     Convert.ToInt32(txtODDays.Text), txtBillTerms.Text, cmbPriority.EditValue.ToString(), cmbVariety.EditValue.ToString(),
                                                     Convert.ToInt32(textBox5.Text), txtTanName.Text, txtTanNo.Text, txtRemarks.Text, txtGlobalCode.Text, "", textBox12.Text,
@@ -176,22 +179,11 @@ namespace raghani_tradelinks
                     }
                     else
                     {
-                        int selectedSupplierId = Convert.ToInt32(cmbSupplierEditList.SelectedValue);
-                        DataTable dt = gridControl1.DataSource as DataTable;
-                        for (int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            lstSisConcrn.Add(new SuppSisterConcern
-                            {
-                                SisterConcernId = Convert.ToInt32(dt.Rows[i]["SisterConcernName"]),
-                                OldSisterConcernId = Convert.ToInt32(dt.Rows[i]["OldSisterConcernId"])
-                            });
-                        }
-
                         int retValue = suppl.InsertCustomer(txtName.Text, txtSupplierACNo.Text, txtAlias.Text, cmbGroup.EditValue.ToString(), cmbZone.EditValue.ToString(),
                                                         Convert.ToInt32(txtODDays.Text), txtBillTerms.Text, cmbPriority.EditValue.ToString(), cmbVariety.EditValue.ToString(),
                                                         Convert.ToInt32(textBox5.Text), txtTanName.Text, txtTanNo.Text, txtRemarks.Text, txtGlobalCode.Text, "", textBox12.Text,
                                                         cmbSTaxOn.EditValue.ToString(), Convert.ToDecimal(txtCommission.Text), cmbPriorityMember.EditValue.ToString(), chkDailyBill.Checked,
-                                                        chkBK.Checked, User.UserName, lstBill, lstCInfo, lstPropr, lstSisConcrn, selectedSupplierId);
+                                                        chkBK.Checked, User.UserName, lstBill, lstCInfo, lstPropr, lstSisConcrn, Convert.ToInt32(cmbSupplierEditList.SelectedValue));
                         if (retValue > 0)
                         {
                             MessageBox.Show("Data updated successfully.");
