@@ -163,6 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonClasses.cs" />
+    <Compile Include="CustomerOutstandingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomerOutstandingReport.Designer.cs">
+      <DependentUpon>CustomerOutstandingReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -375,6 +381,14 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XRDesignRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CustomerOutstandingReport.resx">
+      <DependentUpon>CustomerOutstandingReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCollectionEntry.resx">
       <DependentUpon>FrmCollectionEntry.cs</DependentUpon>
     </EmbeddedResource>
@@ -488,6 +502,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>XRDesignRibbonControllerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
