@@ -85,7 +85,8 @@ namespace raghani_tradelinks
                               join sale in db.SaleLREntries on l.BillNo equals sale.BillNumber
                               join gr in db.GRNDebitNotes on sale.BillNumber equals gr.RefNumber
                               join disc in db.DiscountEntries on sale.BillNumber equals disc.RefNumber
-                              where sale.IsOrderAdjusted == odrAdj && (System.Data.Entity.DbFunctions.TruncateTime(l.ParticularDate.Value) >= dtpFrom.Value.Date && System.Data.Entity.DbFunctions.TruncateTime(l.ParticularDate.Value) <= dtpTo.Value.Date)
+                              where sale.IsOrderAdjusted == odrAdj && (System.Data.Entity.DbFunctions.TruncateTime(l.ParticularDate.Value) >= dtpFrom.Value.Date
+                                    && System.Data.Entity.DbFunctions.TruncateTime(l.ParticularDate.Value) <= dtpTo.Value.Date)
                               select new
                               {
                                   LedgerId = l.LedgerId,

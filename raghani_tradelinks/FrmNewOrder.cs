@@ -59,8 +59,8 @@ namespace raghani_tradelinks
                                                select c).ToList();
 
                 userList = (from u in db.MstUsers
-                                               where u.IsDeleted == false
-                                               select u).ToList();
+                            where u.IsDeleted == false
+                            select u).ToList();
 
                 customerList.Insert(0, new Customer { CustomerId = -1, CustomerName = "Select Customer" });
 
@@ -85,7 +85,7 @@ namespace raghani_tradelinks
 
                 gridControl1.RepositoryItems.Add(cmbSupplier);
                 gridView1.Columns["Supplier"].ColumnEdit = cmbSupplier;
-                               
+
                 RepositoryItemLookUpEdit cmbAccompany = new RepositoryItemLookUpEdit();
                 cmbAccompany.DataSource = userList;
                 cmbAccompany.Columns.Clear();
@@ -142,7 +142,7 @@ namespace raghani_tradelinks
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -244,6 +244,16 @@ namespace raghani_tradelinks
                     orderDetail.BalQty = Convert.ToInt32(gridView1.GetRowCellValue(i, gridView1.Columns["BalQty"]));
                     orderDetail.BalQty = orderDetail.BalQty.HasValue ? orderDetail.BalQty : 0;
                     orderDetail.IsNullify = false;
+                    orderDetail.IsFullyExecuted = false;
+                    
+                    OrderTransaction ot = new OrderTransaction();
+                    ot.DispatchQty = 0;
+                    ot.CreatedBy = User.UserName;
+                    ot.CreatedDate = DateTime.Now;
+                    ot.UpdatedBy = User.UserName;
+                    ot.UpdatedDate = DateTime.Now;
+                    orderDetail.OrderTransactions.Add(ot);
+                    
                     orderDetails.Add(orderDetail);
                 }
 
@@ -254,10 +264,10 @@ namespace raghani_tradelinks
                     MessageBox.Show("Order added successfully");
                 else
                     MessageBox.Show("Error occurred while adding order");
-                
+
                 ClearData();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

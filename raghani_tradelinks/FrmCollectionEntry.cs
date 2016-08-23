@@ -218,7 +218,7 @@ namespace raghani_tradelinks
                 {
                     DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)grdEntry.Rows[e.RowIndex].Cells[e.ColumnIndex + 1];
                     var data = (from lr in db.SaleLREntries
-                                where lr.fkSupplierId == (int)cmbSupplier.EditValue && lr.fkCustomerId == (int)cmbCustomer.EditValue && lr.IsOrderAdjusted == false
+                                where lr.fkSupplierId == (int)cmbSupplier.EditValue && lr.fkCustomerId == (int)cmbCustomer.EditValue && (lr.IsOrderAdjusted == false || lr.IsOrderAdjusted == null)
                                 select new
                                 {
                                     RefNo = lr.BillNumber,
@@ -342,6 +342,7 @@ namespace raghani_tradelinks
             colEntry.UpdatedDate = DateTime.Now;
 
             Ledger ledger = new Ledger();
+            decimal Total = colEntry.DraftAmount.Value;
 
             foreach (DataGridViewRow row in grdEntry.Rows)
             {
@@ -404,6 +405,7 @@ namespace raghani_tradelinks
 
                         db.Ledgers.Add(ledger);
                         db.DiscountEntries.Add(disc);
+                        Total += disc.AdjustedAmount.Value;
                     }
                     else
                         colEntryDetail.Discount = 0;
@@ -449,6 +451,7 @@ namespace raghani_tradelinks
 
                         db.Ledgers.Add(ledger);
                         db.GRNDebitNotes.Add(gr);
+                        Total += gr.AdjustedAmount.Value;
                     }
                     else
                         colEntryDetail.GR = 0;
@@ -460,6 +463,10 @@ namespace raghani_tradelinks
                     colEntry.CollectionEntryDetails.Add(colEntryDetail);
                 }
             }
+
+            SaleLREntry lr = db.SaleLREntries.First(q => q.BillNumber == ledger.BillNo);
+            if (Total == (decimal)lr.BillAmount.Value)
+                lr.IsOrderAdjusted = true;
 
             db.CollectionEntries.Add(colEntry);
             db.SaveChanges();

@@ -77,15 +77,10 @@ namespace raghani_tradelinks
                 cmbLocked.SelectedIndex = 0;
                 txtCreditLimitAmt.Enabled = false;
 
-                var last = db.SaleLREntries.OrderByDescending(q => q.SaleId).FirstOrDefault();
-                if (last != null)
-                {
-                    txtBillNo.Text = (last.SaleId + 1).ToString() + "/" + DateTime.Now.ToString("yy") + "-" + DateTime.Now.AddYears(1).ToString("yy");
-                }
-                else
-                {
-                    txtBillNo.Text = 1.ToString() + "/" + DateTime.Now.ToString("yy") + "-" + DateTime.Now.AddYears(1).ToString("yy");
-                }
+                var lastId = db.Database.SqlQuery<int>("select dbo.GetSaleLRLastValue() as Ident").ToList();
+                
+                txtBillNo.Text = (Convert.ToInt32(lastId[0])).ToString() + "/" + DateTime.Now.ToString("yy") + "-" + DateTime.Now.AddYears(1).ToString("yy");
+
                 txtBillNo.Enabled = false;
 
             }
@@ -113,6 +108,7 @@ namespace raghani_tradelinks
                             if ((int)cmbTransport.SelectedValue > 0)
                             {
                                 SaveLREntry();
+                                MessageBox.Show("Data saved successfully");
                                 ClearControls();
                             }
                             else
@@ -168,6 +164,7 @@ namespace raghani_tradelinks
                     sale.Terms = cmbTerm.EditValue.ToString();
                 if (chkDirectSalte.Checked == false)
                     sale.VideNumber = txtVideNo.Text;
+                sale.IsOrderAdjusted = false;
                 db.SaleLREntries.Add(sale);
 
                 int oDetailsId = (int)grdOrderList.Rows[rowIndex].Cells[1].Value;
@@ -176,7 +173,12 @@ namespace raghani_tradelinks
                 ot.UpdatedBy = User.UserName;
                 ot.UpdatedDate = DateTime.Now;
 
+                OrderDetail od = db.OrderDetails.Find(oDetailsId);
+                if (ot.DispatchQty == od.OrQty)
+                    od.IsFullyExecuted = true;
+
                 Ledger ledger = new Ledger();
+                ledger.ParticularDate = dtpLRDate.Value;
                 ledger.CreatedBy = User.UserName;
                 ledger.CreateDate = DateTime.Now;
                 ledger.Credit = 0.00;
@@ -239,19 +241,22 @@ namespace raghani_tradelinks
                                 join sup in db.Suppliers on od.fkSupplierId equals sup.SupplierId
                                 join cust in db.Customers on oe.fkCustomerId equals cust.CustomerId
                                 join ci in db.CustomerInfoes on cust.CustomerId equals ci.fkCustomerId
-                                where sup.SupplierId == (int)cmbSupplier.SelectedValue
+                                join t in db.OrderTransactions on od.OrderDetailId equals t.fkOrderDetailId
+                                where sup.SupplierId == (int)cmbSupplier.SelectedValue && od.IsFullyExecuted == false && od.IsNullify == false
                                 select new
                                 {
                                     CustomerId = cust.CustomerId,
                                     OrderId = od.OrderDetailId,
                                     CustomerName = cust.CustomerName,
-                                    OrderQty = od.OrQty,
                                     OrderDate = oe.OrderDate,
                                     CreditLimit = ci.CreditLimit,
+                                    OrderQty = od.OrQty,
+                                    RemainingQty = od.OrQty - t.DispatchQty,
                                 }).ToList();
+
                     grdOrderList.DataSource = data;
                     grdOrderList.Columns[0].Visible = false;
-                    //grdOrderList.Columns[4].Visible = false;
+                    grdOrderList.Columns[1].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -268,8 +273,8 @@ namespace raghani_tradelinks
                 rowIndex = e.RowIndex;
                 int ID = grdOrderList.Rows[e.RowIndex].Cells[0].Value != null ? Convert.ToInt32(grdOrderList.Rows[e.RowIndex].Cells[0].Value.ToString()) : -1;
                 cmbCustomer.SelectedValue = ID;
-                txtQty.Text = grdOrderList.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtCreditLimitAmt.Text = grdOrderList.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtQty.Text = grdOrderList.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtCreditLimitAmt.Text = grdOrderList.Rows[e.RowIndex].Cells[4].Value.ToString();
             }
             catch (Exception ex)
             {
