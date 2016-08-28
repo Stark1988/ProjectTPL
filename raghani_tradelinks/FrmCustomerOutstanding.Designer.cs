@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.lblNoLRAddressPrinting = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -48,28 +48,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCustomer.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnSave
+            // btnPreview
             // 
-            this.btnSave.Location = new System.Drawing.Point(466, 463);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 345;
-            this.btnSave.Text = "Preview";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnPreview.Location = new System.Drawing.Point(85, 328);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(125, 36);
+            this.btnPreview.TabIndex = 345;
+            this.btnPreview.Text = "Preview";
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
-            // btnCancel
+            // btnPrint
             // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(577, 463);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 344;
-            this.btnCancel.Text = "Print";
+            this.btnPrint.Location = new System.Drawing.Point(242, 328);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(125, 36);
+            this.btnPrint.TabIndex = 344;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // lblNoLRAddressPrinting
             // 
             this.lblNoLRAddressPrinting.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblNoLRAddressPrinting.Location = new System.Drawing.Point(395, 313);
+            this.lblNoLRAddressPrinting.Location = new System.Drawing.Point(58, 189);
             this.lblNoLRAddressPrinting.Name = "lblNoLRAddressPrinting";
             this.lblNoLRAddressPrinting.Size = new System.Drawing.Size(103, 13);
             this.lblNoLRAddressPrinting.TabIndex = 342;
@@ -80,9 +80,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Controls.Add(this.radioGroup1);
-            this.panel1.Location = new System.Drawing.Point(376, 128);
+            this.panel1.Location = new System.Drawing.Point(39, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 152);
+            this.panel1.Size = new System.Drawing.Size(438, 105);
             this.panel1.TabIndex = 341;
             // 
             // labelControl1
@@ -113,7 +113,7 @@
             // lblCashCredit
             // 
             this.lblCashCredit.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblCashCredit.Location = new System.Drawing.Point(395, 93);
+            this.lblCashCredit.Location = new System.Drawing.Point(39, 24);
             this.lblCashCredit.Name = "lblCashCredit";
             this.lblCashCredit.Size = new System.Drawing.Size(90, 13);
             this.lblCashCredit.TabIndex = 316;
@@ -122,7 +122,7 @@
             // lblPhoneOffice
             // 
             this.lblPhoneOffice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblPhoneOffice.Location = new System.Drawing.Point(395, 346);
+            this.lblPhoneOffice.Location = new System.Drawing.Point(58, 222);
             this.lblPhoneOffice.Name = "lblPhoneOffice";
             this.lblPhoneOffice.Size = new System.Drawing.Size(32, 13);
             this.lblPhoneOffice.TabIndex = 339;
@@ -130,7 +130,7 @@
             // 
             // txtCustomerACNo
             // 
-            this.txtCustomerACNo.Location = new System.Drawing.Point(547, 310);
+            this.txtCustomerACNo.Location = new System.Drawing.Point(210, 186);
             this.txtCustomerACNo.Name = "txtCustomerACNo";
             this.txtCustomerACNo.Size = new System.Drawing.Size(51, 20);
             this.txtCustomerACNo.TabIndex = 346;
@@ -138,7 +138,7 @@
             // chkNoLRAddressPrinting
             // 
             this.chkNoLRAddressPrinting.AutoSize = true;
-            this.chkNoLRAddressPrinting.Location = new System.Drawing.Point(547, 405);
+            this.chkNoLRAddressPrinting.Location = new System.Drawing.Point(210, 281);
             this.chkNoLRAddressPrinting.Name = "chkNoLRAddressPrinting";
             this.chkNoLRAddressPrinting.Size = new System.Drawing.Size(15, 14);
             this.chkNoLRAddressPrinting.TabIndex = 348;
@@ -147,7 +147,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl2.Location = new System.Drawing.Point(395, 405);
+            this.labelControl2.Location = new System.Drawing.Point(58, 281);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(130, 13);
             this.labelControl2.TabIndex = 347;
@@ -156,7 +156,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(547, 374);
+            this.checkBox1.Location = new System.Drawing.Point(210, 250);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 350;
@@ -165,7 +165,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl3.Location = new System.Drawing.Point(395, 374);
+            this.labelControl3.Location = new System.Drawing.Point(58, 250);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(133, 13);
             this.labelControl3.TabIndex = 349;
@@ -173,16 +173,16 @@
             // 
             // cmbCustomer
             // 
-            this.cmbCustomer.Location = new System.Drawing.Point(518, 90);
+            this.cmbCustomer.Location = new System.Drawing.Point(172, 21);
             this.cmbCustomer.Name = "cmbCustomer";
             this.cmbCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbCustomer.Size = new System.Drawing.Size(309, 20);
+            this.cmbCustomer.Size = new System.Drawing.Size(305, 20);
             this.cmbCustomer.TabIndex = 351;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(547, 340);
+            this.dateTimePicker1.Location = new System.Drawing.Point(210, 216);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(169, 20);
             this.dateTimePicker1.TabIndex = 352;
@@ -191,7 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1238, 741);
+            this.ClientSize = new System.Drawing.Size(517, 389);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cmbCustomer);
             this.Controls.Add(this.checkBox1);
@@ -199,8 +199,8 @@
             this.Controls.Add(this.chkNoLRAddressPrinting);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.txtCustomerACNo);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnPreview);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lblCashCredit);
             this.Controls.Add(this.lblNoLRAddressPrinting);
             this.Controls.Add(this.panel1);
@@ -221,8 +221,8 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.SimpleButton btnPreview;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.LabelControl lblNoLRAddressPrinting;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
