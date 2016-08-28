@@ -132,6 +132,7 @@ namespace raghani_tradelinks
             gridOrderByCustomer.Columns["CustomerId"].Visible = false;
             gridOrderByCustomer.Columns["SupplierId"].Visible = false;
             gridOrderByCustomer.Columns["IsNullify"].Caption = "Nullify Method/Qty";
+            gridOrderByCustomer.Columns["IsFullyExecuted"].Visible = false;
         }
 
         void gridOrderByCustomer_ShowingEditor(object sender, CancelEventArgs e)
