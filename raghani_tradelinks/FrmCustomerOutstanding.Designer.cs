@@ -180,6 +180,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.chkCmbSuppl.Size = new System.Drawing.Size(305, 20);
             this.chkCmbSuppl.TabIndex = 356;
+            this.chkCmbSuppl.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.chkCmbSuppl_CustomDisplayText);
             // 
             // labelControl4
             // 
