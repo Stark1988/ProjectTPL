@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -107,46 +108,26 @@ namespace raghani_tradelinks
             report.Parameters["BillsAgeingAbove"].Value = txtBillsAgeingAbove.Text;
 
             CustomerOutstandingReportData ds = new CustomerOutstandingReportData();
-            ds.SupplierData = new List<SupplierCOReport>();
-            ds.SupplierData.Add(new SupplierCOReport
-                {
-                    SupplierName = "Supplier1",
-                    BranchName = "Branch1",
-                    Date = DateTime.Now,
-                    RefNo = "JH092",
-                    Collection = 15000,
-                    BillAmt = 20000,
-                    Discount = 1000,
-                    GR = 2000,
-                    Balance = 2000,
-                    ODD = 5
-                });
-            ds.SupplierData.Add(new SupplierCOReport
-            {
-                SupplierName = "Supplier1",
-                BranchName = "Branch1",
-                Date = DateTime.Now,
-                RefNo = "JH093",
-                Collection = 15000,
-                BillAmt = 20000,
-                Discount = 1000,
-                GR = 2000,
-                Balance = 2000,
-                ODD = 5
-            });
-            ds.SupplierData.Add(new SupplierCOReport
-            {
-                SupplierName = "Supplier2",
-                BranchName = "Branch1",
-                Date = DateTime.Now,
-                RefNo = "JH094",
-                Collection = 15000,
-                BillAmt = 20000,
-                Discount = 1000,
-                GR = 2000,
-                Balance = 2000,
-                ODD = 5
-            });
+            ds.SupplierData = (from lrEntry in db.SaleLREntries
+                               where lrEntry.fkCustomerId == (int)cmbCustomer.EditValue
+                               select new SupplierCOReport
+                               {
+                                   BranchName = lrEntry.Customer.MstBranch.BranchName,
+                                   SupplierName = lrEntry.Supplier.SupplierName,
+                                   RefNo = lrEntry.BillNumber,
+                                   BillAmt = lrEntry.BillAmount,
+                                   Date = lrEntry.BillDate,
+                                   ODD = DbFunctions.DiffDays((lrEntry.BillDate.HasValue ? lrEntry.BillDate.Value : DateTime.Now), DateTime.Now),
+                                   Collection = db.CollectionEntries
+                                                .Where(cef=>cef.fkCustomerId == (int)cmbCustomer.EditValue && cef.fkSupplierId==lrEntry.fkSupplierId)
+                                                .Sum(ce=> ce.DraftAmount),
+                                   Discount = db.DiscountEntries
+                                                .Where(def => def.fkCustomerId == (int)cmbCustomer.EditValue && def.fkSupplierId == lrEntry.fkSupplierId)
+                                                .Sum(de=>de.DiscountAmount),
+                                   GR = db.GRNDebitNotes
+                                            .Where(grf => grf.fkCustomerId == (int)cmbCustomer.EditValue && grf.fkSupplierId == lrEntry.fkSupplierId)
+                                            .Sum(gr=>gr.Amount)
+                               }).ToList();
 
             ds.ReturnDraftData = (from rd in db.ReturnDraftCheques
                                   where rd.fkCustomerId == (int)cmbCustomer.EditValue

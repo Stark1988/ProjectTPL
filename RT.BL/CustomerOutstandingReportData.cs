@@ -19,12 +19,79 @@ namespace RT.BL
         public string BranchName { get; set; }
         public DateTime? Date { get; set; }
         public string RefNo { get; set; }
-        public decimal? BillAmt { get; set; }
-        public decimal? Collection { get; set; }
-        public decimal? Discount { get; set; }
-        public decimal? GR { get; set; }
-        public decimal? Balance { get; set; }
-        public int ODD { get; set; }
+
+        private double? billAmt;
+        public double? BillAmt
+        {
+            get
+            {
+                return billAmt;
+            }
+            set
+            {
+                if (value == null)
+                    billAmt = 0;
+                else
+                    billAmt = value;
+            }
+        }
+
+        private decimal? collection;
+        public decimal? Collection
+        {
+            get
+            {
+                return collection;
+            }
+            set
+            {
+                if (value == null)
+                    collection = 0;
+                else
+                    collection = value;
+            }
+        }
+
+        private decimal? discount;
+        public decimal? Discount
+        {
+            get
+            {
+                return discount;
+            }
+            set
+            {
+                if (value == null)
+                    discount = 0;
+                else
+                    discount = value;
+            }
+        }
+
+        private decimal? gr;
+        public decimal? GR
+        {
+            get
+            {
+                return gr;
+            }
+            set
+            {
+                if (value == null)
+                    gr = 0;
+                else
+                    gr = value;
+            }
+        }
+
+        public decimal? Balance 
+        { 
+            get
+            {
+                return Convert.ToDecimal(BillAmt) - (Collection + Discount + GR);
+            }
+        }
+        public int? ODD { get; set; }
     }
 
     public class ReturnDraftCOReport
