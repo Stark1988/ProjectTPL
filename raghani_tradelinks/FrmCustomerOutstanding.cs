@@ -12,6 +12,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraReports.UI;
 using RT.BL;
+using DevExpress.XtraGrid.Columns;
 
 namespace raghani_tradelinks
 {
@@ -36,6 +37,7 @@ namespace raghani_tradelinks
         private void FrmCustomerOutstanding_Load(object sender, EventArgs e)
         {
             PopulateDropdown();
+            dateAsOn.Value = DateTime.Now.Date;
         }
 
         private void PopulateDropdown()
@@ -55,6 +57,16 @@ namespace raghani_tradelinks
                 cmbCustomer.Properties.ValueMember = "CustomerId";
                 cmbCustomer.EditValue = -1;
                 cmbCustomer.Properties.ShowHeader = false;
+
+                List<Supplier> supplierList = (from s in db.Suppliers
+                                               where s.IsDeleted == false
+                                               select s).ToList();
+
+                chkCmbSuppl.Properties.DataSource = supplierList;
+                chkCmbSuppl.Properties.DisplayMember = "SupplierName";
+                chkCmbSuppl.Properties.ValueMember = "SupplierId";
+                chkCmbSuppl.Properties.NullText = "Select Suppliers";
+                
             }
             catch(Exception ex)
             {
@@ -69,14 +81,30 @@ namespace raghani_tradelinks
             if(customerId ==-1)
             {
                 MessageBox.Show("Please select a customer");
+                cmbCustomer.Focus();
+                return;
+            }
+            int billsAgeingAbove = 0;
+            if(!Int32.TryParse(txtBillsAgeingAbove.Text, out billsAgeingAbove))
+            {
+                MessageBox.Show("Please enter valid value for bills ageing above");
+                txtBillsAgeingAbove.Focus();
                 return;
             }
 
-            report.Parameters["CustomerName"].Value = "Param Customer";
-            report.Parameters["Address"].Value = "Param Address";
-            report.Parameters["City"].Value = "Pune";
-            report.Parameters["Mobile"].Value = "54546516546";
-            report.Parameters["Pin"].Value = "421306";
+            Customer selectedCustomer = db.Customers.FirstOrDefault(c=> c.CustomerId == (int)cmbCustomer.EditValue);
+            CustomerContactInfo cInfo = db.CustomerContactInfoes.FirstOrDefault(ci=> ci.fkCustomerId == (int)cmbCustomer.EditValue);
+
+            report.Parameters["CustomerName"].Value = cmbCustomer.Text;
+            report.Parameters["Address"].Value = cInfo.Address;
+            report.Parameters["City"].Value = cInfo.MstCity.CityName;
+            report.Parameters["State"].Value = cInfo.MstState.StateName;
+            report.Parameters["Mobile"].Value = cInfo.SMSCellNumber;
+            report.Parameters["Pin"].Value = cInfo.Pincode;
+            report.Parameters["OfficePh"].Value = cInfo.OfficePhone;
+            report.Parameters["Proprietor"].Value = selectedCustomer.CustomerProprietors.FirstOrDefault(pr => pr.fkCustomerId == (int)cmbCustomer.EditValue).ProprietorName;
+            report.Parameters["AsOnDate"].Value = dateAsOn.Text;
+            report.Parameters["BillsAgeingAbove"].Value = txtBillsAgeingAbove.Text;
 
             CustomerOutstandingReportData ds = new CustomerOutstandingReportData();
             ds.SupplierData = new List<SupplierCOReport>();
@@ -119,6 +147,20 @@ namespace raghani_tradelinks
                 Balance = 2000,
                 ODD = 5
             });
+
+            ds.ReturnDraftData = (from rd in db.ReturnDraftCheques
+                                  where rd.fkCustomerId == (int)cmbCustomer.EditValue
+                                  select new ReturnDraftCOReport
+                                    {
+                                        CustomerName = rd.Customer.CustomerName,
+                                        SupplierName = rd.Supplier.SupplierName,
+                                        DraftDate = rd.DDChequeDate,
+                                        ReturnDate = rd.ReturnDate,
+                                        DrawnOn = rd.DrawnOn,
+                                        DraftNumber = rd.DDChequeNumber,
+                                        Amount = rd.Amount,
+                                        BranchName = rd.Customer.MstBranch.BranchName
+                                    }).ToList();
 
             foreach(Band band in report.Bands)
             {
