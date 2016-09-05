@@ -912,7 +912,7 @@
             this.xrLabel32.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "SupplierData.BillAmt")});
             this.xrLabel32.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(186.0001F, 0F);
+            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(186F, 0F);
             this.xrLabel32.Name = "xrLabel32";
             this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel32.SizeF = new System.Drawing.SizeF(92.99989F, 25.31249F);
@@ -924,11 +924,12 @@
             // 
             // xrLabel33
             // 
+            this.xrLabel33.CanGrow = false;
             this.xrLabel33.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(10F, 0F);
+            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(9.999998F, 0F);
             this.xrLabel33.Name = "xrLabel33";
             this.xrLabel33.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel33.SizeF = new System.Drawing.SizeF(112.5924F, 25.31249F);
+            this.xrLabel33.SizeF = new System.Drawing.SizeF(98.70356F, 25.31249F);
             this.xrLabel33.StylePriority.UseFont = false;
             this.xrLabel33.Text = "Supplier Total: ";
             // 

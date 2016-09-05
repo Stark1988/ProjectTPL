@@ -143,10 +143,11 @@ namespace raghani_tradelinks
                                        //Collection = db.CollectionEntries
                                        //             .Where(cef => cef.fkCustomerId == (int)cmbCustomer.EditValue && cef.fkSupplierId == lrEntry.fkSupplierId)
                                        //             .Sum(ce => ce.DraftAmount),
-                                       Collection = (from col in db.CollectionEntries
-                                                     join cold in db.CollectionEntryDetails on col.CollectionEntryId equals cold.fkCollectionEntryId
-                                                     where cold.RefNumber == lrEntry.BillNumber
-                                                     select col.DraftAmount).Sum(),
+                                       //Collection = (from col in db.CollectionEntries
+                                       //              join cold in db.CollectionEntryDetails on col.CollectionEntryId equals cold.fkCollectionEntryId
+                                       //              where cold.RefNumber == lrEntry.BillNumber
+                                       //              select col.DraftAmount).Sum(),
+                                       Collection = 0,
                                        Discount = db.DiscountEntries
                                                     .Where(def => def.fkCustomerId == (int)cmbCustomer.EditValue && def.fkSupplierId == lrEntry.fkSupplierId && def.RefNumber == lrEntry.BillNumber)
                                                     .Sum(de => de.DiscountAmount),
