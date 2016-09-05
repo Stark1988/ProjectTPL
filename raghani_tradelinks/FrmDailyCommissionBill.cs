@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RT.DL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,10 +21,11 @@ namespace raghani_tradelinks
         {
             try
             {
-                gridControl1.DataSource = GetOrderDataSource();
+                grdData.DataSource = GetOrderDataSource();
             }
             catch (Exception ex)
             {
+                CommonMethods.HandleException(ex);
             }
         }
         DataTable GetOrderDataSource()
@@ -48,6 +50,41 @@ namespace raghani_tradelinks
         {
             MainForm _parentForm = this.ParentForm as MainForm;
             _parentForm.BringContainerFront();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TPLDBEntities db = new TPLDBEntities();
+                var data = (from lr in db.SaleLREntries
+                            join colDtl in db.CollectionEntryDetails on lr.BillNumber equals colDtl.RefNumber
+                            join com in db.CollectionEntries on colDtl.fkCollectionEntryId equals com.CollectionEntryId
+                            join sp in db.Suppliers on lr.fkSupplierId equals sp.SupplierId
+                            join spInfo in db.SupplierContactInfoes on sp.SupplierId equals spInfo.fkSupplierId
+                            join cust in db.Customers on lr.fkCustomerId equals cust.CustomerId
+                            //where lr.IsOrderAdjusted == true
+                            select new
+                            {
+                                Date = lr.BillDate,
+                                Supplier = sp.SupplierName,
+                                SMSCell = spInfo.SMSCellNumber,
+                                Customer = cust.CustomerName,
+                                City = spInfo.City,
+                                ChqNo = com.DDOrChequeNumber,
+                                ChqDt = com.DDOrChequeDate,
+                                ChqAmt = com.DraftAmount,
+                                Per = sp.Commission,
+                                ComAccured = (com.DraftAmount * sp.Commission) / 100,
+                                BillRaised = false,
+                            }).ToList();
+
+                grdData.DataSource = data;
+            }
+            catch (Exception ex)
+            {
+                CommonMethods.HandleException(ex);
+            }
         }
     }
 }

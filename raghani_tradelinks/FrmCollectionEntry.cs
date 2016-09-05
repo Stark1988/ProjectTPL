@@ -218,7 +218,7 @@ namespace raghani_tradelinks
                 {
                     DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)grdEntry.Rows[e.RowIndex].Cells[e.ColumnIndex + 1];
                     var data = (from lr in db.SaleLREntries
-                                where lr.fkSupplierId == (int)cmbSupplier.EditValue && lr.fkCustomerId == (int)cmbCustomer.EditValue && (lr.IsOrderAdjusted == false || lr.IsOrderAdjusted == null)
+                                where lr.fkSupplierId == (int)cmbSupplier.EditValue && lr.fkCustomerId == (int)cmbCustomer.EditValue && (lr.IsOrderAdjusted.Value == false || lr.IsOrderAdjusted.Value == null)
                                 select new
                                 {
                                     RefNo = lr.BillNumber,

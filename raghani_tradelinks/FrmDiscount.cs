@@ -158,11 +158,13 @@ namespace raghani_tradelinks
         }
 
         void SaveData()
-        {
+        {            
             foreach (DataGridViewRow row in grdEntry.Rows)
             {
                 if (row.Cells[4].Value != null && row.Cells[0] != null)
                 {
+                    decimal Total = 0;
+
                     Ledger ledger = new Ledger();
                     DiscountEntry disc = new DiscountEntry();
                     disc.AdjustedAmount = Convert.ToDecimal(row.Cells[4].Value);
@@ -170,13 +172,13 @@ namespace raghani_tradelinks
                     disc.CreatedDate = DateTime.Now;
                     disc.DiscountAmount = Convert.ToDecimal(row.Cells[4].Value);
                     disc.DiscountDate = dtpDate.Value;
-                    disc.DiscountDocNo = "";
+                    disc.DiscountDocNo = txtDiscNo.Text;
                     disc.EntryDate = dtpEntryDate.Value;
                     disc.fkCustomerId = Convert.ToInt32(cmbCustomer.SelectedValue.ToString());
                     disc.fkSupplierId = Convert.ToInt32(cmbSupplier.SelectedValue.ToString());
                     disc.IsDeleted = false;
                     disc.IsLocked = false;
-                    disc.Narration = "";
+                    disc.Narration = txtRemarks.Text;
                     disc.RefAmount = Convert.ToDecimal(row.Cells[3].Value);
                     disc.RefDate = Convert.ToDateTime(row.Cells[2].Value);
                     disc.RefNumber = row.Cells[1].FormattedValue.ToString();
@@ -198,6 +200,10 @@ namespace raghani_tradelinks
                     ledger.UpdatedBy = User.UserName;
                     ledger.UpdatedDate = DateTime.Now;
                     ledger.Debit = 0;
+
+                    Total += disc.DiscountAmount.Value;
+                    SaleLREntry lr = db.SaleLREntries.First(q => q.BillNumber == disc.RefNumber);
+
 
                     db.Ledgers.Add(ledger);
                     db.DiscountEntries.Add(disc);

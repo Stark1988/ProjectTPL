@@ -29,31 +29,29 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.MainPageScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
             this.comboBoxEdit5 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
             this.chkNoLRAddressPrinting = new System.Windows.Forms.CheckBox();
             this.lblNoLRAddressPrinting = new DevExpress.XtraEditors.LabelControl();
             this.cmbPriority = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblPriority = new DevExpress.XtraEditors.LabelControl();
-            this.txtPhoneOffice = new System.Windows.Forms.MaskedTextBox();
             this.lblPhoneOffice = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.grdData = new System.Windows.Forms.DataGridView();
             this.MainPageScrollableControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,28 +62,10 @@
             this.panel1.Size = new System.Drawing.Size(1238, 741);
             this.panel1.TabIndex = 17;
             // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1238, 629);
-            this.gridControl1.TabIndex = 310;
-            this.gridControl1.UseEmbeddedNavigator = true;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
             // MainPageScrollableControl
             // 
             this.MainPageScrollableControl.AutoScrollMinSize = new System.Drawing.Size(0, 400);
-            this.MainPageScrollableControl.Controls.Add(this.gridControl1);
+            this.MainPageScrollableControl.Controls.Add(this.grdData);
             this.MainPageScrollableControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPageScrollableControl.Location = new System.Drawing.Point(0, 73);
             this.MainPageScrollableControl.Name = "MainPageScrollableControl";
@@ -113,15 +93,6 @@
             this.labelControl4.TabIndex = 300;
             this.labelControl4.Text = "M. Boy";
             // 
-            // maskedTextBox4
-            // 
-            this.maskedTextBox4.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.maskedTextBox4.Location = new System.Drawing.Point(263, 9);
-            this.maskedTextBox4.Mask = "00-00-0000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(81, 21);
-            this.maskedTextBox4.TabIndex = 299;
-            // 
             // chkNoLRAddressPrinting
             // 
             this.chkNoLRAddressPrinting.AutoSize = true;
@@ -142,13 +113,16 @@
             // 
             // cmbPriority
             // 
+            this.cmbPriority.EditValue = "All";
             this.cmbPriority.Location = new System.Drawing.Point(448, 10);
             this.cmbPriority.Name = "cmbPriority";
             this.cmbPriority.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbPriority.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
+            "All",
+            "Pending Amt",
+            "Recd Amt",
+            "Market Boy Billing"});
             this.cmbPriority.Size = new System.Drawing.Size(142, 20);
             this.cmbPriority.TabIndex = 218;
             // 
@@ -160,15 +134,6 @@
             this.lblPriority.Size = new System.Drawing.Size(42, 13);
             this.lblPriority.TabIndex = 217;
             this.lblPriority.Text = "Criteria";
-            // 
-            // txtPhoneOffice
-            // 
-            this.txtPhoneOffice.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtPhoneOffice.Location = new System.Drawing.Point(164, 9);
-            this.txtPhoneOffice.Mask = "00-00-0000";
-            this.txtPhoneOffice.Name = "txtPhoneOffice";
-            this.txtPhoneOffice.Size = new System.Drawing.Size(84, 21);
-            this.txtPhoneOffice.TabIndex = 201;
             // 
             // lblPhoneOffice
             // 
@@ -198,12 +163,12 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.dtpTo);
+            this.panelControl1.Controls.Add(this.dtpFrom);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.simpleButton2);
             this.panelControl1.Controls.Add(this.lblPhoneOffice);
-            this.panelControl1.Controls.Add(this.txtPhoneOffice);
-            this.panelControl1.Controls.Add(this.maskedTextBox4);
             this.panelControl1.Controls.Add(this.lblPriority);
             this.panelControl1.Controls.Add(this.cmbPriority);
             this.panelControl1.Controls.Add(this.lblNoLRAddressPrinting);
@@ -223,6 +188,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
             this.simpleButton1.TabIndex = 301;
             this.simpleButton1.Text = "Search";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton2
             // 
@@ -232,6 +198,29 @@
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
             this.simpleButton2.TabIndex = 300;
             this.simpleButton2.Text = "Preview";
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Location = new System.Drawing.Point(141, 9);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(116, 21);
+            this.dtpFrom.TabIndex = 302;
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.Location = new System.Drawing.Point(270, 9);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(116, 21);
+            this.dtpTo.TabIndex = 303;
+            // 
+            // grdData
+            // 
+            this.grdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdData.Location = new System.Drawing.Point(0, 0);
+            this.grdData.Name = "grdData";
+            this.grdData.Size = new System.Drawing.Size(1238, 629);
+            this.grdData.TabIndex = 0;
             // 
             // FrmDailyCommissionBill
             // 
@@ -247,8 +236,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDailyCommissionBill_FormClosing);
             this.Load += new System.EventHandler(this.FrmDailyCommissionBill_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.MainPageScrollableControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPriority.Properties)).EndInit();
@@ -256,6 +243,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,22 +251,21 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraEditors.XtraScrollableControl MainPageScrollableControl;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
         private System.Windows.Forms.CheckBox chkNoLRAddressPrinting;
         private DevExpress.XtraEditors.LabelControl lblNoLRAddressPrinting;
         private DevExpress.XtraEditors.ComboBoxEdit cmbPriority;
         private DevExpress.XtraEditors.LabelControl lblPriority;
-        private System.Windows.Forms.MaskedTextBox txtPhoneOffice;
         private DevExpress.XtraEditors.LabelControl lblPhoneOffice;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private System.Windows.Forms.DataGridView grdData;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
     }
 }

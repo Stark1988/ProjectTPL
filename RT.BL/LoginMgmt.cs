@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RT.DL;
+using System.Data.Entity.Core.EntityClient;
+using System.Configuration;
+using System.Data.Entity;
 
 namespace RT.BL
 {
@@ -22,7 +25,7 @@ namespace RT.BL
                     }).FirstOrDefault();
         }
     }
-
+    
     public class UserData
     {
         public int UserId { get; set; }
