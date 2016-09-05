@@ -67,9 +67,9 @@ namespace raghani_tradelinks
                 chkCmbSuppl.Properties.DisplayMember = "SupplierName";
                 chkCmbSuppl.Properties.ValueMember = "SupplierId";
                 chkCmbSuppl.Properties.NullText = "Select Suppliers";
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CommonMethods.HandleException(ex);
             }
@@ -96,7 +96,7 @@ namespace raghani_tradelinks
                 }
 
                 GenerateReport();
-                
+
                 report.ShowPreviewDialog();
             }
             catch (Exception ex)
@@ -125,7 +125,7 @@ namespace raghani_tradelinks
                 report.Parameters["BillsAgeingAbove"].Value = txtBillsAgeingAbove.Text;
 
                 var selectedSuppliers = chkCmbSuppl.Properties.GetItems().GetCheckedValues().Cast<int?>();
-                
+
                 CustomerOutstandingReportData ds = new CustomerOutstandingReportData();
                 ds.SupplierData = (from lrEntry in db.SaleLREntries
                                    where lrEntry.fkCustomerId == (int)cmbCustomer.EditValue
@@ -140,17 +140,21 @@ namespace raghani_tradelinks
                                        BillAmt = lrEntry.BillAmount,
                                        Date = lrEntry.BillDate,
                                        ODD = DbFunctions.DiffDays((lrEntry.BillDate.HasValue ? lrEntry.BillDate.Value : DateTime.Now), DateTime.Now),
-                                       Collection = db.CollectionEntries
-                                                    .Where(cef => cef.fkCustomerId == (int)cmbCustomer.EditValue && cef.fkSupplierId == lrEntry.fkSupplierId)
-                                                    .Sum(ce => ce.DraftAmount),
+                                       //Collection = db.CollectionEntries
+                                       //             .Where(cef => cef.fkCustomerId == (int)cmbCustomer.EditValue && cef.fkSupplierId == lrEntry.fkSupplierId)
+                                       //             .Sum(ce => ce.DraftAmount),
+                                       Collection = (from col in db.CollectionEntries
+                                                     join cold in db.CollectionEntryDetails on col.CollectionEntryId equals cold.fkCollectionEntryId
+                                                     where cold.RefNumber == lrEntry.BillNumber
+                                                     select col.DraftAmount).Sum(),
                                        Discount = db.DiscountEntries
-                                                    .Where(def => def.fkCustomerId == (int)cmbCustomer.EditValue && def.fkSupplierId == lrEntry.fkSupplierId)
+                                                    .Where(def => def.fkCustomerId == (int)cmbCustomer.EditValue && def.fkSupplierId == lrEntry.fkSupplierId && def.RefNumber == lrEntry.BillNumber)
                                                     .Sum(de => de.DiscountAmount),
                                        GR = db.GRNDebitNotes
-                                                .Where(grf => grf.fkCustomerId == (int)cmbCustomer.EditValue && grf.fkSupplierId == lrEntry.fkSupplierId)
+                                                .Where(grf => grf.fkCustomerId == (int)cmbCustomer.EditValue && grf.fkSupplierId == lrEntry.fkSupplierId && grf.RefNumber == lrEntry.BillNumber)
                                                 .Sum(gr => gr.Amount)
                                    }).ToList();
-                
+
 
                 ds.ReturnDraftData = (from rd in db.ReturnDraftCheques
                                       where rd.fkCustomerId == (int)cmbCustomer.EditValue
@@ -240,5 +244,5 @@ namespace raghani_tradelinks
             if (chkCmbSuppl.Properties.GetItems().GetCheckedValues().Count() == 0)
                 chkCmbSuppl.Text = "Select Supplier Range";
         }
-    }    
+    }
 }

@@ -121,6 +121,7 @@
             this.xrLabel34 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.ReturnDraftDetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -153,10 +154,9 @@
             this.GrandTotalDetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail3 = new DevExpress.XtraReports.UI.DetailBand();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -932,6 +932,11 @@
             this.xrLabel33.StylePriority.UseFont = false;
             this.xrLabel33.Text = "Supplier Total: ";
             // 
+            // objectDataSource1
+            // 
+            this.objectDataSource1.DataSource = typeof(RT.BL.CustomerOutstandingReportData);
+            this.objectDataSource1.Name = "objectDataSource1";
+            // 
             // ReturnDraftDetailReport
             // 
             this.ReturnDraftDetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1272,11 +1277,6 @@
             this.ReportFooter.HeightF = 58.29163F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // objectDataSource1
-            // 
-            this.objectDataSource1.DataSource = typeof(RT.BL.CustomerOutstandingReportData);
-            this.objectDataSource1.Name = "objectDataSource1";
-            // 
             // CustomerOutstandingReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1321,8 +1321,8 @@
             this.Watermark.Text = "Raghani Tradelinks";
             this.Watermark.TextTransparency = 71;
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
