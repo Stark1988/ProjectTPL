@@ -189,6 +189,7 @@ namespace raghani_tradelinks
                             }
                             else
                             {
+                                band.Visible = true;
                                 var returnDraftDetailReport = band as DetailReportBand;
                                 returnDraftDetailReport.DataSource = ds;
                                 returnDraftDetailReport.DataMember = "ReturnDraftData";
