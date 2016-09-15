@@ -30,26 +30,24 @@
         {
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtCustomerACNo = new System.Windows.Forms.TextBox();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.cmbCashCredit = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.txtBillsAgeingAbove = new System.Windows.Forms.TextBox();
             this.lblCashCredit = new DevExpress.XtraEditors.LabelControl();
             this.lblNoLRAddressPrinting = new DevExpress.XtraEditors.LabelControl();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
-            this.txtPhoneOffice = new System.Windows.Forms.MaskedTextBox();
             this.lblPhoneOffice = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCashCredit.Properties)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.dateAsOn = new System.Windows.Forms.DateTimePicker();
+            this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbSupplier = new DevExpress.XtraEditors.LookUpEdit();
+            this.chkCmbCustomer = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCmbCustomer.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(526, 375);
+            this.checkBox1.Location = new System.Drawing.Point(491, 218);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 363;
@@ -58,47 +56,19 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl3.Location = new System.Drawing.Point(374, 375);
+            this.labelControl3.Location = new System.Drawing.Point(374, 218);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(55, 13);
             this.labelControl3.TabIndex = 362;
             this.labelControl3.Text = "Summary";
             // 
-            // txtCustomerACNo
+            // txtBillsAgeingAbove
             // 
-            this.txtCustomerACNo.Location = new System.Drawing.Point(526, 311);
-            this.txtCustomerACNo.Name = "txtCustomerACNo";
-            this.txtCustomerACNo.Size = new System.Drawing.Size(51, 20);
-            this.txtCustomerACNo.TabIndex = 359;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(445, 464);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 358;
-            this.btnSave.Text = "Preview";
-            // 
-            // cmbCashCredit
-            // 
-            this.cmbCashCredit.Location = new System.Drawing.Point(470, 91);
-            this.cmbCashCredit.Name = "cmbCashCredit";
-            this.cmbCashCredit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbCashCredit.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.cmbCashCredit.Size = new System.Drawing.Size(305, 20);
-            this.cmbCashCredit.TabIndex = 352;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(556, 464);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 357;
-            this.btnCancel.Text = "Print";
+            this.txtBillsAgeingAbove.Location = new System.Drawing.Point(491, 153);
+            this.txtBillsAgeingAbove.Name = "txtBillsAgeingAbove";
+            this.txtBillsAgeingAbove.Size = new System.Drawing.Size(51, 20);
+            this.txtBillsAgeingAbove.TabIndex = 359;
+            this.txtBillsAgeingAbove.Text = "0";
             // 
             // lblCashCredit
             // 
@@ -112,89 +82,99 @@
             // lblNoLRAddressPrinting
             // 
             this.lblNoLRAddressPrinting.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblNoLRAddressPrinting.Location = new System.Drawing.Point(374, 314);
+            this.lblNoLRAddressPrinting.Location = new System.Drawing.Point(374, 156);
             this.lblNoLRAddressPrinting.Name = "lblNoLRAddressPrinting";
             this.lblNoLRAddressPrinting.Size = new System.Drawing.Size(103, 13);
             this.lblNoLRAddressPrinting.TabIndex = 356;
             this.lblNoLRAddressPrinting.Text = "Bills Ageing Above";
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.labelControl1);
-            this.panel1.Controls.Add(this.radioGroup1);
-            this.panel1.Location = new System.Drawing.Point(355, 129);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 152);
-            this.panel1.TabIndex = 355;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Location = new System.Drawing.Point(18, 23);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(94, 13);
-            this.labelControl1.TabIndex = 346;
-            this.labelControl1.Text = "Customer Range";
-            // 
-            // radioGroup1
-            // 
-            this.radioGroup1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.radioGroup1.Location = new System.Drawing.Point(18, 56);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup1.Properties.Appearance.Options.UseTextOptions = true;
-            this.radioGroup1.Properties.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("All", "All"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("Single", "Single")});
-            this.radioGroup1.Properties.ItemsLayout = DevExpress.XtraEditors.RadioGroupItemsLayout.Flow;
-            this.radioGroup1.Size = new System.Drawing.Size(401, 30);
-            this.radioGroup1.TabIndex = 318;
-            // 
-            // txtPhoneOffice
-            // 
-            this.txtPhoneOffice.HidePromptOnLeave = true;
-            this.txtPhoneOffice.Location = new System.Drawing.Point(526, 344);
-            this.txtPhoneOffice.Mask = "00-00-0000";
-            this.txtPhoneOffice.Name = "txtPhoneOffice";
-            this.txtPhoneOffice.Size = new System.Drawing.Size(84, 20);
-            this.txtPhoneOffice.TabIndex = 354;
-            // 
             // lblPhoneOffice
             // 
             this.lblPhoneOffice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblPhoneOffice.Location = new System.Drawing.Point(374, 347);
+            this.lblPhoneOffice.Location = new System.Drawing.Point(374, 187);
             this.lblPhoneOffice.Name = "lblPhoneOffice";
             this.lblPhoneOffice.Size = new System.Drawing.Size(32, 13);
             this.lblPhoneOffice.TabIndex = 353;
             this.lblPhoneOffice.Text = "As On";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Location = new System.Drawing.Point(374, 125);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(90, 13);
+            this.labelControl1.TabIndex = 365;
+            this.labelControl1.Text = "Customer Name";
+            // 
+            // dateAsOn
+            // 
+            this.dateAsOn.Location = new System.Drawing.Point(491, 184);
+            this.dateAsOn.Name = "dateAsOn";
+            this.dateAsOn.Size = new System.Drawing.Size(200, 20);
+            this.dateAsOn.TabIndex = 366;
+            // 
+            // btnPreview
+            // 
+            this.btnPreview.Location = new System.Drawing.Point(414, 267);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(167, 36);
+            this.btnPreview.TabIndex = 368;
+            this.btnPreview.Text = "Preview";
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(596, 267);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(167, 36);
+            this.btnPrint.TabIndex = 367;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.Location = new System.Drawing.Point(491, 91);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSupplier.Size = new System.Drawing.Size(305, 20);
+            this.cmbSupplier.TabIndex = 369;
+            // 
+            // chkCmbCustomer
+            // 
+            this.chkCmbCustomer.EditValue = "Select Customer Range";
+            this.chkCmbCustomer.Location = new System.Drawing.Point(491, 122);
+            this.chkCmbCustomer.Name = "chkCmbCustomer";
+            this.chkCmbCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.chkCmbCustomer.Size = new System.Drawing.Size(305, 20);
+            this.chkCmbCustomer.TabIndex = 370;
+            this.chkCmbCustomer.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.chkCmbCustomer_CustomDisplayText);
             // 
             // FrmSupplierOutstanding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1238, 741);
+            this.Controls.Add(this.chkCmbCustomer);
+            this.Controls.Add(this.cmbSupplier);
+            this.Controls.Add(this.btnPreview);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.dateAsOn);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.labelControl3);
-            this.Controls.Add(this.txtCustomerACNo);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.cmbCashCredit);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.txtBillsAgeingAbove);
             this.Controls.Add(this.lblCashCredit);
             this.Controls.Add(this.lblNoLRAddressPrinting);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtPhoneOffice);
             this.Controls.Add(this.lblPhoneOffice);
             this.Name = "FrmSupplierOutstanding";
             this.Text = "Supplier Outstanding";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSupplierOutstanding_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCashCredit.Properties)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            this.Load += new System.EventHandler(this.FrmSupplierOutstanding_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCmbCustomer.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,16 +184,15 @@
 
         private System.Windows.Forms.CheckBox checkBox1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private System.Windows.Forms.TextBox txtCustomerACNo;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbCashCredit;
-        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private System.Windows.Forms.TextBox txtBillsAgeingAbove;
         private DevExpress.XtraEditors.LabelControl lblCashCredit;
         private DevExpress.XtraEditors.LabelControl lblNoLRAddressPrinting;
-        private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
-        private System.Windows.Forms.MaskedTextBox txtPhoneOffice;
         private DevExpress.XtraEditors.LabelControl lblPhoneOffice;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.DateTimePicker dateAsOn;
+        private DevExpress.XtraEditors.SimpleButton btnPreview;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private DevExpress.XtraEditors.LookUpEdit cmbSupplier;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit chkCmbCustomer;
     }
 }

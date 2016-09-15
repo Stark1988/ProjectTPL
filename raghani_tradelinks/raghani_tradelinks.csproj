@@ -376,6 +376,12 @@
     <Compile Include="RaghaniSplashScreen.Designer.cs">
       <DependentUpon>RaghaniSplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="SupplierOutstandingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierOutstandingReport.Designer.cs">
+      <DependentUpon>SupplierOutstandingReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -500,6 +506,9 @@
     </Compile>
     <EmbeddedResource Include="RaghaniSplashScreen.resx">
       <DependentUpon>RaghaniSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierOutstandingReport.resx">
+      <DependentUpon>SupplierOutstandingReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
