@@ -520,7 +520,9 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="JsonFiles\bill_type.json" />
+    <None Include="JsonFiles\bill_type.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="JsonFiles\collection_entry_source.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
