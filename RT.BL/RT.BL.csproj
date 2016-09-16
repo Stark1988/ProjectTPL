@@ -61,6 +61,7 @@
     <Compile Include="MstTransportMgmt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MstSupplierMgmt.cs" />
+    <Compile Include="StatementOfCollectionReport.cs" />
     <Compile Include="SupplierOutstandingReport.cs" />
   </ItemGroup>
   <ItemGroup>
