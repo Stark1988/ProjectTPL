@@ -571,6 +571,9 @@
     <None Include="JsonFiles\returnDraft_type.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="JsonFiles\settings_keys.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="JsonFiles\source_list.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

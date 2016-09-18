@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpBillDate = new System.Windows.Forms.DateTimePicker();
             this.cmbBillType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -81,9 +84,6 @@
             this.cmbSupplier = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.dtpBillDate = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.xtraScrollableControl1.SuspendLayout();
@@ -103,8 +103,16 @@
             this.panel1.Size = new System.Drawing.Size(1378, 70);
             this.panel1.TabIndex = 0;
             // 
+            // dtpBillDate
+            // 
+            this.dtpBillDate.Location = new System.Drawing.Point(74, 34);
+            this.dtpBillDate.Name = "dtpBillDate";
+            this.dtpBillDate.Size = new System.Drawing.Size(156, 20);
+            this.dtpBillDate.TabIndex = 33;
+            // 
             // cmbBillType
             // 
+            this.cmbBillType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBillType.FormattingEnabled = true;
             this.cmbBillType.Location = new System.Drawing.Point(298, 34);
             this.cmbBillType.Name = "cmbBillType";
@@ -152,6 +160,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1378, 48);
             this.panel2.TabIndex = 1;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(115, 13);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(12, 13);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // xtraScrollableControl1
             // 
@@ -584,11 +612,13 @@
             // 
             // cmbSupplier
             // 
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSupplier.FormattingEnabled = true;
             this.cmbSupplier.Location = new System.Drawing.Point(87, 41);
             this.cmbSupplier.Name = "cmbSupplier";
             this.cmbSupplier.Size = new System.Drawing.Size(254, 21);
             this.cmbSupplier.TabIndex = 33;
+            this.cmbSupplier.SelectedIndexChanged += new System.EventHandler(this.cmbSupplier_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -609,33 +639,6 @@
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 33;
             this.label3.Text = "Bill / Memo";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(12, 13);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(115, 13);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // dtpBillDate
-            // 
-            this.dtpBillDate.Location = new System.Drawing.Point(74, 34);
-            this.dtpBillDate.Name = "dtpBillDate";
-            this.dtpBillDate.Size = new System.Drawing.Size(156, 20);
-            this.dtpBillDate.TabIndex = 33;
             // 
             // FrmFinalBillEntry
             // 

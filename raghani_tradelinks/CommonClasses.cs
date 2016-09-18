@@ -88,5 +88,15 @@ namespace raghani_tradelinks
                         select c).ToList();
             };
         }
+
+        public static string GetSettingsValue(string Key)
+        {
+            using (TPLDBEntities db = new TPLDBEntities())
+            {
+                return (from o in db.OtherSettings
+                        where o.Key == Key
+                        select o.Value).First();
+            };
+        }
     }
 }

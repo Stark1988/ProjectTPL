@@ -12,19 +12,19 @@ namespace RT.DL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class TPLDBEntities : DbContext
     {
         public TPLDBEntities()
             : base("name=TPLDBEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<Authorization> Authorizations { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerContactInfo> CustomerContactInfoes { get; set; }
@@ -63,5 +63,8 @@ namespace RT.DL
         public virtual DbSet<CollectionEntry> CollectionEntries { get; set; }
         public virtual DbSet<CollectionEntryDetail> CollectionEntryDetails { get; set; }
         public virtual DbSet<ReturnDraftCheque> ReturnDraftCheques { get; set; }
+        public virtual DbSet<FinalBill> FinalBills { get; set; }
+        public virtual DbSet<FinalBillDetail> FinalBillDetails { get; set; }
+        public virtual DbSet<OtherSetting> OtherSettings { get; set; }
     }
 }
