@@ -176,6 +176,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="FinalBillReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FinalBillReport.Designer.cs">
+      <DependentUpon>FinalBillReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCollectionEntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +382,12 @@
     <Compile Include="RaghaniSplashScreen.Designer.cs">
       <DependentUpon>RaghaniSplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatementOfCollectionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StatementOfCollectionReport.Designer.cs">
+      <DependentUpon>StatementOfCollectionReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupplierOutstandingReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -395,6 +407,9 @@
     </Compile>
     <EmbeddedResource Include="CustomerOutstandingReport.resx">
       <DependentUpon>CustomerOutstandingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalBillReport.resx">
+      <DependentUpon>FinalBillReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCollectionEntry.resx">
       <DependentUpon>FrmCollectionEntry.cs</DependentUpon>
@@ -506,6 +521,9 @@
     </Compile>
     <EmbeddedResource Include="RaghaniSplashScreen.resx">
       <DependentUpon>RaghaniSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatementOfCollectionReport.resx">
+      <DependentUpon>StatementOfCollectionReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierOutstandingReport.resx">
       <DependentUpon>SupplierOutstandingReport.cs</DependentUpon>
