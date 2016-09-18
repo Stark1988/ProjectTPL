@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerOutstandingReportData.cs" />
+    <Compile Include="FinalBillReportData.cs" />
     <Compile Include="LoginMgmt.cs" />
     <Compile Include="MstBankMgmt.cs" />
     <Compile Include="MstCityMgmt.cs" />

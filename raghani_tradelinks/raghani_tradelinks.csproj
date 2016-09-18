@@ -176,6 +176,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="FinalBillReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FinalBillReport.Designer.cs">
+      <DependentUpon>FinalBillReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCollectionEntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,9 @@
     </Compile>
     <EmbeddedResource Include="CustomerOutstandingReport.resx">
       <DependentUpon>CustomerOutstandingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalBillReport.resx">
+      <DependentUpon>FinalBillReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCollectionEntry.resx">
       <DependentUpon>FrmCollectionEntry.cs</DependentUpon>
