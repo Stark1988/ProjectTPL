@@ -29,6 +29,7 @@ namespace RT.DL
             this.ReturnDraftCheques = new HashSet<ReturnDraftCheque>();
             this.SupplierSisterConcerns1 = new HashSet<SupplierSisterConcern>();
             this.FinalBills = new HashSet<FinalBill>();
+            this.SuppCollectionEntries = new HashSet<SuppCollectionEntry>();
         }
     
         public int SupplierId { get; set; }
@@ -72,5 +73,6 @@ namespace RT.DL
         public virtual ICollection<ReturnDraftCheque> ReturnDraftCheques { get; set; }
         public virtual ICollection<SupplierSisterConcern> SupplierSisterConcerns1 { get; set; }
         public virtual ICollection<FinalBill> FinalBills { get; set; }
+        public virtual ICollection<SuppCollectionEntry> SuppCollectionEntries { get; set; }
     }
 }

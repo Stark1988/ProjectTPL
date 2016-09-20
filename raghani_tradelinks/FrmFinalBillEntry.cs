@@ -146,10 +146,10 @@ namespace raghani_tradelinks
                         toDate = new DateTime(year, 3, 31);
                     }
 
-                    FinalBill generatedData = (from fb in db.FinalBills
-                                               where System.Data.Entity.DbFunctions.TruncateTime(fb.BillDate) >= frmDate.Date && System.Data.Entity.DbFunctions.TruncateTime(fb.BillDate) <= toDate.Date
-                                               && fb.fkSupplierId == (int)cmbSupplier.SelectedValue
-                                               select fb).FirstOrDefault();
+                    List<FinalBill> generatedData = (from fb in db.FinalBills
+                                                     where System.Data.Entity.DbFunctions.TruncateTime(fb.BillDate) >= frmDate.Date && System.Data.Entity.DbFunctions.TruncateTime(fb.BillDate) <= toDate.Date
+                                                     && fb.fkSupplierId == (int)cmbSupplier.SelectedValue
+                                                     select fb).ToList();
 
                     double raisedAmt = 0d;
                     decimal Amt = decimal.Zero;
@@ -162,7 +162,14 @@ namespace raghani_tradelinks
 
                     if (generatedData != null)
                     {
-                        List<FinalBillDetail> lstFBDetails = generatedData.FinalBillDetails.ToList();
+                        List<FinalBillDetail> lstFBDetails = (from gd in generatedData
+                                                              select new FinalBillDetail 
+                                                              { 
+                                                                BillDate = gd.BillDate,
+                                                                BillNo = gd.BillMemoNo,
+                                                                Commission = gd.TotalAmt,
+                                                                
+                                                              }).ToList();
                         grdData.DataSource = lstFBDetails;
                         raisedAmt = lstFBDetails.Sum(q => q.DraftAmt.Value);
                     }

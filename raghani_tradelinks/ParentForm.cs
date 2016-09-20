@@ -616,5 +616,23 @@ namespace raghani_tradelinks
                 HandleException(ex);
             }
         }
+
+        private void SupComm_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmSuppCollectionEntry"))
+                {
+                    FrmSuppCollectionEntry _frmFrmSuppCollectionEntry = new FrmSuppCollectionEntry();
+                    _frmFrmSuppCollectionEntry.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    _frmFrmSuppCollectionEntry.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
     }
 }

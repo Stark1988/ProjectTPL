@@ -82,7 +82,7 @@
             this.ReportsPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.QueryPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.QueryPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.NotificationPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.RTPL = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.SkinsPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.SkinsPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.UserPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -111,6 +111,11 @@
             this.badge1 = new DevExpress.Utils.VisualEffects.Badge();
             this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
             this.badge2 = new DevExpress.Utils.VisualEffects.Badge();
+            this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.SupComm = new DevExpress.XtraBars.BarButtonItem();
+            this.SuppDisc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuManager)).BeginInit();
@@ -189,10 +194,13 @@
             this.iNewAgent,
             this.iNewTransport,
             this.iReturnDraftCheque,
-            this.iDisc});
+            this.iDisc,
+            this.SupComm,
+            this.SuppDisc});
             this.MenuManager.LargeImages = this.ribbonImageCollectionLarge;
             this.MenuManager.Location = new System.Drawing.Point(0, 0);
-            this.MenuManager.MaxItemId = 11;
+            this.MenuManager.MaxItemId = 14;
+            this.MenuManager.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.MenuManager.Name = "MenuManager";
             this.MenuManager.PageHeaderItemLinks.Add(this.iAbout);
             this.MenuManager.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -200,7 +208,7 @@
             this.TransactionPage,
             this.ReportsPage,
             this.QueryPage,
-            this.NotificationPage,
+            this.RTPL,
             this.SkinsPage,
             this.UserPage});
             this.MenuManager.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
@@ -703,11 +711,13 @@
             this.QueryPageGroup.Name = "QueryPageGroup";
             this.QueryPageGroup.ShowCaptionButton = false;
             // 
-            // NotificationPage
+            // RTPL
             // 
-            this.NotificationPage.Image = ((System.Drawing.Image)(resources.GetObject("NotificationPage.Image")));
-            this.NotificationPage.Name = "NotificationPage";
-            this.NotificationPage.Text = "Notification";
+            this.RTPL.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.RTPL.Image = ((System.Drawing.Image)(resources.GetObject("RTPL.Image")));
+            this.RTPL.Name = "RTPL";
+            this.RTPL.Text = "RTPL";
             // 
             // SkinsPage
             // 
@@ -764,7 +774,7 @@
             // 
             this.ParentFormSplitContainer.Panel2.Controls.Add(this.pnlShortCutContainer);
             this.ParentFormSplitContainer.Size = new System.Drawing.Size(1252, 507);
-            this.ParentFormSplitContainer.SplitterDistance = 1147;
+            this.ParentFormSplitContainer.SplitterDistance = 1150;
             this.ParentFormSplitContainer.SplitterWidth = 1;
             this.ParentFormSplitContainer.TabIndex = 20;
             // 
@@ -775,7 +785,7 @@
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.lblTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblTime.Location = new System.Drawing.Point(850, 450);
+            this.lblTime.Location = new System.Drawing.Point(853, 450);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(317, 55);
             this.lblTime.TabIndex = 13;
@@ -804,7 +814,7 @@
             this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCompanyName.Location = new System.Drawing.Point(0, 0);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(1147, 46);
+            this.lblCompanyName.Size = new System.Drawing.Size(1150, 46);
             this.lblCompanyName.TabIndex = 11;
             this.lblCompanyName.Text = "RAGHANI TRADELINKS (P) LTD. (AHMEDABAD)";
             // 
@@ -828,7 +838,7 @@
             this.pnlShortCutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShortCutContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlShortCutContainer.Name = "pnlShortCutContainer";
-            this.pnlShortCutContainer.Size = new System.Drawing.Size(104, 507);
+            this.pnlShortCutContainer.Size = new System.Drawing.Size(101, 507);
             this.pnlShortCutContainer.TabIndex = 15;
             // 
             // lblShortCut13
@@ -984,6 +994,37 @@
             this.badge2.Properties.Text = "0";
             this.badge2.TargetElement = this.MenuManager;
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "State";
+            this.barButtonItem1.Description = "State management.";
+            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
+            this.barButtonItem1.Hint = "State management";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.SupComm);
+            this.ribbonPageGroup1.ItemLinks.Add(this.SuppDisc);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            // 
+            // SupComm
+            // 
+            this.SupComm.Caption = "Collect";
+            this.SupComm.Id = 12;
+            this.SupComm.ImageUri.Uri = "Currency";
+            this.SupComm.Name = "SupComm";
+            this.SupComm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SupComm_ItemClick);
+            // 
+            // SuppDisc
+            // 
+            this.SuppDisc.Caption = "Discount";
+            this.SuppDisc.Id = 13;
+            this.SuppDisc.ImageUri.Uri = "StrikeoutDouble";
+            this.SuppDisc.Name = "SuppDisc";
+            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1091,7 +1132,7 @@
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
         private DevExpress.XtraEditors.LabelControl lblDate;
         private DevExpress.XtraEditors.LabelControl lblTime;
-        private DevExpress.XtraBars.Ribbon.RibbonPage NotificationPage;
+        private DevExpress.XtraBars.Ribbon.RibbonPage RTPL;
         private DevExpress.Utils.VisualEffects.Badge badge1;
         private DevExpress.Utils.VisualEffects.AdornerUIManager adornerUIManager1;
         private DevExpress.Utils.VisualEffects.Badge badge2;
@@ -1106,6 +1147,11 @@
         private DevExpress.XtraBars.BarButtonItem iNewTransport;
         private DevExpress.XtraBars.BarButtonItem iReturnDraftCheque;
         private DevExpress.XtraBars.BarButtonItem iDisc;
+        private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar1;
+        private DevExpress.XtraBars.BarButtonItem SupComm;
+        private DevExpress.XtraBars.BarButtonItem SuppDisc;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
 
     }
 }

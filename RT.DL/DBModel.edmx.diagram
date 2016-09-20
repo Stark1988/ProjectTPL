@@ -95,6 +95,10 @@
         <EntityTypeShape EntityType="TPLDBModel.OtherSetting" Width="1.5" PointX="7.375" PointY="5.75" />
         <AssociationConnector Association="TPLDBModel.FK_FinalBill_Supplier" />
         <AssociationConnector Association="TPLDBModel.FK_FinalBillDetails_FinalBill" />
+        <EntityTypeShape EntityType="TPLDBModel.SuppCollectionEntry" Width="1.5" PointX="14.625" PointY="0.75" />
+        <EntityTypeShape EntityType="TPLDBModel.SuppCollectionEntryDetail" Width="1.5" PointX="9.375" PointY="4.875" />
+        <AssociationConnector Association="TPLDBModel.FK_SuppCollectionEntry_Supplier" />
+        <AssociationConnector Association="TPLDBModel.FK_SuppCollectionEntryDetail_SuppCollectionEntry" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
