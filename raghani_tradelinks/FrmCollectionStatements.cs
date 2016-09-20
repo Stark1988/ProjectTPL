@@ -123,18 +123,16 @@ namespace raghani_tradelinks
                 report.Parameters["FromDate"].Value = dateFrom.Text;
                 report.Parameters["ToDate"].Value = dateTo.Text;
 
-                //*************     Dummy Data      *************************
-
                 StatementOfCollectionReportData ds = new StatementOfCollectionReportData();
-                ds.StatementOfCollectionData = new List<RT.BL.StatementOfCollectionReport>();
-                ds.StatementOfCollectionData.Add(new RT.BL.StatementOfCollectionReport
-                    {
-                        CustomerName = "Jay",
-                        DraftReceiveDate = DateTime.Now.AddDays(-20),
-                        DraftAmt = 10000
-                    });
-
-                //******************************************************************
+                ds.StatementOfCollectionData = (from col in db.CollectionEntries
+                                                where col.fkSupplierId.Value == (int)cmbSupplier.EditValue &&
+                                                System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) >= dateFrom.Value && System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) <= dateTo.Value
+                                                select new RT.BL.StatementOfCollectionReport
+                                                {
+                                                    CustomerName = col.Customer.CustomerName,
+                                                    DraftReceiveDate = col.DDOrChequeDate,
+                                                    DraftAmt = col.DraftAmount
+                                                }).ToList();
 
                 foreach (Band band in report.Bands)
                 {
