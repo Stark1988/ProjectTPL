@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using RT.DL;
+using RT.BL;
+using DevExpress.XtraReports.UI;
 
 namespace raghani_tradelinks
 {
@@ -17,9 +19,12 @@ namespace raghani_tradelinks
         TPLDBEntities db = new TPLDBEntities();
         List<DealingType> lstKeys = new List<DealingType>();
         List<int> CollIds = new List<int>();
+        FinalBillReport report;
+
         public FrmFinalBillEntry()
         {
             InitializeComponent();
+            report = new FinalBillReport();
         }
 
         private void FrmFinalBillEntry_FormClosing(object sender, FormClosingEventArgs e)
@@ -106,8 +111,166 @@ namespace raghani_tradelinks
                 db.SaveChanges();
 
                 MessageBox.Show("Data saved successfully");
+
+                if (txtPrintBillFlag.Text.ToLower().Equals("y"))
+                    PrintFinalBillReport();
             }
             catch (Exception ex)
+            {
+                CommonMethods.HandleException(ex);
+            }
+        }
+
+        private void PrintFinalBillReport()
+        {
+            try
+            {
+                GenerateReport();
+                report.ShowPreviewDialog();
+            }
+            catch(Exception ex)
+            {
+                CommonMethods.HandleException(ex);
+            }
+        }
+
+        private void GenerateReport()
+        {
+            try
+            {
+                Supplier selectedSupplier = db.Suppliers.FirstOrDefault(c => c.SupplierId == (int)cmbSupplier.SelectedValue);
+                SupplierContactInfo sInfo = db.SupplierContactInfoes.FirstOrDefault(ci => ci.fkSupplierId == (int)cmbSupplier.SelectedValue);
+
+                report.Parameters["SupplierName"].Value = cmbSupplier.Text;
+                report.Parameters["Address"].Value = sInfo.Address;
+                report.Parameters["BillAmt"].Value = Convert.ToDecimal(txtTotalAmt.Text) - Convert.ToDecimal(txtBillLess.Text);
+                report.Parameters["BillDate"].Value = dtpBillDate.Value;
+                report.Parameters["BillNo"].Value = txtBillMemoNo.Text;
+                report.Parameters["City"].Value = sInfo.City;
+                report.Parameters["EducationCess"].Value = txtECAmt.Text;
+                report.Parameters["LessBillRaised"].Value = txtBillLess.Text;
+                report.Parameters["LessCreditNote"].Value = txtLessCreditNotes.Text;
+                report.Parameters["OtherTax"].Value = txtOthersAmt.Text;
+                report.Parameters["Pin"].Value = sInfo.Pin;
+                report.Parameters["ServiceTaxPercentage"].Value = txtStaxAmt.Text;
+                report.Parameters["SwachhTaxPercentage"].Value = txtSBPerAmt.Text;
+                report.Parameters["TotalBillValue"].Value = txtTotalAmt.Text;
+
+                FinalBillReportData reportData = new FinalBillReportData();
+                reportData.Particulars = new List<Particular>();
+                var collData = (from col in db.CollectionEntries
+                                where col.fkSupplierId.Value == (int)cmbSupplier.SelectedValue && col.IsFinalBillGenerated == false &&
+                                System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) >= CurrentFinancialYear.StartDate && System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) <= CurrentFinancialYear.EndDate
+                                select col).ToList();
+
+                decimal totalSupplierAmt = collData.Sum(q => q.DraftAmount.Value);
+                reportData.Particulars.Add(new Particular
+                {
+                    SlNo = 1,
+                    Details = string.Format(@"BY COMMISSION @ {0}% ON Collection IMPLEMENTED BY US DURING {1} TO {2}
+                                                    OF TOTAL AMOUNT Rs {3} AS PER DETAILS ATTACHED", selectedSupplier.Commission, CurrentFinancialYear.StartDate.ToShortDateString(), CurrentFinancialYear.EndDate.ToShortDateString(), totalSupplierAmt.ToString()),
+                    Amount = Convert.ToDecimal(txtAmt.Text)
+                });
+
+                reportData.BillRaisedDetails = (from fBill in db.FinalBillDetails
+                                                where fBill.BillNo.ToLower().Equals(txtBillMemoNo.Text.ToLower())
+                                                select new BillsRaisedDetail
+                                                {
+                                                    BillDate = fBill.BillDate,
+                                                    CommissionAmount = fBill.Commission,
+                                                    EducationCess = fBill.ECAmt,
+                                                    Others = fBill.Others,
+                                                    ServiceTax = fBill.STaxAmt,
+                                                    Swachh = fBill.SwachhTax,
+                                                    RoundedOff = fBill.RoundOff
+                                                }).ToList();
+
+                reportData.BillBreakup = new List<CurrentBillBreakup>();
+                reportData.BillBreakup.Add(new CurrentBillBreakup
+                {
+                    Description = "Commission",
+                    TotalBillBreakupValue = Convert.ToDouble(txtAmt.Text),
+                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                        ? reportData.BillRaisedDetails.Sum(br => br.CommissionAmount) : 0
+                });
+                reportData.BillBreakup.Add(new CurrentBillBreakup
+                {
+                    Description = "S.Tax %",
+                    TotalBillBreakupValue = Convert.ToDouble(txtStaxAmt.Text),
+                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                            ? reportData.BillRaisedDetails.Sum(br => br.ServiceTax) : 0
+                });
+                reportData.BillBreakup.Add(new CurrentBillBreakup
+                {
+                    Description = "Swachh %",
+                    TotalBillBreakupValue = Convert.ToDouble(txtSBPerAmt.Text),
+                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                            ? reportData.BillRaisedDetails.Sum(br => br.Swachh) : 0
+                });
+                reportData.BillBreakup.Add(new CurrentBillBreakup
+                {
+                    Description = "E.Cess %",
+                    TotalBillBreakupValue = Convert.ToDouble(txtECAmt.Text),
+                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                            ? reportData.BillRaisedDetails.Sum(br => br.EducationCess) : 0
+                });
+                reportData.BillBreakup.Add(new CurrentBillBreakup
+                {
+                    Description = "Others",
+                    TotalBillBreakupValue = Convert.ToDouble(txtOthersAmt.Text),
+                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                            ? reportData.BillRaisedDetails.Sum(br => br.Others) : 0
+                });
+                reportData.BillBreakup.Add(new CurrentBillBreakup
+                {
+                    Description = "RoundedOff",
+                    TotalBillBreakupValue = 0,
+                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                            ? reportData.BillRaisedDetails.Sum(br => br.RoundedOff) : 0
+                });
+                reportData.BillBreakup.Add(new CurrentBillBreakup
+                {
+                    Description = "LessCreditNote",
+                    TotalBillBreakupValue = Convert.ToDouble(txtLessCreditNotes.Text),
+                    BillRaisedValue = 0
+                });
+
+                foreach (Band band in report.Bands)
+                {
+                    if (band is DetailReportBand)
+                    {
+                        if (band.Name.Equals("ParticularsDetailReport"))
+                        {
+                            var particularsReport = band as DetailReportBand;
+                            particularsReport.DataSource = reportData;
+                            particularsReport.DataMember = "Particulars";
+                        }
+                        else if (band.Name.Equals("BillRaisedDetailReport"))
+                        {
+                            if (reportData.BillRaisedDetails == null || reportData.BillRaisedDetails.Count == 0)
+                            {
+                                band.Visible = false;
+                            }
+                            else
+                            {
+                                band.Visible = true;
+                                var billRaisedDetailReport = band as DetailReportBand;
+                                billRaisedDetailReport.DataSource = reportData;
+                                billRaisedDetailReport.DataMember = "BillRaisedDetails";
+                            }
+                        }
+                        else if (band.Name.Equals("BillBreakupDetailReport"))
+                        {
+                            var billBreakupDetailReport = band as DetailReportBand;
+                            billBreakupDetailReport.DataSource = reportData;
+                            billBreakupDetailReport.DataMember = "BillBreakup";
+                        }
+                    }
+                }
+
+                report.CreateDocument();
+            }
+            catch(Exception ex)
             {
                 CommonMethods.HandleException(ex);
             }
@@ -224,6 +387,26 @@ namespace raghani_tradelinks
             {
                 CommonMethods.HandleException(ex);
             }
+        }
+    }
+
+    public static class CurrentFinancialYear
+    {
+        private static DateTime currentDate;
+
+        private static DateTime startDate;
+        private static DateTime endDate;
+        public static DateTime StartDate { get { return startDate; } }
+        public static DateTime EndDate { get { return endDate; } }
+
+        static CurrentFinancialYear()
+        {
+            currentDate = DateTime.Now;
+            int startYear = currentDate.Month >= 4 && currentDate.Month <= 12 ? currentDate.Year : currentDate.AddYears(-1).Year;
+            int endYear = startYear + 1;
+
+            startDate = new DateTime(startYear, 4, 1);
+            endDate = new DateTime(endYear, 3, 31);
         }
     }
 }

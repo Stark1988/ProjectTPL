@@ -91,9 +91,9 @@
         <AssociationConnector Association="TPLDBModel.FK_SupplierSisterConcern_Supplier_Sister" />
         <AssociationConnector Association="TPLDBModel.FK_CustomerSisterConcern_Customer_Sister" />
         <EntityTypeShape EntityType="TPLDBModel.FinalBill" Width="1.5" PointX="14.625" PointY="23.25" />
-        <EntityTypeShape EntityType="TPLDBModel.FinalBillDetail" Width="1.5" PointX="16.875" PointY="24.375" />
         <EntityTypeShape EntityType="TPLDBModel.OtherSetting" Width="1.5" PointX="7.375" PointY="5.75" />
         <AssociationConnector Association="TPLDBModel.FK_FinalBill_Supplier" />
+        <EntityTypeShape EntityType="TPLDBModel.FinalBillDetail" Width="1.5" PointX="16.875" PointY="24.25" />
         <AssociationConnector Association="TPLDBModel.FK_FinalBillDetails_FinalBill" />
         <EntityTypeShape EntityType="TPLDBModel.SuppCollectionEntry" Width="1.5" PointX="14.625" PointY="0.75" />
         <EntityTypeShape EntityType="TPLDBModel.SuppCollectionEntryDetail" Width="1.5" PointX="9.375" PointY="4.875" />
