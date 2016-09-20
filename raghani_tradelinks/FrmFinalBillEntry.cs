@@ -179,7 +179,7 @@ namespace raghani_tradelinks
                                                     BillDate = fBill.BillDate,
                                                     CommissionAmount = fBill.Commission,
                                                     EducationCess = fBill.ECAmt,
-                                                    Others = fBill.Others,
+                                                    Others = Convert.ToDouble(fBill.Others),
                                                     ServiceTax = fBill.STaxAmt,
                                                     Swachh = fBill.SwachhTax,
                                                     RoundedOff = fBill.RoundOff

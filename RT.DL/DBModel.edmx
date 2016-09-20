@@ -3174,7 +3174,7 @@
           <Property Name="ECAmt" Type="Double" />
           <Property Name="Per" Type="Double" />
           <Property Name="Commission" Type="Double" />
-          <Property Name="Others" Type="String" />
+          <Property Name="Others" Type="Double" Nullable="true" />
           <Property Name="Tax" Type="Double" />
           <NavigationProperty Name="FinalBill" Relationship="TPLDBModel.FK_FinalBillDetails_FinalBill" FromRole="FinalBillDetail" ToRole="FinalBill" />
           <Property Name="SwachhTax" Type="Double" />
