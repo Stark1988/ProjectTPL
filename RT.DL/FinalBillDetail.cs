@@ -24,8 +24,10 @@ namespace RT.DL
         public Nullable<double> ECAmt { get; set; }
         public Nullable<double> Per { get; set; }
         public Nullable<double> Commission { get; set; }
-        public string Others { get; set; }
+        public Nullable<double> Others { get; set; }
         public Nullable<double> Tax { get; set; }
+        public Nullable<double> SwachhTax { get; set; }
+        public Nullable<double> RoundOff { get; set; }
     
         public virtual FinalBill FinalBill { get; set; }
     }

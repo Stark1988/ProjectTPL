@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TPLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="AuthorizationId" />
@@ -253,8 +253,10 @@
           <Property Name="ECAmt" Type="float" />
           <Property Name="Per" Type="float" />
           <Property Name="Commission" Type="float" />
-          <Property Name="Others" Type="nvarchar(max)" />
+          <Property Name="Others" Type="float" />
           <Property Name="Tax" Type="float" />
+          <Property Name="SwachhTax" Type="float" />
+          <Property Name="RoundOff" Type="float" />
         </EntityType>
         <EntityType Name="GRNDebitNote">
           <Key>
@@ -1751,12 +1753,12 @@
             <End Role="CustomerSisterConcern" EntitySet="CustomerSisterConcerns" />
           </AssociationSet>
           <EntitySet Name="FinalBills" EntityType="TPLDBModel.FinalBill" />
-          <EntitySet Name="FinalBillDetails" EntityType="TPLDBModel.FinalBillDetail" />
           <EntitySet Name="OtherSettings" EntityType="TPLDBModel.OtherSetting" />
           <AssociationSet Name="FK_FinalBill_Supplier" Association="TPLDBModel.FK_FinalBill_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="FinalBill" EntitySet="FinalBills" />
           </AssociationSet>
+          <EntitySet Name="FinalBillDetails" EntityType="TPLDBModel.FinalBillDetail" />
           <AssociationSet Name="FK_FinalBillDetails_FinalBill" Association="TPLDBModel.FK_FinalBillDetails_FinalBill">
             <End Role="FinalBill" EntitySet="FinalBills" />
             <End Role="FinalBillDetail" EntitySet="FinalBillDetails" />
@@ -3085,24 +3087,6 @@
           <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_FinalBill_Supplier" FromRole="FinalBill" ToRole="Supplier" />
           <NavigationProperty Name="FinalBillDetails" Relationship="TPLDBModel.FK_FinalBillDetails_FinalBill" FromRole="FinalBill" ToRole="FinalBillDetail" />
         </EntityType>
-        <EntityType Name="FinalBillDetail">
-          <Key>
-            <PropertyRef Name="FBillDetailId" />
-          </Key>
-          <Property Name="FBillDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fkFinalBillId" Type="Int32" />
-          <Property Name="BillNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BillDate" Type="DateTime" Precision="3" />
-          <Property Name="Year" Type="Int32" />
-          <Property Name="DraftAmt" Type="Double" />
-          <Property Name="STaxAmt" Type="Double" />
-          <Property Name="ECAmt" Type="Double" />
-          <Property Name="Per" Type="Double" />
-          <Property Name="Commission" Type="Double" />
-          <Property Name="Others" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tax" Type="Double" />
-          <NavigationProperty Name="FinalBill" Relationship="TPLDBModel.FK_FinalBillDetails_FinalBill" FromRole="FinalBillDetail" ToRole="FinalBill" />
-        </EntityType>
         <EntityType Name="OtherSetting">
           <Key>
             <PropertyRef Name="Id" />
@@ -3123,6 +3107,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="FinalBillDetail">
+          <Key>
+            <PropertyRef Name="FBillDetailId" />
+          </Key>
+          <Property Name="FBillDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkFinalBillId" Type="Int32" />
+          <Property Name="BillNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillDate" Type="DateTime" Precision="3" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="DraftAmt" Type="Double" />
+          <Property Name="STaxAmt" Type="Double" />
+          <Property Name="ECAmt" Type="Double" />
+          <Property Name="Per" Type="Double" />
+          <Property Name="Commission" Type="Double" />
+          <Property Name="Others" Type="Double" />
+          <Property Name="Tax" Type="Double" />
+          <Property Name="SwachhTax" Type="Double" />
+          <Property Name="RoundOff" Type="Double" />
+          <NavigationProperty Name="FinalBill" Relationship="TPLDBModel.FK_FinalBillDetails_FinalBill" FromRole="FinalBillDetail" ToRole="FinalBill" />
+        </EntityType>
         <Association Name="FK_FinalBillDetails_FinalBill">
           <End Type="TPLDBModel.FinalBill" Role="FinalBill" Multiplicity="0..1" />
           <End Type="TPLDBModel.FinalBillDetail" Role="FinalBillDetail" Multiplicity="*" />
@@ -3842,9 +3846,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="OtherSettings">
+            <EntityTypeMapping TypeName="TPLDBModel.OtherSetting">
+              <MappingFragment StoreEntitySet="OtherSettings">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="FinalBillDetails">
             <EntityTypeMapping TypeName="TPLDBModel.FinalBillDetail">
               <MappingFragment StoreEntitySet="FinalBillDetails">
+                <ScalarProperty Name="RoundOff" ColumnName="RoundOff" />
+                <ScalarProperty Name="SwachhTax" ColumnName="SwachhTax" />
                 <ScalarProperty Name="Tax" ColumnName="Tax" />
                 <ScalarProperty Name="Others" ColumnName="Others" />
                 <ScalarProperty Name="Commission" ColumnName="Commission" />
@@ -3857,15 +3872,6 @@
                 <ScalarProperty Name="BillNo" ColumnName="BillNo" />
                 <ScalarProperty Name="fkFinalBillId" ColumnName="fkFinalBillId" />
                 <ScalarProperty Name="FBillDetailId" ColumnName="FBillDetailId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OtherSettings">
-            <EntityTypeMapping TypeName="TPLDBModel.OtherSetting">
-              <MappingFragment StoreEntitySet="OtherSettings">
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="Key" ColumnName="Key" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

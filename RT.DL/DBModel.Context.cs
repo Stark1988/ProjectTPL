@@ -64,7 +64,7 @@ namespace RT.DL
         public virtual DbSet<CollectionEntryDetail> CollectionEntryDetails { get; set; }
         public virtual DbSet<ReturnDraftCheque> ReturnDraftCheques { get; set; }
         public virtual DbSet<FinalBill> FinalBills { get; set; }
-        public virtual DbSet<FinalBillDetail> FinalBillDetails { get; set; }
         public virtual DbSet<OtherSetting> OtherSettings { get; set; }
+        public virtual DbSet<FinalBillDetail> FinalBillDetails { get; set; }
     }
 }

@@ -25,25 +25,59 @@ namespace RT.BL
     public class CurrentBillBreakup
     {
         public string Description { get; set; }
-        public decimal? TotalBillValue { get; set; }
-        public decimal? BillRaisedValue { get; set; }
-        public decimal? Amount { get; set; }
+        private double? totalBillBreakupValue;
+        public double? TotalBillBreakupValue 
+        { 
+            get
+            {
+                return totalBillBreakupValue;
+            }
+            set
+            {
+                if (value == null)
+                    totalBillBreakupValue = 0;
+                else
+                    totalBillBreakupValue = value;
+            }
+        }
+        private double? billRaisedValue;
+        public double? BillRaisedValue
+        {
+            get
+            {
+                return billRaisedValue;
+            }
+            set
+            {
+                if (value == null)
+                    billRaisedValue = 0;
+                else
+                    billRaisedValue = value;
+            }
+        }
+        public double? Amount 
+        { 
+            get
+            {
+                return TotalBillBreakupValue - BillRaisedValue;
+            }
+        }
     }
 
     public class BillsRaisedDetail
     {
         public DateTime? BillDate { get; set; }
-        public decimal? CommissionAmount { get; set; }
-        public decimal? ServiceTax { get; set; }
-        public decimal? Swachh { get; set; }
-        public decimal? EducationCess { get; set; }        
-        public decimal? RoundedOff { get; set; }
-        public decimal? Others { get; set; }
-        public decimal? Total 
+        public double? CommissionAmount { get; set; }
+        public double? ServiceTax { get; set; }
+        public double? Swachh { get; set; }
+        public double? EducationCess { get; set; }
+        public double? RoundedOff { get; set; }
+        public double? Others { get; set; }
+        public double? Total 
         {
             get
             {
-                return CommissionAmount + ServiceTax + Swachh + EducationCess + Others;
+                return CommissionAmount + ServiceTax + Swachh + EducationCess + Others + RoundedOff;
             }
         }
     }
