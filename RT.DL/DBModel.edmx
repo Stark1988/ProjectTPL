@@ -621,6 +621,30 @@
           <Property Name="Narration" Type="nvarchar(max)" />
           <Property Name="fkSuppColEntryId" Type="int" />
         </EntityType>
+        <EntityType Name="SuppDiscounDetails">
+          <Key>
+            <PropertyRef Name="SuppDiscDetailsId" />
+          </Key>
+          <Property Name="SuppDiscDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkSupDiscId" Type="int" />
+          <Property Name="RefType" Type="nvarchar" MaxLength="50" />
+          <Property Name="RefNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="RefDate" Type="datetime" />
+          <Property Name="RefAmt" Type="float" />
+          <Property Name="AdjustedAmt" Type="float" />
+          <Property Name="Narration" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SuppDiscount">
+          <Key>
+            <PropertyRef Name="SupDiscId" />
+          </Key>
+          <Property Name="SupDiscId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkSupplierId" Type="int" />
+          <Property Name="DiscDate" Type="datetime" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="DiscAmt" Type="float" />
+          <Property Name="Remarks" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="Supplier">
           <Key>
             <PropertyRef Name="SupplierId" />
@@ -1274,6 +1298,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SuppDiscounDetails_SuppDiscount">
+          <End Role="SuppDiscount" Type="Self.SuppDiscount" Multiplicity="0..1" />
+          <End Role="SuppDiscounDetails" Type="Self.SuppDiscounDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuppDiscount">
+              <PropertyRef Name="SupDiscId" />
+            </Principal>
+            <Dependent Role="SuppDiscounDetails">
+              <PropertyRef Name="fkSupDiscId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuppDiscount_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="SuppDiscount" Type="Self.SuppDiscount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SuppDiscount">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SupplierBillingDetail_Supplier">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
           <End Role="SupplierBillingDetail" Type="Self.SupplierBillingDetail" Multiplicity="*" />
@@ -1371,6 +1419,8 @@
           <EntitySet Name="SaleLREntry" EntityType="Self.SaleLREntry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SuppCollectionEntry" EntityType="Self.SuppCollectionEntry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SuppCollectionEntryDetail" EntityType="Self.SuppCollectionEntryDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuppDiscounDetails" EntityType="Self.SuppDiscounDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuppDiscount" EntityType="Self.SuppDiscount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierBillingDetail" EntityType="Self.SupplierBillingDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierContactInfo" EntityType="Self.SupplierContactInfo" Schema="dbo" store:Type="Tables" />
@@ -1561,6 +1611,14 @@
           <AssociationSet Name="FK_SuppCollectionEntryDetail_SuppCollectionEntry" Association="Self.FK_SuppCollectionEntryDetail_SuppCollectionEntry">
             <End Role="SuppCollectionEntry" EntitySet="SuppCollectionEntry" />
             <End Role="SuppCollectionEntryDetail" EntitySet="SuppCollectionEntryDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppDiscounDetails_SuppDiscount" Association="Self.FK_SuppDiscounDetails_SuppDiscount">
+            <End Role="SuppDiscount" EntitySet="SuppDiscount" />
+            <End Role="SuppDiscounDetails" EntitySet="SuppDiscounDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppDiscount_Supplier" Association="Self.FK_SuppDiscount_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="SuppDiscount" EntitySet="SuppDiscount" />
           </AssociationSet>
           <AssociationSet Name="FK_SupplierBillingDetail_Supplier" Association="Self.FK_SupplierBillingDetail_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
@@ -1834,6 +1892,16 @@
           <AssociationSet Name="FK_SuppCollectionEntryDetail_SuppCollectionEntry" Association="TPLDBModel.FK_SuppCollectionEntryDetail_SuppCollectionEntry">
             <End Role="SuppCollectionEntry" EntitySet="SuppCollectionEntries" />
             <End Role="SuppCollectionEntryDetail" EntitySet="SuppCollectionEntryDetails" />
+          </AssociationSet>
+          <EntitySet Name="SuppDiscounDetails" EntityType="TPLDBModel.SuppDiscounDetail" />
+          <EntitySet Name="SuppDiscounts" EntityType="TPLDBModel.SuppDiscount" />
+          <AssociationSet Name="FK_SuppDiscounDetails_SuppDiscount" Association="TPLDBModel.FK_SuppDiscounDetails_SuppDiscount">
+            <End Role="SuppDiscount" EntitySet="SuppDiscounts" />
+            <End Role="SuppDiscounDetail" EntitySet="SuppDiscounDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppDiscount_Supplier" Association="TPLDBModel.FK_SuppDiscount_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="SuppDiscount" EntitySet="SuppDiscounts" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Authorization">
@@ -2449,6 +2517,7 @@
           <NavigationProperty Name="SupplierSisterConcerns1" Relationship="TPLDBModel.FK_SupplierSisterConcern_Supplier_Sister" FromRole="Supplier" ToRole="SupplierSisterConcern" />
           <NavigationProperty Name="FinalBills" Relationship="TPLDBModel.FK_FinalBill_Supplier" FromRole="Supplier" ToRole="FinalBill" />
           <NavigationProperty Name="SuppCollectionEntries" Relationship="TPLDBModel.FK_SuppCollectionEntry_Supplier" FromRole="Supplier" ToRole="SuppCollectionEntry" />
+          <NavigationProperty Name="SuppDiscounts" Relationship="TPLDBModel.FK_SuppDiscount_Supplier" FromRole="Supplier" ToRole="SuppDiscount" />
         </EntityType>
         <EntityType Name="SupplierBillingDetail">
           <Key>
@@ -3267,6 +3336,57 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SuppDiscounDetail">
+          <Key>
+            <PropertyRef Name="SuppDiscDetailsId" />
+          </Key>
+          <Property Name="SuppDiscDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkSupDiscId" Type="Int32" />
+          <Property Name="RefType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RefDate" Type="DateTime" Precision="3" />
+          <Property Name="RefAmt" Type="Double" />
+          <Property Name="AdjustedAmt" Type="Double" />
+          <Property Name="Narration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SuppDiscount" Relationship="TPLDBModel.FK_SuppDiscounDetails_SuppDiscount" FromRole="SuppDiscounDetail" ToRole="SuppDiscount" />
+        </EntityType>
+        <EntityType Name="SuppDiscount">
+          <Key>
+            <PropertyRef Name="SupDiscId" />
+          </Key>
+          <Property Name="SupDiscId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkSupplierId" Type="Int32" />
+          <Property Name="DiscDate" Type="DateTime" Precision="3" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscAmt" Type="Double" />
+          <Property Name="Remarks" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="SuppDiscounDetails" Relationship="TPLDBModel.FK_SuppDiscounDetails_SuppDiscount" FromRole="SuppDiscount" ToRole="SuppDiscounDetail" />
+          <NavigationProperty Name="Supplier" Relationship="TPLDBModel.FK_SuppDiscount_Supplier" FromRole="SuppDiscount" ToRole="Supplier" />
+        </EntityType>
+        <Association Name="FK_SuppDiscounDetails_SuppDiscount">
+          <End Type="TPLDBModel.SuppDiscount" Role="SuppDiscount" Multiplicity="0..1" />
+          <End Type="TPLDBModel.SuppDiscounDetail" Role="SuppDiscounDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuppDiscount">
+              <PropertyRef Name="SupDiscId" />
+            </Principal>
+            <Dependent Role="SuppDiscounDetail">
+              <PropertyRef Name="fkSupDiscId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuppDiscount_Supplier">
+          <End Type="TPLDBModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="TPLDBModel.SuppDiscount" Role="SuppDiscount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SuppDiscount">
+              <PropertyRef Name="fkSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4030,6 +4150,32 @@
                 <ScalarProperty Name="RefType" ColumnName="RefType" />
                 <ScalarProperty Name="RefNo" ColumnName="RefNo" />
                 <ScalarProperty Name="SuppColEntryDetailId" ColumnName="SuppColEntryDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuppDiscounDetails">
+            <EntityTypeMapping TypeName="TPLDBModel.SuppDiscounDetail">
+              <MappingFragment StoreEntitySet="SuppDiscounDetails">
+                <ScalarProperty Name="Narration" ColumnName="Narration" />
+                <ScalarProperty Name="AdjustedAmt" ColumnName="AdjustedAmt" />
+                <ScalarProperty Name="RefAmt" ColumnName="RefAmt" />
+                <ScalarProperty Name="RefDate" ColumnName="RefDate" />
+                <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+                <ScalarProperty Name="RefType" ColumnName="RefType" />
+                <ScalarProperty Name="fkSupDiscId" ColumnName="fkSupDiscId" />
+                <ScalarProperty Name="SuppDiscDetailsId" ColumnName="SuppDiscDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuppDiscounts">
+            <EntityTypeMapping TypeName="TPLDBModel.SuppDiscount">
+              <MappingFragment StoreEntitySet="SuppDiscount">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="DiscAmt" ColumnName="DiscAmt" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="DiscDate" ColumnName="DiscDate" />
+                <ScalarProperty Name="fkSupplierId" ColumnName="fkSupplierId" />
+                <ScalarProperty Name="SupDiscId" ColumnName="SupDiscId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

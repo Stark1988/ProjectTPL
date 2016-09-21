@@ -99,6 +99,10 @@
         <EntityTypeShape EntityType="TPLDBModel.SuppCollectionEntryDetail" Width="1.5" PointX="9.375" PointY="4.875" />
         <AssociationConnector Association="TPLDBModel.FK_SuppCollectionEntry_Supplier" />
         <AssociationConnector Association="TPLDBModel.FK_SuppCollectionEntryDetail_SuppCollectionEntry" />
+        <EntityTypeShape EntityType="TPLDBModel.SuppDiscounDetail" Width="1.5" PointX="16.875" PointY="29.875" />
+        <EntityTypeShape EntityType="TPLDBModel.SuppDiscount" Width="1.5" PointX="14.625" PointY="30" />
+        <AssociationConnector Association="TPLDBModel.FK_SuppDiscounDetails_SuppDiscount" />
+        <AssociationConnector Association="TPLDBModel.FK_SuppDiscount_Supplier" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

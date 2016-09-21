@@ -634,5 +634,23 @@ namespace raghani_tradelinks
                 HandleException(ex);
             }
         }
+
+        private void SuppDisc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!IsOpen("FrmSuppCollectionEntry"))
+                {
+                    FrmSuppDiscount FrmSuppDiscount = new FrmSuppDiscount();
+                    FrmSuppDiscount.MdiParent = this;
+                    ParentFormSplitContainer.SendToBack();
+                    FrmSuppDiscount.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
     }
 }

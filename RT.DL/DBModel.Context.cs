@@ -68,5 +68,7 @@ namespace RT.DL
         public virtual DbSet<OtherSetting> OtherSettings { get; set; }
         public virtual DbSet<SuppCollectionEntry> SuppCollectionEntries { get; set; }
         public virtual DbSet<SuppCollectionEntryDetail> SuppCollectionEntryDetails { get; set; }
+        public virtual DbSet<SuppDiscounDetail> SuppDiscounDetails { get; set; }
+        public virtual DbSet<SuppDiscount> SuppDiscounts { get; set; }
     }
 }
