@@ -141,136 +141,148 @@ namespace raghani_tradelinks
                 Supplier selectedSupplier = db.Suppliers.FirstOrDefault(c => c.SupplierId == (int)cmbSupplier.SelectedValue);
                 SupplierContactInfo sInfo = db.SupplierContactInfoes.FirstOrDefault(ci => ci.fkSupplierId == (int)cmbSupplier.SelectedValue);
 
-                report.Parameters["SupplierName"].Value = cmbSupplier.Text;
-                report.Parameters["Address"].Value = sInfo.Address;
-                report.Parameters["BillAmt"].Value = Convert.ToDecimal(txtTotalAmt.Text) - Convert.ToDecimal(txtBillLess.Text);
-                report.Parameters["BillDate"].Value = dtpBillDate.Value;
-                report.Parameters["BillNo"].Value = txtBillMemoNo.Text;
-                report.Parameters["City"].Value = sInfo.City;
-                report.Parameters["EducationCess"].Value = txtECAmt.Text;
-                report.Parameters["LessBillRaised"].Value = txtBillLess.Text;
-                report.Parameters["LessCreditNote"].Value = txtLessCreditNotes.Text;
-                report.Parameters["OtherTax"].Value = txtOthersAmt.Text;
-                report.Parameters["Pin"].Value = sInfo.Pin;
-                report.Parameters["ServiceTaxPercentage"].Value = txtStaxAmt.Text;
-                report.Parameters["SwachhTaxPercentage"].Value = txtSBPerAmt.Text;
-                report.Parameters["TotalBillValue"].Value = txtTotalAmt.Text;
+                FinalBill finalBill = (from fBill in db.FinalBills
+                                       where fBill.fkSupplierId == (int)cmbSupplier.SelectedValue
+                                             && fBill.BillDate >= CurrentFinancialYear.StartDate && fBill.BillDate <= CurrentFinancialYear.EndDate
+                                       select fBill).FirstOrDefault();
 
-                FinalBillReportData reportData = new FinalBillReportData();
-                reportData.Particulars = new List<Particular>();
-                var collData = (from col in db.CollectionEntries
-                                where col.fkSupplierId.Value == (int)cmbSupplier.SelectedValue && col.IsFinalBillGenerated == false &&
-                                System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) >= CurrentFinancialYear.StartDate && System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) <= CurrentFinancialYear.EndDate
-                                select col).ToList();
+                if (finalBill != null)
+                {
+                    report.Parameters["SupplierName"].Value = cmbSupplier.Text;
+                    report.Parameters["Address"].Value = sInfo.Address;
+                    report.Parameters["BillAmt"].Value = finalBill.Amout - finalBill.RaisedAmt;
+                    report.Parameters["BillDate"].Value = finalBill.BillDate;
+                    report.Parameters["BillNo"].Value = finalBill.BillMemoNo;
+                    report.Parameters["City"].Value = sInfo.City;
+                    report.Parameters["EducationCess"].Value = finalBill.ECAmt;
+                    report.Parameters["LessBillRaised"].Value = finalBill.RaisedAmt;
+                    report.Parameters["LessCreditNote"].Value = finalBill.CreditNoted;
+                    report.Parameters["OtherTax"].Value = finalBill.OtherAmt;
+                    report.Parameters["Pin"].Value = sInfo.Pin;
+                    report.Parameters["ServiceTaxPercentage"].Value = finalBill.STAmt;
+                    report.Parameters["SwachhTaxPercentage"].Value = finalBill.SBAmt;
+                    report.Parameters["TotalBillValue"].Value = finalBill.TotalAmt;
 
-                decimal totalSupplierAmt = collData.Sum(q => q.DraftAmount.Value);
-                reportData.Particulars.Add(new Particular
-                {
-                    SlNo = 1,
-                    Details = string.Format(@"BY COMMISSION @ {0}% ON Collection IMPLEMENTED BY US DURING {1} TO {2}
-                                                    OF TOTAL AMOUNT Rs {3} AS PER DETAILS ATTACHED", selectedSupplier.Commission, CurrentFinancialYear.StartDate.ToShortDateString(), CurrentFinancialYear.EndDate.ToShortDateString(), totalSupplierAmt.ToString()),
-                    Amount = Convert.ToDecimal(txtAmt.Text)
-                });
+                    FinalBillReportData reportData = new FinalBillReportData();
+                    reportData.Particulars = new List<Particular>();
+                    var collData = (from col in db.CollectionEntries
+                                    where col.fkSupplierId.Value == (int)cmbSupplier.SelectedValue && col.IsFinalBillGenerated == false &&
+                                    System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) >= CurrentFinancialYear.StartDate && System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) <= CurrentFinancialYear.EndDate
+                                    select col).ToList();
 
-                reportData.BillRaisedDetails = (from fBill in db.FinalBillDetails
-                                                where fBill.BillNo.ToLower().Equals(txtBillMemoNo.Text.ToLower())
-                                                select new BillsRaisedDetail
-                                                {
-                                                    BillDate = fBill.BillDate,
-                                                    CommissionAmount = fBill.Commission,
-                                                    EducationCess = fBill.ECAmt,
-                                                    Others = Convert.ToDouble(fBill.Others),
-                                                    ServiceTax = fBill.STaxAmt,
-                                                    Swachh = fBill.SwachhTax,
-                                                    RoundedOff = fBill.RoundOff
-                                                }).ToList();
-
-                reportData.BillBreakup = new List<CurrentBillBreakup>();
-                reportData.BillBreakup.Add(new CurrentBillBreakup
-                {
-                    Description = "Commission",
-                    TotalBillBreakupValue = Convert.ToDouble(txtAmt.Text),
-                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
-                                        ? reportData.BillRaisedDetails.Sum(br => br.CommissionAmount) : 0
-                });
-                reportData.BillBreakup.Add(new CurrentBillBreakup
-                {
-                    Description = "S.Tax %",
-                    TotalBillBreakupValue = Convert.ToDouble(txtStaxAmt.Text),
-                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
-                                            ? reportData.BillRaisedDetails.Sum(br => br.ServiceTax) : 0
-                });
-                reportData.BillBreakup.Add(new CurrentBillBreakup
-                {
-                    Description = "Swachh %",
-                    TotalBillBreakupValue = Convert.ToDouble(txtSBPerAmt.Text),
-                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
-                                            ? reportData.BillRaisedDetails.Sum(br => br.Swachh) : 0
-                });
-                reportData.BillBreakup.Add(new CurrentBillBreakup
-                {
-                    Description = "E.Cess %",
-                    TotalBillBreakupValue = Convert.ToDouble(txtECAmt.Text),
-                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
-                                            ? reportData.BillRaisedDetails.Sum(br => br.EducationCess) : 0
-                });
-                reportData.BillBreakup.Add(new CurrentBillBreakup
-                {
-                    Description = "Others",
-                    TotalBillBreakupValue = Convert.ToDouble(txtOthersAmt.Text),
-                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
-                                            ? reportData.BillRaisedDetails.Sum(br => br.Others) : 0
-                });
-                reportData.BillBreakup.Add(new CurrentBillBreakup
-                {
-                    Description = "RoundedOff",
-                    TotalBillBreakupValue = 0,
-                    BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
-                                            ? reportData.BillRaisedDetails.Sum(br => br.RoundedOff) : 0
-                });
-                reportData.BillBreakup.Add(new CurrentBillBreakup
-                {
-                    Description = "LessCreditNote",
-                    TotalBillBreakupValue = Convert.ToDouble(txtLessCreditNotes.Text),
-                    BillRaisedValue = 0
-                });
-
-                foreach (Band band in report.Bands)
-                {
-                    if (band is DetailReportBand)
+                    decimal totalSupplierAmt = collData.Sum(q => q.DraftAmount.Value);
+                    reportData.Particulars.Add(new Particular
                     {
-                        if (band.Name.Equals("ParticularsDetailReport"))
+                        SlNo = 1,
+                        Details = string.Format(@"BY COMMISSION @ {0}% ON Collection IMPLEMENTED BY US DURING {1} TO {2}
+                                                    OF TOTAL AMOUNT Rs {3} AS PER DETAILS ATTACHED", selectedSupplier.Commission, CurrentFinancialYear.StartDate.ToShortDateString(), CurrentFinancialYear.EndDate.ToShortDateString(), totalSupplierAmt.ToString()),
+                        Amount = Convert.ToDecimal(finalBill.Amout)
+                    });
+
+                    reportData.BillRaisedDetails = (from fBill in db.FinalBillDetails
+                                                    where fBill.BillNo.ToLower().Equals(finalBill.BillMemoNo)
+                                                    select new BillsRaisedDetail
+                                                    {
+                                                        BillDate = fBill.BillDate,
+                                                        CommissionAmount = fBill.Commission,
+                                                        EducationCess = fBill.ECAmt,
+                                                        Others = fBill.Others,
+                                                        ServiceTax = fBill.STaxAmt,
+                                                        Swachh = fBill.SwachhTax,
+                                                        RoundedOff = fBill.RoundOff
+                                                    }).ToList();
+
+                    reportData.BillBreakup = new List<CurrentBillBreakup>();
+                    reportData.BillBreakup.Add(new CurrentBillBreakup
+                    {
+                        Description = "Commission",
+                        TotalBillBreakupValue = finalBill.Amout,
+                        BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                            ? reportData.BillRaisedDetails.Sum(br => br.CommissionAmount) : 0
+                    });
+                    reportData.BillBreakup.Add(new CurrentBillBreakup
+                    {
+                        Description = "S.Tax %",
+                        TotalBillBreakupValue = finalBill.STAmt,
+                        BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                                ? reportData.BillRaisedDetails.Sum(br => br.ServiceTax) : 0
+                    });
+                    reportData.BillBreakup.Add(new CurrentBillBreakup
+                    {
+                        Description = "Swachh %",
+                        TotalBillBreakupValue = finalBill.SBAmt,
+                        BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                                ? reportData.BillRaisedDetails.Sum(br => br.Swachh) : 0
+                    });
+                    reportData.BillBreakup.Add(new CurrentBillBreakup
+                    {
+                        Description = "E.Cess %",
+                        TotalBillBreakupValue = finalBill.ECAmt,
+                        BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                                ? reportData.BillRaisedDetails.Sum(br => br.EducationCess) : 0
+                    });
+                    reportData.BillBreakup.Add(new CurrentBillBreakup
+                    {
+                        Description = "Others",
+                        TotalBillBreakupValue = finalBill.OtherAmt,
+                        BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                                ? reportData.BillRaisedDetails.Sum(br => br.Others) : 0
+                    });
+                    reportData.BillBreakup.Add(new CurrentBillBreakup
+                    {
+                        Description = "RoundedOff",
+                        TotalBillBreakupValue = 0,
+                        BillRaisedValue = reportData.BillRaisedDetails != null && reportData.BillRaisedDetails.Count > 0
+                                                ? reportData.BillRaisedDetails.Sum(br => br.RoundedOff) : 0
+                    });
+                    reportData.BillBreakup.Add(new CurrentBillBreakup
+                    {
+                        Description = "LessCreditNote",
+                        TotalBillBreakupValue = finalBill.CreditNoted,
+                        BillRaisedValue = 0
+                    });
+
+                    foreach (Band band in report.Bands)
+                    {
+                        if (band is DetailReportBand)
                         {
-                            var particularsReport = band as DetailReportBand;
-                            particularsReport.DataSource = reportData;
-                            particularsReport.DataMember = "Particulars";
-                        }
-                        else if (band.Name.Equals("BillRaisedDetailReport"))
-                        {
-                            if (reportData.BillRaisedDetails == null || reportData.BillRaisedDetails.Count == 0)
+                            if (band.Name.Equals("ParticularsDetailReport"))
                             {
-                                band.Visible = false;
+                                var particularsReport = band as DetailReportBand;
+                                particularsReport.DataSource = reportData;
+                                particularsReport.DataMember = "Particulars";
                             }
-                            else
+                            else if (band.Name.Equals("BillRaisedDetailReport"))
                             {
-                                band.Visible = true;
-                                var billRaisedDetailReport = band as DetailReportBand;
-                                billRaisedDetailReport.DataSource = reportData;
-                                billRaisedDetailReport.DataMember = "BillRaisedDetails";
+                                if (reportData.BillRaisedDetails == null || reportData.BillRaisedDetails.Count == 0)
+                                {
+                                    band.Visible = false;
+                                }
+                                else
+                                {
+                                    band.Visible = true;
+                                    var billRaisedDetailReport = band as DetailReportBand;
+                                    billRaisedDetailReport.DataSource = reportData;
+                                    billRaisedDetailReport.DataMember = "BillRaisedDetails";
+                                }
                             }
-                        }
-                        else if (band.Name.Equals("BillBreakupDetailReport"))
-                        {
-                            var billBreakupDetailReport = band as DetailReportBand;
-                            billBreakupDetailReport.DataSource = reportData;
-                            billBreakupDetailReport.DataMember = "BillBreakup";
+                            else if (band.Name.Equals("BillBreakupDetailReport"))
+                            {
+                                var billBreakupDetailReport = band as DetailReportBand;
+                                billBreakupDetailReport.DataSource = reportData;
+                                billBreakupDetailReport.DataMember = "BillBreakup";
+                            }
                         }
                     }
-                }
 
-                report.CreateDocument();
+                    report.CreateDocument();
+                }
+                else
+                {
+                    MessageBox.Show("Final bill is not generated for the supplier for current financial year");
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CommonMethods.HandleException(ex);
             }
