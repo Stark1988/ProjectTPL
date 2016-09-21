@@ -338,6 +338,12 @@
     <Compile Include="FrmSuppCollectionEntry.Designer.cs">
       <DependentUpon>FrmSuppCollectionEntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSuppDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSuppDiscount.Designer.cs">
+      <DependentUpon>FrmSuppDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSupplierOutstanding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSuppCollectionEntry.resx">
       <DependentUpon>FrmSuppCollectionEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSuppDiscount.resx">
+      <DependentUpon>FrmSuppDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSupplierOutstanding.resx">
       <DependentUpon>FrmSupplierOutstanding.cs</DependentUpon>

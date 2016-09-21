@@ -73,7 +73,10 @@
             this.iNewTransport = new DevExpress.XtraBars.BarButtonItem();
             this.iReturnDraftCheque = new DevExpress.XtraBars.BarButtonItem();
             this.iDisc = new DevExpress.XtraBars.BarButtonItem();
+            this.SupComm = new DevExpress.XtraBars.BarButtonItem();
+            this.SuppDisc = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.MastersPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.MastersPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TransactionPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -83,6 +86,7 @@
             this.QueryPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.QueryPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.RTPL = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.SkinsPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.SkinsPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.UserPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -111,11 +115,7 @@
             this.badge1 = new DevExpress.Utils.VisualEffects.Badge();
             this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
             this.badge2 = new DevExpress.Utils.VisualEffects.Badge();
-            this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.SupComm = new DevExpress.XtraBars.BarButtonItem();
-            this.SuppDisc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuManager)).BeginInit();
@@ -464,6 +464,7 @@
             this.iFinalBillReport.Glyph = global::raghani_tradelinks.Properties.Resources.inlinesizelegend_32x32;
             this.iFinalBillReport.Id = 20;
             this.iFinalBillReport.Name = "iFinalBillReport";
+            this.iFinalBillReport.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iFinalBillReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iFinalBillReport_ItemClick);
             // 
             // StatementsLinkContainerItem
@@ -621,6 +622,22 @@
             this.iDisc.Name = "iDisc";
             this.iDisc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iDisc_ItemClick);
             // 
+            // SupComm
+            // 
+            this.SupComm.Caption = "Collect";
+            this.SupComm.Id = 12;
+            this.SupComm.ImageUri.Uri = "Currency";
+            this.SupComm.Name = "SupComm";
+            this.SupComm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SupComm_ItemClick);
+            // 
+            // SuppDisc
+            // 
+            this.SuppDisc.Caption = "Discount";
+            this.SuppDisc.Id = 13;
+            this.SuppDisc.ImageUri.Uri = "StrikeoutDouble";
+            this.SuppDisc.Name = "SuppDisc";
+            this.SuppDisc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SuppDisc_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -719,6 +736,12 @@
             this.RTPL.Name = "RTPL";
             this.RTPL.Text = "RTPL";
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.SupComm);
+            this.ribbonPageGroup1.ItemLinks.Add(this.SuppDisc);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            // 
             // SkinsPage
             // 
             this.SkinsPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -774,7 +797,7 @@
             // 
             this.ParentFormSplitContainer.Panel2.Controls.Add(this.pnlShortCutContainer);
             this.ParentFormSplitContainer.Size = new System.Drawing.Size(1252, 507);
-            this.ParentFormSplitContainer.SplitterDistance = 1150;
+            this.ParentFormSplitContainer.SplitterDistance = 1165;
             this.ParentFormSplitContainer.SplitterWidth = 1;
             this.ParentFormSplitContainer.TabIndex = 20;
             // 
@@ -785,7 +808,7 @@
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.lblTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblTime.Location = new System.Drawing.Point(853, 450);
+            this.lblTime.Location = new System.Drawing.Point(868, 450);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(317, 55);
             this.lblTime.TabIndex = 13;
@@ -814,7 +837,7 @@
             this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCompanyName.Location = new System.Drawing.Point(0, 0);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(1150, 46);
+            this.lblCompanyName.Size = new System.Drawing.Size(1165, 46);
             this.lblCompanyName.TabIndex = 11;
             this.lblCompanyName.Text = "RAGHANI TRADELINKS (P) LTD. (AHMEDABAD)";
             // 
@@ -838,7 +861,7 @@
             this.pnlShortCutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShortCutContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlShortCutContainer.Name = "pnlShortCutContainer";
-            this.pnlShortCutContainer.Size = new System.Drawing.Size(101, 507);
+            this.pnlShortCutContainer.Size = new System.Drawing.Size(86, 507);
             this.pnlShortCutContainer.TabIndex = 15;
             // 
             // lblShortCut13
@@ -1003,27 +1026,6 @@
             this.barButtonItem1.Id = 1;
             this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
             this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.SupComm);
-            this.ribbonPageGroup1.ItemLinks.Add(this.SuppDisc);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            // 
-            // SupComm
-            // 
-            this.SupComm.Caption = "Collect";
-            this.SupComm.Id = 12;
-            this.SupComm.ImageUri.Uri = "Currency";
-            this.SupComm.Name = "SupComm";
-            this.SupComm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SupComm_ItemClick);
-            // 
-            // SuppDisc
-            // 
-            this.SuppDisc.Caption = "Discount";
-            this.SuppDisc.Id = 13;
-            this.SuppDisc.ImageUri.Uri = "StrikeoutDouble";
-            this.SuppDisc.Name = "SuppDisc";
             // 
             // MainForm
             // 
