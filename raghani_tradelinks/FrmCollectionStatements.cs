@@ -125,7 +125,7 @@ namespace raghani_tradelinks
 
                 StatementOfCollectionReportData ds = new StatementOfCollectionReportData();
                 ds.StatementOfCollectionData = (from col in db.CollectionEntries
-                                                where col.fkSupplierId.Value == (int)cmbSupplier.EditValue &&
+                                                where col.fkSupplierId.Value == (int)cmbSupplier.EditValue && col.IsFinalBillGenerated == false &&
                                                 System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) >= dateFrom.Value && System.Data.Entity.DbFunctions.TruncateTime(col.EntryDate) <= dateTo.Value
                                                 select new RT.BL.StatementOfCollectionReport
                                                 {
