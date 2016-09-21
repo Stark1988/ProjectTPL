@@ -17,10 +17,10 @@ namespace RT.BL
     {
         public string CustomerName { get; set; }
         public DateTime? Date { get; set; }
-        public string BillNo { get; set; }
+        public string RefNo { get; set; }
 
-        private decimal? billAmt;
-        public decimal? BillAmt
+        private double? billAmt;
+        public double? BillAmt
         {
             get
             {
@@ -35,19 +35,19 @@ namespace RT.BL
             }
         }
 
-        private decimal? totalCommission;
-        public decimal? TotalCommission
+        private decimal? collection;
+        public decimal? Collection
         {
             get
             {
-                return totalCommission;
+                return collection;
             }
             set
             {
                 if (value == null)
-                    totalCommission = 0;
+                    collection = 0;
                 else
-                    totalCommission = value;
+                    collection = value;
             }
         }
 
@@ -67,19 +67,19 @@ namespace RT.BL
             }
         }
 
-        private decimal? receivedCommission;
-        public decimal? ReceivedCommission
+        private decimal? gr;
+        public decimal? GR
         {
             get
             {
-                return receivedCommission;
+                return gr;
             }
             set
             {
                 if (value == null)
-                    receivedCommission = 0;
+                    gr = 0;
                 else
-                    receivedCommission = value;
+                    gr = value;
             }
         }
 
@@ -87,8 +87,9 @@ namespace RT.BL
         {
             get
             {
-                return TotalCommission - (ReceivedCommission + Discount);
+                return Convert.ToDecimal(BillAmt) - (Collection + Discount + GR);
             }
         }
+        public int? ODD { get; set; }
     }
 }

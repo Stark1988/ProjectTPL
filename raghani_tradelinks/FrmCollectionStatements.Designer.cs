@@ -31,24 +31,22 @@
             this.chkNoLRAddressPrinting = new System.Windows.Forms.CheckBox();
             this.lblNoLRAddressPrinting = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.cmbSupplier = new DevExpress.XtraEditors.LookUpEdit();
             this.lblCashCredit = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblPhoneOffice = new DevExpress.XtraEditors.LabelControl();
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
-            this.cmbSupplier = new DevExpress.XtraEditors.LookUpEdit();
             this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // chkNoLRAddressPrinting
             // 
             this.chkNoLRAddressPrinting.AutoSize = true;
-            this.chkNoLRAddressPrinting.Location = new System.Drawing.Point(466, 328);
+            this.chkNoLRAddressPrinting.Location = new System.Drawing.Point(459, 234);
             this.chkNoLRAddressPrinting.Name = "chkNoLRAddressPrinting";
             this.chkNoLRAddressPrinting.Size = new System.Drawing.Size(15, 14);
             this.chkNoLRAddressPrinting.TabIndex = 336;
@@ -57,7 +55,7 @@
             // lblNoLRAddressPrinting
             // 
             this.lblNoLRAddressPrinting.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblNoLRAddressPrinting.Location = new System.Drawing.Point(370, 328);
+            this.lblNoLRAddressPrinting.Location = new System.Drawing.Point(363, 234);
             this.lblNoLRAddressPrinting.Name = "lblNoLRAddressPrinting";
             this.lblNoLRAddressPrinting.Size = new System.Drawing.Size(83, 13);
             this.lblNoLRAddressPrinting.TabIndex = 335;
@@ -67,27 +65,25 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.cmbSupplier);
-            this.panel1.Controls.Add(this.radioGroup1);
             this.panel1.Controls.Add(this.lblCashCredit);
             this.panel1.Location = new System.Drawing.Point(351, 143);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(409, 152);
+            this.panel1.Size = new System.Drawing.Size(409, 69);
             this.panel1.TabIndex = 334;
             // 
-            // radioGroup1
+            // cmbSupplier
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(18, 21);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("SS", "Single Supplier"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("SA", "Sub Agent")});
-            this.radioGroup1.Size = new System.Drawing.Size(371, 57);
-            this.radioGroup1.TabIndex = 318;
+            this.cmbSupplier.Location = new System.Drawing.Point(11, 29);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSupplier.Size = new System.Drawing.Size(371, 20);
+            this.cmbSupplier.TabIndex = 370;
             // 
             // lblCashCredit
             // 
             this.lblCashCredit.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblCashCredit.Location = new System.Drawing.Point(18, 100);
+            this.lblCashCredit.Location = new System.Drawing.Point(11, 10);
             this.lblCashCredit.Name = "lblCashCredit";
             this.lblCashCredit.Size = new System.Drawing.Size(81, 13);
             this.lblCashCredit.TabIndex = 316;
@@ -125,18 +121,9 @@
             this.dateTo.Size = new System.Drawing.Size(133, 20);
             this.dateTo.TabIndex = 340;
             // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.Location = new System.Drawing.Point(18, 119);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSupplier.Size = new System.Drawing.Size(371, 20);
-            this.cmbSupplier.TabIndex = 370;
-            // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(385, 367);
+            this.btnPreview.Location = new System.Drawing.Point(385, 280);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(167, 36);
             this.btnPreview.TabIndex = 370;
@@ -145,7 +132,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(567, 367);
+            this.btnPrint.Location = new System.Drawing.Point(567, 280);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(167, 36);
             this.btnPrint.TabIndex = 369;
@@ -173,7 +160,6 @@
             this.Load += new System.EventHandler(this.FrmCollectionStatements_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,7 +171,6 @@
         private System.Windows.Forms.CheckBox chkNoLRAddressPrinting;
         private DevExpress.XtraEditors.LabelControl lblNoLRAddressPrinting;
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraEditors.LabelControl lblCashCredit;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl lblPhoneOffice;

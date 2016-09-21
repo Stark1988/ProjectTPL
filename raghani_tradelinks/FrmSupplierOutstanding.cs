@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -136,6 +137,7 @@ namespace raghani_tradelinks
                 int billsAgeingAbove = Convert.ToInt32(txtBillsAgeingAbove.Text);
                 Supplier selectedSupplier = db.Suppliers.FirstOrDefault(c => c.SupplierId == (int)cmbSupplier.EditValue);
                 SupplierContactInfo sInfo = db.SupplierContactInfoes.FirstOrDefault(ci => ci.fkSupplierId == (int)cmbSupplier.EditValue);
+                var selectedCustomers = chkCmbCustomer.Properties.GetItems().GetCheckedValues().Cast<int?>();
 
                 report.Parameters["SupplierName"].Value = cmbSupplier.Text;
                 report.Parameters["Address"].Value = sInfo.Address;
@@ -148,23 +150,32 @@ namespace raghani_tradelinks
                 report.Parameters["AsOnDate"].Value = dateAsOn.Text;
                 report.Parameters["BillsAgeingAbove"].Value = txtBillsAgeingAbove.Text;
 
-                //*************     Dummy Data      *************************
-
                 SupplierOutstandingReportData ds = new SupplierOutstandingReportData();
-                ds.CustomerData = new List<CustomerSOReport>();
-                ds.CustomerData.Add(new CustomerSOReport
-                    {
-                        CustomerName = "Jay",
-                        Date = DateTime.Now,
-                        BillAmt = 10000,
-                        TotalCommission = 2000,
-                        ReceivedCommission = 1000,
-                        Discount = 200,
-                        BillNo = "HH5455"
 
-                    });
-
-                //******************************************************************
+                ds.CustomerData = (from lrEntry in db.SaleLREntries
+                                   where lrEntry.fkSupplierId == (int)cmbSupplier.EditValue
+                                   && (selectedCustomers.Count() == 0 || (selectedCustomers.Count() != 0 && selectedCustomers.Contains(lrEntry.fkCustomerId)))
+                                   && lrEntry.BillDate <= dateAsOn.Value
+                                   && (billsAgeingAbove == 0
+                                        || (DbFunctions.DiffDays((lrEntry.BillDate.HasValue ? lrEntry.BillDate.Value : DateTime.Now), DateTime.Now) > billsAgeingAbove))
+                                   select new CustomerSOReport
+                                   {
+                                       CustomerName = lrEntry.Customer.CustomerName,
+                                       RefNo = lrEntry.BillNumber,
+                                       BillAmt = lrEntry.BillAmount,
+                                       Date = lrEntry.BillDate,
+                                       ODD = DbFunctions.DiffDays((lrEntry.BillDate.HasValue ? lrEntry.BillDate.Value : DateTime.Now), DateTime.Now),
+                                       Collection = (from col in db.CollectionEntries
+                                                     join cold in db.CollectionEntryDetails on col.CollectionEntryId equals cold.fkCollectionEntryId
+                                                     where cold.RefNumber == lrEntry.BillNumber
+                                                     select col.DraftAmount).Sum(),
+                                       Discount = db.DiscountEntries
+                                                    .Where(def => def.fkSupplierId == (int)cmbSupplier.EditValue && def.fkCustomerId == lrEntry.fkCustomerId && def.RefNumber == lrEntry.BillNumber)
+                                                    .Sum(de => de.DiscountAmount),
+                                       GR = db.GRNDebitNotes
+                                                .Where(grf => grf.fkCustomerId == (int)cmbSupplier.EditValue && grf.fkSupplierId == lrEntry.fkSupplierId && grf.RefNumber == lrEntry.BillNumber)
+                                                .Sum(gr => gr.Amount)
+                                   }).ToList();
 
                 foreach (Band band in report.Bands)
                 {
